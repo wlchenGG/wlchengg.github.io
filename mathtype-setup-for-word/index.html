@@ -1,0 +1,279 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta name=robots content="noodp">
+<meta http-equiv=x-ua-compatible content="IE=edge, chrome=1">
+<title>MathType安装及 Word菜单项集成 - Wlcheng's Life</title><meta name=Description content="来日方长，何惧车遥马慢"><meta property="og:title" content="MathType安装及 Word菜单项集成">
+<meta property="og:description" content="安装 Mathtype 过程记录，并解决集成到 Word 菜单栏的问题。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://wlchengg.github.io/mathtype-setup-for-word/"><meta property="og:image" content="http://wlchengg.github.io/logo.png"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2019-11-28T22:29:28+08:00">
+<meta property="article:modified_time" content="2019-11-28T22:29:28+08:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="http://wlchengg.github.io/logo.png">
+<meta name=twitter:title content="MathType安装及 Word菜单项集成">
+<meta name=twitter:description content="安装 Mathtype 过程记录，并解决集成到 Word 菜单栏的问题。">
+<meta name=application-name content="LoveIt">
+<meta name=apple-mobile-web-app-title content="LoveIt"><meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://wlchengg.github.io/mathtype-setup-for-word/><link rel=prev href=http://wlchengg.github.io/poem-of-beginning/><link rel=next href=http://wlchengg.github.io/hexo-next-%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=stylesheet href=/lib/fontawesome-free/all.min.css><link rel=stylesheet href=/lib/animate/animate.min.css><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"MathType安装及 Word菜单项集成","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/mathtype-setup-for-word\/"},"genre":"posts","keywords":"MathType, Word","wordcount":2069,"url":"http:\/\/wlchengg.github.io\/mathtype-setup-for-word\/","datePublished":"2019-11-28T22:29:28+08:00","dateModified":"2019-11-28T22:29:28+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<body header-desktop=fixed header-mobile=auto><script type=text/javascript>(window.localStorage&&localStorage.getItem('theme')?localStorage.getItem('theme')==='dark':'auto'==='auto'?window.matchMedia('(prefers-color-scheme: dark)').matches:'auto'==='dark')&&document.body.setAttribute('theme','dark')</script>
+<div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Wlcheng's Life">Wlcheng's Life</a>
+</div>
+<div class=menu>
+<div class=menu-inner><a class=menu-item href=/posts/> 文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-desktop title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-desktop title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-desktop>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</span><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a>
+</div>
+</div>
+</div>
+</header><header class=mobile id=header-mobile>
+<div class=header-container>
+<div class=header-wrapper>
+<div class=header-title>
+<a href=/ title="Wlcheng's Life">Wlcheng's Life</a>
+</div>
+<div class=menu-toggle id=menu-toggle-mobile>
+<span></span><span></span><span></span>
+</div>
+</div>
+<div class=menu id=menu-mobile><div class=search-wrapper>
+<div class="search mobile" id=search-mobile>
+<input type=text placeholder=搜索文章标题或内容... id=search-input-mobile>
+<a href=javascript:void(0); class="search-button search-toggle" id=search-toggle-mobile title=搜索>
+<i class="fas fa-search fa-fw"></i>
+</a>
+<a href=javascript:void(0); class="search-button search-clear" id=search-clear-mobile title=清空>
+<i class="fas fa-times-circle fa-fw"></i>
+</a>
+<span class="search-button search-loading" id=search-loading-mobile>
+<i class="fas fa-spinner fa-fw fa-spin"></i>
+</span>
+</div>
+<a href=javascript:void(0); class=search-cancel id=search-cancel-mobile>
+取消
+</a>
+</div><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a href=javascript:void(0); class="menu-item theme-switch" title=切换主题>
+<i class="fas fa-adjust fa-fw"></i>
+</a></div>
+</div>
+</header>
+<div class="search-dropdown desktop">
+<div id=search-dropdown-desktop></div>
+</div>
+<div class="search-dropdown mobile">
+<div id=search-dropdown-mobile></div>
+</div>
+<main class=main>
+<div class=container><div class=toc id=toc-auto>
+<h2 class=toc-title>目录</h2>
+<div class=toc-content id=toc-content-auto></div>
+</div><article class="page single"><h1 class="single-title animated flipInX">MathType安装及 Word菜单项集成</h1><div class=post-meta>
+<div class=post-meta-line><span class=post-author><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author><i class="fas fa-user-circle fa-fw"></i>wlcheng</a></span></div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2019-11-28>2019-11-28</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2069 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
+</div><div class="details toc" id=toc-static kept>
+<div class="details-summary toc-title">
+<span>目录</span>
+<span><i class="details-icon fas fa-angle-right"></i></span>
+</div>
+<div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
+<ul>
+<li><a href=#mathtype-安装问题>MathType 安装问题</a>
+<ul>
+<li><a href=#安装并破解>安装并破解</a></li>
+<li><a href=#word没有mathtype菜单项>Word 没有MathType 菜单项</a></li>
+</ul>
+</li>
+</ul>
+</nav></div>
+</div><div class=content id=content><p>安装 Mathtype 过程记录，并解决集成到 Word 菜单栏的问题。</p>
+<h2 id=mathtype-安装问题>MathType 安装问题</h2>
+<h3 id=安装并破解>安装并破解</h3>
+<p>从 6维空间上下载的<a href=http://bt.neu6.edu.cn/thread-1635051-1-1.html target=_blank rel="noopener noreffer">MathType 7.2</a>版本，按照说明</p>
+<ol>
+<li>
+<p>首先安装 MathType-win-zh7.2.exe，安装过程一切顺利，因为安装需要向Office 添加加载项，所以需要将Office 一切程序都关闭；</p>
+</li>
+<li>
+<p>以防意外，打开之前MathType 和Office 之前，先进行破解，提供的破解软件有两个，作用不同：</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>[neubt]MathType替换原文件.exe</strong>：替换MathType 根目录的主启动程序 MathType.exe，作用是去掉打开程序时提示测试版到期的弹窗通知。</p>
+</li>
+<li>
+<p><strong>[neubt]MathType7.xCrack.zip</strong>：解压后得到mathtypelib.exe，替换MathType 根目录下System 子文件夹里的同名文件。</p>
+</li>
+</ul>
+<ol start=3>
+<li>
+<p>完成以上两个文件的替换后，启动 MathType，会弹出一个对话框，但按钮上的字都变成了问号，不管他，直接叉掉对话框，然后可以发现功能完善，应该是已经成功破解。</p>
+</li>
+<li>
+<p>打开Word，菜单栏上应该会多出一个 MathType的菜单项，说明安装成功，如果没有菜单项，请看下文解决方案。</p>
+</li>
+</ol>
+<h3 id=word没有mathtype菜单项>Word 没有MathType 菜单项</h3>
+<ul>
+<li><strong>问题：</strong></li>
+</ul>
+<p>首先来说，MathType 正确加载的话，Word 的菜单栏上会有 MathType，如下</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png title=mathtype-setup-for-word_Image001_2021-07-24-01-06-17></p>
+</div>
+<p>而现在问题是，打开Word，菜单栏没有 MathType 项，</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png title=mathtype-setup-for-word_Image002_2021-07-24-01-06-59></p>
+</div>
+<ul>
+<li><strong>原因：</strong></li>
+</ul>
+<p><a href=https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133#windows target=_blank rel="noopener noreffer">[1]</a> 中给出的原因可以描述为</p>
+<p>&ldquo;当Microsoft Office自动更新程序运行并安装更新时，有时会禁用加载项，这样就会删除任何工具栏/功能区附加项。&rdquo;</p>
+<p>Word 上的 MathType加载项要能正确运行并使用，须满足：</p>
+<ol>
+<li><strong>MathType 正确安装；</strong></li>
+<li><strong>Word 正确加载 MathType 提供的加载项文件。</strong></li>
+</ol>
+<p>可见在MathType 本身安装无误情况下(指MathType <strong>软件本身</strong>能正常使用)，Word 没有MathType菜单项的原因大概率就是<strong>因为 Word 没能正确的加载 MathType 加载项。</strong></p>
+<ul>
+<li><strong>解决方案：</strong></li>
+</ul>
+<p>此时虽然可以迂回的通过以下方式插入公式：</p>
+<ol>
+<li>通过插入对象的方式，插入->对象->选择MathType对象；</li>
+<li>直接从MathType 软件里编辑好的公式复制进Word。</li>
+</ol>
+<p>但是，如果要实现插入带编号公式等较高级的功能的话，还是用集成的 MathType工具栏方便的多，从前面的图就可见一斑。</p>
+<ul>
+<li><strong>准备工作：</strong></li>
+</ul>
+<p>首先查看 Office Word 版本以及 MathType版本，兼容关系为</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png title=mathtype-setup-for-word_Image003_2021-07-24-01-07-19></p>
+</div>
+<p>查看我的版本分别为</p>
+<p><strong>Word</strong>：<strong>文件</strong>-><strong>账户</strong>-><strong>关于</strong>-> Office <strong>365 32</strong>位，因此需要MathType 版本大于 <strong>6.9b</strong></p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png title=mathtype-setup-for-word_Image004_2021-07-24-01-07-53></p>
+</div>
+<p><strong>MathType</strong>：<strong>关于</strong>-><strong>7.2.0.420</strong> > <strong>6.9b</strong></p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png title=mathtype-setup-for-word_Image005_2021-07-24-01-08-03></p>
+</div>
+<p>确定Word 和 MathType安装路径：</p>
+<ul>
+<li>
+<p><strong>Office</strong> 安装路径：D:\Program Files (x86)\Microsoft Office\</p>
+</li>
+<li>
+<p><strong>MathType</strong> 路径：D:\Math\MathType\</p>
+</li>
+</ul>
+<p>安装路径可能不同，根据自己情况而定。</p>
+<ul>
+<li><strong>步骤：</strong></li>
+</ul>
+<p>Word菜单栏-><strong>文件</strong>-><strong>选项</strong>-><strong>加载项</strong>->底部<strong>管理</strong>下拉框选择 <strong>Word加载项</strong> 并点击<strong>转到</strong>，弹出类似下面的对话框，</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png title=mathtype-setup-for-word_Image006_2021-07-24-01-08-15></p>
+</div>
+<p>没问题的情况下，这里的第一项应该是被勾选上的，如下说明。</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png title=mathtype-setup-for-word_Image007_2021-07-24-01-08-25></p>
+</div>
+<p>如果，没有以上对话框中的项，则选择从以下两个目录之一中 <strong>添加</strong> 正确版本的 <strong>.dotm</strong>文件，然后勾选并确定。</p>
+<p>D:\Math\MathType\Office Support\32 （32位 Office）<br>
+D:\Math\MathType\Office Support\64 （64位 Office）</p>
+<p>对于我的版本，选择 <strong>MathType Commands 2016.dotm</strong> 这一个</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png title=mathtype-setup-for-word_Image008_2021-07-24-01-08-36></p>
+</div>
+<p>勾选  <strong>MathType Commands 2016.dotm</strong> 项并 确定后，Word会加载出MathType 的菜单项，如图1所示。</p>
+<p>然而，然而，然而事情并非如此简单，</p>
+<p>当关闭Word，并重新打开后，忙半天加上的MathType 菜单项又没啦。</p>
+<p>这么看应该是设置的问题，在Word 启动时，并没有自动加载 MathType 加载项。那么要自动加载，是不是就得把这个MathType Commands 2016.dotm 文件放到Word 的默认加载目录下面？</p>
+<p>但是再次按照第3步，打开Word 加载项对话框，发现有这一项，但却没有勾选。那么怎么设置为默认勾选呢？</p>
+<p>幸而 <a href=https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133-word2016-32 target=_blank rel="noopener noreffer">[2]</a> 对此也给出了解决方案：由于不同版本的系统、Office软件或者不同用户自定义的原因，Word 的加载项路径可能不一样。</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png title=mathtype-setup-for-word_Image009_2021-07-24-01-08-51></p>
+</div>
+<p>根据说明，需要将前面的两个文件拷贝到 Word的加载项（启动项）目录下面，目录存在以上图中 3种可能，图中 1和 2根据 Office 是32位/64位只取其一。</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png title=mathtype-setup-for-word_Image010_2021-07-24-01-09-07></p>
+</div>
+<p>以做对比，将可能的三个目录位置都打开，如下1、2、3，依次将这两个文件放到这三个目录下，</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png title=mathtype-setup-for-word_Image011_2021-07-24-01-09-17></p>
+</div>
+<p>经过尝试，，放在 2对应路径下时，Word成功加载了MathType菜单项。</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png title=mathtype-setup-for-word_Image012_2021-07-24-01-09-27></p>
+</div>
+<p>比较前后两张图，此处有一个问题，下图中除了拷贝进去的两个模板文件外，还有一个MathPage.wll，这个文件实际上是一种DLL文件，也不可少，也是来自于MathType的安装目录，事实上，当MathType安装成功后，会自动将其拷贝到这个 2 对应的目录，一般无需手动添加，如果发现没有，可以从MathType安装根目录下的MathType文件夹里面找到，如下图，根据32位或64位选择。</p>
+<div align=center>
+<p><img class=lazyload src=/svg/loading.min.svg data-src=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png data-srcset="https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png 1.5x, https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png title=mathtype-setup-for-word_Image013_2021-07-24-01-09-39></p>
+</div>
+<ul>
+<li><strong>总结</strong></li>
+</ul>
+<p>最后，来回顾一下过程，根据 <a href=evernote:///view/19609389/s20/77c14f83-dd5c-41e2-9c9c-117480f4003d/77c14f83-dd5c-41e2-9c9c-117480f4003d/ rel>常用设置</a> 中的，《查看 Word 相关各类文件的默认位置》就能够查看Word 默认的启动项位置，正好是上面给出的第二种目录。</p>
+<p>因此，解决以上问题的正确思路应该是，将模板加载项文件拷贝到 Word的默认的启动项位置目录下。</p>
+<p><strong>参考：</strong></p>
+<p><a href=https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133 target=_blank rel="noopener noreffer">[1] MathType Toolbar/Tab has disappeared from Microsoft Word</a><br>
+<a href=https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133-word2016-32#mathtype_tab_has_disappeared_from_microsoft_word_2016_and_later_for_windows target=_blank rel="noopener noreffer">[2] MathType Tab has disappeared from Microsoft Word 2016 and later for Windows</a></p></div><div class=post-footer id=post-footer>
+<div class=post-info>
+<div class=post-info-line>
+<div class=post-info-mod>
+<span>更新于 2019-11-28</span>
+</div>
+<div class=post-info-license></div>
+</div>
+<div class=post-info-line>
+<div class=post-info-md><span>
+<a class=link-to-markdown href=/mathtype-setup-for-word/index.md target=_blank>阅读原始文档</a>
+</span></div>
+<div class=post-info-share>
+<span><a href=javascript:void(0); title="分享到 Twitter" data-sharer=twitter data-url=http://wlchengg.github.io/mathtype-setup-for-word/ data-title="MathType安装及 Word菜单项集成" data-hashtags=MathType,Word><i class="fab fa-twitter fa-fw"></i></a><a href=javascript:void(0); title="分享到 Facebook" data-sharer=facebook data-url=http://wlchengg.github.io/mathtype-setup-for-word/ data-hashtag=MathType><i class="fab fa-facebook-square fa-fw"></i></a><a href=javascript:void(0); title="分享到 WhatsApp" data-sharer=whatsapp data-url=http://wlchengg.github.io/mathtype-setup-for-word/ data-title="MathType安装及 Word菜单项集成" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=javascript:void(0); title="分享到 Line" data-sharer=line data-url=http://wlchengg.github.io/mathtype-setup-for-word/ data-title="MathType安装及 Word菜单项集成"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a><a href=javascript:void(0); title="分享到 微博" data-sharer=weibo data-url=http://wlchengg.github.io/mathtype-setup-for-word/ data-title="MathType安装及 Word菜单项集成"><i class="fab fa-weibo fa-fw"></i></a><a href=javascript:void(0); title="分享到 Myspace" data-sharer=myspace data-url=http://wlchengg.github.io/mathtype-setup-for-word/ data-title="MathType安装及 Word菜单项集成" data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=javascript:void(0); title="分享到 Blogger" data-sharer=blogger data-url=http://wlchengg.github.io/mathtype-setup-for-word/ data-title="MathType安装及 Word菜单项集成" data-description><i class="fab fa-blogger fa-fw"></i></a><a href=javascript:void(0); title="分享到 Evernote" data-sharer=evernote data-url=http://wlchengg.github.io/mathtype-setup-for-word/ data-title="MathType安装及 Word菜单项集成"><i class="fab fa-evernote fa-fw"></i></a></span>
+</div>
+</div>
+</div>
+<div class=post-info-more>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/mathtype/>MathType</a>,&nbsp;<a href=/tags/word/>Word</a></section>
+<section>
+<span><a href=javascript:void(0); onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
+</section>
+</div>
+<div class=post-nav><a href=/poem-of-beginning/ class=prev rel=prev title=起源><i class="fas fa-angle-left fa-fw"></i>起源</a>
+<a href=/hexo-next-%E4%B8%BB%E9%A2%98%E7%BE%8E%E5%8C%96/ class=next rel=next title="Hexo NexT 主题美化">Hexo NexT 主题美化<i class="fas fa-angle-right fa-fw"></i></a></div>
+</div>
+<div id=comments></div></article></div>
+</main><footer class=footer>
+<div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.86.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/dillonzq/LoveIt target=_blank rel="noopener noreffer" title="LoveIt 0.2.10"><i class="far fa-kiss-wink-heart fa-fw"></i> LoveIt</a>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/wlchengg target=_blank>wlcheng</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div>
+</footer></div>
+<div id=fixed-buttons><a href=# id=back-to-top class=fixed-button title=回到顶部>
+<i class="fas fa-arrow-up fa-fw"></i>
+</a><a href=# id=view-comments class=fixed-button title=查看评论>
+<i class="fas fa-comment fa-fw"></i>
+</a>
+</div><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/katex/copy-tex.min.css><script type=text/javascript src=/lib/smooth-scroll/smooth-scroll.min.js></script><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/lunr/lunr.min.js></script><script type=text/javascript src=/lib/lunr/lunr.stemmer.support.min.js></script><script type=text/javascript src=/lib/lunr/lunr.zh.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/auto-render.min.js></script><script type=text/javascript src=/lib/katex/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/mhchem.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{highlightTag:"em",lunrIndexURL:"/index.json",lunrLanguageCode:"zh",lunrSegmentitURL:"/lib/lunr/lunr.segmentit.js",maxResultLength:10,noResultsFound:"没有找到结果",snippetLength:50,type:"lunr"}}</script><script type=text/javascript src=/js/theme.min.js></script></body>
+</html>
