@@ -7,6 +7,16 @@
 
 ## MathType 安装问题
 
+### 我在这测试下Latex
+
+行内公式 $\sum_{i=0}^{M}{\frac{1}{i}}$ 。
+
+独行公式：
+
+$$\sum_{i=0}^{M}{\frac{1}{i}}$$
+
+$\alpha,\mathcal{abcd},\mathscr{abcd}.$
+
 ### 安装并破解
 
 从 6维空间上下载的[MathType 7.2](http://bt.neu6.edu.cn/thread-1635051-1-1.html)版本，按照说明
