@@ -21,11 +21,6 @@ pip install PyMuPDF
 import os
 import fitz
 
-# python中os.walk的用法：
-#   https://www.jianshu.com/p/bbad16822eab
-# python PyMuPDF(fitz)包中insert_pdf的用法：
-#   https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf
-
 # 解析
 # 函数将file_path中所有文件（包括子目录中的文件），处理后，按照原目录保存到save_path下。
 # 即save_path下的文件夹结构和file_path一致。
@@ -51,7 +46,7 @@ def analysis(file_path, save_path, num, toimg):
         print("原文件路径：%s" % v)
         # 获取文件名称及类型
         file_name = os.path.basename(v)
-        print("文件信息：%s" % file_name)
+        # print("文件信息：%s" % file_name)
         if '.pdf' not in file_name:
             print("此文件非PDF文件")
         #  打开PDF文件，生成一个对象
@@ -69,7 +64,7 @@ def analysis(file_path, save_path, num, toimg):
                 p_2 = p_1.replace(file_name, '')
                 if not os.path.exists(p_2):
                     os.makedirs(p_2)
-                
+                print("提取到路径：" + p_2 + file_name)
                 doc2.save(p_2 + file_name)    # 保存提取出的PDF文件
                 print("提取完成")
             else:
@@ -93,6 +88,7 @@ def analysis(file_path, save_path, num, toimg):
                     os.makedirs(p_2)
                 
                 new_file_name = file_name.replace(".pdf", "")
+                print("提取到路径：" + p_2 + '%s.png' % new_file_name)
                 pm.writePNG(p_2 + '%s.png' % new_file_name)
                 print("提取并转换为图片完成")
             else:
@@ -108,14 +104,18 @@ def get_path_file(files_path):
             data.append(f_p)
     return data
 
+# 规范路径的斜杠格式
+def uni_path(path: str) -> str:
+    # return path.replace(r'\/'.replace(os.sep, ''), os.sep)  # 转换为当前系统的格式
+    return path.replace("\\\\","/").replace("\\","/") # 统一转换为unix格式
 
 if __name__ == '__main__':
     print("|---------------------------------|")
-    print("|++++++++  PDF处理工具箱  +++++++++|")
+    print("|++++++++  PDF处理工具箱  ++++++++|")
     print("|---------------------------------|")
     print("|                                 |")
-    print("| 1. PDF 批量提取首页              |")
-    print("| 2. PDF 批量提取首页并转换为图片   |")
+    print("| 1. PDF 批量提取首页             |")
+    print("| 2. PDF 批量提取首页并转换为图片 |")
     print("|                                 |")
     print("|---------------------------------|")
 
@@ -130,21 +130,25 @@ if __name__ == '__main__':
     now_path = os.getcwd()
     print("当前位置：%s" % now_path)
     # 保存路径
-    print("请输入参数，以 / 结尾，处理完成后会自动退出")
+    print("请输入参数，以 / 结尾")
     save_path = input("提取文件保存地址:")
-    # exit()
     # 判断目录
     save_path_status = os.path.exists(save_path)
     if not save_path_status:
         os.mkdir(save_path)
     # 截取页数
-    num = 0
+    num = 0 # 截取第一页
     # 路径或文件名
     file_path = input("待处理PDF文件地址:")
+
     # 调用方法
-    analysis(file_path, save_path, num, toimg)
+    analysis(uni_path(file_path), uni_path(save_path), num, toimg)
 ```
 
 ### 参考
 
 [Python 提取 PDF 第一页为封面图片【批量提取】](https://cloud.tencent.com/developer/article/1584421)
+[Python 把任意系统的路径转换成当前系统的格式（关于 / \ 分隔符的）](https://blog.csdn.net/lnotime/article/details/87720332)
+[python中os.walk的用法](https://www.jianshu.com/p/bbad16822eab)
+[python PyMuPDF(fitz)包中insert_pdf的用法](https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf)
+
