@@ -19,10 +19,16 @@ pip install PyMuPDF
 ```python
 # coding:utf-8
 import os
-import fitz # 
+import fitz
 
+# python中os.walk的用法：
+#   https://www.jianshu.com/p/bbad16822eab
+# python PyMuPDF(fitz)包中insert_pdf的用法：
+#   https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf
 
 # 解析
+# 函数将file_path中所有文件（包括子目录中的文件），处理后，按照原目录保存到save_path下。
+# 即save_path下的文件夹结构和file_path一致。
 def analysis(file_path, save_path, num, toimg):
     # 资源列表
     file_array = []
@@ -42,7 +48,7 @@ def analysis(file_path, save_path, num, toimg):
     file_count_num = len(file_array)
     print("程序运行中，共计%s个文件" % file_count_num)
     for v in file_array:
-        print("文件路径：%s" % v)
+        print("原文件路径：%s" % v)
         # 获取文件名称及类型
         file_name = os.path.basename(v)
         print("文件信息：%s" % file_name)
@@ -58,7 +64,13 @@ def analysis(file_path, save_path, num, toimg):
             if count_page > 1:
                 doc2 = fitz.open()      # 创建新的空PDF
                 doc2.insert_pdf(doc, to_page = num)  # 提取doc的第1页到doc2
-                doc2.save(save_path + file_name)    # 保存提取出的PDF文件
+                # 创建子目录
+                p_1 = v.replace(file_path, save_path)
+                p_2 = p_1.replace(file_name, '')
+                if not os.path.exists(p_2):
+                    os.makedirs(p_2)
+                
+                doc2.save(p_2 + file_name)    # 保存提取出的PDF文件
                 print("提取完成")
             else:
                 print("此文档无内容，跳过")
@@ -74,10 +86,12 @@ def analysis(file_path, save_path, num, toimg):
                 trans = fitz.Matrix(zoom_x, zoom_y).preRotate(rotate)
                 pm = page.getPixmap(matrix=trans, alpha=False)
                 # 保存路径
+                # 创建子目录
                 p_1 = v.replace(file_path, save_path)
                 p_2 = p_1.replace(file_name, '')
                 if not os.path.exists(p_2):
                     os.makedirs(p_2)
+                
                 new_file_name = file_name.replace(".pdf", "")
                 pm.writePNG(p_2 + '%s.png' % new_file_name)
                 print("提取并转换为图片完成")

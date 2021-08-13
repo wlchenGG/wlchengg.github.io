@@ -19,7 +19,7 @@
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://wlchengg.github.io/pdftoolbox/><link rel=prev href=http://wlchengg.github.io/%E6%B5%8B%E8%AF%95latex/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"基于Python批量提取PDF首页","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/pdftoolbox\/"},"genre":"posts","keywords":"PDF","wordcount":1141,"url":"http:\/\/wlchengg.github.io\/pdftoolbox\/","datePublished":"2021-08-13T00:57:00+08:00","dateModified":"2021-08-13T00:57:00+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"基于Python批量提取PDF首页","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/pdftoolbox\/"},"genre":"posts","keywords":"PDF","wordcount":1317,"url":"http:\/\/wlchengg.github.io\/pdftoolbox\/","datePublished":"2021-08-13T00:57:00+08:00","dateModified":"2021-08-13T00:57:00+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -91,7 +91,7 @@
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author>wlcheng</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-13>2021-08-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-08-13>2021-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1141 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-13>2021-08-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-08-13>2021-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1317 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept=true>
 <div class="details-summary toc-title">
@@ -241,14 +241,34 @@
 </span><span class=lnt>110
 </span><span class=lnt>111
 </span><span class=lnt>112
+</span><span class=lnt>113
+</span><span class=lnt>114
+</span><span class=lnt>115
+</span><span class=lnt>116
+</span><span class=lnt>117
+</span><span class=lnt>118
+</span><span class=lnt>119
+</span><span class=lnt>120
+</span><span class=lnt>121
+</span><span class=lnt>122
+</span><span class=lnt>123
+</span><span class=lnt>124
+</span><span class=lnt>125
+</span><span class=lnt>126
 </span></code></pre></td>
 <td class=lntd>
 <pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># coding:utf-8</span>
 <span class=kn>import</span> <span class=nn>os</span>
-<span class=kn>import</span> <span class=nn>fitz</span> <span class=c1># </span>
+<span class=kn>import</span> <span class=nn>fitz</span>
 
+<span class=c1># python中os.walk的用法：</span>
+<span class=c1>#   https://www.jianshu.com/p/bbad16822eab</span>
+<span class=c1># python PyMuPDF(fitz)包中insert_pdf的用法：</span>
+<span class=c1>#   https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf</span>
 
 <span class=c1># 解析</span>
+<span class=c1># 函数将file_path中所有文件（包括子目录中的文件），处理后，按照原目录保存到save_path下。</span>
+<span class=c1># 即save_path下的文件夹结构和file_path一致。</span>
 <span class=k>def</span> <span class=nf>analysis</span><span class=p>(</span><span class=n>file_path</span><span class=p>,</span> <span class=n>save_path</span><span class=p>,</span> <span class=n>num</span><span class=p>,</span> <span class=n>toimg</span><span class=p>):</span>
     <span class=c1># 资源列表</span>
     <span class=n>file_array</span> <span class=o>=</span> <span class=p>[]</span>
@@ -268,7 +288,7 @@
     <span class=n>file_count_num</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>file_array</span><span class=p>)</span>
     <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;程序运行中，共计</span><span class=si>%s</span><span class=s2>个文件&#34;</span> <span class=o>%</span> <span class=n>file_count_num</span><span class=p>)</span>
     <span class=k>for</span> <span class=n>v</span> <span class=ow>in</span> <span class=n>file_array</span><span class=p>:</span>
-        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;文件路径：</span><span class=si>%s</span><span class=s2>&#34;</span> <span class=o>%</span> <span class=n>v</span><span class=p>)</span>
+        <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;原文件路径：</span><span class=si>%s</span><span class=s2>&#34;</span> <span class=o>%</span> <span class=n>v</span><span class=p>)</span>
         <span class=c1># 获取文件名称及类型</span>
         <span class=n>file_name</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>basename</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
         <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;文件信息：</span><span class=si>%s</span><span class=s2>&#34;</span> <span class=o>%</span> <span class=n>file_name</span><span class=p>)</span>
@@ -284,7 +304,13 @@
             <span class=k>if</span> <span class=n>count_page</span> <span class=o>&gt;</span> <span class=mi>1</span><span class=p>:</span>
                 <span class=n>doc2</span> <span class=o>=</span> <span class=n>fitz</span><span class=o>.</span><span class=n>open</span><span class=p>()</span>      <span class=c1># 创建新的空PDF</span>
                 <span class=n>doc2</span><span class=o>.</span><span class=n>insert_pdf</span><span class=p>(</span><span class=n>doc</span><span class=p>,</span> <span class=n>to_page</span> <span class=o>=</span> <span class=n>num</span><span class=p>)</span>  <span class=c1># 提取doc的第1页到doc2</span>
-                <span class=n>doc2</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=n>save_path</span> <span class=o>+</span> <span class=n>file_name</span><span class=p>)</span>    <span class=c1># 保存提取出的PDF文件</span>
+                <span class=c1># 创建子目录</span>
+                <span class=n>p_1</span> <span class=o>=</span> <span class=n>v</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>file_path</span><span class=p>,</span> <span class=n>save_path</span><span class=p>)</span>
+                <span class=n>p_2</span> <span class=o>=</span> <span class=n>p_1</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>file_name</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
+                <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>p_2</span><span class=p>):</span>
+                    <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>p_2</span><span class=p>)</span>
+                
+                <span class=n>doc2</span><span class=o>.</span><span class=n>save</span><span class=p>(</span><span class=n>p_2</span> <span class=o>+</span> <span class=n>file_name</span><span class=p>)</span>    <span class=c1># 保存提取出的PDF文件</span>
                 <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;提取完成&#34;</span><span class=p>)</span>
             <span class=k>else</span><span class=p>:</span>
                 <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;此文档无内容，跳过&#34;</span><span class=p>)</span>
@@ -300,10 +326,12 @@
                 <span class=n>trans</span> <span class=o>=</span> <span class=n>fitz</span><span class=o>.</span><span class=n>Matrix</span><span class=p>(</span><span class=n>zoom_x</span><span class=p>,</span> <span class=n>zoom_y</span><span class=p>)</span><span class=o>.</span><span class=n>preRotate</span><span class=p>(</span><span class=n>rotate</span><span class=p>)</span>
                 <span class=n>pm</span> <span class=o>=</span> <span class=n>page</span><span class=o>.</span><span class=n>getPixmap</span><span class=p>(</span><span class=n>matrix</span><span class=o>=</span><span class=n>trans</span><span class=p>,</span> <span class=n>alpha</span><span class=o>=</span><span class=kc>False</span><span class=p>)</span>
                 <span class=c1># 保存路径</span>
+                <span class=c1># 创建子目录</span>
                 <span class=n>p_1</span> <span class=o>=</span> <span class=n>v</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>file_path</span><span class=p>,</span> <span class=n>save_path</span><span class=p>)</span>
                 <span class=n>p_2</span> <span class=o>=</span> <span class=n>p_1</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=n>file_name</span><span class=p>,</span> <span class=s1>&#39;&#39;</span><span class=p>)</span>
                 <span class=k>if</span> <span class=ow>not</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>exists</span><span class=p>(</span><span class=n>p_2</span><span class=p>):</span>
                     <span class=n>os</span><span class=o>.</span><span class=n>makedirs</span><span class=p>(</span><span class=n>p_2</span><span class=p>)</span>
+                
                 <span class=n>new_file_name</span> <span class=o>=</span> <span class=n>file_name</span><span class=o>.</span><span class=n>replace</span><span class=p>(</span><span class=s2>&#34;.pdf&#34;</span><span class=p>,</span> <span class=s2>&#34;&#34;</span><span class=p>)</span>
                 <span class=n>pm</span><span class=o>.</span><span class=n>writePNG</span><span class=p>(</span><span class=n>p_2</span> <span class=o>+</span> <span class=s1>&#39;</span><span class=si>%s</span><span class=s1>.png&#39;</span> <span class=o>%</span> <span class=n>new_file_name</span><span class=p>)</span>
                 <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;提取并转换为图片完成&#34;</span><span class=p>)</span>
