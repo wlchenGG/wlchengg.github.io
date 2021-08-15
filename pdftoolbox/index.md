@@ -10,10 +10,13 @@
 
 #### 环境与原料
 **Python**
+
 **PyMuPDF模块**
+
 ```bash
 pip install PyMuPDF
 ```
+
 以下为完整代码：
 
 ```python
@@ -42,13 +45,18 @@ def analysis(file_path, save_path, num, toimg):
     # 执行解析
     file_count_num = len(file_array)
     print("程序运行中，共计%s个文件" % file_count_num)
+    success_num = file_count_num
+    failed_file_array = []
     for v in file_array:
         print("原文件路径：%s" % v)
         # 获取文件名称及类型
         file_name = os.path.basename(v)
         # print("文件信息：%s" % file_name)
         if '.pdf' not in file_name:
-            print("此文件非PDF文件")
+            print("此文件非PDF文件，跳过")
+            failed_file_array.append("非 PDF文件：" + file_name)
+            success_num = success_num - 1
+            continue
         #  打开PDF文件，生成一个对象
         doc = fitz.open(v)
         # 总页数
@@ -69,6 +77,8 @@ def analysis(file_path, save_path, num, toimg):
                 print("提取完成")
             else:
                 print("此文档无内容，跳过")
+                failed_file_array.append("文件无内容：" + file_name)
+                success_num = success_num - 1
                 continue
         else:
             # 将页面转换为图片
@@ -93,7 +103,12 @@ def analysis(file_path, save_path, num, toimg):
                 print("提取并转换为图片完成")
             else:
                 print("此文档无内容，跳过")
+                failed_file_array.append(file_name)
+                success_num = success_num - 1
                 continue
+    print("\n\n合计 %d 个文件提取成功，以下文件提取失败：" % success_num)
+    for f in failed_file_array:
+        print(f)
 
 # 返回目录下所有文件
 def get_path_file(files_path):
@@ -148,7 +163,11 @@ if __name__ == '__main__':
 ### 参考
 
 [Python 提取 PDF 第一页为封面图片【批量提取】](https://cloud.tencent.com/developer/article/1584421)
+
 [Python 把任意系统的路径转换成当前系统的格式（关于 / \ 分隔符的）](https://blog.csdn.net/lnotime/article/details/87720332)
+
 [python中os.walk的用法](https://www.jianshu.com/p/bbad16822eab)
+
 [python PyMuPDF(fitz)包中insert_pdf的用法](https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf)
+
 

@@ -19,7 +19,7 @@
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://wlchengg.github.io/pdftoolbox/><link rel=prev href=http://wlchengg.github.io/%E6%B5%8B%E8%AF%95latex/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"基于Python批量提取PDF首页","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/pdftoolbox\/"},"genre":"posts","keywords":"PDF","wordcount":1431,"url":"http:\/\/wlchengg.github.io\/pdftoolbox\/","datePublished":"2021-08-13T00:57:00+08:00","dateModified":"2021-08-13T00:57:00+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"基于Python批量提取PDF首页","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/pdftoolbox\/"},"genre":"posts","keywords":"PDF","wordcount":1604,"url":"http:\/\/wlchengg.github.io\/pdftoolbox\/","datePublished":"2021-08-13T00:57:00+08:00","dateModified":"2021-08-13T00:57:00+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -91,8 +91,8 @@
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author>wlcheng</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-13>2021-08-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-08-13>2021-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1431 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-13>2021-08-13</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-08-13>2021-08-13</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1604 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept=true>
 <div class="details-summary toc-title">
 <span>目录</span>
@@ -116,8 +116,8 @@
 <p>工欲善其事必先利其器，决定造个工具，一劳永逸提高效率。</p>
 <p>以下代码基于 <a href=https://cloud.tencent.com/developer/article/1584421 target=_blank rel="noopener noreffer">小白程序猿</a> 的方案，面向我自己的需求作了一些调整适配。</p>
 <h4 id=环境与原料>环境与原料</h4>
-<p><strong>Python</strong>
-<strong>PyMuPDF模块</strong></p>
+<p><strong>Python</strong></p>
+<p><strong>PyMuPDF模块</strong></p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -255,6 +255,18 @@
 </span><span class=lnt>124
 </span><span class=lnt>125
 </span><span class=lnt>126
+</span><span class=lnt>127
+</span><span class=lnt>128
+</span><span class=lnt>129
+</span><span class=lnt>130
+</span><span class=lnt>131
+</span><span class=lnt>132
+</span><span class=lnt>133
+</span><span class=lnt>134
+</span><span class=lnt>135
+</span><span class=lnt>136
+</span><span class=lnt>137
+</span><span class=lnt>138
 </span></code></pre></td>
 <td class=lntd>
 <pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=c1># coding:utf-8</span>
@@ -282,13 +294,18 @@
     <span class=c1># 执行解析</span>
     <span class=n>file_count_num</span> <span class=o>=</span> <span class=nb>len</span><span class=p>(</span><span class=n>file_array</span><span class=p>)</span>
     <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;程序运行中，共计</span><span class=si>%s</span><span class=s2>个文件&#34;</span> <span class=o>%</span> <span class=n>file_count_num</span><span class=p>)</span>
+    <span class=n>success_num</span> <span class=o>=</span> <span class=n>file_count_num</span>
+    <span class=n>failed_file_array</span> <span class=o>=</span> <span class=p>[]</span>
     <span class=k>for</span> <span class=n>v</span> <span class=ow>in</span> <span class=n>file_array</span><span class=p>:</span>
         <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;原文件路径：</span><span class=si>%s</span><span class=s2>&#34;</span> <span class=o>%</span> <span class=n>v</span><span class=p>)</span>
         <span class=c1># 获取文件名称及类型</span>
         <span class=n>file_name</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>path</span><span class=o>.</span><span class=n>basename</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
         <span class=c1># print(&#34;文件信息：%s&#34; % file_name)</span>
         <span class=k>if</span> <span class=s1>&#39;.pdf&#39;</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>file_name</span><span class=p>:</span>
-            <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;此文件非PDF文件&#34;</span><span class=p>)</span>
+            <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;此文件非PDF文件，跳过&#34;</span><span class=p>)</span>
+            <span class=n>failed_file_array</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s2>&#34;非 PDF文件：&#34;</span> <span class=o>+</span> <span class=n>file_name</span><span class=p>)</span>
+            <span class=n>success_num</span> <span class=o>=</span> <span class=n>success_num</span> <span class=o>-</span> <span class=mi>1</span>
+            <span class=k>continue</span>
         <span class=c1>#  打开PDF文件，生成一个对象</span>
         <span class=n>doc</span> <span class=o>=</span> <span class=n>fitz</span><span class=o>.</span><span class=n>open</span><span class=p>(</span><span class=n>v</span><span class=p>)</span>
         <span class=c1># 总页数</span>
@@ -309,6 +326,8 @@
                 <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;提取完成&#34;</span><span class=p>)</span>
             <span class=k>else</span><span class=p>:</span>
                 <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;此文档无内容，跳过&#34;</span><span class=p>)</span>
+                <span class=n>failed_file_array</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=s2>&#34;文件无内容：&#34;</span> <span class=o>+</span> <span class=n>file_name</span><span class=p>)</span>
+                <span class=n>success_num</span> <span class=o>=</span> <span class=n>success_num</span> <span class=o>-</span> <span class=mi>1</span>
                 <span class=k>continue</span>
         <span class=k>else</span><span class=p>:</span>
             <span class=c1># 将页面转换为图片</span>
@@ -333,7 +352,12 @@
                 <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;提取并转换为图片完成&#34;</span><span class=p>)</span>
             <span class=k>else</span><span class=p>:</span>
                 <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;此文档无内容，跳过&#34;</span><span class=p>)</span>
+                <span class=n>failed_file_array</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>file_name</span><span class=p>)</span>
+                <span class=n>success_num</span> <span class=o>=</span> <span class=n>success_num</span> <span class=o>-</span> <span class=mi>1</span>
                 <span class=k>continue</span>
+    <span class=nb>print</span><span class=p>(</span><span class=s2>&#34;</span><span class=se>\n\n</span><span class=s2>合计 </span><span class=si>%d</span><span class=s2> 个文件提取成功，以下文件提取失败：&#34;</span> <span class=o>%</span> <span class=n>success_num</span><span class=p>)</span>
+    <span class=k>for</span> <span class=n>f</span> <span class=ow>in</span> <span class=n>failed_file_array</span><span class=p>:</span>
+        <span class=nb>print</span><span class=p>(</span><span class=n>f</span><span class=p>)</span>
 
 <span class=c1># 返回目录下所有文件</span>
 <span class=k>def</span> <span class=nf>get_path_file</span><span class=p>(</span><span class=n>files_path</span><span class=p>):</span>
@@ -386,10 +410,10 @@
 </code></pre></td></tr></table>
 </div>
 </div><h3 id=参考>参考</h3>
-<p><a href=https://cloud.tencent.com/developer/article/1584421 target=_blank rel="noopener noreffer">Python 提取 PDF 第一页为封面图片【批量提取】</a>
-<a href=https://blog.csdn.net/lnotime/article/details/87720332 target=_blank rel="noopener noreffer">Python 把任意系统的路径转换成当前系统的格式（关于 / \ 分隔符的）</a>
-<a href=https://www.jianshu.com/p/bbad16822eab target=_blank rel="noopener noreffer">python中os.walk的用法</a>
-<a href=https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf target=_blank rel="noopener noreffer">python PyMuPDF(fitz)包中insert_pdf的用法</a></p></div><div class=post-footer id=post-footer>
+<p><a href=https://cloud.tencent.com/developer/article/1584421 target=_blank rel="noopener noreffer">Python 提取 PDF 第一页为封面图片【批量提取】</a></p>
+<p><a href=https://blog.csdn.net/lnotime/article/details/87720332 target=_blank rel="noopener noreffer">Python 把任意系统的路径转换成当前系统的格式（关于 / \ 分隔符的）</a></p>
+<p><a href=https://www.jianshu.com/p/bbad16822eab target=_blank rel="noopener noreffer">python中os.walk的用法</a></p>
+<p><a href=https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf target=_blank rel="noopener noreffer">python PyMuPDF(fitz)包中insert_pdf的用法</a></p></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
