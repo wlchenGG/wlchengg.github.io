@@ -9,9 +9,10 @@
 以下代码基于 [小白程序猿](https://cloud.tencent.com/developer/article/1584421) 的方案，面向我自己的需求作了一些调整适配。
 
 #### 环境与原料
-**Python**
 
-**PyMuPDF模块**
+- **Python**
+
+- **PyMuPDF模块**
 
 ```bash
 pip install PyMuPDF
