@@ -1,7 +1,11 @@
 # Hugo 搭建过程
 
 
-本文旨在记录基于 Hugo静态博客建站工具 和 LoveIt主题的个人博客过程，作为备忘。VS Code作为博客编辑、站点部署集成环境，站点维护仍然采用 Github Pages。
+本文旨在记录基于`Hugo`静态博客建站工具 和`LoveIt`主题的个人博客过程，作为备忘。`VS Code`作为博客编辑、站点部署集成环境，站点维护仍然采用`Github Pages`。
+
+由于 LoveIt 原作者已长期未维护，[HEIGE-PCloud](https://github.com/HEIGE-PCloud) 基于 LoveIt 的新主题[DoIt](https://github.com/HEIGE-PCloud/DoIt)主题，并维持着更新。致敬∠(°ゝ°)。
+
+DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 
 <!--more-->
 
@@ -15,6 +19,7 @@
 ## Hugo 安装
 
 ### 下载 Hugo
+
 Hugo 包括基础版本和支持自定义样式`scss`的 **extended**版本。
 
 为了提高可用性，应对未来可能的自定义需求，我决定安装 **Hugo extended** 版本。
@@ -22,10 +27,11 @@ Hugo 包括基础版本和支持自定义样式`scss`的 **extended**版本。
 从 [Hugo Release](https://github.com/gohugoio/hugo/releases)下载适合版本的压缩包，我的是Windows_x64。解压缩到想要安装的目录。解压出来，只有简单的一个主程序。可见，相对于 Hexo 依赖于 Node.js 及一大堆 npm 包，Hugo 的确非常的简洁。
 
 <div align="center">
-<img src="https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png" alt="Blog-by-Hugo-and-LoveIt_20210726151100_2021-07-26-15-11-01" width="75%" align="center"/>
+<img src="https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png" alt="Blog-by-Hugo-and-LoveIt_20210726151100_2021-07-26-15-11-01" width="300" align="center"/>
 </div>
 
 ### 添加环境变量
+
 将 Hugo 的主程序路径添加到系统环境变量中，这样在命令行终端中才能调用主程序执行一系列命令，之后我们就能直接在VS Code的终端中执行命令。我的安装路径为：
 
 ```code
@@ -33,24 +39,24 @@ D:\Dev\hugo_0.86.0\
 ```
 
 首先打开 资源管理器/我的电脑，然后在左侧导航栏，右键点击 **此电脑**，在弹出菜单中，打开 **属性**。
-<div align="center"><img src="https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png" alt="Blog-by-Hugo-and-LoveIt_20210726151842_2021-07-26-15-18-43" width="75%" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png" alt="Blog-by-Hugo-and-LoveIt_20210726151842_2021-07-26-15-18-43" width="300" align="center"/></div>
 
 依次在弹出窗口中点击 **高级系统设置**。
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/5Lx9IckVh4rQtYe.png" alt="Blog-by-Hugo-and-LoveIt_20210726152730_2021-07-26-15-27-32" width="75%" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/5Lx9IckVh4rQtYe.png" alt="Blog-by-Hugo-and-LoveIt_20210726152730_2021-07-26-15-27-32" width="500" align="center"/></div>
 
 在弹出窗口中点击**环境变量**。
-<div align="center"><img src="https://i.loli.net/2021/07/26/2EiRPBO5IQnpH83.png" alt="Blog-by-Hugo-and-LoveIt_20210726152841_2021-07-26-15-28-42" width="75%" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/2EiRPBO5IQnpH83.png" alt="Blog-by-Hugo-and-LoveIt_20210726152841_2021-07-26-15-28-42" width="300" align="center"/></div>
 
 双击 **path** 变量，点击 **添加**，将 Hugo 主程序路径填入，点击 **确定**以保存修改。
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/2dwpveRYOnK7aHS.png" alt="Blog-by-Hugo-and-LoveIt_20210726153824_2021-07-26-15-38-26" width="75%" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/2dwpveRYOnK7aHS.png" alt="Blog-by-Hugo-and-LoveIt_20210726153824_2021-07-26-15-38-26" width="600" align="center"/></div>
 
 ### 验证配置是否成功
 
 VS Code 中 ``Ctrl+Shift+` ``，打开终端，输入 `hugo version`，若能如下图所示，无错返回版本号，则环境配置成功。
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/XPCsuZNlqvgVTJr.png" alt="Blog-by-Hugo-and-LoveIt_20210726154557_2021-07-26-15-45-58" width="75%" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/XPCsuZNlqvgVTJr.png" alt="Blog-by-Hugo-and-LoveIt_20210726154557_2021-07-26-15-45-58" width="500" align="center"/></div>
 
 ### 建立站点
 
@@ -61,12 +67,13 @@ VS Code 中 ``Ctrl+Shift+` ``，打开终端，输入 `hugo version`，若能如
 hugo new site hugo.wlcheng.github.io
 cd hugo.wlcheng.github.io
 ```
+
 输出结果如下截图：
-<div align="center"><img src="https://i.loli.net/2021/07/26/cTfDLsoFmJ1ZyWd.png" alt="Blog-by-Hugo-and-LoveIt_20210726160101_2021-07-26-16-01-03" width="75%" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/cTfDLsoFmJ1ZyWd.png" alt="Blog-by-Hugo-and-LoveIt_20210726160101_2021-07-26-16-01-03" width="500" align="center"/></div>
 
 生成的站点目录结构：
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/Ij85BKNOtrqQM1A.png" alt="Blog-by-Hugo-and-LoveIt_20210726161024_2021-07-26-16-10-26" width="75%" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/Ij85BKNOtrqQM1A.png" alt="Blog-by-Hugo-and-LoveIt_20210726161024_2021-07-26-16-10-26" width="500" align="center"/></div>
 
 ## LoveIt 主题
 
@@ -74,7 +81,9 @@ cd hugo.wlcheng.github.io
 
 ### 安装主题
 
-LoveIt 主题的仓库地址是 https://github.com/dillonzq/LoveIt。
+LoveIt 主题的仓库地址是 https://github.com/dillonzq/LoveIt 。
+
+补充：DoIt 主体仓库地址是 https://github.com/HEIGE-PCloud/DoIt 。
 
 可以直接下载最新版主题压缩包，将其解压到站点目录下的 themes文件夹中。
 
@@ -83,8 +92,11 @@ LoveIt 主题的仓库地址是 https://github.com/dillonzq/LoveIt。
 ``` bash
 git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt 
 ```
+
 ### 配置主题
+
 替换站点配置文件 `/config.toml` 内容为：
+
 ```toml
 baseURL = "http://wlchengg.github.io/"
 # [en, zh-cn, fr, ...] 设置默认的语言
