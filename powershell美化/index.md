@@ -1,11 +1,11 @@
 # PowerShell美化
 
 
-记录新版 PowerShell 的美化过程。
+记录新版 PowerShell 美化过程。
+
+<div align="center"><img src="https://i.loli.net/2021/08/20/Z1vNFtc8eIz5fW9.png" alt="20210820210102" width="600" align="center"/></div>
 
 <!--more-->
-
-TODO: 美化后的样子
 
 ### 安装 Windows Terminal
 
@@ -106,6 +106,8 @@ Set-PoshPrompt -Theme agnosterplus # 此处将agnosterplus替换为自己选主�
 
 <div align="center"><img src="https://i.loli.net/2021/08/20/gBME3FHYmD6aPky.png" alt="20210820011818" width="600" align="center"/></div>
 
+弹出的对话窗口，展示了字体样式，直接点击左上角`安装`即可。
+
 <div align="center"><img src="https://i.loli.net/2021/08/20/ZAouMcT3qRtKXn8.png" alt="20210820011909" width="600" align="center"/></div>
 
 字体已经安装好，接下来在 Terminal 下按`Ctrl + ,`打开设置，从左侧`配置文件`中选择到自己新建的PowerShell，我的是 PowerShell 7 ，然后右侧选择`外观`选项卡，找到`字体`下拉菜单，选择自己所选的字体名字即可，我的为 `GoMono NF`。
@@ -120,11 +122,33 @@ Set-PoshPrompt -Theme agnosterplus # 此处将agnosterplus替换为自己选主�
 
 只需打开 Terminal 的设置，从左侧`配置文件`中选择到自己新建的PowerShell，然后右侧选择`外观`选项卡，找到`背景图像`设置项，`浏览`选择图片。选好图片后，下面会多出一些针对背景图的设置，包括模糊、透明、位置等，可以自行调整。
 
-<div align="center"><img src="https://i.loli.net/2021/08/20/ycigkn2EKq3uSW6.png" alt="20210820015908" width="75%" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/08/20/ycigkn2EKq3uSW6.png" alt="20210820015908" width="600" align="center"/></div>
 
 ### VS Code 集成 PowerShell
 
-TODO：
+VS Code 内按快捷键 `` Ctrl + Shift + ` ``，则在编辑窗口下面会打开一个（默认CMD）终端窗口。VS Code中已经自动集成了 CMD 和 Windows PowerShell。但我需要：1. 将新版的 PowerShell Preview 集成进来；2. 将其设置为默认打开；3. 更改终端字体，以提供主题包支持。
+
+首先`Ctrl + ,`打开设置，然后搜索`Terminal`，找到`Terminal > Integrated > Profiles: Windows`的项，点击下面的`在settings.json中编辑`。
+
+<div align="center"><img src="https://i.loli.net/2021/08/20/vsoxaMFq5CWVApl.png" alt="20210820202923" width="600" align="center"/></div>
+
+之后在打开的`settings.json`文件下，在`terminal.integrated.profiles.windows`项内按照以下红色框中代码的格式添加自己的 PowerShell 条目，其中的`PowerShell 7 pre`替换为自拟名字即可，`path`项内的路径替换为自己的 PowerShell 安装路径。然后**保存**并关闭文件。
+
+<div align="center"><img src="https://i.loli.net/2021/08/20/tEZuRs32vFoNljz.png" alt="20210820202519" width="600" align="center"/></div>
+
+通过以上操作，我们已经为终端窗口添加了新的 PowerShell。接下来将其设置为默认打开。
+
+仍然`Ctrl + ,`打开设置，搜索`Terminal`，找到`Terminal > Integrated > Default Profile: Windows`项，下拉选项中选择我们上一步添加的 PowerShell 的名字`PowerShell 7 pre`。
+
+<div align="center"><img src="https://i.loli.net/2021/08/20/JMjS9P6tqgGo15E.png" alt="20210820202020" width="600" align="center"/></div>
+
+在设置页，搜索`Terminal Font`，找到`Terminal > Integrated > Font Family`项，将其值设置为我们前面安装的字体文件名 `GoMono NF`，由于我选的这款字体本身字号挺大，所以我还将字号改为了 `12`。
+
+<div align="center"><img src="https://i.loli.net/2021/08/20/V4LHzeAhtSMnEFc.png" alt="20210820200321" width="600" align="center"/></div>
+
+经过以上配置，最终的效果如下图。
+
+<div align="center"><img src="https://i.loli.net/2021/08/20/a81uBoP3XWL2J9m.png" alt="20210820201644" width="600" align="center"/></div>
 
 ### 参考
 
@@ -132,4 +156,5 @@ TODO：
 - [Nerd Fonts](https://www.nerdfonts.com/font-downloads)
 - [oh-my-push 文档](https://ohmyposh.dev/docs/pwsh)
 - [Using Visual Studio Code for PowerShell Development - Microsoft](https://docs.microsoft.com/en-us/powershell/scripting/dev-cross-plat/vscode/using-vscode?view=powershell-7.2#adding-your-own-powershell-paths-to-the-session-menu)
+- [VS Code Integrated Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuring-profiles)
 
