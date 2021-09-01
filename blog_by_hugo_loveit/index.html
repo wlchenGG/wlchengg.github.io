@@ -4,7 +4,7 @@
 <meta name=viewport content="width=device-width,initial-scale=1">
 <meta name=robots content="noodp">
 <title class=pjax-title>Hugo 搭建过程 - Wlcheng's Life</title><meta name=Description content="来日方长，何惧车遥马慢"><meta property="og:title" content="Hugo 搭建过程">
-<meta property="og:description" content="本文旨在记录基于Hugo静态博客建站工具 和LoveIt主题的个人博客过程，作为备忘。VS Code作为博客编辑、站点部署集成环境，站点维护仍然采用Github Pages。
+<meta property="og:description" content="记录基于Hugo静态博客建站工具 和LoveIt主题的个人博客过程，作为备忘。VS Code作为博客编辑、站点部署集成环境，站点维护仍然采用Github Pages。
 由于 LoveIt 原作者已长期未维护，HEIGE-PCloud 基于 LoveIt 的新主题DoIt主题，并维持着更新。致敬∠(°ゝ°)。
 DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 <meta property="og:type" content="article">
@@ -14,7 +14,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 <meta name=twitter:card content="summary_large_image">
 <meta name=twitter:image content="http://wlchengg.github.io/logo.png">
 <meta name=twitter:title content="Hugo 搭建过程">
-<meta name=twitter:description content="本文旨在记录基于Hugo静态博客建站工具 和LoveIt主题的个人博客过程，作为备忘。VS Code作为博客编辑、站点部署集成环境，站点维护仍然采用Github Pages。
+<meta name=twitter:description content="记录基于Hugo静态博客建站工具 和LoveIt主题的个人博客过程，作为备忘。VS Code作为博客编辑、站点部署集成环境，站点维护仍然采用Github Pages。
 由于 LoveIt 原作者已长期未维护，HEIGE-PCloud 基于 LoveIt 的新主题DoIt主题，并维持着更新。致敬∠(°ゝ°)。
 DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 <meta name=application-name content="DoIt">
@@ -23,7 +23,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://wlchengg.github.io/blog_by_hugo_loveit/><link rel=prev href=http://wlchengg.github.io/%E8%87%AA%E7%94%A8%E8%BD%AF%E4%BB%B6%E6%B8%85%E5%8D%95/><link rel=next href=http://wlchengg.github.io/%E6%B5%8B%E8%AF%95latex/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo 搭建过程","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/"},"genre":"posts","wordcount":1354,"url":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/","datePublished":"2021-07-27T14:06:53+08:00","dateModified":"2021-07-27T14:06:53+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo 搭建过程","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/"},"genre":"posts","keywords":"Hugo, 博客","wordcount":1384,"url":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/","datePublished":"2021-07-27T14:06:53+08:00","dateModified":"2021-07-27T14:06:53+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -32,7 +32,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 <a href=/ title="Wlcheng's Life">Wlcheng's Life</a>
 </div>
 <div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> 文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<div class=menu-inner><a class=menu-item href=/posts/> 文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=https://wlchengg.github.io/luoyeji/ title=我的碎碎念 rel="noopener noreffer" target=_blank><i class="fab fa-canadian-maple-leaf"></i> 落叶集 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
 <a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索>
 <i class="fas fa-search fa-fw"></i>
@@ -75,7 +75,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 <a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
 取消
 </a>
-</div><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
+</div><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=https://wlchengg.github.io/luoyeji/ title=我的碎碎念 rel="noopener noreffer" target=_blank><i class="fab fa-canadian-maple-leaf"></i>落叶集</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
 <i class="fas fa-adjust fa-fw"></i>
 <select class=color-theme-select id=theme-select-mobile title=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=black>黑色</option><option value=auto>跟随系统</option></select>
 </a></div>
@@ -95,9 +95,9 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author>wlcheng</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1354 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1384 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept=true>
+</div><div class=featured-image><img class=lazyload data-src=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png data-srcset="https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png, https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png 1.5x, https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png 2x" data-sizes=auto alt=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png title=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png height=auto width=auto></div><div class="details toc" id=toc-static kept=true>
 <div class="details-summary toc-title">
 <span>目录</span>
 <span><i class="details-icon fas fa-angle-right"></i></span>
@@ -123,7 +123,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 <li><a href=#参考>参考</a></li>
 </ul>
 </nav></div>
-</div><div class=content id=content><p>本文旨在记录基于<code>Hugo</code>静态博客建站工具 和<code>LoveIt</code>主题的个人博客过程，作为备忘。<code>VS Code</code>作为博客编辑、站点部署集成环境，站点维护仍然采用<code>Github Pages</code>。</p>
+</div><div class=content id=content><p>记录基于<code>Hugo</code>静态博客建站工具 和<code>LoveIt</code>主题的个人博客过程，作为备忘。<code>VS Code</code>作为博客编辑、站点部署集成环境，站点维护仍然采用<code>Github Pages</code>。</p>
 <p>由于 LoveIt 原作者已长期未维护，<a href=https://github.com/HEIGE-PCloud target=_blank rel="noopener noreffer">HEIGE-PCloud</a> 基于 LoveIt 的新主题<a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer">DoIt</a>主题，并维持着更新。致敬∠(°ゝ°)。</p>
 <p>DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。</p>
 <p>[toc]</p>
@@ -137,9 +137,10 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 <p>Hugo 包括基础版本和支持自定义样式<code>scss</code>的 <strong>extended</strong>版本。</p>
 <p>为了提高可用性，应对未来可能的自定义需求，我决定安装 <strong>Hugo extended</strong> 版本。</p>
 <p>从 <a href=https://github.com/gohugoio/hugo/releases target=_blank rel="noopener noreffer">Hugo Release</a>下载适合版本的压缩包，我的是Windows_x64。解压缩到想要安装的目录。解压出来，只有简单的一个主程序。可见，相对于 Hexo 依赖于 Node.js 及一大堆 npm 包，Hugo 的确非常的简洁。</p>
-<div align=center>
-<img src=https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png alt=Blog-by-Hugo-and-LoveIt_20210726151100_2021-07-26-15-11-01 width=300 align=center>
-</div>
+<figure><a class=lightgallery href=https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png title=https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png data-thumbnail=https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png data-sub-html="<h2>Hugo 安装路径</h2>">
+<img class=lazyload data-src=https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png data-srcset="https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png, https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png 1.5x, https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png 2x" data-sizes=auto alt=https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png width=300>
+</a><figcaption class=image-caption>Hugo 安装路径</figcaption>
+</figure>
 <h3 id=添加环境变量>添加环境变量</h3>
 <p>将 Hugo 的主程序路径添加到系统环境变量中，这样在命令行终端中才能调用主程序执行一系列命令，之后我们就能直接在VS Code的终端中执行命令。我的安装路径为：</p>
 <div class=highlight><div class=chroma>
@@ -151,7 +152,10 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。">
 </code></pre></td></tr></table>
 </div>
 </div><p>首先打开 资源管理器/我的电脑，然后在左侧导航栏，右键点击 <strong>此电脑</strong>，在弹出菜单中，打开 <strong>属性</strong>。</p>
-<div align=center><img src=https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png alt=Blog-by-Hugo-and-LoveIt_20210726151842_2021-07-26-15-18-43 width=300 align=center></div>
+<figure><a class=lightgallery href=https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png title=https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png data-thumbnail=https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png data-sub-html="<h2>我的电脑->属性</h2>">
+<img class=lazyload data-src=https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png data-srcset="https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png, https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png 1.5x, https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png 2x" data-sizes=auto alt=https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png width=300>
+</a><figcaption class=image-caption>我的电脑->属性</figcaption>
+</figure>
 <p>依次在弹出窗口中点击 <strong>高级系统设置</strong>。</p>
 <div align=center><img src=https://i.loli.net/2021/07/26/5Lx9IckVh4rQtYe.png alt=Blog-by-Hugo-and-LoveIt_20210726152730_2021-07-26-15-27-32 width=500 align=center></div>
 <p>在弹出窗口中点击<strong>环境变量</strong>。</p>
@@ -321,12 +325,12 @@ hugo new site hugo.wlcheng.github.io
 <a class=link-to-markdown href=/blog_by_hugo_loveit/index.md target=_blank rel="noopener noreferrer">阅读原始文档</a>
 </span></div>
 <div class=post-info-share>
-<span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程" data-via=xxxx><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=http://wlchengg.github.io/blog_by_hugo_loveit/><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 WhatsApp" data-sharer=whatsapp data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Line" data-sharer=line data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程"><i class="fab fa-weibo fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Myspace" data-sharer=myspace data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程" data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=# onclick=return!1 title="分享到 Blogger" data-sharer=blogger data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程" data-description><i class="fab fa-blogger fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Evernote" data-sharer=evernote data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程"><i class="fab fa-evernote fa-fw"></i></a></span>
+<span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程" data-via=xxxx data-hashtags=Hugo,博客><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-hashtag=Hugo><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 WhatsApp" data-sharer=whatsapp data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Line" data-sharer=line data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程" data-image=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png><i class="fab fa-weibo fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Myspace" data-sharer=myspace data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程" data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=# onclick=return!1 title="分享到 Blogger" data-sharer=blogger data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程" data-description><i class="fab fa-blogger fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Evernote" data-sharer=evernote data-url=http://wlchengg.github.io/blog_by_hugo_loveit/ data-title="Hugo 搭建过程"><i class="fab fa-evernote fa-fw"></i></a></span>
 </div>
 </div>
 </div>
 <div class=post-info-more>
-<section class=post-tags></section>
+<section class=post-tags><i class="fas fa-tags fa-fw"></i>&nbsp;<a href=/tags/hugo/>Hugo</a>,&nbsp;<a href=/tags/%E5%8D%9A%E5%AE%A2/>博客</a></section>
 <section>
 <span><a href=# onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
 </section>
@@ -345,6 +349,6 @@ hugo new site hugo.wlcheng.github.io
 <i class="fas fa-comment fa-fw"></i>
 </a>
 </div><div class=assets><script type=text/javascript src=/lib/autocomplete/autocomplete.min.js></script><script type=text/javascript src=/lib/fuse/fuse.min.js></script><script type=text/javascript src=/lib/lazysizes/lazysizes.min.js></script><script type=text/javascript src=/lib/topbar/topbar.min.js></script><script type=text/javascript src=/lib/pjax/pjax.min.js></script><script type=text/javascript src=/js/theme.min.js></script></div>
-<div class=pjax-assets><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/auto-render.min.js></script><script type=text/javascript src=/lib/katex/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/mhchem.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"没有找到结果",snippetLength:50,threshold:.3,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/katex/copy-tex.min.css></div>
+<div class=pjax-assets><script type=text/javascript src=/lib/lightgallery/lightgallery.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-thumbnail.min.js></script><script type=text/javascript src=/lib/lightgallery/lg-zoom.min.js></script><script type=text/javascript src=/lib/clipboard/clipboard.min.js></script><script type=text/javascript src=/lib/sharer/sharer.min.js></script><script type=text/javascript src=/lib/katex/katex.min.js></script><script type=text/javascript src=/lib/katex/auto-render.min.js></script><script type=text/javascript src=/lib/katex/copy-tex.min.js></script><script type=text/javascript src=/lib/katex/mhchem.min.js></script><script type=text/javascript>window.config={code:{copyTitle:"复制到剪贴板",maxShownLines:10},comment:{},lightGallery:{actualSize:!1,exThumbImage:"data-thumbnail",hideBarsDelay:2e3,selector:".lightgallery",speed:400,thumbContHeight:80,thumbWidth:80,thumbnail:!0},math:{delimiters:[{display:!0,left:"$$",right:"$$"},{display:!0,left:"\\[",right:"\\]"},{display:!1,left:"$",right:"$"},{display:!1,left:"\\(",right:"\\)"}],strict:!1},search:{distance:100,findAllMatches:!1,fuseIndexURL:"/index.json",highlightTag:"em",ignoreFieldNorm:!1,ignoreLocation:!1,isCaseSensitive:!1,location:0,maxResultLength:10,minMatchCharLength:2,noResultsFound:"没有找到结果",snippetLength:50,threshold:.3,type:"fuse",useExtendedSearch:!1},sharerjs:!0}</script><link rel=stylesheet href=/lib/lightgallery/lightgallery.min.css><link rel=stylesheet href=/lib/katex/katex.min.css><link rel=stylesheet href=/lib/katex/copy-tex.min.css></div>
 </body>
 </html>

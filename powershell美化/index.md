@@ -3,8 +3,6 @@
 
 记录新版 PowerShell 美化过程。
 
-<div align="center"><img src="https://i.loli.net/2021/08/20/Z1vNFtc8eIz5fW9.png" alt="20210820210102" width="600" align="center"/></div>
-
 <!--more-->
 
 ### 安装 Windows Terminal
@@ -17,7 +15,7 @@
 
 安装完后的 Windows Terminal，可以在系统开始菜单找到并打开。先看一下美化前的样子。
 
-<div align="center"><img src="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" alt="20210819220235" width="600" align="center"/></div>
+{{< image src="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" width="600" caption="美化之前的PowerShell" >}}
 
 朴实无华，看着其实也还不错。
 
