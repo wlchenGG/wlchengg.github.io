@@ -4,13 +4,13 @@
 
 记录基于`Hugo`静态博客建站工具 和`LoveIt`主题的个人博客过程，作为备忘。`VS Code`作为博客编辑、站点部署集成环境，站点维护仍然采用`Github Pages`。
 
+{{< admonition info "LoveIt 换成 DoIt" true >}}
 由于 LoveIt 原作者已长期未维护，[HEIGE-PCloud](https://github.com/HEIGE-PCloud) 基于 LoveIt 的新主题[DoIt](https://github.com/HEIGE-PCloud/DoIt)主题，并维持着更新。致敬∠(°ゝ°)。
 
 DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
+{{< /admonition >}}
 
 <!--more-->
-
-[toc]
 
 ## 准备工作
 
