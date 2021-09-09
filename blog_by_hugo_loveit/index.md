@@ -155,6 +155,20 @@ theme = "LoveIt"
 
 ### 创建文章
 
+```bash
+hugo new posts/first-blog.md // 这会在content文件夹下创建posts文件夹，
+                             // 并在里面创建first-blog.md文件。
+```
+
+## 部署到 Github Pages
+
+### 创建空 Github 仓库
+
+### 关联本地站点到仓库
+
 ## 参考
 
-[主题文档 - 基本概念 —— Dillon —— LoveIt](https://hugoloveit.com/zh-cn/theme-documentation-basics/)
+* [主题文档 - 基本概念 —— Dillon —— LoveIt](https://hugoloveit.com/zh-cn/theme-documentation-basics/)
+* [在 Windows 上搭建 Hugo 博客之 Github 部署填坑记](https://suicablog.cobaltkiss.blue/2021/02/deploy-hugo-as-a-github-pages-project/)
+* [Hugo+Github Pages 搭建个人博客手记萌新向](https://xn--4gq986klnp.cn/posts/hugo-github-personalblog/)
+* [如何挑选博客框架、在线博客平台](https://ednovas.xyz/2021/07/03/blog/)

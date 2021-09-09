@@ -37,9 +37,9 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <meta name=apple-mobile-web-app-title content="DoIt">
 <meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=manifest href=/site.webmanifest><link rel=canonical href=http://wlchengg.github.io/blog_by_hugo_loveit/><link rel=prev href=http://wlchengg.github.io/%E8%87%AA%E7%94%A8%E8%BD%AF%E4%BB%B6%E6%B8%85%E5%8D%95/><link rel=next href=http://wlchengg.github.io/%E6%B5%8B%E8%AF%95latex/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=http://wlchengg.github.io/blog_by_hugo_loveit/><link rel=prev href=http://wlchengg.github.io/%E8%87%AA%E7%94%A8%E8%BD%AF%E4%BB%B6%E6%B8%85%E5%8D%95/><link rel=next href=http://wlchengg.github.io/%E6%B5%8B%E8%AF%95latex/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo 搭建过程","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/"},"genre":"posts","keywords":"Hugo, 博客","wordcount":1387,"url":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/","datePublished":"2021-07-27T14:06:53+08:00","dateModified":"2021-07-27T14:06:53+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo 搭建过程","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/"},"genre":"posts","keywords":"Hugo, 博客","wordcount":1504,"url":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/","datePublished":"2021-07-27T14:06:53+08:00","dateModified":"2021-07-27T14:06:53+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -48,7 +48,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <a href=/ title="Wlcheng's Life">Wlcheng's Life</a>
 </div>
 <div class=menu>
-<div class=menu-inner><a class=menu-item href=/posts/> 文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=https://wlchengg.github.io/luoyeji/ title=我的碎碎念 rel="noopener noreffer" target=_blank><i class="fab fa-canadian-maple-leaf" style=color:#f4606c></i> 落叶集 </a><a class=menu-item href=https://wlchengg.github.io/garss/ title=来自世界的声音 rel="noopener noreffer" target=_blank><i class="fas fa-globe-asia" style=duotone;color:#004f7c></i> RSS汇 </a><a class=menu-item href=/friends/ title=有朋自远方来><i class="fas fa-user-friends" style=duotone;color:#a0eee1></i> 友 </a><a class=menu-item href=/tools/ title=哆啦A梦的口袋><i class="fas fa-toolbox" style=color:#2c3e50></i> 工具箱 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
+<div class=menu-inner><a class=menu-item href=/posts/> 文章 </a><a class=menu-item href=/tags/> 标签 </a><a class=menu-item href=/categories/> 分类 </a><a class=menu-item href=https://wlchengg.github.io/garss/ title=来自世界的声音 rel="noopener noreffer" target=_blank><i class="fas fa-globe-asia" style=duotone;color:#004f7c></i> RSS汇 </a><a class=menu-item href=/friends/ title=有朋自远方来><i class="fas fa-user-friends" style=duotone;color:#a0eee1></i> 友 </a><a class=menu-item href=/tools/ title=哆啦A梦的口袋><i class="fas fa-toolbox" style=color:#2c3e50></i> 工具箱 </a><span class="menu-item delimiter"></span><span class="menu-item search" id=search-desktop>
 <input type=text placeholder=搜索文章标题或内容... id=search-input-desktop>
 <a href=# onclick=return!1 class="search-button search-toggle" id=search-toggle-desktop title=搜索>
 <i class="fas fa-search fa-fw"></i>
@@ -91,7 +91,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <a href=# onclick=return!1 class=search-cancel id=search-cancel-mobile>
 取消
 </a>
-</div><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=https://wlchengg.github.io/luoyeji/ title=我的碎碎念 rel="noopener noreffer" target=_blank><i class="fab fa-canadian-maple-leaf" style=color:#f4606c></i>落叶集</a><a class=menu-item href=https://wlchengg.github.io/garss/ title=来自世界的声音 rel="noopener noreffer" target=_blank><i class="fas fa-globe-asia" style=duotone;color:#004f7c></i>RSS汇</a><a class=menu-item href=/friends/ title=有朋自远方来><i class="fas fa-user-friends" style=duotone;color:#a0eee1></i>友</a><a class=menu-item href=/tools/ title=哆啦A梦的口袋><i class="fas fa-toolbox" style=color:#2c3e50></i>工具箱</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
+</div><a class=menu-item href=/posts/ title>文章</a><a class=menu-item href=/tags/ title>标签</a><a class=menu-item href=/categories/ title>分类</a><a class=menu-item href=https://wlchengg.github.io/garss/ title=来自世界的声音 rel="noopener noreffer" target=_blank><i class="fas fa-globe-asia" style=duotone;color:#004f7c></i>RSS汇</a><a class=menu-item href=/friends/ title=有朋自远方来><i class="fas fa-user-friends" style=duotone;color:#a0eee1></i>友</a><a class=menu-item href=/tools/ title=哆啦A梦的口袋><i class="fas fa-toolbox" style=color:#2c3e50></i>工具箱</a><a href=# onclick=return!1 class="menu-item theme-select" title=切换主题>
 <i class="fas fa-adjust fa-fw"></i>
 <select class=color-theme-select id=theme-select-mobile title=切换主题><option value=light>浅色</option><option value=dark>深色</option><option value=black>黑色</option><option value=auto>跟随系统</option></select>
 </a></div>
@@ -111,8 +111,8 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author>wlcheng</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1387 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 3 分钟&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1504 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
 </div><div class=featured-image><img class=lazyload data-src=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png data-srcset="https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png, https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png 1.5x, https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png 2x" data-sizes=auto alt=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png title=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png height=auto width=auto></div><div class="details toc" id=toc-static kept=true>
 <div class="details-summary toc-title">
 <span>目录</span>
@@ -134,6 +134,12 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <li><a href=#安装主题>安装主题</a></li>
 <li><a href=#配置主题>配置主题</a></li>
 <li><a href=#创建文章>创建文章</a></li>
+</ul>
+</li>
+<li><a href=#部署到-github-pages>部署到 Github Pages</a>
+<ul>
+<li><a href=#创建空-github-仓库>创建空 Github 仓库</a></li>
+<li><a href=#关联本地站点到仓库>关联本地站点到仓库</a></li>
 </ul>
 </li>
 <li><a href=#参考>参考</a></li>
@@ -334,8 +340,26 @@ hugo new site hugo.wlcheng.github.io
 </code></pre></td></tr></table>
 </div>
 </div><h3 id=创建文章>创建文章</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>hugo new posts/first-blog.md // 这会在content文件夹下创建posts文件夹，
+                             // 并在里面创建first-blog.md文件。
+</code></pre></td></tr></table>
+</div>
+</div><h2 id=部署到-github-pages>部署到 Github Pages</h2>
+<h3 id=创建空-github-仓库>创建空 Github 仓库</h3>
+<h3 id=关联本地站点到仓库>关联本地站点到仓库</h3>
 <h2 id=参考>参考</h2>
-<p><a href=https://hugoloveit.com/zh-cn/theme-documentation-basics/ target=_blank rel="noopener noreffer">主题文档 - 基本概念 —— Dillon —— LoveIt</a></p></div><div class=post-footer id=post-footer>
+<ul>
+<li><a href=https://hugoloveit.com/zh-cn/theme-documentation-basics/ target=_blank rel="noopener noreffer">主题文档 - 基本概念 —— Dillon —— LoveIt</a></li>
+<li><a href=https://suicablog.cobaltkiss.blue/2021/02/deploy-hugo-as-a-github-pages-project/ target=_blank rel="noopener noreffer">在 Windows 上搭建 Hugo 博客之 Github 部署填坑记</a></li>
+<li><a href=https://xn--4gq986klnp.cn/posts/hugo-github-personalblog/ target=_blank rel="noopener noreffer">Hugo+Github Pages 搭建个人博客手记萌新向</a></li>
+<li><a href=https://ednovas.xyz/2021/07/03/blog/ target=_blank rel="noopener noreffer">如何挑选博客框架、在线博客平台</a></li>
+</ul></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
