@@ -19,7 +19,7 @@
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=http://wlchengg.github.io/cisco_packet_tracer_install/><link rel=prev href=http://wlchengg.github.io/word%E5%8E%8B%E7%BC%A9/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Cisco Packet Tracer 学习 —— 安装","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/cisco_packet_tracer_install\/"},"genre":"posts","keywords":"Cisco Packet Tracer","wordcount":407,"url":"http:\/\/wlchengg.github.io\/cisco_packet_tracer_install\/","datePublished":"2021-10-12T11:00:17+08:00","dateModified":"2021-10-12T11:00:17+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Cisco Packet Tracer 学习 —— 安装","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/cisco_packet_tracer_install\/"},"genre":"posts","keywords":"Cisco Packet Tracer","wordcount":424,"url":"http:\/\/wlchengg.github.io\/cisco_packet_tracer_install\/","datePublished":"2021-10-12T11:00:17+08:00","dateModified":"2021-10-12T11:00:17+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -91,31 +91,36 @@
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author>wlcheng</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-10-12>2021-10-12</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-10-12>2021-10-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 407 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-10-12>2021-10-12</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-10-12>2021-10-12</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 424 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 1 分钟&nbsp;</div>
-</div><div class="details toc" id=toc-static kept=true>
+</div><div class=featured-image><img class=lazyload data-src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012190239.png data-srcset="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012190239.png, https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012190239.png 1.5x, https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012190239.png 2x" data-sizes=auto alt=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012190239.png title=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012190239.png height=auto width=auto></div><div class="details toc" id=toc-static kept=true>
 <div class="details-summary toc-title">
 <span>目录</span>
 <span><i class="details-icon fas fa-angle-right"></i></span>
 </div>
 <div class="details-content toc-content" id=toc-content-static><nav id=TableOfContents>
 <ul>
+<li><a href=#注册账号>注册账号</a></li>
+<li><a href=#安装软件>安装软件</a>
+<ul>
 <li><a href=#下载安装>下载安装</a></li>
 <li><a href=#启动登录>启动登录</a></li>
 <li><a href=#修改语言>修改语言</a></li>
 </ul>
+</li>
+</ul>
 </nav></div>
 </div><div class=content id=content><p>思科网络仿真工具 Cisco Packet Tracer 学习系列之一：软件获取及安装。</p>
-<h1 id=注册账号>注册账号</h1>
+<h2 id=注册账号>注册账号</h2>
 <p>在<a href=https://id.cisco.com/signin/register target=_blank rel="noopener noreffer">Cisco Packet Tracer</a>填写信息进行注册。</p>
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012200321.png alt=20211012200321 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:0"></div>
-<h1 id=安装软件>安装软件</h1>
-<h2 id=下载安装>下载安装</h2>
+<h2 id=安装软件>安装软件</h2>
+<h3 id=下载安装>下载安装</h3>
 <p>在 Cisco Networking Academy 网页登录账号后，下载 Cisco Packet Tracer 安装包：</p>
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012195347.png alt=20211012195347 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:0"></div>
 <p>打开下载的安装包，执行安装程序：</p>
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012193421.png alt=20211012193421 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:0"></div>
-<h2 id=启动登录>启动登录</h2>
+<h3 id=启动登录>启动登录</h3>
 <p>启动界面：</p>
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012190239.png alt=20211012190239 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:0"></div>
 <p>首次启动需要登录我们前面注册的 Cisco Networking Academy 账号。此处勾选上<code>Keep me logged in</code>选项，能够3个月免手动登录。</p>
@@ -124,7 +129,7 @@
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012190830.png alt=20211012190830 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:0"></div>
 <p>登录后，会自动打开软件主界面，如下：</p>
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012191044.png alt=20211012191044 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:0"></div>
-<h2 id=修改语言>修改语言</h2>
+<h3 id=修改语言>修改语言</h3>
 <p>下载语言包文件：在<a href=https://www.netacad.com/portal/resources/browse/341e11c1-d03f-4433-9413-29b9d207e7eb target=_blank rel="noopener noreffer">列表</a>中找到<code>Simplified Chinese.ptl</code>点击下载。</p>
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012195854.png alt=20211012195854 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:0"></div>
 <p>将下载的语言包文件拷贝到 Cisco Packet Tracer的安装目录（根据自己的安装目录而定）下的<code>language</code>文件夹下：</p>
@@ -140,7 +145,8 @@
 <ol start=5>
 <li>关闭软件并重新打开查看是否修改成功。</li>
 </ol>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/2fRmYKyAoM.gif alt=2fRmYKyAoM width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:0"></div></div><div class=post-footer id=post-footer>
+<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/2fRmYKyAoM.gif alt=2fRmYKyAoM width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:0"></div>
+<p>搭好环境，下一篇正式开始学习使用。</p></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
 <div class=post-info-mod>
@@ -153,7 +159,7 @@
 <a class=link-to-markdown href=/cisco_packet_tracer_install/index.md target=_blank rel="noopener noreferrer">阅读原始文档</a>
 </span></div>
 <div class=post-info-share>
-<span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装" data-hashtags="Cisco Packet Tracer"><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-hashtag="Cisco Packet Tracer"><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 WhatsApp" data-sharer=whatsapp data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Line" data-sharer=line data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装"><i class="fab fa-weibo fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Myspace" data-sharer=myspace data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装" data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=# onclick=return!1 title="分享到 Blogger" data-sharer=blogger data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装" data-description><i class="fab fa-blogger fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Evernote" data-sharer=evernote data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装"><i class="fab fa-evernote fa-fw"></i></a></span>
+<span><a href=# onclick=return!1 title="分享到 Twitter" data-sharer=twitter data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装" data-hashtags="Cisco Packet Tracer"><i class="fab fa-twitter fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Facebook" data-sharer=facebook data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-hashtag="Cisco Packet Tracer"><i class="fab fa-facebook-square fa-fw"></i></a><a href=# onclick=return!1 title="分享到 WhatsApp" data-sharer=whatsapp data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装" data-web><i class="fab fa-whatsapp fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Line" data-sharer=line data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装"><i data-svg-src=/lib/simple-icons/icons/line.min.svg></i></a><a href=# onclick=return!1 title="分享到 微博" data-sharer=weibo data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装" data-image=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211012190239.png><i class="fab fa-weibo fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Myspace" data-sharer=myspace data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装" data-description><i data-svg-src=/lib/simple-icons/icons/myspace.min.svg></i></a><a href=# onclick=return!1 title="分享到 Blogger" data-sharer=blogger data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装" data-description><i class="fab fa-blogger fa-fw"></i></a><a href=# onclick=return!1 title="分享到 Evernote" data-sharer=evernote data-url=http://wlchengg.github.io/cisco_packet_tracer_install/ data-title="Cisco Packet Tracer 学习 —— 安装"><i class="fab fa-evernote fa-fw"></i></a></span>
 </div>
 </div>
 </div>
