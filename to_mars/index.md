@@ -23,9 +23,9 @@
 
 做完登记，点击`SEND`提交我们的预定，只见眨眼功夫，我的登机牌就已生成（可以参考下各条信息的位置）：
 
-<iframe width="100%" height="40%" src="https://mars.nasa.gov/layout/embed/send-your-name/future/certificate/?cn=113919613247" frameborder="0"></iframe>
+<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/BoardingPass_MyNameOnFutureMission.png" alt="BoardingPass_MyNameOnFutureMission" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
-左联条码信息配着一幅“火星日出图”，水印着“FUTURE MARS MISSION”的计划标识，仿佛昭示着我们此行的希望和对未来的颂扬。
+左联条码信息配着一幅“火星日出图”，水印着“`FUTURE MARS MISSION`”的计划标识，仿佛昭示着我们此行的希望和对未来的颂扬。
 
 右联中间大写刻着我们所登记的名字，将承载着我们的浪漫与期盼去往这颗红色的星球。名字下方注明了我们此次旅行的出发站点（发射台）和目的地[`耶泽洛陨石坑`](https://www.nasa.gov/image-feature/jezero-crater-mars-2020s-landing-site)。
 
