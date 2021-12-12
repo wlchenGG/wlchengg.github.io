@@ -14,8 +14,22 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 
 ## 准备工作
 
-* 安装 VS Code；
-* 安装 Git；
+### 安装 VS Code
+
+### 安装 Git
+
+官方下载地址：https://git-scm.com/downloads
+
+<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211211235835.png" alt="20211211235835" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+
+打开下载的`.exe`安装包，一路`Next`即可。
+<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212000231.png" alt="20211212000231" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+
+安装完成后，在命令行窗口执行`git --version`命令，若能正确输出版本信息，则表示安装成功，如下图：
+
+<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212001357.png" alt="20211212001357" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+
+
 
 ## Hugo 安装
 
