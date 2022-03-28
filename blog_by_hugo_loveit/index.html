@@ -39,7 +39,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=http://wlchengg.github.io/blog_by_hugo_loveit/><link rel=prev href=http://wlchengg.github.io/%E8%87%AA%E7%94%A8%E8%BD%AF%E4%BB%B6%E6%B8%85%E5%8D%95/><link rel=next href=http://wlchengg.github.io/%E6%B5%8B%E8%AF%95latex/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo 搭建过程","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/"},"genre":"posts","keywords":"Hugo, 博客","wordcount":1607,"url":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/","datePublished":"2021-07-27T14:06:53+08:00","dateModified":"2021-07-27T14:06:53+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Hugo 搭建过程","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/"},"genre":"posts","keywords":"Hugo, 博客","wordcount":2022,"url":"http:\/\/wlchengg.github.io\/blog_by_hugo_loveit\/","datePublished":"2021-07-27T14:06:53+08:00","dateModified":"2021-07-27T14:06:53+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -111,8 +111,8 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author>wlcheng</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 1607 字&nbsp;
-<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 4 分钟&nbsp;</div>
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-07-27>2021-07-27</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2022 字&nbsp;
+<i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
 </div><div class=featured-image><img class=lazyload data-src=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png data-srcset="https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png, https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png 1.5x, https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png 2x" data-sizes=auto alt=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png title=https://i.loli.net/2021/09/02/tDHy82zf4b3CrIE.png height=auto width=auto></div><div class="details toc" id=toc-static kept=true>
 <div class="details-summary toc-title">
 <span>目录</span>
@@ -124,14 +124,14 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <ul>
 <li><a href=#安装-vs-code>安装 VS Code</a></li>
 <li><a href=#安装-git>安装 Git</a></li>
-</ul>
-</li>
-<li><a href=#hugo-安装>Hugo 安装</a>
+<li><a href=#安装-hugo>安装 Hugo</a>
 <ul>
 <li><a href=#下载-hugo>下载 Hugo</a></li>
 <li><a href=#添加环境变量>添加环境变量</a></li>
 <li><a href=#验证配置是否成功>验证配置是否成功</a></li>
-<li><a href=#建立站点>建立站点</a></li>
+<li><a href=#建立本地站点>建立本地站点</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href=#loveit-主题>LoveIt 主题</a>
@@ -145,6 +145,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <ul>
 <li><a href=#创建空-github-仓库>创建空 Github 仓库</a></li>
 <li><a href=#关联本地站点到仓库>关联本地站点到仓库</a></li>
+<li><a href=#进阶--通过-github-actions-自动编译部署站点>进阶 —— 通过 Github Actions 自动编译部署站点</a></li>
 </ul>
 </li>
 <li><a href=#参考>参考</a></li>
@@ -168,10 +169,11 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211211235835.png alt=20211211235835 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>打开下载的<code>.exe</code>安装包，一路<code>Next</code>即可。</p>
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212000231.png alt=20211212000231 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
-<p>安装完成后，在命令行窗口执行<code>git --version</code>命令，若能正确输出版本信息，则表示安装成功，如下图：</p>
+<p>安装完成后，在命令行窗口执行<code>git --version</code>命令，若能正确输出版本信息，则表示安装成功，如下图正确演示：</p>
 <div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212001357.png alt=20211212001357 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
-<h2 id=hugo-安装>Hugo 安装</h2>
-<h3 id=下载-hugo>下载 Hugo</h3>
+<p>若遇到提示说<code>命令不存在</code>或<code>找不到命令</code>的，可尝试重新打开命令行窗口，或检查并添加<code>git</code>主程序路径（比如我的<code>D:\Dev\Git\cmd</code>）到系统环境变量中（添加方法参考后面Hugo安装过程）后，再打开命令行窗口执行上面的命令。</p>
+<h3 id=安装-hugo>安装 Hugo</h3>
+<h4 id=下载-hugo>下载 Hugo</h4>
 <p>Hugo 包括基础版本和支持自定义样式<code>scss</code>的 <strong>extended</strong>版本。</p>
 <p>为了提高可用性，应对未来可能的自定义需求，我决定安装 <strong>Hugo extended</strong> 版本。</p>
 <p>从 <a href=https://github.com/gohugoio/hugo/releases target=_blank rel="noopener noreffer">Hugo Release</a>下载适合版本的压缩包，我的是Windows_x64。解压缩到想要安装的目录。解压出来，只有简单的一个主程序。可见，相对于 Hexo 依赖于 Node.js 及一大堆 npm 包，Hugo 的确非常的简洁。</p>
@@ -179,7 +181,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <img class=lazyload data-src=https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png data-srcset="https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png, https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png 1.5x, https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png 2x" data-sizes=auto alt=https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png width=300>
 </a><figcaption class=image-caption>Hugo 安装路径</figcaption>
 </figure>
-<h3 id=添加环境变量>添加环境变量</h3>
+<h4 id=添加环境变量>添加环境变量</h4>
 <p>将 Hugo 的主程序路径添加到系统环境变量中，这样在命令行终端中才能调用主程序执行一系列命令，之后我们就能直接在VS Code的终端中执行命令。我的安装路径为：</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -200,10 +202,10 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <div align=center><img src=https://i.loli.net/2021/07/26/2EiRPBO5IQnpH83.png alt=Blog-by-Hugo-and-LoveIt_20210726152841_2021-07-26-15-28-42 width=300 align=center></div>
 <p>双击 <strong>path</strong> 变量，点击 <strong>添加</strong>，将 Hugo 主程序路径填入，点击 <strong>确定</strong>以保存修改。</p>
 <div align=center><img src=https://i.loli.net/2021/07/26/2dwpveRYOnK7aHS.png alt=Blog-by-Hugo-and-LoveIt_20210726153824_2021-07-26-15-38-26 width=600 align=center></div>
-<h3 id=验证配置是否成功>验证配置是否成功</h3>
+<h4 id=验证配置是否成功>验证配置是否成功</h4>
 <p>VS Code 中 <code>Ctrl+Shift+` </code>，打开终端，输入 <code>hugo version</code>，若能如下图所示，无错返回版本号，则环境配置成功。</p>
 <div align=center><img src=https://i.loli.net/2021/07/26/XPCsuZNlqvgVTJr.png alt=Blog-by-Hugo-and-LoveIt_20210726154557_2021-07-26-15-45-58 width=500 align=center></div>
-<h3 id=建立站点>建立站点</h3>
+<h4 id=建立本地站点>建立本地站点</h4>
 <p>打开终端，进入想将站点源文件放置的路径，执行以下命令，其中站点名指定站点工程源文件夹的名字，按照自己的需求随便取即可，和实际的网站 url不是一个东西。执行命令后，会按指定的站点名创建站点文件夹，并在文件夹下自动初始化生成路径结构以及相关的站点文件。</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -233,7 +235,7 @@ hugo new site hugo.wlcheng.github.io
 <pre tabindex=0 class=chroma><code><span class=lnt>1
 </span></code></pre></td>
 <td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone https://github.com/dillonzq/LoveIt.git themes/LoveIt 
+<pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>git clone https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt 
 </code></pre></td></tr></table>
 </div>
 </div><h3 id=配置主题>配置主题</h3>
@@ -360,14 +362,45 @@ hugo new site hugo.wlcheng.github.io
 </code></pre></td></tr></table>
 </div>
 </div><h2 id=部署到-github-pages>部署到 Github Pages</h2>
+<p>Github Pages 即为</p>
 <h3 id=创建空-github-仓库>创建空 Github 仓库</h3>
+<p>将仓库名取为：<code>username.github.io</code></p>
+<div class="details admonition info open">
+<div class="details-summary admonition-title">
+<i class="icon fas fa-info-circle fa-fw"></i>Github 的人性化<i class="details-icon fas fa-angle-right fa-fw"></i>
+</div>
+<div class=details-content>
+<div class=admonition-content><p>Github 提供两种 Pages：</p>
+<pre><code>(1) 用户主页：以`username.github.io`作为仓库名，直接通过`username.github.io`访问；
+
+(2) 仓库主页：任意合法名称作为仓库名，通过'github.com
+</code></pre>
+</div>
+</div>
+</div>
+<p>填上仓库名；选定 <code>public</code> 仓库；不需勾选初始化选项，后续将从我们的本地仓库直接 <code>push</code> 到线上仓库中。</p>
+<p><img class=lazyload data-src=https://i.loli.net/2021/12/01/MNjSpAgWw15ZIEx.png data-srcset="https://i.loli.net/2021/12/01/MNjSpAgWw15ZIEx.png, https://i.loli.net/2021/12/01/MNjSpAgWw15ZIEx.png 1.5x, https://i.loli.net/2021/12/01/MNjSpAgWw15ZIEx.png 2x" data-sizes=auto alt=https://i.loli.net/2021/12/01/MNjSpAgWw15ZIEx.png title=20211201121402></p>
 <h3 id=关联本地站点到仓库>关联本地站点到仓库</h3>
+<p>进入本地站点路径；</p>
+<p>初始化 <code>git</code> 环境：</p>
+<p>'''</p>
+<p>git init</p>
+<p>'''</p>
+<p>安装主题：</p>
+<p>自行到Hugo选择主题后，将主题仓库克隆到<code>themes</code>路径下。此处我用<a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer">DoIt</a>主题为例：</p>
+<p>'''</p>
+<p>git submodule add github.com themes/DoIt</p>
+<p>'''</p>
+<p><img class=lazyload data-src=https://i.loli.net/2021/12/01/I5o4cDWYRS3XAsw.png data-srcset="https://i.loli.net/2021/12/01/I5o4cDWYRS3XAsw.png, https://i.loli.net/2021/12/01/I5o4cDWYRS3XAsw.png 1.5x, https://i.loli.net/2021/12/01/I5o4cDWYRS3XAsw.png 2x" data-sizes=auto alt=https://i.loli.net/2021/12/01/I5o4cDWYRS3XAsw.png title=20211201134503></p>
+<p>添加 <code>.gitignore</code> 文件到站点根目录下，写入以下内容：</p>
+<h3 id=进阶--通过-github-actions-自动编译部署站点>进阶 —— 通过 Github Actions 自动编译部署站点</h3>
 <h2 id=参考>参考</h2>
 <ul>
 <li><a href=https://hugoloveit.com/zh-cn/theme-documentation-basics/ target=_blank rel="noopener noreffer">主题文档 - 基本概念 —— Dillon —— LoveIt</a></li>
 <li><a href=https://suicablog.cobaltkiss.blue/2021/02/deploy-hugo-as-a-github-pages-project/ target=_blank rel="noopener noreffer">在 Windows 上搭建 Hugo 博客之 Github 部署填坑记</a></li>
 <li><a href=https://xn--4gq986klnp.cn/posts/hugo-github-personalblog/ target=_blank rel="noopener noreffer">Hugo+Github Pages 搭建个人博客手记萌新向</a></li>
 <li><a href=https://ednovas.xyz/2021/07/03/blog/ target=_blank rel="noopener noreffer">如何挑选博客框架、在线博客平台</a></li>
+<li><a href rel>Git 基础原理和用法</a></li>
 </ul></div><div class=post-footer id=post-footer>
 <div class=post-info>
 <div class=post-info-line>
@@ -397,7 +430,7 @@ hugo new site hugo.wlcheng.github.io
 <div id=comments></div></article></div>
 </main><footer class=footer>
 <div class=footer-container><div class=footer-line>由 <a href=https://gohugo.io/ target=_blank rel="noopener noreffer" title="Hugo 0.86.0">Hugo</a> 强力驱动 | 主题 - <a href=https://github.com/HEIGE-PCloud/DoIt target=_blank rel="noopener noreffer" title="DoIt 0.2.10"><i class="far fa-edit fa-fw"></i> DoIt</a>
-</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2021</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/wlchengg target=_blank rel="noopener noreferrer">wlcheng</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
+</div><div class=footer-line><i class="far fa-copyright fa-fw"></i><span itemprop=copyrightYear>2019 - 2022</span><span class=author itemprop=copyrightHolder>&nbsp;<a href=https://github.com/wlchengg target=_blank rel="noopener noreferrer">wlcheng</a></span>&nbsp;|&nbsp;<span class=license><a rel="license external nofollow noopener noreffer" href=https://creativecommons.org/licenses/by-nc/4.0/ target=_blank>CC BY-NC 4.0</a></span></div>
 </div></footer></div>
 <div id=fixed-buttons><a href=#back-to-top id=back-to-top-button class=fixed-button title=回到顶部>
 <i class="fas fa-arrow-up fa-fw"></i>
