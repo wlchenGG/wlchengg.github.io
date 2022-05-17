@@ -8,7 +8,7 @@
 
 首先进入我们的售票大厅：[免费领票处](https://mars.nasa.gov/participate/send-your-name/future?utm_source=iContact&utm_medium=email&utm_campaign=nasas-mars-public-engagement-team&utm_content=20211210-MarsNewsletter)
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212135139.png" alt="20211212135139" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212135139.png" alt="20211212135139" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 从上看起来是导引前台（导航栏）了，分了5个区，从左到右依次是：`名字`、`登机牌`、`地图`、`常客`、`学习`。根据颜色来看，当前应该是处于第一区的`名字`部分。对于功能大家在心里应该也有个猜测和期待。
 
@@ -19,11 +19,11 @@
 
 既然走到这里，我们不妨就做好登记，预定上这趟旅行吧！填上我们的信息：
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212142123.png" alt="20211212142123" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212142123.png" alt="20211212142123" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 做完登记，点击`SEND`提交我们的预定，只见眨眼功夫，我的登机牌就已生成（可以参考下各条信息的位置）：
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/BoardingPass_MyNameOnFutureMission.png" alt="BoardingPass_MyNameOnFutureMission" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/BoardingPass_MyNameOnFutureMission.png" alt="BoardingPass_MyNameOnFutureMission" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 左联条码信息配着一幅“火星日出图”，水印着“`FUTURE MARS MISSION`”的计划标识，仿佛昭示着我们此行的希望和对未来的颂扬。
 
@@ -37,7 +37,7 @@ P.S. 为了接受来自世界各地的人民，NASA航空公司充分考虑到�
 
 即已经预定好登机牌，接下来我们就到`登机牌`区看看，是不是能够查到我们的登机牌了呢。
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212144920.png" alt="20211212144920" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212144920.png" alt="20211212144920" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 填好预定时的信息，点击下面的`FIND`，就能查到我们的登机牌信息了，可以再次下载、打印或者嵌入网页。
 
@@ -45,7 +45,7 @@ P.S. 为了接受来自世界各地的人民，NASA航空公司充分考虑到�
 
 总算来到`地图`区了，让我们来看看：
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212145449.png" alt="20211212145449" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212145449.png" alt="20211212145449" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 一眼就盯到我们泱泱种花家深沉的颜色，再看右侧的排名，果然咱高居榜首，竟然已经有400多万的先行者👍。在看排行榜底部，截止我的购票日期，这购票人数已达到2000多万。但相对于全球79亿人来说还只是极少数，这么说我们也已经走在了世界前`3‰`列了呢😄。
 
@@ -53,9 +53,9 @@ P.S. 为了接受来自世界各地的人民，NASA航空公司充分考虑到�
 
 常客常客，应该是指的第一次的火星之旅吧。我来查一查是否还有曾经的我的名字：
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212151033.png" alt="20211212151033" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212151033.png" alt="20211212151033" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212151556.png" alt="20211212151556" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212151556.png" alt="20211212151556" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 嗯，很棒！2019年预定，2020年7月20日毅力号发射，2021年2月18日登陆耶泽洛陨石坑。
 
@@ -66,7 +66,7 @@ P.S. 为了接受来自世界各地的人民，NASA航空公司充分考虑到�
 
 <div align="center" ><img src="https://mars.nasa.gov/system/news_items/main_images/8872_Perseverance_SYN_chip_on_Mars_30fps_optimized.gif" alt="20211212151821" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212153141.png" alt="20211212153141" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212153141.png" alt="20211212153141" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 
 就在这小小的悬架上面，我们的名字静静地躺着，仰望着满天星河

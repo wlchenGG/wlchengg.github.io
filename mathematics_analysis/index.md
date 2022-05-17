@@ -88,11 +88,12 @@ $$R_n(x) = \frac{{f}^{(n+1)}(\xi)}{(n+1)!}x^{n+1}, (0<x<\xi).$$
 
 **定理1（函数单调性与导数数正负的关系）**
 若$f(x)$在$[a,b]$连续，在$(a,b)$可导，则$f(x)$在$[a,b]$单调增加（或单调减少）的充要条件为在$(a,b)$内$f'(x) \geq 0$ （或 $f'(x) \leq 0$）。用符号表示为
+
 $$
-\begin{array}{c}
-f(x)在[a,b] \nearrow \Longleftrightarrow f'(x) \geq 0, \\
-f(x)在[a,b] \searrow \Longleftrightarrow f'(x) \leq 0.
-\end{array}
+\begin{aligned}
+f(x)在[a,b]上 \nearrow \Longleftrightarrow f'(x) \geq 0, \newline
+f(x)在[a,b]上 \searrow \Longleftrightarrow f'(x) \leq 0.
+\end{aligned}
 $$
 
 #### 函数的极大值和极小值

@@ -20,14 +20,14 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 
 官方下载地址：https://git-scm.com/downloads
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211211235835.png" alt="20211211235835" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211211235835.png" alt="20211211235835" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 打开下载的`.exe`安装包，一路`Next`即可。
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212000231.png" alt="20211212000231" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212000231.png" alt="20211212000231" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 安装完成后，在命令行窗口执行`git --version`命令，若能正确输出版本信息，则表示安装成功，如下图正确演示：
 
-<div align="center" ><img src="https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212001357.png" alt="20211212001357" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212001357.png" alt="20211212001357" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 若遇到提示说`命令不存在`或`找不到命令`的，可尝试重新打开命令行窗口，或检查并添加`git`主程序路径（比如我的`D:\Dev\Git\cmd`）到系统环境变量中（添加方法参考后面Hugo安装过程）后，再打开命令行窗口执行上面的命令。
 

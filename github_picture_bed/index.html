@@ -17,9 +17,9 @@
 <meta name=apple-mobile-web-app-title content="DoIt">
 <meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=http://wlchengg.github.io/github_picture_bed/><link rel=prev href=http://wlchengg.github.io/to_mars/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=http://wlchengg.github.io/github_picture_bed/><link rel=prev href=http://wlchengg.github.io/to_mars/><link rel=next href=http://wlchengg.github.io/computational_complexity/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Github 图床搭建及使用","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/github_picture_bed\/"},"genre":"posts","keywords":"Github, Markdown, 图床, Typora","wordcount":2246,"url":"http:\/\/wlchengg.github.io\/github_picture_bed\/","datePublished":"2022-05-06T18:42:12+08:00","dateModified":"2022-05-06T18:42:12+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Github 图床搭建及使用","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/github_picture_bed\/"},"genre":"posts","keywords":"Github, Markdown, 图床, Typora","wordcount":2249,"url":"http:\/\/wlchengg.github.io\/github_picture_bed\/","datePublished":"2022-05-06T18:42:12+08:00","dateModified":"2022-05-06T18:42:12+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -91,7 +91,7 @@
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author>wlcheng</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-05-06>2022-05-06</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2022-05-06>2022-05-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2246 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-05-06>2022-05-06</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2022-05-06>2022-05-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2249 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept=true>
 <div class="details-summary toc-title">
@@ -116,60 +116,60 @@
 <p>Github仓库支持<code>1G</code>存储容量。</p>
 <h3 id=创建github仓库>创建Github仓库</h3>
 <p>在Github主页点击<code>New Repository</code>开始创建仓库。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506185400.png alt=20220506185400 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506185400.png alt=20220506185400 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>基本设置：<code>仓库名</code>，<code>描述</code>，仓库类型<code>public</code>，勾选<code>Add a README file</code>，其他保持默认即可。然后点击<code>Create repo</code>。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506190127.png alt=20220506190127 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506190127.png alt=20220506190127 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>然后网页会自动跳转到我们刚刚创建的仓库主页。我们要在这个仓库下面创建一个文件夹用于以后存放图片（当然不创建文件夹，直接将图片上传到仓库个目录也可以）。点击<code>Add file</code>下的<code>Create new file</code>。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506192016.png alt=20220506192016 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506192016.png alt=20220506192016 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>跳转到以下页面，我们按照图中方式依次输入<code>foldername</code>，<code>/</code>，<code>filename</code>，名字自己任取就行。因为这里不支持只创建文件夹，因此需要给出一个文件名。点击<code>Commit new file</code>提交更改。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506192200.png alt=20220506192200 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506192200.png alt=20220506192200 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <h3 id=创建repo-token>创建repo token</h3>
 <p>token 用于给后面我们用 PicGo 访问仓库并上传图片赋予权限。</p>
 <p>首先在自己的头像下点击<code>Settings</code>。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506193458.png alt=20220506193458 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506193458.png alt=20220506193458 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>在左侧边栏往下找到并打开<code>Developer settings</code></p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506194000.png alt=20220506194000 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506194000.png alt=20220506194000 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>如下图，点击左侧边栏<code>Personal access token</code>，然后点击<code>Generate new token</code></p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506232019743.png alt=image-20220506232019743 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506232019743.png alt=image-20220506232019743 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>此步因为要赋予权限，因此会弹出窗口验证账号密码，填入后<code>Confirm password</code>即可。
 然后就会到以下的 token 设置界面，按照图中所述进行创建即可。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506195204.png alt=20220506195204 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506195204.png alt=20220506195204 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>成功生成token后，马上复制下来，之后配置PicGo会用到。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506232149655.png alt=image-20220506232149655 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506232149655.png alt=image-20220506232149655 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>通过以上过程，我们的图床算是搭建完毕了，接下来就要利用 PicGo 实现从本地上传图片，并获取图片链接。</p>
 <h2 id=配置picgo>配置PicGo</h2>
 <p>官方网站：<a href=https://molunerfinn.com/PicGo/ target=_blank rel="noopener noreffer">PicGo</a>。此处下载稳定版本的 <a href=https://mirror.ghproxy.com/https://github.com/Molunerfinn/PicGo/releases/download/v2.3.0/PicGo-Setup-2.3.0-x64.exe target=_blank rel="noopener noreffer">PicGo</a>。下载后，按下图安装即可</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506200746.png alt=20220506200746 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506200746.png alt=20220506200746 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>启动后，直接左键单击托盘图标，打开PicGo设置界面</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506200941.png alt=20220506200941 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506200941.png alt=20220506200941 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>如下图，左侧展开<code>图床设置</code>，点击<code>Github图床</code>，右侧填入相关设置信息。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506201703.png alt=20220506201703 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506201703.png alt=20220506201703 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>以上填写各项的说明：</p>
 <p>对于<code>仓库名</code>，<code>分支名</code>，<code>存储路径</code>这几项，我们已经通过前面的步骤创建了，打开如下的仓库主页面，就可以知道。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506202323.png alt=20220506202323 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506202323.png alt=20220506202323 width=90% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>而对于<code>token</code>，我们前面创建并已经复制了的，粘贴进来就可以。</p>
 <p>对于自定义域名，</p>
 <p>我们上传图片的Github官方链接是：
 <code>https://raw.githubusercontent.com/用户名/仓库名@分支名</code>，可以直接通过此链接进行访问。但因为网速问题，我们往往通过CDN内容服务器进行访问，相当于是在全球各地建立内容缓存服务器，在访问内容时，能从就近的服务器上快速获取到内容。</p>
 <p>使用jsDilivr作为CDN为Github提供加速。只需要按照以下格式填入上面的<code>自定义域名</code>框中就行：
-<code>https://cdn.jsdelivr.net/gh/用户名/仓库名@分支名</code></p>
+<code>https://fastly.jsdelivr.net/gh/用户名/仓库名@分支名</code></p>
 <p><font color=#FF0000>那么对于我的设置，我这里应该填入的是：</font>
-<code>https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main</code></p>
+<code>https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main</code></p>
 <p>填好以上信息后，点击确定即可设置成功。</p>
 <p>我们可以测试一下，在上传区，改为 Github图床，然后上传一张图片，稍作等待，提示上传成功后，将自动复制创建好的链接（这个链接默认为markdown的，后续我们会自定义一下）。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506205131.png alt=20220506205131 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506205131.png alt=20220506205131 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>以下是我测试生成的默认markdown格式链接，你可以将其放入markdown文件中测试一下，是一张可正常访问的图片，说明能够正常上传。</p>
-<p><code>![](https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg)</code></p>
+<p><code>![](https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg)</code></p>
 <h2 id=配置typora>配置Typora</h2>
 <p>打开Typora，按照下图设置。其中第7步选择自己安装PicGo的位置。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506220821.png alt=20220506220821 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"><br><div style="color:orange;border-bottom:1px solid #d9d9d9;display:inline-block;color:#777;font-size:90%;padding:1px">此处插入标题</div></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506220821.png alt=20220506220821 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"><br><div style="color:orange;border-bottom:1px solid #d9d9d9;display:inline-block;color:#777;font-size:90%;padding:1px">此处插入标题</div></div>
 <p>测试一下，在Typora编辑界面，粘贴或者拖入图片时，将自动以Markdown格式插入图片，从链接可以看出图像已经上传。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506224317.png alt=20220506224317 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506224317.png alt=20220506224317 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>我们手头已经有很多文档，图片都是本地保存的怎么办呢。只需要完成以上设置后，通过以下选项，就可以将当前文档中的所有本地图片上传到图床中，并会自动将文档中的图片链接全部替换为图床链接。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506230959338.png alt=image-20220506230959338 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506230959338.png alt=image-20220506230959338 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <h2 id=自定义链接格式控制图片样式可选>自定义链接格式控制图片样式（可选）</h2>
 <p>打开PicGo，按照以下步骤设置</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506205704.png alt=20220506205704 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506205704.png alt=20220506205704 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>其中，自定义链接的格式（这是一段HTML代码，我们用来美化图片的显示样式。
 我们给出如下几种，自行选择所需，将其粘贴到上图4的框中即可。</p>
 <style>table th:first-of-type{width:16%}table th:nth-of-type(2){width:16%}table th:nth-of-type(3){width:68%}</style>
@@ -184,37 +184,37 @@
 <tbody>
 <tr>
 <td style=text-align:center>控制大小</td>
-<td style=text-align:center><div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120></div></td>
+<td style=text-align:center><div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120></div></td>
 <td><code>&lt;div align="center" >&lt;img src="$url" alt="$fileName" width="75%"/>&lt;/div></code></td>
 </tr>
 <tr>
 <td style=text-align:center>圆角处理</td>
-<td style=text-align:center><div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style=border-radius:10px></div></td>
+<td style=text-align:center><div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style=border-radius:10px></div></td>
 <td><code>&lt;div align="center" >&lt;img src="$url" alt="$fileName" width="75%" style="border-radius:10px;"/>&lt;/div></code></td>
 </tr>
 <tr>
 <td style=text-align:center>图片阴影</td>
-<td style=text-align:center><div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)"></div></td>
+<td style=text-align:center><div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)"></div></td>
 <td><code>&lt;div align="center" >&lt;img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/>&lt;/div></code></td>
 </tr>
 <tr>
 <td style=text-align:center>阴影+圆角</td>
-<td style=text-align:center><div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div></td>
+<td style=text-align:center><div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div></td>
 <td><code>&lt;div align="center" >&lt;img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/>&lt;/div></code></td>
 </tr>
 <tr>
 <td style=text-align:center>阴影+标题</td>
-<td style=text-align:center><div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)"><br><div style="color:orange;border-bottom:1px solid #d9d9d9;display:inline-block;color:#777;font-size:90%;padding:1px">此处插入标题</div></div></td>
+<td style=text-align:center><div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)"><br><div style="color:orange;border-bottom:1px solid #d9d9d9;display:inline-block;color:#777;font-size:90%;padding:1px">此处插入标题</div></div></td>
 <td><code>&lt;div align="center" >&lt;img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/>&lt;br>&lt;div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题&lt;/div>&lt;/div></code></td>
 </tr>
 <tr>
 <td style=text-align:center>圆角+标题</td>
-<td style=text-align:center><div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style=border-radius:10px><br><div style="color:orange;border-bottom:1px solid #d9d9d9;display:inline-block;color:#777;font-size:90%;padding:1px">此处插入标题</div></div></td>
+<td style=text-align:center><div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style=border-radius:10px><br><div style="color:orange;border-bottom:1px solid #d9d9d9;display:inline-block;color:#777;font-size:90%;padding:1px">此处插入标题</div></div></td>
 <td><code>&lt;div align="center" >&lt;img src="$url" alt="$fileName" width="75%" style="border-radius:10px;"/>&lt;br>&lt;div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题&lt;/div>&lt;/div></code></td>
 </tr>
 <tr>
 <td style=text-align:center>阴影+圆角+标题</td>
-<td style=text-align:center><div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"><br><div style="color:orange;border-bottom:1px solid #d9d9d9;display:inline-block;color:#777;font-size:90%;padding:1px">此处插入标题</div></div></td>
+<td style=text-align:center><div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg alt=wallpaper19 width=120 style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"><br><div style="color:orange;border-bottom:1px solid #d9d9d9;display:inline-block;color:#777;font-size:90%;padding:1px">此处插入标题</div></div></td>
 <td><code>&lt;div align="center" >&lt;img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/>&lt;br>&lt;div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题&lt;/div>&lt;/div></code></td>
 </tr>
 </tbody>
@@ -224,10 +224,10 @@
 <p><code>border-radius:10px;</code>：用来控制圆角大小。</p>
 <p><code>此处插入标题</code>：为图片设置标题。</p>
 <p>配置完以上自定义链接格式后，如下图，在PicGo上传界面，选定<code>custom</code>，之后就可以退出PicGo了。</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506220650.png alt=20220506220650 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506220650.png alt=20220506220650 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <p>在Typora中，同样是拖入或者粘贴图片时，就会获取以上设置的链接到剪切板中，只需要粘贴到Typora中即可。</p>
 <p>这里有一个问题是，Typora 粘贴图片时，始终会默认粘贴Markdown格式的图片链接，如前一小节所示。因此，我们要将Typora自动生成的删除，然后将剪切板中的自定义格式链接粘贴进去即可。如下图所示：</p>
-<div align=center><img src=https://cdn.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506231341704.png alt=image-20220506231341704 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
+<div align=center><img src=https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506231341704.png alt=image-20220506231341704 width=75% style="box-shadow:0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);border-radius:10px"></div>
 <h2 id=配置vs-code>配置VS Code</h2>
 <p>TODO: 后补</p>
 <p><strong>参考：</strong></p>
@@ -255,7 +255,8 @@
 <span><a href=# onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
 </section>
 </div>
-<div class=post-nav><a href=/to_mars/ class=prev rel=prev title=以我之名，去火星旅行><i class="fas fa-angle-left fa-fw"></i>以我之名，去火星旅行</a></div>
+<div class=post-nav><a href=/to_mars/ class=prev rel=prev title=以我之名，去火星旅行><i class="fas fa-angle-left fa-fw"></i>以我之名，去火星旅行</a>
+<a href=/computational_complexity/ class=next rel=next title=计算复杂度>计算复杂度<i class="fas fa-angle-right fa-fw"></i></a></div>
 </div>
 <div id=comments></div></article></div>
 </main><footer class=footer>
