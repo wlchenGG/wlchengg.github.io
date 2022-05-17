@@ -1,7 +1,6 @@
 # Github 图床搭建及使用
 
 
-
 ## 搭建Github图床
 
 Github仓库支持`1G`存储容量。
@@ -79,7 +78,19 @@ token 用于给后面我们用 PicGo 访问仓库并上传图片赋予权限。
 `https://raw.githubusercontent.com/用户名/仓库名@分支名`，可以直接通过此链接进行访问。但因为网速问题，我们往往通过CDN内容服务器进行访问，相当于是在全球各地建立内容缓存服务器，在访问内容时，能从就近的服务器上快速获取到内容。
 
 使用jsDilivr作为CDN为Github提供加速。只需要按照以下格式填入上面的`自定义域名`框中就行：
+
+~~`https://cdn.jsdelivr.net/gh/用户名/仓库名@分支名`~~
+
+由于`cdn.jsdelivr.net`遭到 DNS 污染 ([Luminous’ Home](https://luotianyi.vc/6295.html))，暂将`自定义域名`更换为：
+
 `https://fastly.jsdelivr.net/gh/用户名/仓库名@分支名`
+
+或者其他备用：
+
+> CloudFlare：test1.jsdelivr.net
+> CloudFlare：testingcf.jsdelivr.net
+> Fastly：fastly.jsdelivr.net
+> GCORE：gcore.jsdelivr.net
 
 <font color=#FF0000>那么对于我的设置，我这里应该填入的是：</font>
 `https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main`

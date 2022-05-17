@@ -17,9 +17,9 @@
 <meta name=apple-mobile-web-app-title content="DoIt">
 <meta name=theme-color content="#ffffff"><meta name=msapplication-TileColor content="#da532c"><link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
-<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=http://wlchengg.github.io/github_picture_bed/><link rel=prev href=http://wlchengg.github.io/to_mars/><link rel=next href=http://wlchengg.github.io/computational_complexity/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=http://wlchengg.github.io/github_picture_bed/><link rel=prev href=http://wlchengg.github.io/to_mars/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Github 图床搭建及使用","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/github_picture_bed\/"},"genre":"posts","keywords":"Github, Markdown, 图床, Typora","wordcount":2249,"url":"http:\/\/wlchengg.github.io\/github_picture_bed\/","datePublished":"2022-05-06T18:42:12+08:00","dateModified":"2022-05-06T18:42:12+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"Github 图床搭建及使用","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/github_picture_bed\/"},"genre":"posts","keywords":"Github, Markdown, 图床, Typora","wordcount":2457,"url":"http:\/\/wlchengg.github.io\/github_picture_bed\/","datePublished":"2022-05-06T18:42:12+08:00","dateModified":"2022-05-06T18:42:12+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -91,7 +91,7 @@
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author>wlcheng</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-05-06>2022-05-06</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2022-05-06>2022-05-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2249 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2022-05-06>2022-05-06</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2022-05-06>2022-05-06</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2457 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 5 分钟&nbsp;</div>
 </div><div class="details toc" id=toc-static kept=true>
 <div class="details-summary toc-title">
@@ -151,8 +151,17 @@
 <p>对于自定义域名，</p>
 <p>我们上传图片的Github官方链接是：
 <code>https://raw.githubusercontent.com/用户名/仓库名@分支名</code>，可以直接通过此链接进行访问。但因为网速问题，我们往往通过CDN内容服务器进行访问，相当于是在全球各地建立内容缓存服务器，在访问内容时，能从就近的服务器上快速获取到内容。</p>
-<p>使用jsDilivr作为CDN为Github提供加速。只需要按照以下格式填入上面的<code>自定义域名</code>框中就行：
-<code>https://fastly.jsdelivr.net/gh/用户名/仓库名@分支名</code></p>
+<p>使用jsDilivr作为CDN为Github提供加速。只需要按照以下格式填入上面的<code>自定义域名</code>框中就行：</p>
+<p><del><code>https://cdn.jsdelivr.net/gh/用户名/仓库名@分支名</code></del></p>
+<p>由于<code>cdn.jsdelivr.net</code>遭到 DNS 污染 (<a href=https://luotianyi.vc/6295.html target=_blank rel="noopener noreffer">Luminous’ Home</a>)，暂将<code>自定义域名</code>更换为：</p>
+<p><code>https://fastly.jsdelivr.net/gh/用户名/仓库名@分支名</code></p>
+<p>或者其他备用：</p>
+<blockquote>
+<p>CloudFlare：test1.jsdelivr.net
+CloudFlare：testingcf.jsdelivr.net
+Fastly：fastly.jsdelivr.net
+GCORE：gcore.jsdelivr.net</p>
+</blockquote>
 <p><font color=#FF0000>那么对于我的设置，我这里应该填入的是：</font>
 <code>https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main</code></p>
 <p>填好以上信息后，点击确定即可设置成功。</p>
@@ -255,8 +264,7 @@
 <span><a href=# onclick=window.history.back()>返回</a></span>&nbsp;|&nbsp;<span><a href=/>主页</a></span>
 </section>
 </div>
-<div class=post-nav><a href=/to_mars/ class=prev rel=prev title=以我之名，去火星旅行><i class="fas fa-angle-left fa-fw"></i>以我之名，去火星旅行</a>
-<a href=/computational_complexity/ class=next rel=next title=计算复杂度>计算复杂度<i class="fas fa-angle-right fa-fw"></i></a></div>
+<div class=post-nav><a href=/to_mars/ class=prev rel=prev title=以我之名，去火星旅行><i class="fas fa-angle-left fa-fw"></i>以我之名，去火星旅行</a></div>
 </div>
 <div id=comments></div></article></div>
 </main><footer class=footer>
