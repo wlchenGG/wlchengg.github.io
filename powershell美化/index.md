@@ -5,6 +5,8 @@
 
 <!--more-->
 
+[toc]
+
 ### 安装 Windows Terminal
 
 可以在微软商店 (Microsoft Store) 搜索 `Windows Terminal` 安装。
@@ -25,6 +27,16 @@
 
 ### 安装 PowerShell
 
+#### (更新) 从 Microsoft Store 安装
+
+微软商城搜索 [PowerShell Preview](https://www.microsoft.com/store/productId/9P95ZZKTNRN4) ，安装即可。官方渠道，可以自动更新，无需重复配置环境。
+
+安装完成后，重新打开
+
+#### 从 Github 下载安装
+
+采用此种方式的话，之后需要自己手动下载新版本安装包，并重新进行后续的美化配置。
+
 船新版本在哪里？当然看准官方发布渠道，我选了最新预览版：[PowerShell](https://github.com/PowerShell/PowerShell/releases/tag/v7.2.0-preview.8)
 
 可以观察到，曾经的PowerShell 全名为 `Windows PowerShell`，但是现在去掉了前面的`Windows`，只留`PowerShell`一词；另外发布页的 `Assets`中也确实提供了各种平台的版本。这无疑是名副其实的跨平台了。
@@ -37,9 +49,13 @@
 
 #### 添加 PowerShell 到 Terminal
 
+> 如果前面从Microsoft Store安装的PowerShell，一般会自动添加到 Temianl 中。如果没有的话，按照下面步骤自行添加即可。
+
 打开 Terminal，点开菜单栏右侧下拉菜单，点击`设置`；或者直接按快捷键 `Ctrl + ,`，调出设置界面，按照下图步骤添加我们安装的 PowerShell 到Terminal中：
 
 <div align="center"><img src="https://i.loli.net/2021/08/19/6aWpghFBPXd4Djk.png" alt="20210819233300" width="600" align="center"/></div>
+
+> 从 Microsoft Store 安装的 PowerShell，安装目录为：`"C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShellPreview_8wekyb3d8bbwe\pwsh.exe"`，将此目录添加到上图的`命令行`位置即可。
 
 注意添加完后，点击`保存`。
 
@@ -53,9 +69,9 @@ Terminal无需重启即可即时更新配置，从下拉菜单中看到 PowerShe
 
 #### 安装 on-my-posh
 
-打开 Terminal，然后打开一个 PowerShell 窗口。
+方法一：（更新）直接在 Microsoft Store 中搜索 `oh-my-posh` 并安装。
 
-命令行中执行以下命令安装 oh-my-posh 模块
+方法二：打开 Terminal，然后打开一个 PowerShell 窗口。命令行中执行以下命令安装 oh-my-posh 模块：
 
 ```powershell
 Install-Module oh-my-posh -Scope CurrentUser
@@ -89,6 +105,13 @@ Set-PoshPrompt -Theme agnosterplus # 此处将agnosterplus替换为自己选主�
 ```
 
 <div align="center"><img src="https://i.loli.net/2021/08/20/dR6Zeak38JIFb2U.png" alt="20210820015214" width="600" align="center"/></div>
+
+如果从 Microsoft Store 安装的 `oh-my-posh`，则在以上脚本文件中输入以下命令：
+
+```powershell
+oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\agnosterplus.omp.json" | Invoke-Expression 
+# 此处将agnosterplus替换为自己选的主题即可
+```
 
 之后重启即可看到效果。
 
@@ -134,6 +157,9 @@ VS Code 内按快捷键 `` Ctrl + Shift + ` ``，则在编辑窗口下面会打�
 
 <div align="center"><img src="https://i.loli.net/2021/08/20/tEZuRs32vFoNljz.png" alt="20210820202519" width="600" align="center"/></div>
 
+> 如果是从Micro Store安装的 PowserShell，上图中的 `path` 字段为：
+
+
 通过以上操作，我们已经为终端窗口添加了新的 PowerShell。接下来将其设置为默认打开。
 
 仍然`Ctrl + ,`打开设置，搜索`Terminal`，找到`Terminal > Integrated > Default Profile: Windows`项，下拉选项中选择我们上一步添加的 PowerShell 的名字`PowerShell 7 pre`。
@@ -155,4 +181,7 @@ VS Code 内按快捷键 `` Ctrl + Shift + ` ``，则在编辑窗口下面会打�
 - [oh-my-push 文档](https://ohmyposh.dev/docs/pwsh)
 - [Using Visual Studio Code for PowerShell Development - Microsoft](https://docs.microsoft.com/en-us/powershell/scripting/dev-cross-plat/vscode/using-vscode?view=powershell-7.2#adding-your-own-powershell-paths-to-the-session-menu)
 - [VS Code Integrated Terminal](https://code.visualstudio.com/docs/editor/integrated-terminal#_configuring-profiles)
+- [再谈 Windows Terminal (终端) 主题和字体美化，Oh-My-Posh、Terminal-Icons、Posh-git](https://www.cnblogs.com/taylorshi/p/16482694.html)
+- [Windows Terminal 美化 (oh-my-posh)](https://www.cnblogs.com/xiaorang/articles/windows_terminal_oh_my_posh.html)
+
 
