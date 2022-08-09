@@ -19,7 +19,7 @@
 <link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
 <link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link rel=canonical href=http://wlchengg.github.io/powershell%E7%BE%8E%E5%8C%96/><link rel=prev href=http://wlchengg.github.io/pdftoolbox/><link rel=next href=http://wlchengg.github.io/word%E5%8E%8B%E7%BC%A9/><link rel=stylesheet href=/lib/normalize/normalize.min.css><link rel=stylesheet href=/css/style.min.css><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/fontawesome-free/all.min.css>
 <noscript><link rel=stylesheet href=/lib/fontawesome-free/all.min.css></noscript><link rel=preload as=style onload="this.onload=null,this.rel='stylesheet'" href=/lib/animate/animate.min.css>
-<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"PowerShell美化","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/powershell%E7%BE%8E%E5%8C%96\/"},"genre":"posts","keywords":"PowerShell, 美化, Terminal","wordcount":2833,"url":"http:\/\/wlchengg.github.io\/powershell%E7%BE%8E%E5%8C%96\/","datePublished":"2021-08-19T17:40:30+08:00","dateModified":"2021-08-19T17:40:30+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
+<noscript><link rel=stylesheet href=/lib/animate/animate.min.css></noscript><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","headline":"PowerShell美化","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"http:\/\/wlchengg.github.io\/powershell%E7%BE%8E%E5%8C%96\/"},"genre":"posts","keywords":"PowerShell, 美化, Terminal","wordcount":2957,"url":"http:\/\/wlchengg.github.io\/powershell%E7%BE%8E%E5%8C%96\/","datePublished":"2021-08-19T17:40:30+08:00","dateModified":"2021-08-19T17:40:30+08:00","publisher":{"@type":"Organization","name":""},"author":{"@type":"Person","name":"wlcheng"},"description":""}</script></head>
 <body header-desktop=fixed header-mobile=auto><script type=text/javascript>function setTheme(a){document.body.setAttribute('theme',a)}function saveTheme(a){window.localStorage&&localStorage.setItem('theme',a)}function getMeta(b){const a=document.getElementsByTagName('meta');for(let c=0;c<a.length;c++)if(a[c].getAttribute('name')===b)return a[c];return''}if(window.localStorage&&localStorage.getItem('theme')){let a=localStorage.getItem('theme');a==='light'||a==='dark'||a==='black'?setTheme(a):window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light')}else'auto'==='light'||'auto'==='dark'||'auto'==='black'?(setTheme('auto'),saveTheme('auto')):(saveTheme('auto'),window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?setTheme('dark'):setTheme('light'));let themeColorMeta=getMeta('theme-color');document.body.getAttribute('theme')!='light'&&(themeColorMeta.content='#000000')</script>
 <div id=back-to-top></div>
 <div id=mask></div><div class=wrapper><header class=desktop id=header-desktop>
@@ -91,7 +91,7 @@
 <div class=post-meta-line>
 <span class=post-author><i class="author fas fa-user-circle fa-fw"></i><a href=https://github.com/wlchengg title=Author target=_blank rel="noopener noreffer author" class=author>wlcheng</a>
 </span></div>
-<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-19>2021-08-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-08-19>2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2833 字&nbsp;
+<div class=post-meta-line><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime=2021-08-19>2021-08-19</time>&nbsp;<i class="far fa-edit fa-fw"></i>&nbsp;<time datetime=2021-08-19>2021-08-19</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;约 2957 字&nbsp;
 <i class="far fa-clock fa-fw"></i>&nbsp;预计阅读 6 分钟&nbsp;</div>
 </div><div class=featured-image><img class=lazyload data-src=https://i.loli.net/2021/08/20/Z1vNFtc8eIz5fW9.png data-srcset="https://i.loli.net/2021/08/20/Z1vNFtc8eIz5fW9.png, https://i.loli.net/2021/08/20/Z1vNFtc8eIz5fW9.png 1.5x, https://i.loli.net/2021/08/20/Z1vNFtc8eIz5fW9.png 2x" data-sizes=auto alt=https://i.loli.net/2021/08/20/Z1vNFtc8eIz5fW9.png title=https://i.loli.net/2021/08/20/Z1vNFtc8eIz5fW9.png height=auto width=auto></div><div class="details toc" id=toc-static kept=true>
 <div class="details-summary toc-title">
@@ -141,7 +141,7 @@
 <h3 id=安装-powershell>安装 PowerShell</h3>
 <h4 id=更新-从-microsoft-store-安装>(更新) 从 Microsoft Store 安装</h4>
 <p>微软商城搜索 <a href=https://www.microsoft.com/store/productId/9P95ZZKTNRN4 target=_blank rel="noopener noreffer">PowerShell Preview</a> ，安装即可。官方渠道，可以自动更新，无需重复配置环境。</p>
-<p>安装完成后，重新打开</p>
+<p>安装完成后，重新打开 Terminal。</p>
 <h4 id=从-github-下载安装>从 Github 下载安装</h4>
 <p>采用此种方式的话，之后需要自己手动下载新版本安装包，并重新进行后续的美化配置。</p>
 <p>船新版本在哪里？当然看准官方发布渠道，我选了最新预览版：<a href=https://github.com/PowerShell/PowerShell/releases/tag/v7.2.0-preview.8 target=_blank rel="noopener noreffer">PowerShell</a></p>
@@ -242,7 +242,7 @@
 <p>之后在打开的<code>settings.json</code>文件下，在<code>terminal.integrated.profiles.windows</code>项内按照以下红色框中代码的格式添加自己的 PowerShell 条目，其中的<code>PowerShell 7 pre</code>替换为自拟名字即可，<code>path</code>项内的路径替换为自己的 PowerShell 安装路径。然后<strong>保存</strong>并关闭文件。</p>
 <div align=center><img src=https://i.loli.net/2021/08/20/tEZuRs32vFoNljz.png alt=20210820202519 width=600 align=center></div>
 <blockquote>
-<p>如果是从Micro Store安装的 PowserShell，上图中的 <code>path</code> 字段为：</p>
+<p>如果是从Microsoft Store安装的 PowserShell，上图中的 <code>path</code> 字段为：<code>"C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShellPreview_8wekyb3d8bbwe\pwsh.exe"</code></p>
 </blockquote>
 <p>通过以上操作，我们已经为终端窗口添加了新的 PowerShell。接下来将其设置为默认打开。</p>
 <p>仍然<code>Ctrl + ,</code>打开设置，搜索<code>Terminal</code>，找到<code>Terminal > Integrated > Default Profile: Windows</code>项，下拉选项中选择我们上一步添加的 PowerShell 的名字<code>PowerShell 7 pre</code>。</p>

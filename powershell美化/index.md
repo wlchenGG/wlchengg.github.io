@@ -31,7 +31,7 @@
 
 微软商城搜索 [PowerShell Preview](https://www.microsoft.com/store/productId/9P95ZZKTNRN4) ，安装即可。官方渠道，可以自动更新，无需重复配置环境。
 
-安装完成后，重新打开
+安装完成后，重新打开 Terminal。
 
 #### 从 Github 下载安装
 
@@ -157,7 +157,7 @@ VS Code 内按快捷键 `` Ctrl + Shift + ` ``，则在编辑窗口下面会打�
 
 <div align="center"><img src="https://i.loli.net/2021/08/20/tEZuRs32vFoNljz.png" alt="20210820202519" width="600" align="center"/></div>
 
-> 如果是从Micro Store安装的 PowserShell，上图中的 `path` 字段为：
+> 如果是从Microsoft Store安装的 PowserShell，上图中的 `path` 字段为：`"C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShellPreview_8wekyb3d8bbwe\pwsh.exe"`
 
 
 通过以上操作，我们已经为终端窗口添加了新的 PowerShell。接下来将其设置为默认打开。
