@@ -5,8 +5,6 @@
 
 <!--more-->
 
-[toc]
-
 ### 安装 Windows Terminal
 
 可以在微软商店 (Microsoft Store) 搜索 `Windows Terminal` 安装。

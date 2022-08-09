@@ -2,15 +2,15 @@
 
 
 
-记录基于`Hugo`静态博客建站工具 和`LoveIt`主题的个人博客过程，作为备忘。`VS Code`作为博客编辑、站点部署集成环境，站点维护仍然采用`Github Pages`。
+记录基于`Hugo`静态博客建站工具 和`LoveIt`主题（已换成衍生的`DoIt`）的个人博客过程，作为备忘。`VS Code`作为博客编辑、站点部署集成环境，站点维护仍然采用`Github Pages`。
+
+<!--more-->
 
 {{< admonition info "LoveIt 换成 DoIt" true >}}
 由于 LoveIt 原作者已长期未维护，[HEIGE-PCloud](https://github.com/HEIGE-PCloud) 基于 LoveIt 的新主题[DoIt](https://github.com/HEIGE-PCloud/DoIt)主题，并维持着更新。致敬∠(°ゝ°)。
 
 DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 {{< /admonition >}}
-
-<!--more-->
 
 ## 准备工作
 
@@ -23,7 +23,7 @@ DoIt 的安装配置同 LoveIt，因此此文档仍然可参考。
 <div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211211235835.png" alt="20211211235835" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 打开下载的`.exe`安装包，一路`Next`即可。
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212000231.png" alt="20211212000231" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20211212000231.png" alt="20211212000231" width="500" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 安装完成后，在命令行窗口执行`git --version`命令，若能正确输出版本信息，则表示安装成功，如下图正确演示：
 
@@ -54,41 +54,41 @@ D:\Dev\hugo_0.86.0\
 
 首先打开 资源管理器/我的电脑，然后在左侧导航栏，右键点击 **此电脑**，在弹出菜单中，打开 **属性**。
 
-{{< image src="https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png" width="300" caption="我的电脑->属性" >}}
+{{< image src="https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png" width="400" caption="我的电脑->属性" >}}
 
 依次在弹出窗口中点击 **高级系统设置**。
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/5Lx9IckVh4rQtYe.png" alt="Blog-by-Hugo-and-LoveIt_20210726152730_2021-07-26-15-27-32" width="500" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/5Lx9IckVh4rQtYe.png" alt="Blog-by-Hugo-and-LoveIt_20210726152730_2021-07-26-15-27-32" width="55%" align="center"/></div>
 
 在弹出窗口中点击**环境变量**。
-<div align="center"><img src="https://i.loli.net/2021/07/26/2EiRPBO5IQnpH83.png" alt="Blog-by-Hugo-and-LoveIt_20210726152841_2021-07-26-15-28-42" width="300" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/2EiRPBO5IQnpH83.png" alt="Blog-by-Hugo-and-LoveIt_20210726152841_2021-07-26-15-28-42" width="400" align="center"/></div>
 
 双击 **path** 变量，点击 **添加**，将 Hugo 主程序路径填入，点击 **确定**以保存修改。
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/2dwpveRYOnK7aHS.png" alt="Blog-by-Hugo-and-LoveIt_20210726153824_2021-07-26-15-38-26" width="600" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/2dwpveRYOnK7aHS.png" alt="Blog-by-Hugo-and-LoveIt_20210726153824_2021-07-26-15-38-26" width="75%" align="center"/></div>
 
 #### 验证配置是否成功
 
 VS Code 中 ``Ctrl+Shift+` ``，打开终端，输入 `hugo version`，若能如下图所示，无错返回版本号，则环境配置成功。
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/XPCsuZNlqvgVTJr.png" alt="Blog-by-Hugo-and-LoveIt_20210726154557_2021-07-26-15-45-58" width="500" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/XPCsuZNlqvgVTJr.png" alt="Blog-by-Hugo-and-LoveIt_20210726154557_2021-07-26-15-45-58" width="70%" align="center"/></div>
 
 #### 建立本地站点
 
 打开终端，进入想将站点源文件放置的路径，执行以下命令，其中站点名指定站点工程源文件夹的名字，按照自己的需求随便取即可，和实际的网站 url不是一个东西。执行命令后，会按指定的站点名创建站点文件夹，并在文件夹下自动初始化生成路径结构以及相关的站点文件。
 
-```bash
+```ps1
 // 其中，hugo.wlcheng.github.io 换成自己的站点文件夹名字即可
 hugo new site hugo.wlcheng.github.io
 cd hugo.wlcheng.github.io
 ```
 
 输出结果如下截图：
-<div align="center"><img src="https://i.loli.net/2021/07/26/cTfDLsoFmJ1ZyWd.png" alt="Blog-by-Hugo-and-LoveIt_20210726160101_2021-07-26-16-01-03" width="500" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/cTfDLsoFmJ1ZyWd.png" alt="Blog-by-Hugo-and-LoveIt_20210726160101_2021-07-26-16-01-03" width="70%" align="center"/></div>
 
 生成的站点目录结构：
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/Ij85BKNOtrqQM1A.png" alt="Blog-by-Hugo-and-LoveIt_20210726161024_2021-07-26-16-10-26" width="500" align="center"/></div>
+<div align="center"><img src="https://i.loli.net/2021/07/26/Ij85BKNOtrqQM1A.png" alt="Blog-by-Hugo-and-LoveIt_20210726161024_2021-07-26-16-10-26" width="70%" align="center"/></div>
 
 ## LoveIt 主题
 
