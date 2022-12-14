@@ -42,7 +42,7 @@ Hugo 包括基础版本和支持自定义样式`scss`的 **extended**版本。
 
 从 [Hugo Release](https://github.com/gohugoio/hugo/releases)下载适合版本的压缩包，我的是Windows_x64。解压缩到想要安装的目录。解压出来，只有简单的一个主程序。可见，相对于 Hexo 依赖于 Node.js 及一大堆 npm 包，Hugo 的确非常的简洁。
 
-{{< image src="https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png" width="300" caption="Hugo 安装路径" >}}
+<div align="center" ><img src="https://i.loli.net/2021/07/26/y4JH3CWGFpcY1gk.png" alt="y4JH3CWGFpcY1gk" width="30%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 #### 添加环境变量
 
@@ -54,24 +54,25 @@ D:\Dev\hugo_0.86.0\
 
 首先打开 资源管理器/我的电脑，然后在左侧导航栏，右键点击 **此电脑**，在弹出菜单中，打开 **属性**。
 
-{{< image src="https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png" width="400" caption="我的电脑->属性" >}}
+<div align="center" ><img src="https://i.loli.net/2021/07/26/gokF32DmiMHhyq5.png" alt="gokF32DmiMHhyq5" width="30%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 依次在弹出窗口中点击 **高级系统设置**。
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/5Lx9IckVh4rQtYe.png" alt="Blog-by-Hugo-and-LoveIt_20210726152730_2021-07-26-15-27-32" width="55%" align="center"/></div>
+<div align="center" ><img src="https://i.loli.net/2021/07/26/5Lx9IckVh4rQtYe.png" alt="Blog-by-Hugo-and-LoveIt_20210726152730_2021-07-26-15-27-32" width="70%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 在弹出窗口中点击**环境变量**。
-<div align="center"><img src="https://i.loli.net/2021/07/26/2EiRPBO5IQnpH83.png" alt="Blog-by-Hugo-and-LoveIt_20210726152841_2021-07-26-15-28-42" width="400" align="center"/></div>
+
+<div align="center" ><img src="https://i.loli.net/2021/07/26/2EiRPBO5IQnpH83.png" alt="Blog-by-Hugo-and-LoveIt_20210726152841_2021-07-26-15-28-42" width="30%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 双击 **path** 变量，点击 **添加**，将 Hugo 主程序路径填入，点击 **确定**以保存修改。
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/2dwpveRYOnK7aHS.png" alt="Blog-by-Hugo-and-LoveIt_20210726153824_2021-07-26-15-38-26" width="75%" align="center"/></div>
+<div align="center" ><img src="https://i.loli.net/2021/07/26/2dwpveRYOnK7aHS.png" alt="Blog-by-Hugo-and-LoveIt_20210726153824_2021-07-26-15-38-26" width="70%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 #### 验证配置是否成功
 
 VS Code 中 ``Ctrl+Shift+` ``，打开终端，输入 `hugo version`，若能如下图所示，无错返回版本号，则环境配置成功。
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/XPCsuZNlqvgVTJr.png" alt="Blog-by-Hugo-and-LoveIt_20210726154557_2021-07-26-15-45-58" width="70%" align="center"/></div>
+<div align="center" ><img src="https://i.loli.net/2021/07/26/XPCsuZNlqvgVTJr.png" alt="Blog-by-Hugo-and-LoveIt_20210726154557_2021-07-26-15-45-58" width="70%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 #### 建立本地站点
 
@@ -84,11 +85,12 @@ cd hugo.wlcheng.github.io
 ```
 
 输出结果如下截图：
-<div align="center"><img src="https://i.loli.net/2021/07/26/cTfDLsoFmJ1ZyWd.png" alt="Blog-by-Hugo-and-LoveIt_20210726160101_2021-07-26-16-01-03" width="70%" align="center"/></div>
+
+<div align="center" ><img src="https://i.loli.net/2021/07/26/cTfDLsoFmJ1ZyWd.png" alt="Blog-by-Hugo-and-LoveIt_20210726160101_2021-07-26-16-01-03" width="70%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 生成的站点目录结构：
 
-<div align="center"><img src="https://i.loli.net/2021/07/26/Ij85BKNOtrqQM1A.png" alt="Blog-by-Hugo-and-LoveIt_20210726161024_2021-07-26-16-10-26" width="70%" align="center"/></div>
+<div align="center" ><img src="https://i.loli.net/2021/07/26/Ij85BKNOtrqQM1A.png" alt="Blog-by-Hugo-and-LoveIt_20210726161024_2021-07-26-16-10-26" width="85%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 ## LoveIt 主题
 
@@ -193,7 +195,7 @@ Github 提供两种 Pages：
 
 填上仓库名；选定 `public` 仓库；不需勾选初始化选项，后续将从我们的本地仓库直接 `push` 到线上仓库中。
 
-![20211201121402](https://i.loli.net/2021/12/01/MNjSpAgWw15ZIEx.png)
+<div align="center" ><img src="https://i.loli.net/2021/12/01/MNjSpAgWw15ZIEx.png" alt="20211201121402" width="50%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 ### 关联本地站点到仓库
 
@@ -217,7 +219,7 @@ git submodule add github.com themes/DoIt
 
 '''
 
-![20211201134503](https://i.loli.net/2021/12/01/I5o4cDWYRS3XAsw.png)
+<div align="center" ><img src="https://i.loli.net/2021/12/01/I5o4cDWYRS3XAsw.png" alt="20211201134503" width="85%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 添加 `.gitignore` 文件到站点根目录下，写入以下内容：
 
