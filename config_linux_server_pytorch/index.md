@@ -1,17 +1,21 @@
 # Linux 服务器下 PyTorch 环境配置
 
 
-# 安装 Miniconda
+记录在 Linux 下，Miniconda 中配置 PyTorch 环境。
+
+<!--more-->
+
+## 安装 Miniconda
 
 [Miniconda 官网](https://docs.conda.io/en/latest/miniconda.html)
 
-## 下载安装包
+### 下载安装包
 
 ```
 wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
 ```
 
-## 执行安装
+### 执行安装
 
 ```
 bash Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
@@ -25,7 +29,7 @@ bash Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
 
 <div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20230301164006.png" alt="20230301164006" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
-## 添加软件源（频道）
+### 添加软件源（频道）
 
 为了提高软件包下载速度，我们可以通过以下命令添加镜像软件源：
 
@@ -58,15 +62,15 @@ conda config --get channels
 [2] Conda doc, Managing channels, https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html?highlight=priority
 [3] 普遍语法, 编辑 condarc 编辑 channel 的优先级, https://blog.csdn.net/weixin_45564533/article/details/123012930
 
-# 创建 PyTorch 虚拟环境
+## 创建 PyTorch 虚拟环境
 
-## 创建 conda 独立环境
+### 创建 conda 独立环境
 
 ```
 conda create -n pt python=3.10
 ```
 
-## 配置 PyTorch 环境
+### 配置 PyTorch 环境
 
 进入创建的环境 `pt`：
 
@@ -94,9 +98,9 @@ torch.__version__
 [4] PyTorch 安装命令. https://pytorch.org/get-started/locally/
 [5] Hitesh Jethva, LCTT. Linux 系统下查看硬件信息命令大全. https://linux.cn/article-6928-1.html, 命令 `inxi -Fx` 好使
 
-# 常用 Conda 环境管理命令
+## 常用 Conda 环境管理命令
 
-## 环境管理命令
+### 环境管理命令
 
 ```
 # 创建虚拟环境
