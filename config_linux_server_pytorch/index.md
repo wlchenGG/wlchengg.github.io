@@ -59,7 +59,9 @@ conda config --get channels
 **参考：**
 
 [1] 朱渠成, Linux 下 miniconda 的安装使用, https://www.jianshu.com/p/4d4c786ed454
+
 [2] Conda doc, Managing channels, https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html?highlight=priority
+
 [3] 普遍语法, 编辑 condarc 编辑 channel 的优先级, https://blog.csdn.net/weixin_45564533/article/details/123012930
 
 ## 创建 PyTorch 虚拟环境
@@ -96,6 +98,7 @@ torch.__version__
 
 **参考：**
 [4] PyTorch 安装命令. https://pytorch.org/get-started/locally/
+
 [5] Hitesh Jethva, LCTT. Linux 系统下查看硬件信息命令大全. https://linux.cn/article-6928-1.html, 命令 `inxi -Fx` 好使
 
 ## 常用 Conda 环境管理命令
@@ -141,5 +144,6 @@ conda config --get channels
 
 **参考：**
 [6] 朱渠成. miniconda的常用命令汇总. https://www.jianshu.com/p/0e9c88479cfd
+
 [7] Fission0102. miniconda 常用命令. https://www.cnblogs.com/Fission0102/p/13998824.html
 
