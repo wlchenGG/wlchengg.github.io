@@ -97,6 +97,7 @@ torch.__version__
 
 
 **参考：**
+
 [4] PyTorch 安装命令. https://pytorch.org/get-started/locally/
 
 [5] Hitesh Jethva, LCTT. Linux 系统下查看硬件信息命令大全. https://linux.cn/article-6928-1.html, 命令 `inxi -Fx` 好使
@@ -143,6 +144,7 @@ conda config --get channels
 ```
 
 **参考：**
+
 [6] 朱渠成. miniconda的常用命令汇总. https://www.jianshu.com/p/0e9c88479cfd
 
 [7] Fission0102. miniconda 常用命令. https://www.cnblogs.com/Fission0102/p/13998824.html
