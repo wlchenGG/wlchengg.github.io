@@ -66,6 +66,9 @@
 ## 参考
 
 [1] Peter Cottle. learngitbranching. https://learngitbranching.js.org/?locale=zh_CN
+
 [2] GitHub Docs. Git Cheat Sheets. https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/
+
 [3] Visual Git Cheat Sheet. https://ndpsoftware.com/git-cheatsheet.html
+
 [4] Blue Stragglers. 一个有趣的 Git 练习网站. https://zhuanlan.zhihu.com/p/383960650
