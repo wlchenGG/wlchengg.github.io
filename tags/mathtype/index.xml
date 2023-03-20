@@ -1,1 +1,163 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MathType - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/mathtype/</link><description>MathType - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Thu, 28 Nov 2019 22:29:28 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/tags/mathtype/" rel="self" type="application/rss+xml"/><item><title>MathType安装及 Word菜单项集成</title><link>https://wlcheng.cc/2019/11/mathtype-setup-for-word/</link><pubDate>Thu, 28 Nov 2019 22:29:28 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2019/11/mathtype-setup-for-word/</guid><description>&lt;p>安装 Mathtype 过程记录，并解决集成到 Word 菜单栏的问题。&lt;/p></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>MathType - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/mathtype/</link><description>MathType - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Thu, 28 Nov 2019 22:29:28 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/tags/mathtype/" rel="self" type="application/rss+xml"/><item><title>MathType 安装及 Word 菜单项集成</title><link>https://wlcheng.cc/2019/11/mathtype-setup-for-word/</link><pubDate>Thu, 28 Nov 2019 22:29:28 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2019/11/mathtype-setup-for-word/</guid><description><![CDATA[<p>安装 Mathtype 过程记录，并解决集成到 Word 菜单栏的问题。</p>
+<h2 id="mathtype-安装问题" class="headerLink">
+    <a href="#mathtype-%e5%ae%89%e8%a3%85%e9%97%ae%e9%a2%98" class="header-mark"></a>MathType 安装问题</h2><h3 id="安装并破解" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85%e5%b9%b6%e7%a0%b4%e8%a7%a3" class="header-mark"></a>安装并破解</h3><p>从六维空间上下载的<a href="http://bt.neu6.edu.cn/thread-1635051-1-1.html" target="_blank" rel="noopener noreferrer">MathType 7.2</a>版本，按照说明</p>
+<ol>
+<li>
+<p>首先安装 MathType-win-zh7.2.exe，安装过程一切顺利，因为安装需要向Office 添加加载项，所以需要将Office 一切程序都关闭；</p>
+</li>
+<li>
+<p>以防意外，打开之前MathType 和Office 之前，先进行破解，提供的破解软件有两个，作用不同：</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>[neubt]MathType替换原文件.exe</strong>：替换MathType 根目录的主启动程序 MathType.exe，作用是去掉打开程序时提示测试版到期的弹窗通知。</p>
+</li>
+<li>
+<p><strong>[neubt]MathType7.xCrack.zip</strong>：解压后得到mathtypelib.exe，替换MathType 根目录下System 子文件夹里的同名文件。</p>
+</li>
+</ul>
+<ol start="3">
+<li>
+<p>完成以上两个文件的替换后，启动 MathType，会弹出一个对话框，但按钮上的字都变成了问号，不管他，直接叉掉对话框，然后可以发现功能完善，应该是已经成功破解。</p>
+</li>
+<li>
+<p>打开Word，菜单栏上应该会多出一个 MathType的菜单项，说明安装成功，如果没有菜单项，请看下文解决方案。</p>
+</li>
+</ol>
+<h3 id="word没有mathtype菜单项" class="headerLink">
+    <a href="#word%e6%b2%a1%e6%9c%89mathtype%e8%8f%9c%e5%8d%95%e9%a1%b9" class="header-mark"></a>Word 没有MathType 菜单项</h3><ul>
+<li><strong>问题：</strong></li>
+</ul>
+<p>首先来说，MathType 正确加载的话，Word 的菜单栏上会有 MathType，如下</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png" title="mathtype-setup-for-word_Image001_2021-07-24-01-06-17" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png">
+        
+    </a></p>
+</div>
+<p>而现在问题是，打开Word，菜单栏没有 MathType 项，</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png" title="mathtype-setup-for-word_Image002_2021-07-24-01-06-59" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png">
+        
+    </a></p>
+</div>
+<ul>
+<li><strong>原因：</strong></li>
+</ul>
+<p><a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133#windows" target="_blank" rel="noopener noreferrer">[1]</a> 中给出的原因可以描述为</p>
+<p>&ldquo;当 Microsoft Office 自动更新程序运行并安装更新时，有时会禁用加载项，这样就会删除任何工具栏/功能区附加项。&rdquo;</p>
+<p>Word 上的 MathType加载项要能正确运行并使用，须满足：</p>
+<ol>
+<li><strong>MathType 正确安装；</strong></li>
+<li><strong>Word 正确加载 MathType 提供的加载项文件。</strong></li>
+</ol>
+<p>可见在MathType 本身安装无误情况下(指MathType <strong>软件本身</strong>能正常使用)，Word 没有MathType菜单项的原因大概率就是<strong>因为 Word 没能正确的加载 MathType 加载项。</strong></p>
+<ul>
+<li><strong>解决方案：</strong></li>
+</ul>
+<p>此时虽然可以迂回的通过以下方式插入公式：</p>
+<ol>
+<li>通过插入对象的方式，插入-&gt;对象-&gt;选择MathType对象；</li>
+<li>直接从MathType 软件里编辑好的公式复制进Word。</li>
+</ol>
+<p>但是，如果要实现插入带编号公式等较高级的功能的话，还是用集成的 MathType工具栏方便的多，从前面的图就可见一斑。</p>
+<ul>
+<li><strong>准备工作：</strong></li>
+</ul>
+<p>首先查看 Office Word 版本以及 MathType版本，兼容关系为</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png" title="mathtype-setup-for-word_Image003_2021-07-24-01-07-19" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png">
+        
+    </a></p>
+</div>
+<p>查看我的版本分别为</p>
+<p><strong>Word</strong>：<strong>文件</strong>-&gt;<strong>账户</strong>-&gt;<strong>关于</strong>-&gt; Office <strong>365 32</strong>位，因此需要MathType 版本大于 <strong>6.9b</strong></p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png" title="mathtype-setup-for-word_Image004_2021-07-24-01-07-53" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png">
+        
+    </a></p>
+</div>
+<p><strong>MathType</strong>：<strong>关于</strong>-&gt;<strong>7.2.0.420</strong> &gt; <strong>6.9b</strong></p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png" title="mathtype-setup-for-word_Image005_2021-07-24-01-08-03" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png">
+        
+    </a></p>
+</div>
+<p>确定Word 和 MathType安装路径：</p>
+<ul>
+<li>
+<p><strong>Office</strong> 安装路径：D:\Program Files (x86)\Microsoft Office\</p>
+</li>
+<li>
+<p><strong>MathType</strong> 路径：D:\Math\MathType\</p>
+</li>
+</ul>
+<p>安装路径可能不同，根据自己情况而定。</p>
+<ul>
+<li><strong>步骤：</strong></li>
+</ul>
+<p>Word菜单栏-&gt;<strong>文件</strong>-&gt;<strong>选项</strong>-&gt;<strong>加载项</strong>-&gt;底部<strong>管理</strong>下拉框选择 <strong>Word加载项</strong> 并点击<strong>转到</strong>，弹出类似下面的对话框，</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png" title="mathtype-setup-for-word_Image006_2021-07-24-01-08-15" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png">
+        
+    </a></p>
+</div>
+<p>没问题的情况下，这里的第一项应该是被勾选上的，如下说明。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png" title="mathtype-setup-for-word_Image007_2021-07-24-01-08-25" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png">
+        
+    </a></p>
+</div>
+<p>如果，没有以上对话框中的项，则选择从以下两个目录之一中 <strong>添加</strong> 正确版本的 <strong>.dotm</strong>文件，然后勾选并确定。</p>
+<p>D:\Math\MathType\Office Support\32 （32位 Office）<br>
+D:\Math\MathType\Office Support\64 （64位 Office）</p>
+<p>对于我的版本，选择 <strong>MathType Commands 2016.dotm</strong> 这一个</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png" title="mathtype-setup-for-word_Image008_2021-07-24-01-08-36" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png">
+        
+    </a></p>
+</div>
+<p>勾选  <strong>MathType Commands 2016.dotm</strong> 项并 确定后，Word会加载出MathType 的菜单项，如图1所示。</p>
+<p>然而，然而，然而事情并非如此简单，</p>
+<p>当关闭Word，并重新打开后，忙半天加上的MathType 菜单项又没啦。</p>
+<p>这么看应该是设置的问题，在Word 启动时，并没有自动加载 MathType 加载项。那么要自动加载，是不是就得把这个MathType Commands 2016.dotm 文件放到Word 的默认加载目录下面？</p>
+<p>但是再次按照第3步，打开Word 加载项对话框，发现有这一项，但却没有勾选。那么怎么设置为默认勾选呢？</p>
+<p>幸而 <a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133-word2016-32" target="_blank" rel="noopener noreferrer">[2]</a> 对此也给出了解决方案：由于不同版本的系统、Office软件或者不同用户自定义的原因，Word 的加载项路径可能不一样。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png" title="mathtype-setup-for-word_Image009_2021-07-24-01-08-51" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png">
+        
+    </a></p>
+</div>
+<p>根据说明，需要将前面的两个文件拷贝到 Word的加载项（启动项）目录下面，目录存在以上图中 3种可能，图中 1和 2根据 Office 是32位/64位只取其一。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png" title="mathtype-setup-for-word_Image010_2021-07-24-01-09-07" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png">
+        
+    </a></p>
+</div>
+<p>以做对比，将可能的三个目录位置都打开，如下1、2、3，依次将这两个文件放到这三个目录下，</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png" title="mathtype-setup-for-word_Image011_2021-07-24-01-09-17" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png">
+        
+    </a></p>
+</div>
+<p>经过尝试，，放在 2对应路径下时，Word成功加载了MathType菜单项。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png" title="mathtype-setup-for-word_Image012_2021-07-24-01-09-27" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png">
+        
+    </a></p>
+</div>
+<p>比较前后两张图，此处有一个问题，下图中除了拷贝进去的两个模板文件外，还有一个MathPage.wll，这个文件实际上是一种DLL文件，也不可少，也是来自于MathType的安装目录，事实上，当MathType安装成功后，会自动将其拷贝到这个 2 对应的目录，一般无需手动添加，如果发现没有，可以从MathType安装根目录下的MathType文件夹里面找到，如下图，根据32位或64位选择。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png" title="mathtype-setup-for-word_Image013_2021-07-24-01-09-39" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png">
+        
+    </a></p>
+</div>
+<ul>
+<li><strong>总结</strong></li>
+</ul>
+<p>最后，来回顾一下过程，根据 <a href="evernote:///view/19609389/s20/77c14f83-dd5c-41e2-9c9c-117480f4003d/77c14f83-dd5c-41e2-9c9c-117480f4003d/" rel="">常用设置</a> 中的，《查看 Word 相关各类文件的默认位置》就能够查看Word 默认的启动项位置，正好是上面给出的第二种目录。</p>
+<p>因此，解决以上问题的正确思路应该是，将模板加载项文件拷贝到 Word的默认的启动项位置目录下。</p>
+<p><strong>参考：</strong></p>
+<p><a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133" target="_blank" rel="noopener noreferrer">[1] MathType Toolbar/Tab has disappeared from Microsoft Word</a><br>
+<a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133-word2016-32#mathtype_tab_has_disappeared_from_microsoft_word_2016_and_later_for_windows" target="_blank" rel="noopener noreferrer">[2] MathType Tab has disappeared from Microsoft Word 2016 and later for Windows</a></p>]]></description></item></channel></rss>

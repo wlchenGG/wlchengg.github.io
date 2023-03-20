@@ -1,14 +1,19 @@
-# 基于Python批量提取PDF首页
+# 基于 Python 批量提取 PDF 首页
 
 
-最近因为汇总论文成果，需要提取论文的首页。虽然Acrobat提供了`页面组织`功能可以任意提取，但手动操作一次只能处理一个文件。当面对好几十篇论文时，尚未开始就已经放弃。
+最近因为汇总论文成果，需要提取论文的首页。虽然 Acrobat 提供了`页面组织`功能可以任意提取，但手动操作一次只能处理一个文件。当面对好几十篇论文时，尚未开始就已经放弃。
 
 <!--more-->
+
 工欲善其事必先利其器，决定造个工具，一劳永逸提高效率。
 
-以下代码基于 [小白程序猿](https://cloud.tencent.com/developer/article/1584421) 的方案，面向我自己的需求作了一些调整适配。
+以下代码基于 [小白程序猿](https://cloud.tencent.com/developer/article/1584421) 的方案，面向我自己的需求作了一些调整适配，在此致谢🫡
 
-#### 环境与原料
+{{< admonition type=tip title="插播推荐 PDF 补丁丁" open=false >}}
+一个满满情怀的 PDF 神器：[PDF 补丁丁](https://www.cnblogs.com/pdfpatcher/)，已开源在[PDFPatcher](https://github.com/wmjordan/PDFPatcher)，三方长文教程：[免费了 12 年的神器开源了，你可能不知道它有多强大](https://post.smzdm.com/p/anx09ww3/)
+{{< /admonition >}}
+
+## 环境与原料
 
 - **Python**
 
@@ -17,6 +22,8 @@
 ```bash
 pip install PyMuPDF
 ```
+
+## 工具代码
 
 以下为完整代码：
 
@@ -161,7 +168,7 @@ if __name__ == '__main__':
     analysis(uni_path(file_path), uni_path(save_path), num, toimg)
 ```
 
-### 参考
+## 参考
 
 [Python 提取 PDF 第一页为封面图片【批量提取】](https://cloud.tencent.com/developer/article/1584421)
 

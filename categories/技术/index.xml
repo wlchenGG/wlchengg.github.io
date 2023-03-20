@@ -1,0 +1,654 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>技术 - 分类 - Wlcheng's Life</title><link>https://wlcheng.cc/categories/%E6%8A%80%E6%9C%AF/</link><description>技术 - 分类 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Wed, 08 Mar 2023 11:26:27 +0100</lastBuildDate><atom:link href="https://wlcheng.cc/categories/%E6%8A%80%E6%9C%AF/" rel="self" type="application/rss+xml"/><item><title>Git 常用命令和用法</title><link>https://wlcheng.cc/2023/03/git_command_list/</link><pubDate>Wed, 08 Mar 2023 11:26:27 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2023/03/git_command_list/</guid><description><![CDATA[<p>速查 Git 常用的命令和用法。分为基本（commit、branch、checkout、merge、rabase 等）和远程（clone、push、pull 等）两部分。</p>
+<p>本文基于 <a href="https://chat.openai.com/chat" target="_blank" rel="noopener noreferrer">chatGPT</a> 自动生成初稿（省时省力😁），并参考 <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">learngitbranching</a> 进行调整。</p>
+<h2 id="基本命令" class="headerLink">
+    <a href="#%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4" class="header-mark"></a>基本命令</h2><p><code>git init</code>：创建一个新的 Git 仓库。</p>
+<p><code>git add [file]</code>：将文件添加到 Git 的暂存区。</p>
+<p><code>git commit -m [message]</code>：将暂存区的文件提交到 Git 仓库，并添加一条注释。</p>
+<p><code>git status</code>：查看当前 Git 仓库的状态，包括已修改、已暂存和未跟踪的文件。</p>
+<p><code>git diff</code>：查看未暂存文件和最后一次提交之间的差异。</p>
+<p><code>git diff --staged</code>：查看已暂存文件和最后一次提交之间的差异。</p>
+<p><code>git log</code>：查看 Git 仓库的提交历史。</p>
+<p><code>git reflog</code>：查看命令历史，即分支的所有操作记录。</p>
+<p><code>git tag [name]</code>：给当前的提交打上标签。</p>
+<p><code>git reset</code>：取消暂存或取消上一次提交。</p>
+<p><code>git rm [file]</code>：从 Git 仓库中删除文件。</p>
+<h2 id="分支相关" class="headerLink">
+    <a href="#%e5%88%86%e6%94%af%e7%9b%b8%e5%85%b3" class="header-mark"></a>分支相关</h2><p><code>git branch [name]</code>：创建一个新的分支。</p>
+<p><code>git branch -d[D] [name]</code>：删除[强制删除]一个分支。</p>
+<p><code>git checkout [branch-name]</code>：切换到另一个分支。</p>
+<p><code>git checkout -b [branch-name]</code>：创建同时切换到另一个分支。</p>
+<p><code>git merge [branch]</code>：将指定的分支合并到当前分支。</p>
+<p><code>git rebase [branch]</code>：将当前分支的提交步骤顺接到指定分支。</p>
+<h2 id="远程相关" class="headerLink">
+    <a href="#%e8%bf%9c%e7%a8%8b%e7%9b%b8%e5%85%b3" class="header-mark"></a>远程相关</h2><p><code>git clone [url]</code>：从远程仓库克隆一个副本到本地。</p>
+<p><code>git pull</code>：从远程仓库拉取最新的代码到本地。</p>
+<p><code>git push [origin] [master]</code>：将本地 master 分支推送到远程仓库。</p>
+<p><code>git remote -[v]</code> 查看远程仓库[详细]信息。</p>
+<p><code>git remote add [name] [url]</code>：将远程仓库添加到 Git 仓库。</p>
+<p><code>git fetch</code>：从远程仓库获取最新的代码，但不进行合并。先<code>fetch</code>，再<code>merge</code>就相当于<code>pull</code>。</p>
+<h2 id="其他" class="headerLink">
+    <a href="#%e5%85%b6%e4%bb%96" class="header-mark"></a>其他</h2><p><code>HEAD</code>：指向当前正在处理的提交记录。</p>
+<p><code>C^[number]</code>：表示指向提交记录 <code>C</code> 的第 <code>number</code> 个直接父记录（宽度搜索）。一个记录可能会有多个父记录（执行 <code>merge</code> 时产生）。<code>C^</code> 和 <code>C^1</code> 等价；<code>number</code>大于 1 时表示指向其他父记录。</p>
+<p><code>C~[number]</code>：表示指向提交记录 <code>C</code> 的回溯第 <code>number</code> 代的祖先记录（深度搜索）。</p>
+<h2 id="参考" class="headerLink">
+    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><p>[1] Peter Cottle. learngitbranching. <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">https://learngitbranching.js.org/?locale=zh_CN</a></p>
+<p>[2] GitHub Docs. Git Cheat Sheets. <a href="https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/" target="_blank" rel="noopener noreferrer">https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/</a></p>
+<p>[3] Visual Git Cheat Sheet. <a href="https://ndpsoftware.com/git-cheatsheet.html" target="_blank" rel="noopener noreferrer">https://ndpsoftware.com/git-cheatsheet.html</a></p>
+<p>[4] Blue Stragglers. 一个有趣的 Git 练习网站. <a href="https://zhuanlan.zhihu.com/p/383960650" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/383960650</a></p>]]></description></item><item><title>Github 图床 PicGo 使用</title><link>https://wlcheng.cc/2022/05/github_picture_bed/</link><pubDate>Fri, 06 May 2022 18:42:12 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2022/05/github_picture_bed/</guid><description><![CDATA[<p>用 Github 仓库作为自用图床；用 PicGo 直接在 Typora 和 VS Code 中一键上传图床、粘贴图链。</p>
+<h2 id="搭建github图床" class="headerLink">
+    <a href="#%e6%90%ad%e5%bb%bagithub%e5%9b%be%e5%ba%8a" class="header-mark"></a>搭建Github图床</h2><p>Github仓库支持<code>1G</code>存储容量。</p>
+<h3 id="创建github仓库" class="headerLink">
+    <a href="#%e5%88%9b%e5%bb%bagithub%e4%bb%93%e5%ba%93" class="header-mark"></a>创建Github仓库</h3><p>在Github主页点击<code>New Repository</code>开始创建仓库。</p>
+<div align="center" ></div>
+<p>基本设置：<code>仓库名</code>，<code>描述</code>，仓库类型<code>public</code>，勾选<code>Add a README file</code>，其他保持默认即可。然后点击<code>Create repo</code>。</p>
+<div align="center" ></div>
+<p>然后网页会自动跳转到我们刚刚创建的仓库主页。我们要在这个仓库下面创建一个文件夹用于以后存放图片（当然不创建文件夹，直接将图片上传到仓库个目录也可以）。点击<code>Add file</code>下的<code>Create new file</code>。</p>
+<div align="center" ></div>
+<p>跳转到以下页面，我们按照图中方式依次输入<code>foldername</code>，<code>/</code>，<code>filename</code>，名字自己任取就行。因为这里不支持只创建文件夹，因此需要给出一个文件名。点击<code>Commit new file</code>提交更改。</p>
+<div align="center" ></div>
+<h3 id="创建repo-token" class="headerLink">
+    <a href="#%e5%88%9b%e5%bb%barepo-token" class="header-mark"></a>创建repo token</h3><p>token 用于给后面我们用 PicGo 访问仓库并上传图片赋予权限。</p>
+<p>首先在自己的头像下点击<code>Settings</code>。</p>
+<div align="center" ></div>
+<p>在左侧边栏往下找到并打开<code>Developer settings</code></p>
+<div align="center" ></div>
+<p>如下图，点击左侧边栏<code>Personal access token</code>，然后点击<code>Generate new token</code></p>
+<div align="center" ></div>
+<p>此步因为要赋予权限，因此会弹出窗口验证账号密码，填入后<code>Confirm password</code>即可。
+然后就会到以下的 token 设置界面，按照图中所述进行创建即可。</p>
+<div align="center" ></div>
+<p>成功生成token后，马上复制下来，之后配置PicGo会用到。</p>
+<div align="center" ></div>
+<p>通过以上过程，我们的图床算是搭建完毕了，接下来就要利用 PicGo 实现从本地上传图片，并获取图片链接。</p>
+<h2 id="配置picgo" class="headerLink">
+    <a href="#%e9%85%8d%e7%bd%aepicgo" class="header-mark"></a>配置PicGo</h2><p>官方网站：<a href="https://molunerfinn.com/PicGo/" target="_blank" rel="noopener noreferrer">PicGo</a>。此处下载稳定版本的 <a href="https://mirror.ghproxy.com/https://github.com/Molunerfinn/PicGo/releases/download/v2.3.0/PicGo-Setup-2.3.0-x64.exe" target="_blank" rel="noopener noreferrer">PicGo</a>。下载后，按下图安装即可</p>
+<div align="center" ></div>
+<p>启动后，直接左键单击托盘图标，打开PicGo设置界面</p>
+<div align="center" ></div>
+<p>如下图，左侧展开<code>图床设置</code>，点击<code>Github图床</code>，右侧填入相关设置信息。</p>
+<div align="center" ></div>
+<p>以上填写各项的说明：</p>
+<p>对于<code>仓库名</code>，<code>分支名</code>，<code>存储路径</code>这几项，我们已经通过前面的步骤创建了，打开如下的仓库主页面，就可以知道。</p>
+<div align="center" ></div>
+<p>而对于<code>token</code>，我们前面创建并已经复制了的，粘贴进来就可以。</p>
+<p>对于自定义域名，</p>
+<p>我们上传图片的Github官方链接是：
+<code>https://raw.githubusercontent.com/用户名/仓库名@分支名</code>，可以直接通过此链接进行访问。但因为网速问题，我们往往通过 CDN 内容服务器进行访问，相当于是在全球各地建立内容缓存服务器，在访问内容时，能从就近的服务器上快速获取到内容。</p>
+<p>使用 jsDilivr 作为 CDN 为 Github 提供加速。只需要按照以下格式填入上面的<code>自定义域名</code>框中就行：</p>
+<p>❌<code>https://cdn.jsdelivr.net/gh/用户名/仓库名@分支名</code></p>
+<p>但是，由于<code>cdn.jsdelivr.net</code>遭到 DNS 污染 (<a href="https://luotianyi.vc/6295.html" target="_blank" rel="noopener noreferrer">Luminous’ Home</a>)，暂将<code>自定义域名</code>更换为：</p>
+<p>⭕<code>https://fastly.jsdelivr.net/gh/用户名/仓库名@分支名</code></p>
+<p>或者其他备用：</p>
+<blockquote>
+<p>CloudFlare：<code>test1.jsdelivr.net</code></p>
+<p>CloudFlare：<code>testingcf.jsdelivr.net</code></p>
+<p>Fastly：<code>fastly.jsdelivr.net</code></p>
+<p>GCORE：<code>gcore.jsdelivr.net</code></p>
+</blockquote>
+<p><font color=#FF0000>那么对于我的设置，我这里应该填入的是：</font>
+<code>https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main</code></p>
+<p>填好以上信息后，点击确定即可设置成功。</p>
+<p>我们可以测试一下，在上传区，改为 Github图床，然后上传一张图片，稍作等待，提示上传成功后，将自动复制创建好的链接（这个链接默认为markdown的，后续我们会自定义一下）。</p>
+<div align="center" ></div>
+<p>以下是我测试生成的默认markdown格式链接，你可以将其放入markdown文件中测试一下，是一张可正常访问的图片，说明能够正常上传。</p>
+<p><code>![](https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg)</code></p>
+<h2 id="配置typora" class="headerLink">
+    <a href="#%e9%85%8d%e7%bd%aetypora" class="header-mark"></a>配置Typora</h2><p>打开Typora，按照下图设置。其中第7步选择自己安装PicGo的位置。</p>
+<div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>
+<p>测试一下，在Typora编辑界面，粘贴或者拖入图片时，将自动以Markdown格式插入图片，从链接可以看出图像已经上传。</p>
+<div align="center" ></div>
+<p>我们手头已经有很多文档，图片都是本地保存的怎么办呢。只需要完成以上设置后，通过以下选项，就可以将当前文档中的所有本地图片上传到图床中，并会自动将文档中的图片链接全部替换为图床链接。</p>
+<div align="center" ></div>
+<h2 id="自定义链接格式控制图片样式可选" class="headerLink">
+    <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e9%93%be%e6%8e%a5%e6%a0%bc%e5%bc%8f%e6%8e%a7%e5%88%b6%e5%9b%be%e7%89%87%e6%a0%b7%e5%bc%8f%e5%8f%af%e9%80%89" class="header-mark"></a>自定义链接格式控制图片样式（可选）</h2><p>打开PicGo，按照以下步骤设置</p>
+<div align="center" ></div>
+<p>其中，自定义链接的格式（这是一段HTML代码，我们用来美化图片的显示样式。
+我们给出如下几种，自行选择所需，将其粘贴到上图4的框中即可。</p>
+<style>
+table th:first-of-type {
+    width: 16%;
+}
+table th:nth-of-type(2) {
+    width: 16%;
+}
+table th:nth-of-type(3) {
+    width: 68%;
+}
+</style>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">美化方式</th>
+<th style="text-align:center">效果图</th>
+<th>链接格式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">控制大小</td>
+<td style="text-align:center"><div align="center" ></div></td>
+<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot;/&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">圆角处理</td>
+<td style="text-align:center"><div align="center" ></div></td>
+<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;border-radius:10px;&quot;/&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">图片阴影</td>
+<td style="text-align:center"><div align="center" ></div></td>
+<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);&quot;/&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">阴影+圆角</td>
+<td style="text-align:center"><div align="center" ></div></td>
+<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;&quot;/&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">阴影+标题</td>
+<td style="text-align:center"><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div></td>
+<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);&quot;/&gt;&lt;br&gt;&lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;&quot;&gt;此处插入标题&lt;/div&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">圆角+标题</td>
+<td style="text-align:center"><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div></td>
+<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;border-radius:10px;&quot;/&gt;&lt;br&gt;&lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;&quot;&gt;此处插入标题&lt;/div&gt;&lt;/div&gt;</code></td>
+</tr>
+<tr>
+<td style="text-align:center">阴影+圆角+标题</td>
+<td style="text-align:center"><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div></td>
+<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;&quot;/&gt;&lt;br&gt;&lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;&quot;&gt;此处插入标题&lt;/div&gt;&lt;/div&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p>其中，</p>
+<p><code>width=&quot;75%&quot;</code>：控制图片大小，百分比是占整个文档宽度的比例（方便适配不同网页大小），也可以直接写成<code>width=&quot;300&quot;</code>等整数用来控制图片的绝对大小。</p>
+<p><code>border-radius:10px;</code>：用来控制圆角大小。</p>
+<p><code>此处插入标题</code>：为图片设置标题。</p>
+<p>配置完以上自定义链接格式后，如下图，在PicGo上传界面，选定<code>custom</code>，之后就可以退出PicGo了。</p>
+<div align="center" ></div>
+<p>在Typora中，同样是拖入或者粘贴图片时，就会获取以上设置的链接到剪切板中，只需要粘贴到Typora中即可。</p>
+<p>这里有一个问题是，Typora 粘贴图片时，始终会默认粘贴Markdown格式的图片链接，如前一小节所示。因此，我们要将Typora自动生成的删除，然后将剪切板中的自定义格式链接粘贴进去即可。如下图所示：</p>
+<div align="center" ></div>
+<h2 id="配置vs-code" class="headerLink">
+    <a href="#%e9%85%8d%e7%bd%aevs-code" class="header-mark"></a>配置VS Code</h2><p>TODO: 后补</p>
+<p><strong>参考：</strong></p>
+<p>[1] <a href="https://yushuaigee.gitee.io/2021/01/14/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%28%E4%BA%94%29%E2%80%94%E2%80%94Typora%20&#43;%20PicGo%20&#43;%20GitHub%20Gitee%E5%9B%BE%E5%BA%8A/" target="_blank" rel="noopener noreferrer">从零开始免费搭建自己的博客 (五)——Typora + PicGo + GitHub/Gitee 图床</a></p>]]></description></item><item><title>基于 Python 批量提取 PDF 首页</title><link>https://wlcheng.cc/2021/08/pdftoolbox/</link><pubDate>Fri, 13 Aug 2021 00:57:00 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2021/08/pdftoolbox/</guid><description><![CDATA[<p>最近因为汇总论文成果，需要提取论文的首页。虽然 Acrobat 提供了<code>页面组织</code>功能可以任意提取，但手动操作一次只能处理一个文件。当面对好几十篇论文时，尚未开始就已经放弃。</p>
+<p>工欲善其事必先利其器，决定造个工具，一劳永逸提高效率。</p>
+<p>以下代码基于 <a href="https://cloud.tencent.com/developer/article/1584421" target="_blank" rel="noopener noreferrer">小白程序猿</a> 的方案，面向我自己的需求作了一些调整适配，在此致谢🫡</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>插播推荐 PDF 补丁丁<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">一个满满情怀的 PDF 神器：<a href="https://www.cnblogs.com/pdfpatcher/" target="_blank" rel="noopener noreferrer">PDF 补丁丁</a>，已开源在<a href="https://github.com/wmjordan/PDFPatcher" target="_blank" rel="noopener noreferrer">PDFPatcher</a>，三方长文教程：<a href="https://post.smzdm.com/p/anx09ww3/" target="_blank" rel="noopener noreferrer">免费了 12 年的神器开源了，你可能不知道它有多强大</a></div>
+        </div>
+    </div>
+<h2 id="环境与原料" class="headerLink">
+    <a href="#%e7%8e%af%e5%a2%83%e4%b8%8e%e5%8e%9f%e6%96%99" class="header-mark"></a>环境与原料</h2><ul>
+<li>
+<p><strong>Python</strong></p>
+</li>
+<li>
+<p><strong>PyMuPDF模块</strong></p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install PyMuPDF
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="工具代码" class="headerLink">
+    <a href="#%e5%b7%a5%e5%85%b7%e4%bb%a3%e7%a0%81" class="header-mark"></a>工具代码</h2><p>以下为完整代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">fitz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解析</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 函数将file_path中所有文件（包括子目录中的文件），处理后，按照原目录保存到save_path下。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 即save_path下的文件夹结构和file_path一致。</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">analysis</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">toimg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 资源列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_array</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 目录循环压入</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_count</span> <span class="o">=</span> <span class="n">get_path_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">file_count</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 单文件，单次调用</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 判断为空情况</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此目录下无文件&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 执行解析</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_count_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_array</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;程序运行中，共计</span><span class="si">%s</span><span class="s2">个文件&#34;</span> <span class="o">%</span> <span class="n">file_count_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">success_num</span> <span class="o">=</span> <span class="n">file_count_num</span>
+</span></span><span class="line"><span class="cl">    <span class="n">failed_file_array</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">file_array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;原文件路径：</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取文件名称及类型</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(&#34;文件信息：%s&#34; % file_name)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;.pdf&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">file_name</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此文件非PDF文件，跳过&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">failed_file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;非 PDF文件：&#34;</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">success_num</span> <span class="o">=</span> <span class="n">success_num</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#  打开PDF文件，生成一个对象</span>
+</span></span><span class="line"><span class="cl">        <span class="n">doc</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 总页数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count_page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">pageCount</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(&#34;文件共计：%s页&#34; % count_page)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">toimg</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 仅提取页面</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">count_page</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc2</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>      <span class="c1"># 创建新的空PDF</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc2</span><span class="o">.</span><span class="n">insert_pdf</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">to_page</span> <span class="o">=</span> <span class="n">num</span><span class="p">)</span>  <span class="c1"># 提取doc的第1页到doc2</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 创建子目录</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_1</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_2</span> <span class="o">=</span> <span class="n">p_1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p_2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">p_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取到路径：&#34;</span> <span class="o">+</span> <span class="n">p_2</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc2</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">p_2</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>    <span class="c1"># 保存提取出的PDF文件</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取完成&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此文档无内容，跳过&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">failed_file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;文件无内容：&#34;</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">success_num</span> <span class="o">=</span> <span class="n">success_num</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 将页面转换为图片</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">count_page</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">rotate</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 每个尺寸的缩放系数为2，这将为我们生成分辨率提高四倍的图像。</span>
+</span></span><span class="line"><span class="cl">                <span class="n">zoom_x</span> <span class="o">=</span> <span class="mf">2.0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">zoom_y</span> <span class="o">=</span> <span class="mf">2.0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">trans</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">zoom_x</span><span class="p">,</span> <span class="n">zoom_y</span><span class="p">)</span><span class="o">.</span><span class="n">preRotate</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pm</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">getPixmap</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="n">trans</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 保存路径</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 创建子目录</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_1</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_2</span> <span class="o">=</span> <span class="n">p_1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p_2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">p_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">new_file_name</span> <span class="o">=</span> <span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;.pdf&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取到路径：&#34;</span> <span class="o">+</span> <span class="n">p_2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">new_file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pm</span><span class="o">.</span><span class="n">writePNG</span><span class="p">(</span><span class="n">p_2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">new_file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取并转换为图片完成&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此文档无内容，跳过&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">failed_file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">success_num</span> <span class="o">=</span> <span class="n">success_num</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">合计 </span><span class="si">%d</span><span class="s2"> 个文件提取成功，以下文件提取失败：&#34;</span> <span class="o">%</span> <span class="n">success_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">failed_file_array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 返回目录下所有文件</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_path_file</span><span class="p">(</span><span class="n">files_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">files_path</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">f_p</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f_p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 规范路径的斜杠格式</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">uni_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># return path.replace(r&#39;\/&#39;.replace(os.sep, &#39;&#39;), os.sep)  # 转换为当前系统的格式</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\\\</span><span class="s2">&#34;</span><span class="p">,</span><span class="s2">&#34;/&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\</span><span class="s2">&#34;</span><span class="p">,</span><span class="s2">&#34;/&#34;</span><span class="p">)</span> <span class="c1"># 统一转换为unix格式</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|---------------------------------|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|++++++++  PDF处理工具箱  ++++++++|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|---------------------------------|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|                                 |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;| 1. PDF 批量提取首页             |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;| 2. PDF 批量提取首页并转换为图片 |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|                                 |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|---------------------------------|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 选择处理方式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">toimg</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入要执行操作的编号：&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">toimg</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">toimg</span> <span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 当前目录下的文件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">now_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;当前位置：</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">now_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 保存路径</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;请输入参数，以 / 结尾&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;提取文件保存地址:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 判断目录</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_path_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">save_path_status</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 截取页数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 截取第一页</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 路径或文件名</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;待处理PDF文件地址:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 调用方法</span>
+</span></span><span class="line"><span class="cl">    <span class="n">analysis</span><span class="p">(</span><span class="n">uni_path</span><span class="p">(</span><span class="n">file_path</span><span class="p">),</span> <span class="n">uni_path</span><span class="p">(</span><span class="n">save_path</span><span class="p">),</span> <span class="n">num</span><span class="p">,</span> <span class="n">toimg</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考" class="headerLink">
+    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><p><a href="https://cloud.tencent.com/developer/article/1584421" target="_blank" rel="noopener noreferrer">Python 提取 PDF 第一页为封面图片【批量提取】</a></p>
+<p><a href="https://blog.csdn.net/lnotime/article/details/87720332" target="_blank" rel="noopener noreferrer">Python 把任意系统的路径转换成当前系统的格式（关于 / \ 分隔符的）</a></p>
+<p><a href="https://www.jianshu.com/p/bbad16822eab" target="_blank" rel="noopener noreferrer">python中os.walk的用法</a></p>
+<p><a href="https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf" target="_blank" rel="noopener noreferrer">python PyMuPDF(fitz)包中insert_pdf的用法</a></p>]]></description></item><item><title>MathType 安装及 Word 菜单项集成</title><link>https://wlcheng.cc/2019/11/mathtype-setup-for-word/</link><pubDate>Thu, 28 Nov 2019 22:29:28 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2019/11/mathtype-setup-for-word/</guid><description><![CDATA[<p>安装 Mathtype 过程记录，并解决集成到 Word 菜单栏的问题。</p>
+<h2 id="mathtype-安装问题" class="headerLink">
+    <a href="#mathtype-%e5%ae%89%e8%a3%85%e9%97%ae%e9%a2%98" class="header-mark"></a>MathType 安装问题</h2><h3 id="安装并破解" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85%e5%b9%b6%e7%a0%b4%e8%a7%a3" class="header-mark"></a>安装并破解</h3><p>从六维空间上下载的<a href="http://bt.neu6.edu.cn/thread-1635051-1-1.html" target="_blank" rel="noopener noreferrer">MathType 7.2</a>版本，按照说明</p>
+<ol>
+<li>
+<p>首先安装 MathType-win-zh7.2.exe，安装过程一切顺利，因为安装需要向Office 添加加载项，所以需要将Office 一切程序都关闭；</p>
+</li>
+<li>
+<p>以防意外，打开之前MathType 和Office 之前，先进行破解，提供的破解软件有两个，作用不同：</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>[neubt]MathType替换原文件.exe</strong>：替换MathType 根目录的主启动程序 MathType.exe，作用是去掉打开程序时提示测试版到期的弹窗通知。</p>
+</li>
+<li>
+<p><strong>[neubt]MathType7.xCrack.zip</strong>：解压后得到mathtypelib.exe，替换MathType 根目录下System 子文件夹里的同名文件。</p>
+</li>
+</ul>
+<ol start="3">
+<li>
+<p>完成以上两个文件的替换后，启动 MathType，会弹出一个对话框，但按钮上的字都变成了问号，不管他，直接叉掉对话框，然后可以发现功能完善，应该是已经成功破解。</p>
+</li>
+<li>
+<p>打开Word，菜单栏上应该会多出一个 MathType的菜单项，说明安装成功，如果没有菜单项，请看下文解决方案。</p>
+</li>
+</ol>
+<h3 id="word没有mathtype菜单项" class="headerLink">
+    <a href="#word%e6%b2%a1%e6%9c%89mathtype%e8%8f%9c%e5%8d%95%e9%a1%b9" class="header-mark"></a>Word 没有MathType 菜单项</h3><ul>
+<li><strong>问题：</strong></li>
+</ul>
+<p>首先来说，MathType 正确加载的话，Word 的菜单栏上会有 MathType，如下</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png" title="mathtype-setup-for-word_Image001_2021-07-24-01-06-17" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png">
+        
+    </a></p>
+</div>
+<p>而现在问题是，打开Word，菜单栏没有 MathType 项，</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png" title="mathtype-setup-for-word_Image002_2021-07-24-01-06-59" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png">
+        
+    </a></p>
+</div>
+<ul>
+<li><strong>原因：</strong></li>
+</ul>
+<p><a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133#windows" target="_blank" rel="noopener noreferrer">[1]</a> 中给出的原因可以描述为</p>
+<p>&ldquo;当 Microsoft Office 自动更新程序运行并安装更新时，有时会禁用加载项，这样就会删除任何工具栏/功能区附加项。&rdquo;</p>
+<p>Word 上的 MathType加载项要能正确运行并使用，须满足：</p>
+<ol>
+<li><strong>MathType 正确安装；</strong></li>
+<li><strong>Word 正确加载 MathType 提供的加载项文件。</strong></li>
+</ol>
+<p>可见在MathType 本身安装无误情况下(指MathType <strong>软件本身</strong>能正常使用)，Word 没有MathType菜单项的原因大概率就是<strong>因为 Word 没能正确的加载 MathType 加载项。</strong></p>
+<ul>
+<li><strong>解决方案：</strong></li>
+</ul>
+<p>此时虽然可以迂回的通过以下方式插入公式：</p>
+<ol>
+<li>通过插入对象的方式，插入-&gt;对象-&gt;选择MathType对象；</li>
+<li>直接从MathType 软件里编辑好的公式复制进Word。</li>
+</ol>
+<p>但是，如果要实现插入带编号公式等较高级的功能的话，还是用集成的 MathType工具栏方便的多，从前面的图就可见一斑。</p>
+<ul>
+<li><strong>准备工作：</strong></li>
+</ul>
+<p>首先查看 Office Word 版本以及 MathType版本，兼容关系为</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png" title="mathtype-setup-for-word_Image003_2021-07-24-01-07-19" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png">
+        
+    </a></p>
+</div>
+<p>查看我的版本分别为</p>
+<p><strong>Word</strong>：<strong>文件</strong>-&gt;<strong>账户</strong>-&gt;<strong>关于</strong>-&gt; Office <strong>365 32</strong>位，因此需要MathType 版本大于 <strong>6.9b</strong></p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png" title="mathtype-setup-for-word_Image004_2021-07-24-01-07-53" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png">
+        
+    </a></p>
+</div>
+<p><strong>MathType</strong>：<strong>关于</strong>-&gt;<strong>7.2.0.420</strong> &gt; <strong>6.9b</strong></p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png" title="mathtype-setup-for-word_Image005_2021-07-24-01-08-03" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png">
+        
+    </a></p>
+</div>
+<p>确定Word 和 MathType安装路径：</p>
+<ul>
+<li>
+<p><strong>Office</strong> 安装路径：D:\Program Files (x86)\Microsoft Office\</p>
+</li>
+<li>
+<p><strong>MathType</strong> 路径：D:\Math\MathType\</p>
+</li>
+</ul>
+<p>安装路径可能不同，根据自己情况而定。</p>
+<ul>
+<li><strong>步骤：</strong></li>
+</ul>
+<p>Word菜单栏-&gt;<strong>文件</strong>-&gt;<strong>选项</strong>-&gt;<strong>加载项</strong>-&gt;底部<strong>管理</strong>下拉框选择 <strong>Word加载项</strong> 并点击<strong>转到</strong>，弹出类似下面的对话框，</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png" title="mathtype-setup-for-word_Image006_2021-07-24-01-08-15" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png">
+        
+    </a></p>
+</div>
+<p>没问题的情况下，这里的第一项应该是被勾选上的，如下说明。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png" title="mathtype-setup-for-word_Image007_2021-07-24-01-08-25" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png">
+        
+    </a></p>
+</div>
+<p>如果，没有以上对话框中的项，则选择从以下两个目录之一中 <strong>添加</strong> 正确版本的 <strong>.dotm</strong>文件，然后勾选并确定。</p>
+<p>D:\Math\MathType\Office Support\32 （32位 Office）<br>
+D:\Math\MathType\Office Support\64 （64位 Office）</p>
+<p>对于我的版本，选择 <strong>MathType Commands 2016.dotm</strong> 这一个</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png" title="mathtype-setup-for-word_Image008_2021-07-24-01-08-36" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png">
+        
+    </a></p>
+</div>
+<p>勾选  <strong>MathType Commands 2016.dotm</strong> 项并 确定后，Word会加载出MathType 的菜单项，如图1所示。</p>
+<p>然而，然而，然而事情并非如此简单，</p>
+<p>当关闭Word，并重新打开后，忙半天加上的MathType 菜单项又没啦。</p>
+<p>这么看应该是设置的问题，在Word 启动时，并没有自动加载 MathType 加载项。那么要自动加载，是不是就得把这个MathType Commands 2016.dotm 文件放到Word 的默认加载目录下面？</p>
+<p>但是再次按照第3步，打开Word 加载项对话框，发现有这一项，但却没有勾选。那么怎么设置为默认勾选呢？</p>
+<p>幸而 <a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133-word2016-32" target="_blank" rel="noopener noreferrer">[2]</a> 对此也给出了解决方案：由于不同版本的系统、Office软件或者不同用户自定义的原因，Word 的加载项路径可能不一样。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png" title="mathtype-setup-for-word_Image009_2021-07-24-01-08-51" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png">
+        
+    </a></p>
+</div>
+<p>根据说明，需要将前面的两个文件拷贝到 Word的加载项（启动项）目录下面，目录存在以上图中 3种可能，图中 1和 2根据 Office 是32位/64位只取其一。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png" title="mathtype-setup-for-word_Image010_2021-07-24-01-09-07" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png">
+        
+    </a></p>
+</div>
+<p>以做对比，将可能的三个目录位置都打开，如下1、2、3，依次将这两个文件放到这三个目录下，</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png" title="mathtype-setup-for-word_Image011_2021-07-24-01-09-17" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png">
+        
+    </a></p>
+</div>
+<p>经过尝试，，放在 2对应路径下时，Word成功加载了MathType菜单项。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png" title="mathtype-setup-for-word_Image012_2021-07-24-01-09-27" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png">
+        
+    </a></p>
+</div>
+<p>比较前后两张图，此处有一个问题，下图中除了拷贝进去的两个模板文件外，还有一个MathPage.wll，这个文件实际上是一种DLL文件，也不可少，也是来自于MathType的安装目录，事实上，当MathType安装成功后，会自动将其拷贝到这个 2 对应的目录，一般无需手动添加，如果发现没有，可以从MathType安装根目录下的MathType文件夹里面找到，如下图，根据32位或64位选择。</p>
+<div align=center>
+<p><a class="lightgallery" href="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png" title="mathtype-setup-for-word_Image013_2021-07-24-01-09-39" data-thumbnail="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png">
+        
+    </a></p>
+</div>
+<ul>
+<li><strong>总结</strong></li>
+</ul>
+<p>最后，来回顾一下过程，根据 <a href="evernote:///view/19609389/s20/77c14f83-dd5c-41e2-9c9c-117480f4003d/77c14f83-dd5c-41e2-9c9c-117480f4003d/" rel="">常用设置</a> 中的，《查看 Word 相关各类文件的默认位置》就能够查看Word 默认的启动项位置，正好是上面给出的第二种目录。</p>
+<p>因此，解决以上问题的正确思路应该是，将模板加载项文件拷贝到 Word的默认的启动项位置目录下。</p>
+<p><strong>参考：</strong></p>
+<p><a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133" target="_blank" rel="noopener noreferrer">[1] MathType Toolbar/Tab has disappeared from Microsoft Word</a><br>
+<a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133-word2016-32#mathtype_tab_has_disappeared_from_microsoft_word_2016_and_later_for_windows" target="_blank" rel="noopener noreferrer">[2] MathType Tab has disappeared from Microsoft Word 2016 and later for Windows</a></p>]]></description></item></channel></rss>

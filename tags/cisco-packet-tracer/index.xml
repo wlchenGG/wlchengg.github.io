@@ -1,1 +1,37 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cisco Packet Tracer - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/cisco-packet-tracer/</link><description>Cisco Packet Tracer - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Tue, 12 Oct 2021 11:00:17 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/tags/cisco-packet-tracer/" rel="self" type="application/rss+xml"/><item><title>Cisco Packet Tracer 学习 —— 安装</title><link>https://wlcheng.cc/2021/10/cisco_packet_tracer_install/</link><pubDate>Tue, 12 Oct 2021 11:00:17 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2021/10/cisco_packet_tracer_install/</guid><description>&lt;p>思科网络仿真工具 Cisco Packet Tracer 学习系列之一：软件获取及安装。&lt;/p></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Cisco Packet Tracer - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/cisco-packet-tracer/</link><description>Cisco Packet Tracer - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Tue, 12 Oct 2021 11:00:17 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/tags/cisco-packet-tracer/" rel="self" type="application/rss+xml"/><item><title>Cisco Packet Tracer 学习 —— 安装</title><link>https://wlcheng.cc/2021/10/cisco_packet_tracer_install/</link><pubDate>Tue, 12 Oct 2021 11:00:17 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2021/10/cisco_packet_tracer_install/</guid><description><![CDATA[<p>思科网络仿真工具 Cisco Packet Tracer 学习系列之一：软件获取及安装。</p>
+<h2 id="注册账号" class="headerLink">
+    <a href="#%e6%b3%a8%e5%86%8c%e8%b4%a6%e5%8f%b7" class="header-mark"></a>注册账号</h2><p>在<a href="https://id.cisco.com/signin/register" target="_blank" rel="noopener noreferrer">Cisco Packet Tracer</a>填写信息进行注册。</p>
+<div align="center" ></div>
+<h2 id="安装软件" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85%e8%bd%af%e4%bb%b6" class="header-mark"></a>安装软件</h2><h3 id="下载安装" class="headerLink">
+    <a href="#%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85" class="header-mark"></a>下载安装</h3><p>在 Cisco Networking Academy 网页登录账号后，下载 Cisco Packet Tracer 安装包：</p>
+<div align="center" ></div>
+<p>打开下载的安装包，执行安装程序：</p>
+<div align="center" ></div>
+<h3 id="启动登录" class="headerLink">
+    <a href="#%e5%90%af%e5%8a%a8%e7%99%bb%e5%bd%95" class="header-mark"></a>启动登录</h3><p>启动界面：</p>
+<div align="center" ></div>
+<p>首次启动需要登录我们前面注册的 Cisco Networking Academy 账号。此处勾选上<code>Keep me logged in</code>选项，能够3个月免手动登录。</p>
+<div align="center" ></div>
+<p>依次输入账号、密码，点击<code>Log in</code>按钮完成登录。</p>
+<div align="center" ></div>
+<p>登录后，会自动打开软件主界面，如下：</p>
+<div align="center" ></div>
+<h3 id="修改语言" class="headerLink">
+    <a href="#%e4%bf%ae%e6%94%b9%e8%af%ad%e8%a8%80" class="header-mark"></a>修改语言</h3><p>下载语言包文件：在<a href="https://www.netacad.com/portal/resources/browse/341e11c1-d03f-4433-9413-29b9d207e7eb" target="_blank" rel="noopener noreferrer">列表</a>中找到<code>Simplified Chinese.ptl</code>点击下载。</p>
+<div align="center" ></div>
+<p>将下载的语言包文件拷贝到 Cisco Packet Tracer的安装目录（根据自己的安装目录而定）下的<code>language</code>文件夹下：</p>
+<div align="center" ></div>
+<p>打开 Cisco Packet Tracer</p>
+<ol>
+<li>从菜单上依次点击 <code>Options</code>|<code>Preferences</code>；</li>
+<li>Translator 框中，选定<code>Simplified Chinese</code>；</li>
+<li>点击 <code>Change Language</code>；</li>
+<li>弹出框提示&quot;将在下次打开软件时生效。点<code>OK</code>。</li>
+</ol>
+<div align="center" ></div>
+<ol start="5">
+<li>关闭软件并重新打开查看是否修改成功。</li>
+</ol>
+<div align="center" ></div>
+<p>搭好环境，下一篇正式开始学习使用。p.s. 下一篇暂无。</p>]]></description></item></channel></rss>

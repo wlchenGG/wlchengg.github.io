@@ -1,1 +1,317 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>PDF - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/pdf/</link><description>PDF - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Fri, 13 Aug 2021 00:57:00 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/tags/pdf/" rel="self" type="application/rss+xml"/><item><title>基于Python批量提取PDF首页</title><link>https://wlcheng.cc/2021/08/pdftoolbox/</link><pubDate>Fri, 13 Aug 2021 00:57:00 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2021/08/pdftoolbox/</guid><description>&lt;p>最近因为汇总论文成果，需要提取论文的首页。虽然Acrobat提供了&lt;code>页面组织&lt;/code>功能可以任意提取，但手动操作一次只能处理一个文件。当面对好几十篇论文时，尚未开始就已经放弃。&lt;/p></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>PDF - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/pdf/</link><description>PDF - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Fri, 13 Aug 2021 00:57:00 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/tags/pdf/" rel="self" type="application/rss+xml"/><item><title>基于 Python 批量提取 PDF 首页</title><link>https://wlcheng.cc/2021/08/pdftoolbox/</link><pubDate>Fri, 13 Aug 2021 00:57:00 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2021/08/pdftoolbox/</guid><description><![CDATA[<p>最近因为汇总论文成果，需要提取论文的首页。虽然 Acrobat 提供了<code>页面组织</code>功能可以任意提取，但手动操作一次只能处理一个文件。当面对好几十篇论文时，尚未开始就已经放弃。</p>
+<p>工欲善其事必先利其器，决定造个工具，一劳永逸提高效率。</p>
+<p>以下代码基于 <a href="https://cloud.tencent.com/developer/article/1584421" target="_blank" rel="noopener noreferrer">小白程序猿</a> 的方案，面向我自己的需求作了一些调整适配，在此致谢🫡</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>插播推荐 PDF 补丁丁<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">一个满满情怀的 PDF 神器：<a href="https://www.cnblogs.com/pdfpatcher/" target="_blank" rel="noopener noreferrer">PDF 补丁丁</a>，已开源在<a href="https://github.com/wmjordan/PDFPatcher" target="_blank" rel="noopener noreferrer">PDFPatcher</a>，三方长文教程：<a href="https://post.smzdm.com/p/anx09ww3/" target="_blank" rel="noopener noreferrer">免费了 12 年的神器开源了，你可能不知道它有多强大</a></div>
+        </div>
+    </div>
+<h2 id="环境与原料" class="headerLink">
+    <a href="#%e7%8e%af%e5%a2%83%e4%b8%8e%e5%8e%9f%e6%96%99" class="header-mark"></a>环境与原料</h2><ul>
+<li>
+<p><strong>Python</strong></p>
+</li>
+<li>
+<p><strong>PyMuPDF模块</strong></p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install PyMuPDF
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="工具代码" class="headerLink">
+    <a href="#%e5%b7%a5%e5%85%b7%e4%bb%a3%e7%a0%81" class="header-mark"></a>工具代码</h2><p>以下为完整代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">fitz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解析</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 函数将file_path中所有文件（包括子目录中的文件），处理后，按照原目录保存到save_path下。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 即save_path下的文件夹结构和file_path一致。</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">analysis</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">toimg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 资源列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_array</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 目录循环压入</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_count</span> <span class="o">=</span> <span class="n">get_path_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">file_count</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 单文件，单次调用</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 判断为空情况</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此目录下无文件&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 执行解析</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_count_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_array</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;程序运行中，共计</span><span class="si">%s</span><span class="s2">个文件&#34;</span> <span class="o">%</span> <span class="n">file_count_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">success_num</span> <span class="o">=</span> <span class="n">file_count_num</span>
+</span></span><span class="line"><span class="cl">    <span class="n">failed_file_array</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">file_array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;原文件路径：</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取文件名称及类型</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(&#34;文件信息：%s&#34; % file_name)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;.pdf&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">file_name</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此文件非PDF文件，跳过&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">failed_file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;非 PDF文件：&#34;</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">success_num</span> <span class="o">=</span> <span class="n">success_num</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#  打开PDF文件，生成一个对象</span>
+</span></span><span class="line"><span class="cl">        <span class="n">doc</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 总页数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count_page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">pageCount</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(&#34;文件共计：%s页&#34; % count_page)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">toimg</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 仅提取页面</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">count_page</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc2</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>      <span class="c1"># 创建新的空PDF</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc2</span><span class="o">.</span><span class="n">insert_pdf</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">to_page</span> <span class="o">=</span> <span class="n">num</span><span class="p">)</span>  <span class="c1"># 提取doc的第1页到doc2</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 创建子目录</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_1</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_2</span> <span class="o">=</span> <span class="n">p_1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p_2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">p_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取到路径：&#34;</span> <span class="o">+</span> <span class="n">p_2</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc2</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">p_2</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>    <span class="c1"># 保存提取出的PDF文件</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取完成&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此文档无内容，跳过&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">failed_file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;文件无内容：&#34;</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">success_num</span> <span class="o">=</span> <span class="n">success_num</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 将页面转换为图片</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">count_page</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">rotate</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 每个尺寸的缩放系数为2，这将为我们生成分辨率提高四倍的图像。</span>
+</span></span><span class="line"><span class="cl">                <span class="n">zoom_x</span> <span class="o">=</span> <span class="mf">2.0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">zoom_y</span> <span class="o">=</span> <span class="mf">2.0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">trans</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">zoom_x</span><span class="p">,</span> <span class="n">zoom_y</span><span class="p">)</span><span class="o">.</span><span class="n">preRotate</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pm</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">getPixmap</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="n">trans</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 保存路径</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 创建子目录</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_1</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_2</span> <span class="o">=</span> <span class="n">p_1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p_2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">p_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">new_file_name</span> <span class="o">=</span> <span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;.pdf&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取到路径：&#34;</span> <span class="o">+</span> <span class="n">p_2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">new_file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pm</span><span class="o">.</span><span class="n">writePNG</span><span class="p">(</span><span class="n">p_2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">new_file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取并转换为图片完成&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此文档无内容，跳过&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">failed_file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">success_num</span> <span class="o">=</span> <span class="n">success_num</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">合计 </span><span class="si">%d</span><span class="s2"> 个文件提取成功，以下文件提取失败：&#34;</span> <span class="o">%</span> <span class="n">success_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">failed_file_array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 返回目录下所有文件</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_path_file</span><span class="p">(</span><span class="n">files_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">files_path</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">f_p</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f_p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 规范路径的斜杠格式</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">uni_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># return path.replace(r&#39;\/&#39;.replace(os.sep, &#39;&#39;), os.sep)  # 转换为当前系统的格式</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\\\</span><span class="s2">&#34;</span><span class="p">,</span><span class="s2">&#34;/&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\</span><span class="s2">&#34;</span><span class="p">,</span><span class="s2">&#34;/&#34;</span><span class="p">)</span> <span class="c1"># 统一转换为unix格式</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|---------------------------------|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|++++++++  PDF处理工具箱  ++++++++|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|---------------------------------|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|                                 |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;| 1. PDF 批量提取首页             |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;| 2. PDF 批量提取首页并转换为图片 |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|                                 |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|---------------------------------|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 选择处理方式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">toimg</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入要执行操作的编号：&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">toimg</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">toimg</span> <span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 当前目录下的文件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">now_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;当前位置：</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">now_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 保存路径</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;请输入参数，以 / 结尾&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;提取文件保存地址:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 判断目录</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_path_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">save_path_status</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 截取页数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 截取第一页</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 路径或文件名</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;待处理PDF文件地址:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 调用方法</span>
+</span></span><span class="line"><span class="cl">    <span class="n">analysis</span><span class="p">(</span><span class="n">uni_path</span><span class="p">(</span><span class="n">file_path</span><span class="p">),</span> <span class="n">uni_path</span><span class="p">(</span><span class="n">save_path</span><span class="p">),</span> <span class="n">num</span><span class="p">,</span> <span class="n">toimg</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考" class="headerLink">
+    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><p><a href="https://cloud.tencent.com/developer/article/1584421" target="_blank" rel="noopener noreferrer">Python 提取 PDF 第一页为封面图片【批量提取】</a></p>
+<p><a href="https://blog.csdn.net/lnotime/article/details/87720332" target="_blank" rel="noopener noreferrer">Python 把任意系统的路径转换成当前系统的格式（关于 / \ 分隔符的）</a></p>
+<p><a href="https://www.jianshu.com/p/bbad16822eab" target="_blank" rel="noopener noreferrer">python中os.walk的用法</a></p>
+<p><a href="https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf" target="_blank" rel="noopener noreferrer">python PyMuPDF(fitz)包中insert_pdf的用法</a></p>]]></description></item></channel></rss>

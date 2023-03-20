@@ -1,1 +1,191 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>PyTorch - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/pytorch/</link><description>PyTorch - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Wed, 01 Mar 2023 16:05:36 +0100</lastBuildDate><atom:link href="https://wlcheng.cc/tags/pytorch/" rel="self" type="application/rss+xml"/><item><title>Linux 服务器下 PyTorch 环境配置</title><link>https://wlcheng.cc/2023/03/config_linux_server_pytorch/</link><pubDate>Wed, 01 Mar 2023 16:05:36 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2023/03/config_linux_server_pytorch/</guid><description>&lt;p>记录在 Linux 下，Miniconda 中配置 PyTorch 环境。&lt;/p></description></item></channel></rss>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>PyTorch - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/pytorch/</link><description>PyTorch - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Wed, 01 Mar 2023 16:05:36 +0100</lastBuildDate><atom:link href="https://wlcheng.cc/tags/pytorch/" rel="self" type="application/rss+xml"/><item><title>Linux 服务器下 PyTorch 环境配置</title><link>https://wlcheng.cc/2023/03/config_linux_server_pytorch/</link><pubDate>Wed, 01 Mar 2023 16:05:36 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2023/03/config_linux_server_pytorch/</guid><description><![CDATA[<p>记录在 Linux 下，Miniconda3 中配置 PyTorch 环境。</p>
+<h2 id="安装-miniconda" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85-miniconda" class="header-mark"></a>安装 Miniconda</h2><p><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener noreferrer">Miniconda 官网</a></p>
+<h3 id="下载安装包" class="headerLink">
+    <a href="#%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85%e5%8c%85" class="header-mark"></a>下载安装包</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://repo.anaconda.com/miniconda/Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="执行安装" class="headerLink">
+    <a href="#%e6%89%a7%e8%a1%8c%e5%ae%89%e8%a3%85" class="header-mark"></a>执行安装</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bash Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>输入 <code>yes</code> 同意协议；然后 <code>回车</code> 采用默认安装路径，或者手动输入指定的安装路径：</p>
+<div align="center" ></div>
+<p>下面询问在打开命令行时是否自动进入 conda 的 <code>base</code> 环境：输入 <code>yes</code> 后回车，然后执行 <code>conda config --set auto_activate_base false</code> 关闭自动初始化。p.s. 这样做可以免去手动添加环境变量的过程。</p>
+<div align="center" ></div>
+<h3 id="添加软件源频道" class="headerLink">
+    <a href="#%e6%b7%bb%e5%8a%a0%e8%bd%af%e4%bb%b6%e6%ba%90%e9%a2%91%e9%81%93" class="header-mark"></a>添加软件源（频道）</h3><p>为了提高软件包下载速度，我们可以通过以下命令添加镜像软件源：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 新加源具有高优先级</span>
+</span></span><span class="line"><span class="cl">conda config --add channels source_url
+</span></span><span class="line"><span class="cl">conda config --prepend channels source_url <span class="c1">#同上等效</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 新加源具有低优先级</span>
+</span></span><span class="line"><span class="cl">conda config --append channels source_url
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>执行以下命令，添加清华源：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+</span></span><span class="line"><span class="cl">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>查看源是否添加成功：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda config --get channels
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>参考：</strong></p>
+<p>[1] 朱渠成, Linux 下 miniconda 的安装使用, <a href="https://www.jianshu.com/p/4d4c786ed454" target="_blank" rel="noopener noreferrer">https://www.jianshu.com/p/4d4c786ed454</a></p>
+<p>[2] Conda doc, Managing channels, <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html?highlight=priority" target="_blank" rel="noopener noreferrer">https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-channels.html?highlight=priority</a></p>
+<p>[3] 普遍语法, 编辑 condarc 编辑 channel 的优先级, <a href="https://blog.csdn.net/weixin_45564533/article/details/123012930" target="_blank" rel="noopener noreferrer">https://blog.csdn.net/weixin_45564533/article/details/123012930</a></p>
+<h2 id="创建-pytorch-虚拟环境" class="headerLink">
+    <a href="#%e5%88%9b%e5%bb%ba-pytorch-%e8%99%9a%e6%8b%9f%e7%8e%af%e5%a2%83" class="header-mark"></a>创建 PyTorch 虚拟环境</h2><h3 id="创建-conda-独立环境" class="headerLink">
+    <a href="#%e5%88%9b%e5%bb%ba-conda-%e7%8b%ac%e7%ab%8b%e7%8e%af%e5%a2%83" class="header-mark"></a>创建 conda 独立环境</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda create -n pt <span class="nv">python</span><span class="o">=</span>3.10
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="配置-pytorch-环境" class="headerLink">
+    <a href="#%e9%85%8d%e7%bd%ae-pytorch-%e7%8e%af%e5%a2%83" class="header-mark"></a>配置 PyTorch 环境</h3><p>进入创建的环境 <code>pt</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda activate pt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>通过 PyTorch <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener noreferrer">官网</a>，选择所需环境，获取安装命令并执行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>进入 Python 上下文环境，执行以下命令，如果能输出正确的版本号，则 PyTorch 安装成功：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">torch</span>
+</span></span><span class="line"><span class="cl"><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div align="center" ></div>
+<p><strong>参考：</strong></p>
+<p>[4] PyTorch 安装命令. <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener noreferrer">https://pytorch.org/get-started/locally/</a></p>
+<p>[5] Hitesh Jethva, LCTT. Linux 系统下查看硬件信息命令大全. <a href="https://linux.cn/article-6928-1.html" target="_blank" rel="noopener noreferrer">https://linux.cn/article-6928-1.html</a>, 命令 <code>inxi -Fx</code> 好使</p>
+<h2 id="常用-conda-环境管理命令" class="headerLink">
+    <a href="#%e5%b8%b8%e7%94%a8-conda-%e7%8e%af%e5%a2%83%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4" class="header-mark"></a>常用 Conda 环境管理命令</h2><h3 id="环境管理命令" class="headerLink">
+    <a href="#%e7%8e%af%e5%a2%83%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4" class="header-mark"></a>环境管理命令</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建虚拟环境</span>
+</span></span><span class="line"><span class="cl">conda create --name 环境名 <span class="nv">python</span><span class="o">=</span>3.7 <span class="o">[</span>可以指定其他需要安装的包<span class="o">]</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 删除某个环境</span>
+</span></span><span class="line"><span class="cl">conda remove --name 环境名 --all
+</span></span><span class="line"><span class="cl"><span class="c1"># 列出所有环境</span>
+</span></span><span class="line"><span class="cl">conda env list
+</span></span><span class="line"><span class="cl">或者
+</span></span><span class="line"><span class="cl">conda info --envs
+</span></span><span class="line"><span class="cl"><span class="c1"># 进入某个环境</span>
+</span></span><span class="line"><span class="cl">conda activate 环境名
+</span></span><span class="line"><span class="cl"><span class="c1"># 退出当前环境</span>
+</span></span><span class="line"><span class="cl">conda deactivate
+</span></span><span class="line"><span class="cl"><span class="c1"># 列出当前环境下安装的包</span>
+</span></span><span class="line"><span class="cl">conda list
+</span></span><span class="line"><span class="cl"><span class="c1"># 导出环境配置</span>
+</span></span><span class="line"><span class="cl">conda env <span class="nb">export</span> &gt; environment.txt
+</span></span><span class="line"><span class="cl"><span class="c1"># 从配置文件创建新环境</span>
+</span></span><span class="line"><span class="cl">conda ceate --name 环境名 --file environment.txt
+</span></span><span class="line"><span class="cl"><span class="c1"># 重命名环境（克隆旧环境，删除旧环境）</span>
+</span></span><span class="line"><span class="cl">conda create --name 新环境名 --clone 旧环境名
+</span></span><span class="line"><span class="cl">conda env remove --name 旧环境名
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="源频道管理命令" class="headerLink">
+    <a href="#%e6%ba%90%e9%a2%91%e9%81%93%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4" class="header-mark"></a>源（频道）管理命令</h2><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">## 添加新的源</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 新加源具有高优先级</span>
+</span></span><span class="line"><span class="cl">conda config --add channels source_url
+</span></span><span class="line"><span class="cl">conda config --prepend channels source_url <span class="c1">#同上等效</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 新加源具有低优先级</span>
+</span></span><span class="line"><span class="cl">conda config --append channels source_url
+</span></span><span class="line"><span class="cl"><span class="c1">## 查看已有的源</span>
+</span></span><span class="line"><span class="cl">conda config --get channels
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>参考：</strong></p>
+<p>[6] 朱渠成. miniconda的常用命令汇总. <a href="https://www.jianshu.com/p/0e9c88479cfd" target="_blank" rel="noopener noreferrer">https://www.jianshu.com/p/0e9c88479cfd</a></p>
+<p>[7] Fission0102. miniconda 常用命令. <a href="https://www.cnblogs.com/Fission0102/p/13998824.html" target="_blank" rel="noopener noreferrer">https://www.cnblogs.com/Fission0102/p/13998824.html</a></p>]]></description></item></channel></rss>

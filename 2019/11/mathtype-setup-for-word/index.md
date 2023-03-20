@@ -1,4 +1,4 @@
-# MathType安装及 Word菜单项集成
+# MathType 安装及 Word 菜单项集成
 
 
 安装 Mathtype 过程记录，并解决集成到 Word 菜单栏的问题。
@@ -9,7 +9,7 @@
 
 ### 安装并破解
 
-从 6维空间上下载的[MathType 7.2](http://bt.neu6.edu.cn/thread-1635051-1-1.html)版本，按照说明
+从六维空间上下载的[MathType 7.2](http://bt.neu6.edu.cn/thread-1635051-1-1.html)版本，按照说明
 
 1. 首先安装 MathType-win-zh7.2.exe，安装过程一切顺利，因为安装需要向Office 添加加载项，所以需要将Office 一切程序都关闭；
 
@@ -45,7 +45,7 @@
 
 [[1]](https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133#windows) 中给出的原因可以描述为
 
-"当Microsoft Office自动更新程序运行并安装更新时，有时会禁用加载项，这样就会删除任何工具栏/功能区附加项。"
+"当 Microsoft Office 自动更新程序运行并安装更新时，有时会禁用加载项，这样就会删除任何工具栏/功能区附加项。"
 
 Word 上的 MathType加载项要能正确运行并使用，须满足：
 

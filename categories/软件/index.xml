@@ -1,0 +1,136 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>软件 - 分类 - Wlcheng's Life</title><link>https://wlcheng.cc/categories/%E8%BD%AF%E4%BB%B6/</link><description>软件 - 分类 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Thu, 19 Aug 2021 17:40:30 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/categories/%E8%BD%AF%E4%BB%B6/" rel="self" type="application/rss+xml"/><item><title>PowerShell 美化</title><link>https://wlcheng.cc/2021/08/powershell%E7%BE%8E%E5%8C%96/</link><pubDate>Thu, 19 Aug 2021 17:40:30 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/2021/08/powershell%E7%BE%8E%E5%8C%96/</guid><description><![CDATA[<p>记录新版 PowerShell 美化过程。</p>
+<h3 id="安装-windows-terminal" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85-windows-terminal" class="header-mark"></a>安装 Windows Terminal</h3><p>可以在微软商店 (Microsoft Store) 搜索 <code>Windows Terminal</code> 安装。</p>
+<p>商城搜索结果会有多种版本的Windows Terminal (以下将简称为Terminal)，不知选哪个的话，可直接点击此处链接 <a href="https://www.microsoft.com/store/productId/9N0DX20HK701" target="_blank" rel="noopener noreferrer">Windows Terminal - 微软商店</a>，然后点击<code>获取</code>，弹出框中同意<code>打开</code>电脑的微软商城，跳转到软件主页后，直接<code>安装</code>即可。安装过程无需做任何选项与设置，就像在手机上的软件商城中搜索软件进行安装一样简单。</p>
+<p>当然，如果想体验最新功能，可以去官方Github发布页获取最新预览版本：<a href="https://github.com/microsoft/terminal/releases" target="_blank" rel="noopener noreferrer">Windows Terminal - Github</a></p>
+<p>安装完后的 Windows Terminal，可以在系统开始菜单找到并打开。先看一下美化前的样子。</p>
+<figure><a class="lightgallery" href="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" title="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" data-thumbnail="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" data-sub-html="<h2>美化之前的PowerShell</h2>">
+        
+    </a><figcaption class="image-caption">美化之前的PowerShell</figcaption>
+    </figure>
+<p>朴实无华，看着其实也还不错。</p>
+<p>可以看到Terminal的多窗口是标签化管理的，大为方便软件内的切换。而菜单栏上右侧的 <code>+</code>号可以快速开启一个默认类型的窗口。<code>﹀</code>下拉菜单可以选择各类终端窗口。</p>
+<p>然后看一下终端显示的内容。因为要美化的是PowerShell，我便打开了一个Windows PowerShell窗口，键入命令 <code>$PSVersionTable</code>后回车，可以看到当前PowerShell的版本号为<code>5.1</code>，仍然是老版本。之后我们要将其换成 <strong>开源跨平台的船新版本</strong>。请看下文~</p>
+<h3 id="安装-powershell" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85-powershell" class="header-mark"></a>安装 PowerShell</h3><h4 id="更新-从-microsoft-store-安装" class="headerLink">
+    <a href="#%e6%9b%b4%e6%96%b0-%e4%bb%8e-microsoft-store-%e5%ae%89%e8%a3%85" class="header-mark"></a>(更新) 从 Microsoft Store 安装</h4><p>微软商城搜索 <a href="https://www.microsoft.com/store/productId/9P95ZZKTNRN4" target="_blank" rel="noopener noreferrer">PowerShell Preview</a> ，安装即可。官方渠道，可以自动更新，无需重复配置环境。</p>
+<p>安装完成后，重新打开 Terminal。</p>
+<h4 id="从-github-下载安装" class="headerLink">
+    <a href="#%e4%bb%8e-github-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85" class="header-mark"></a>从 Github 下载安装</h4><p>采用此种方式的话，之后需要自己手动下载新版本安装包，并重新进行后续的美化配置。</p>
+<p>船新版本在哪里？当然看准官方发布渠道，我选了最新预览版：<a href="https://github.com/PowerShell/PowerShell/releases/tag/v7.2.0-preview.8" target="_blank" rel="noopener noreferrer">PowerShell</a></p>
+<p>可以观察到，曾经的PowerShell 全名为 <code>Windows PowerShell</code>，但是现在去掉了前面的<code>Windows</code>，只留<code>PowerShell</code>一词；另外发布页的 <code>Assets</code>中也确实提供了各种平台的版本。这无疑是名副其实的跨平台了。</p>
+<p>言归正传，从上面官方发布页中，我选择了 <code>7.2.0-preview-win-x64</code> 版本的<code>msi</code>安装包。下载下来安装包后，直接双击运行，会经历以下步骤，最后还有一个对话框点击<code>install</code>即可。</p>
+<p>这个船新版本的船新 Logo 灰常 Cyber 的说。</p>
+<div align="center"></div>
+<h4 id="添加-powershell-到-terminal" class="headerLink">
+    <a href="#%e6%b7%bb%e5%8a%a0-powershell-%e5%88%b0-terminal" class="header-mark"></a>添加 PowerShell 到 Terminal</h4><blockquote>
+<p>如果前面从Microsoft Store安装的PowerShell，一般会自动添加到 Temianl 中。如果没有的话，按照下面步骤自行添加即可。</p>
+</blockquote>
+<p>打开 Terminal，点开菜单栏右侧下拉菜单，点击<code>设置</code>；或者直接按快捷键 <code>Ctrl + ,</code>，调出设置界面，按照下图步骤添加我们安装的 PowerShell 到Terminal中：</p>
+<div align="center"></div>
+<blockquote>
+<p>从 Microsoft Store 安装的 PowerShell，安装目录为：<code>&quot;C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShellPreview_8wekyb3d8bbwe\pwsh.exe&quot;</code>，将此目录添加到上图的<code>命令行</code>位置即可。</p>
+</blockquote>
+<p>注意添加完后，点击<code>保存</code>。</p>
+<p>Terminal无需重启即可即时更新配置，从下拉菜单中看到 PowerShell 7 已经添加成功。</p>
+<div align="center"></div>
+<p>下面开始我们的美化之路。</p>
+<h3 id="美化-powershell" class="headerLink">
+    <a href="#%e7%be%8e%e5%8c%96-powershell" class="header-mark"></a>美化 PowerShell</h3><h4 id="安装-on-my-posh" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85-on-my-posh" class="header-mark"></a>安装 on-my-posh</h4><p>方法一：（更新）直接在 Microsoft Store 中搜索 <code>oh-my-posh</code> 并安装。</p>
+<p>方法二：打开 Terminal，然后打开一个 PowerShell 窗口。命令行中执行以下命令安装 oh-my-posh 模块：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Install-Module</span> <span class="nb">oh-my</span><span class="n">-posh</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="设置主题" class="headerLink">
+    <a href="#%e8%ae%be%e7%bd%ae%e4%b8%bb%e9%a2%98" class="header-mark"></a>设置主题</h4><p>安装完成后，执行 <code>Get-PoshThemes</code> 命令，将以各自主题的样式列出支持的主题。</p>
+<div align="center"></div>
+<p>其中有一些乱码，这实际是一些图标，需要安装字体包来提供图标支持，具体方法后续给出。</p>
+<p>先进行主题设置。选择主题可以从以上命令的返回结果中选择自己中意的，然后执行以下命令就能进行安装：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Set-PoshPrompt</span> <span class="n">-Theme</span> <span class="err">主题名字</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们需要配置 PowerShell 的启动脚本，以使主题永久生效。执行以下命令打开脚本文件。若提示文件不存在，则同意创建。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">notepad</span> <span class="nv">$Profile</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后在打开的脚本文件中输入以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Import-Module</span> <span class="nb">oh-my</span><span class="n">-posh</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Set-PoshPrompt</span> <span class="n">-Theme</span> <span class="n">agnosterplus</span> <span class="c"># 此处将agnosterplus替换为自己选主题名即可</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div align="center"></div>
+<p>如果从 Microsoft Store 安装的 <code>oh-my-posh</code>，则在以上脚本文件中输入以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">oh-my</span><span class="n">-posh</span> <span class="n">init</span> <span class="n">pwsh</span> <span class="p">-</span><span class="n">-config</span> <span class="s2">&#34;</span><span class="nv">$env:POSH_THEMES_PATH</span><span class="s2">\agnosterplus.omp.json&#34;</span> <span class="p">|</span> <span class="nb">Invoke-Expression</span> 
+</span></span><span class="line"><span class="cl"><span class="c"># 此处将agnosterplus替换为自己选的主题即可</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>之后重启即可看到效果。</p>
+<h4 id="设置字体" class="headerLink">
+    <a href="#%e8%ae%be%e7%bd%ae%e5%ad%97%e4%bd%93" class="header-mark"></a>设置字体</h4><p>为了对主题所需的图标符号提供支持，需要 Nerd Fonts 类字体，可以到字体集合主页<a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Nerd Fonts</a> 挑选喜欢的字体，可以预览字体效果。选好后直接下载字体文件即可。</p>
+<div align="center"></div>
+<p>经过一番查看，我最终凭感觉选择了<a href="https://www.programmingfonts.org/#go-mono" target="_blank" rel="noopener noreferrer">Go Mono</a>。</p>
+<p>将下载的压缩包直接解压缩后，是一套字体文件，由于不需要其他用途，此处只安装正体的字体。选择不带<code>Bold</code>（加粗）不带<code>Italic</code>（斜体）的<code>Windows Compatible</code>字体文件，直接双击安装。</p>
+<div align="center"></div>
+<p>弹出的对话窗口，展示了字体样式，直接点击左上角<code>安装</code>即可。</p>
+<div align="center"></div>
+<p>字体已经安装好，接下来在 Terminal 下按<code>Ctrl + ,</code>打开设置，从左侧<code>配置文件</code>中选择到自己新建的PowerShell，我的是 PowerShell 7 ，然后右侧选择<code>外观</code>选项卡，找到<code>字体</code>下拉菜单，选择自己所选的字体名字即可，我的为 <code>GoMono NF</code>。</p>
+<div align="center"></div>
+<p>字体名可以从系统<code>字体设置</code>查看到，<code>开始</code>-&gt;<code>设置</code>-&gt;搜索<code>字体设置</code>-&gt;搜索字体关键字&rsquo;GoMono&rsquo;。可以看到我的字体名为<code>GoMono NF</code>。记住这个字体名，之后 VS Code 的终端 PowerShell 配置中会再次用到。</p>
+<div align="center"></div>
+<h4 id="设置背景图" class="headerLink">
+    <a href="#%e8%ae%be%e7%bd%ae%e8%83%8c%e6%99%af%e5%9b%be" class="header-mark"></a>设置背景图</h4><p>只需打开 Terminal 的设置，从左侧<code>配置文件</code>中选择到自己新建的PowerShell，然后右侧选择<code>外观</code>选项卡，找到<code>背景图像</code>设置项，<code>浏览</code>选择图片。选好图片后，下面会多出一些针对背景图的设置，包括模糊、透明、位置等，可以自行调整。</p>
+<div align="center"></div>
+<h3 id="vs-code-集成-powershell" class="headerLink">
+    <a href="#vs-code-%e9%9b%86%e6%88%90-powershell" class="header-mark"></a>VS Code 集成 PowerShell</h3><p>VS Code 内按快捷键 <code>Ctrl + Shift + `</code>，则在编辑窗口下面会打开一个（默认CMD）终端窗口。VS Code中已经自动集成了 CMD 和 Windows PowerShell。但我需要：1. 将新版的 PowerShell Preview 集成进来；2. 将其设置为默认打开；3. 更改终端字体，以提供主题包支持。</p>
+<p>首先<code>Ctrl + ,</code>打开设置，然后搜索<code>Terminal</code>，找到<code>Terminal &gt; Integrated &gt; Profiles: Windows</code>的项，点击下面的<code>在settings.json中编辑</code>。</p>
+<div align="center"></div>
+<p>之后在打开的<code>settings.json</code>文件下，在<code>terminal.integrated.profiles.windows</code>项内按照以下红色框中代码的格式添加自己的 PowerShell 条目，其中的<code>PowerShell 7 pre</code>替换为自拟名字即可，<code>path</code>项内的路径替换为自己的 PowerShell 安装路径。然后<strong>保存</strong>并关闭文件。</p>
+<div align="center"></div>
+<blockquote>
+<p>如果是从Microsoft Store安装的 PowserShell，上图中的 <code>path</code> 字段为：<code>&quot;C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShellPreview_8wekyb3d8bbwe\pwsh.exe&quot;</code></p>
+</blockquote>
+<p>通过以上操作，我们已经为终端窗口添加了新的 PowerShell。接下来将其设置为默认打开。</p>
+<p>仍然<code>Ctrl + ,</code>打开设置，搜索<code>Terminal</code>，找到<code>Terminal &gt; Integrated &gt; Default Profile: Windows</code>项，下拉选项中选择我们上一步添加的 PowerShell 的名字<code>PowerShell 7 pre</code>。</p>
+<div align="center"></div>
+<p>在设置页，搜索<code>Terminal Font</code>，找到<code>Terminal &gt; Integrated &gt; Font Family</code>项，将其值设置为我们前面安装的字体文件名 <code>GoMono NF</code>，由于我选的这款字体本身字号挺大，所以我还将字号改为了 <code>12</code>。</p>
+<div align="center"></div>
+<p>经过以上配置，最终的效果如下图。</p>
+<div align="center"></div>
+<h3 id="参考" class="headerLink">
+    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h3><ul>
+<li><a href="https://www.edgeless.top/PowerShell%E7%BE%8E%E5%8C%96/" target="_blank" rel="noopener noreferrer">PowerShell 美化 - j3rry</a></li>
+<li><a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Nerd Fonts</a></li>
+<li><a href="https://ohmyposh.dev/docs/pwsh" target="_blank" rel="noopener noreferrer">oh-my-push 文档</a></li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/scripting/dev-cross-plat/vscode/using-vscode?view=powershell-7.2#adding-your-own-powershell-paths-to-the-session-menu" target="_blank" rel="noopener noreferrer">Using Visual Studio Code for PowerShell Development - Microsoft</a></li>
+<li><a href="https://code.visualstudio.com/docs/editor/integrated-terminal#_configuring-profiles" target="_blank" rel="noopener noreferrer">VS Code Integrated Terminal</a></li>
+<li><a href="https://www.cnblogs.com/taylorshi/p/16482694.html" target="_blank" rel="noopener noreferrer">再谈 Windows Terminal (终端) 主题和字体美化，Oh-My-Posh、Terminal-Icons、Posh-git</a></li>
+<li><a href="https://www.cnblogs.com/xiaorang/articles/windows_terminal_oh_my_posh.html" target="_blank" rel="noopener noreferrer">Windows Terminal 美化 (oh-my-posh)</a></li>
+</ul>]]></description></item></channel></rss>

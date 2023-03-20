@@ -1,5 +1,9 @@
-# Github 图床搭建及使用
+# Github 图床 PicGo 使用
 
+
+用 Github 仓库作为自用图床；用 PicGo 直接在 Typora 和 VS Code 中一键上传图床、粘贴图链。
+
+<!--more-->
 
 ## 搭建Github图床
 

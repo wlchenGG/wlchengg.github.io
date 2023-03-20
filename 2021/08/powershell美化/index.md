@@ -1,4 +1,4 @@
-# PowerShell美化
+# PowerShell 美化
 
 
 记录新版 PowerShell 美化过程。
