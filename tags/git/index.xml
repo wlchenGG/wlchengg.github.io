@@ -31,7 +31,9 @@
 <p><code>C^[number]</code>：表示指向提交记录 <code>C</code> 的第 <code>number</code> 个直接父记录（宽度搜索）。一个记录可能会有多个父记录（执行 <code>merge</code> 时产生）。<code>C^</code> 和 <code>C^1</code> 等价；<code>number</code>大于 1 时表示指向其他父记录。</p>
 <p><code>C~[number]</code>：表示指向提交记录 <code>C</code> 的回溯第 <code>number</code> 代的祖先记录（深度搜索）。</p>
 <h2 id="参考" class="headerLink">
-    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><p>[1] Peter Cottle. learngitbranching. <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">https://learngitbranching.js.org/?locale=zh_CN</a></p>
-<p>[2] GitHub Docs. Git Cheat Sheets. <a href="https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/" target="_blank" rel="noopener noreferrer">https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/</a></p>
-<p>[3] Visual Git Cheat Sheet. <a href="https://ndpsoftware.com/git-cheatsheet.html" target="_blank" rel="noopener noreferrer">https://ndpsoftware.com/git-cheatsheet.html</a></p>
-<p>[4] Blue Stragglers. 一个有趣的 Git 练习网站. <a href="https://zhuanlan.zhihu.com/p/383960650" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/383960650</a></p>]]></description></item></channel></rss>
+    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><ul>
+<li>[1] Peter Cottle. learngitbranching. <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">https://learngitbranching.js.org/?locale=zh_CN</a></li>
+<li>[2] GitHub Docs. Git Cheat Sheets. <a href="https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/" target="_blank" rel="noopener noreferrer">https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/</a></li>
+<li>[3] Visual Git Cheat Sheet. <a href="https://ndpsoftware.com/git-cheatsheet.html" target="_blank" rel="noopener noreferrer">https://ndpsoftware.com/git-cheatsheet.html</a></li>
+<li>[4] Blue Stragglers. 一个有趣的 Git 练习网站. <a href="https://zhuanlan.zhihu.com/p/383960650" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/383960650</a></li>
+</ul>]]></description></item></channel></rss>

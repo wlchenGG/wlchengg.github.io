@@ -113,8 +113,8 @@
 <p><strong>参考：</strong></p>
 <p>[4] PyTorch 安装命令. <a href="https://pytorch.org/get-started/locally/" target="_blank" rel="noopener noreferrer">https://pytorch.org/get-started/locally/</a></p>
 <p>[5] Hitesh Jethva, LCTT. Linux 系统下查看硬件信息命令大全. <a href="https://linux.cn/article-6928-1.html" target="_blank" rel="noopener noreferrer">https://linux.cn/article-6928-1.html</a>, 命令 <code>inxi -Fx</code> 好使</p>
-<h2 id="常用-conda-环境管理命令" class="headerLink">
-    <a href="#%e5%b8%b8%e7%94%a8-conda-%e7%8e%af%e5%a2%83%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4" class="header-mark"></a>常用 Conda 环境管理命令</h2><h3 id="环境管理命令" class="headerLink">
+<h2 id="常用-conda-命令" class="headerLink">
+    <a href="#%e5%b8%b8%e7%94%a8-conda-%e5%91%bd%e4%bb%a4" class="header-mark"></a>常用 Conda 命令</h2><h3 id="环境管理命令" class="headerLink">
     <a href="#%e7%8e%af%e5%a2%83%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4" class="header-mark"></a>环境管理命令</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt"> 1
@@ -163,8 +163,8 @@
 </span></span><span class="line"><span class="cl">conda env remove --name 旧环境名
 </span></span></code></pre></td></tr></table>
 </div>
-</div><h2 id="源频道管理命令" class="headerLink">
-    <a href="#%e6%ba%90%e9%a2%91%e9%81%93%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4" class="header-mark"></a>源（频道）管理命令</h2><div class="highlight"><div class="chroma">
+</div><h3 id="源频道管理命令" class="headerLink">
+    <a href="#%e6%ba%90%e9%a2%91%e9%81%93%e7%ae%a1%e7%90%86%e5%91%bd%e4%bb%a4" class="header-mark"></a>源（频道）管理命令</h3><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2

@@ -48,7 +48,7 @@ Hugo 包括基础版本和支持自定义样式`scss`的 **extended**版本。
 
 将 Hugo 的主程序路径添加到系统环境变量中，这样在命令行终端中才能调用主程序执行一系列命令，之后我们就能直接在VS Code的终端中执行命令。我的安装路径为：
 
-```code
+```bash
 D:\Dev\hugo_0.86.0\
 ```
 
@@ -106,7 +106,7 @@ LoveIt 主题的仓库地址是 https://github.com/dillonzq/LoveIt 。
 
 也可以直接用 git 克隆到该目录下，在站点目录下执行以下命令：
 
-``` bash
+```bash
 git clone https://github.com/HEIGE-PCloud/DoIt.git themes/DoIt 
 ```
 
@@ -203,21 +203,17 @@ Github 提供两种 Pages：
 
 初始化 `git` 环境：
 
-'''
-
+```bash
 git init
-
-'''
+```
 
 安装主题：
 
 自行到Hugo选择主题后，将主题仓库克隆到`themes`路径下。此处我用[DoIt](https://github.com/HEIGE-PCloud/DoIt)主题为例：
 
-'''
-
+```bash
 git submodule add github.com themes/DoIt
-
-'''
+```
 
 <div align="center" ><img src="https://i.loli.net/2021/12/01/I5o4cDWYRS3XAsw.png" alt="20211201134503" width="85%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 

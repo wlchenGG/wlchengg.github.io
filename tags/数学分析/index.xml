@@ -22,7 +22,7 @@
 <li>当$f(a)=f(b)$时，定理也称为<strong>罗尔定理</strong>。</li>
 <li>定理结论式可写为$f^{\prime}(a+\theta (b-a)) = \frac{f(b)-f(a)}{b-a}$ 或者$f(b)-f(a) = f^{\prime}(a+\theta (b-a)) (b-a)$，其中，$0&lt;\theta&lt;1$。</li>
 <li>定理结论的式子称为<strong>中值公式</strong>或者<strong>拉格朗日公式</strong>。</li>
-<li>定理的条件式<strong>充分条件</strong>。</li>
+<li>定理的条件是<strong>充分条件</strong>。</li>
 </ul>
 <hr>
 <p><strong>推论1</strong>

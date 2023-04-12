@@ -32,8 +32,8 @@
 <pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">D:\Dev\hugo_0.86.0\
-</span></span></code></pre></td></tr></table>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">D:<span class="se">\D</span>ev<span class="se">\h</span>ugo_0.86.0<span class="se">\
+</span></span></span></code></pre></td></tr></table>
 </div>
 </div><p>首先打开 资源管理器/我的电脑，然后在左侧导航栏，右键点击 <strong>此电脑</strong>，在弹出菜单中，打开 <strong>属性</strong>。</p>
 <div align="center" ></div>
@@ -224,15 +224,25 @@
 <h3 id="关联本地站点到仓库" class="headerLink">
     <a href="#%e5%85%b3%e8%81%94%e6%9c%ac%e5%9c%b0%e7%ab%99%e7%82%b9%e5%88%b0%e4%bb%93%e5%ba%93" class="header-mark"></a>关联本地站点到仓库</h3><p>进入本地站点路径；</p>
 <p>初始化 <code>git</code> 环境：</p>
-<p>&rsquo;''</p>
-<p>git init</p>
-<p>&rsquo;''</p>
-<p>安装主题：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git init
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>安装主题：</p>
 <p>自行到Hugo选择主题后，将主题仓库克隆到<code>themes</code>路径下。此处我用<a href="https://github.com/HEIGE-PCloud/DoIt" target="_blank" rel="noopener noreferrer">DoIt</a>主题为例：</p>
-<p>&rsquo;''</p>
-<p>git submodule add github.com themes/DoIt</p>
-<p>&rsquo;''</p>
-<div align="center" ></div>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git submodule add github.com themes/DoIt
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div align="center" ></div>
 <p>添加 <code>.gitignore</code> 文件到站点根目录下，写入以下内容：</p>
 <h3 id="进阶--通过-github-actions-自动编译部署站点" class="headerLink">
     <a href="#%e8%bf%9b%e9%98%b6--%e9%80%9a%e8%bf%87-github-actions-%e8%87%aa%e5%8a%a8%e7%bc%96%e8%af%91%e9%83%a8%e7%bd%b2%e7%ab%99%e7%82%b9" class="header-mark"></a>进阶 —— 通过 Github Actions 自动编译部署站点</h3><h2 id="参考" class="headerLink">

@@ -1,0 +1,302 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>编程 - 分类 - Wlcheng's Life</title><link>https://wlcheng.cc/categories/%E7%BC%96%E7%A8%8B/</link><description>编程 - 分类 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Fri, 01 Apr 2022 22:27:18 +0200</lastBuildDate><atom:link href="https://wlcheng.cc/categories/%E7%BC%96%E7%A8%8B/" rel="self" type="application/rss+xml"/><item><title>Rust 用过用法用例</title><link>https://wlcheng.cc/posts/rust_tips/</link><pubDate>Fri, 01 Apr 2022 22:27:18 +0200</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/rust_tips/</guid><description><![CDATA[<p>记录使用 Rust 过程中的一些用法，以及用例。</p>
+<h2 id="编程环境配置" class="headerLink">
+    <a href="#%e7%bc%96%e7%a8%8b%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae" class="header-mark"></a>编程环境配置</h2><h3 id="安装" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85" class="header-mark"></a>安装</h3><ul>
+<li>
+<p><strong>Windows</strong>： 官网下载安装包 <a href="https://www.rust-lang.org/tools/install" target="_blank" rel="noopener noreferrer">https://www.rust-lang.org/tools/install</a>，直接运行安装，默认会安装到用户文件夹 <code>~/</code> 下，会用到的工具软件（<code>rustc</code>，<code>rustup</code>，<code>cargo</code>等）都在 <code>~/.cargo/bin</code> 中，并自动配置好环境变量。</p>
+</li>
+<li>
+<p><strong>Linux</strong>：直接在终端执行命令：<code>curl https://sh.rustup.rs -sSf | sh</code>，会自动完成安装和配置。</p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rustc --version <span class="c1"># 查看版本，如果没有正常输出结果，请检查以上安装、环境变量配置是否正确</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>其他安装方法和说明参考：<a href="https://forge.rust-lang.org/infra/other-installation-methods.html" target="_blank" rel="noopener noreferrer">Other Rust Installation Methods</a></p>
+<h3 id="更新和卸载" class="headerLink">
+    <a href="#%e6%9b%b4%e6%96%b0%e5%92%8c%e5%8d%b8%e8%bd%bd" class="header-mark"></a>更新和卸载</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">restup update   <span class="c1"># 更新 Rust</span>
+</span></span><span class="line"><span class="cl">restup self uninstall <span class="c1"># 卸载 Rust</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="代码管理基本命令" class="headerLink">
+    <a href="#%e4%bb%a3%e7%a0%81%e7%ae%a1%e7%90%86%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4" class="header-mark"></a>代码管理基本命令</h2><h3 id="rustc-编译" class="headerLink">
+    <a href="#rustc-%e7%bc%96%e8%af%91" class="header-mark"></a>rustc 编译</h3><p>Rust 源文件以 <code>.rs</code> 为后缀。当写完一个源文件时，可通过以下命令进行编译：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rustc ./main.rs
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>顺利编译后，将生成可执行文件 main.exe 和 main.pdb。进而可以直接执行主程序，以开始思考</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./main
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="cargo-构建和包管理工具" class="headerLink">
+    <a href="#cargo-%e6%9e%84%e5%bb%ba%e5%92%8c%e5%8c%85%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" class="header-mark"></a>cargo 构建和包管理工具</h3><h4 id="查看版本" class="headerLink">
+    <a href="#%e6%9f%a5%e7%9c%8b%e7%89%88%e6%9c%ac" class="header-mark"></a>查看版本</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo --version
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="new-创建一个项目并进入项目目录" class="headerLink">
+    <a href="#new-%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e9%a1%b9%e7%9b%ae%e5%b9%b6%e8%bf%9b%e5%85%a5%e9%a1%b9%e7%9b%ae%e7%9b%ae%e5%bd%95" class="header-mark"></a><code>new</code> 创建一个项目并进入项目目录</h4><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo new project
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> project
+</span></span><span class="line"><span class="cl"><span class="c1"># 执行 tree 命令查看项目目录结构</span>
+</span></span><span class="line"><span class="cl">project     <span class="c1"># 跟目录放代码无关文件</span>
+</span></span><span class="line"><span class="cl">│ .gitignore  <span class="c1"># git 忽略文件过滤器，cargo 在此创建了一个 git 仓库</span>
+</span></span><span class="line"><span class="cl">│ Cargo.toml  <span class="c1"># cargo 配置文件</span>
+</span></span><span class="line"><span class="cl">└─src         <span class="c1"># 代码源文件目录</span>
+</span></span><span class="line"><span class="cl">    main.rs   <span class="c1"># 主程序源文件，放主程序源代码的地方</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="build-构建项目" class="headerLink">
+    <a href="#build-%e6%9e%84%e5%bb%ba%e9%a1%b9%e7%9b%ae" class="header-mark"></a><code>build</code> 构建项目</h4><p>在项目<strong>根目录</strong>下，执行下列命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo build
+</span></span><span class="line"><span class="cl"><span class="c1">#   输出为</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   Compiling hello_cargo v0.1.0 (E:\DevelopmentProject\Rust\hello_cargo)</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   Finished dev [unoptimized + debuginfo] target(s) in 1.66s</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="run-运行项目" class="headerLink">
+    <a href="#run-%e8%bf%90%e8%a1%8c%e9%a1%b9%e7%9b%ae" class="header-mark"></a><code>run</code> 运行项目</h4><p>在项目<strong>根目录</strong>下，执行下列命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo run
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将依次执行 build 和生成的 &rsquo;exe&rsquo; 程序：</p>
+<ol>
+<li>如果已有构建的 &lsquo;.exe&rsquo; 且没再修改源代码，则不构建，直接执行 &lsquo;.exe&rsquo; 程序。输出为</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    Finished dev <span class="o">[</span>unoptimized + debuginfo<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in 0.25s
+</span></span><span class="line"><span class="cl">    Running <span class="sb">`</span>target<span class="se">\d</span>ebug<span class="se">\h</span>ello_cargo.exe<span class="sb">`</span>
+</span></span><span class="line"><span class="cl">    Hello, world!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><ol start="2">
+<li>如果已有构建的 exe 且又修改了源代码，或者没有构建，则先构建，然后执行 &rsquo;exe&rsquo; 程序。输出为</li>
+</ol>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    Compiling hello_cargo v0.1.0 <span class="o">(</span>E:<span class="se">\D</span>evelopmentProject<span class="se">\R</span>ust<span class="se">\h</span>ello_cargo<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    Finished dev <span class="o">[</span>unoptimized + debuginfo<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in 0.25s
+</span></span><span class="line"><span class="cl">    Running <span class="sb">`</span>target<span class="se">\d</span>ebug<span class="se">\h</span>ello_cargo.exe<span class="sb">`</span>
+</span></span><span class="line"><span class="cl">    Hello, world!
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="check-检查项目" class="headerLink">
+    <a href="#check-%e6%a3%80%e6%9f%a5%e9%a1%b9%e7%9b%ae" class="header-mark"></a><code>check</code> 检查项目</h4><p>在项目<strong>根目录</strong>下，执行下列命令</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo run
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>将对代码进行检查，确保能够编译，但并不生成 &lsquo;.exe&rsquo; 可执行文件。能大大提高效率。</p>
+<p>可以和 <code>check</code> 的时间比较一下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ cargo build
+</span></span><span class="line"><span class="cl">    Compiling hello_cargo v0.1.0 <span class="o">(</span>E:<span class="se">\D</span>evelopmentProject<span class="se">\R</span>ust<span class="se">\h</span>ello_cargo<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    Finished dev <span class="o">[</span>unoptimized + debuginfo<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in 0.53s
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">$ cargo check
+</span></span><span class="line"><span class="cl">    Checking hello_cargo v0.1.0 <span class="o">(</span>E:<span class="se">\D</span>evelopmentProject<span class="se">\R</span>ust<span class="se">\h</span>ello_cargo<span class="o">)</span>
+</span></span><span class="line"><span class="cl">    Finished dev <span class="o">[</span>unoptimized + debuginfo<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in 0.21s
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="一些概念和用法整理" class="headerLink">
+    <a href="#%e4%b8%80%e4%ba%9b%e6%a6%82%e5%bf%b5%e5%92%8c%e7%94%a8%e6%b3%95%e6%95%b4%e7%90%86" class="header-mark"></a>一些概念和用法整理</h2><h3 id="量" class="headerLink">
+    <a href="#%e9%87%8f" class="header-mark"></a>量</h3><h4 id="变量与不可变量" class="headerLink">
+    <a href="#%e5%8f%98%e9%87%8f%e4%b8%8e%e4%b8%8d%e5%8f%af%e5%8f%98%e9%87%8f" class="header-mark"></a>变量与不可变量</h4><p>Rust 中，变量和引用默认都是是不可变量（immutable variable），要声明可变的（mutable）变量必须显示使用 <code>mut</code>。</p>
+<h4 id="常量与不可变量" class="headerLink">
+    <a href="#%e5%b8%b8%e9%87%8f%e4%b8%8e%e4%b8%8d%e5%8f%af%e5%8f%98%e9%87%8f" class="header-mark"></a>常量与不可变量</h4><table>
+<thead>
+<tr>
+<th>类别</th>
+<th>英文</th>
+<th>关键字</th>
+<th>初始值来源</th>
+<th style="text-align:center">赋值次数</th>
+<th>是否必须指定数据类型</th>
+<th>命名规范</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>常量</td>
+<td>constant</td>
+<td><code>const</code></td>
+<td>常量值/常量表达式</td>
+<td style="text-align:center">仅初始化</td>
+<td>必须</td>
+<td>全大写且下划线连接（若否则有编译器警告）</td>
+</tr>
+<tr>
+<td>不可变量</td>
+<td>immutable variable</td>
+<td><code>let mut</code></td>
+<td>常量值/变量表达式</td>
+<td style="text-align:center">仅初始化</td>
+<td>非必须</td>
+<td>遵循变量命名规范</td>
+</tr>
+</tbody>
+</table>
+<h4 id="变量与隐藏shadowing" class="headerLink">
+    <a href="#%e5%8f%98%e9%87%8f%e4%b8%8e%e9%9a%90%e8%97%8fshadowing" class="header-mark"></a>变量与隐藏（Shadowing）</h4><p>一般来说，以下对 <code>x</code> 二次赋值会编译出错，这是因为 <code>let</code> 默认是不可变量：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 编译到此处会出错
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>为此，可以
+<strong>隐藏</strong>：指可以通过 <code>let</code> 用旧变量名来声明一个新的变量，此时新的变量将隐藏旧变量。比如</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// 例 1：可实现二次赋值的作用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 用 let 声明新的不可变量，
+</span></span></span><span class="line"><span class="cl"><span class="c1">// 例 2：新声明不可变量可以是不同的数据类型
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;-+-+-+&#34;</span><span class="p">;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spaces</span><span class="p">.</span><span class="n">len</span><span class="p">();</span><span class="w"> </span><span class="c1">//
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>这带来了以下好处，也是<strong>隐藏</strong> 与 <code>mut</code> 变量的区别：</p>
+<ul>
+<li>
+<p><strong>按需赋值</strong>（自己取的名）：隐藏可以保持变量的不可变性，提高代码的安全可维护。或许可以将其称之为“按需赋值”。而 <code>mut</code> 就随时可以对值进行改变，从安全来看具有一定的隐患。</p>
+</li>
+<li>
+<p><strong>数据类型可变</strong>：隐藏实际是在创建新变量，因此可以用新的不同的数据类型。而 <code>mut</code> 虽然可以灵活赋值，但数据类型在初始化时就已固定，不能再改变，如果强制赋不同类型的值将导致编译错误。</p>
+</li>
+</ul>
+<h3 id="范围" class="headerLink">
+    <a href="#%e8%8c%83%e5%9b%b4" class="header-mark"></a>范围</h3><p><strong>范围表达式</strong>：<code>start..=end</code>，表示 <code>start</code> 到 <code>end</code> 的序列。</p>
+<h3 id="格式" class="headerLink">
+    <a href="#%e6%a0%bc%e5%bc%8f" class="header-mark"></a>格式</h3><ul>
+<li>以 <code>.</code> 调用函数时，可以换行，提高可读性，比如</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-Rust" data-lang="Rust"><span class="line"><span class="cl"><span class="w">    </span><span class="n">io</span>::<span class="n">stdin</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">read_line</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w">    </span><span class="c1">// 从命令行读取输入
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&#34;读取失败！&#34;</span><span class="p">);</span><span class="w">    </span><span class="c1">// 异常处理
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="c1">// 等价于
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">io</span>::<span class="n">stdin</span><span class="p">().</span><span class="n">read_line</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">var</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">&#34;读取失败！&#34;</span><span class="p">);</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="crate" class="headerLink">
+    <a href="#crate" class="header-mark"></a>crate</h3><p>类似 Python 中的 package，Rust 中称为 crate。</p>
+<p>在 Rust 中，项目程序是一个 <code>二级制crate</code>，而引入的外部工具包是 <code>库 crate</code>，比如 <code>rand</code>。要调库crate需要在项目根目录的 <code>Cargo.toml</code> 文件中的依赖部分 <code>[dependencies]</code> 执行库名及版本，比如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="p">[</span><span class="l">dependencies]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">rand = &#34;0.8.3&#34;</span><span class="w">
+</span></span></span></code></pre></td></tr></table>
+</div>
+</div><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">添加依赖 rand 时的构建过程</div></div>
+<h3 id="文档" class="headerLink">
+    <a href="#%e6%96%87%e6%a1%a3" class="header-mark"></a>文档</h3><p>在安装 Rust 时，自动安装了离线文档，可通过以下命令打开：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cargo doc --open
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="rust-学习资源" class="headerLink">
+    <a href="#rust-%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%ba%90" class="header-mark"></a>Rust 学习资源</h2><p>[1] <a href="https://rust-book.cs.brown.edu/" target="_blank" rel="noopener noreferrer">Rust Book experiment</a>：一本线上教程书，几乎每一节都有随堂问题，可以交互答题，巩固知识。</p>]]></description></item></channel></rss>

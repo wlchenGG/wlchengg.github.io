@@ -102,7 +102,7 @@ torch.__version__
 
 [5] Hitesh Jethva, LCTT. Linux 系统下查看硬件信息命令大全. https://linux.cn/article-6928-1.html, 命令 `inxi -Fx` 好使
 
-## 常用 Conda 环境管理命令
+## 常用 Conda 命令
 
 ### 环境管理命令
 
@@ -130,7 +130,7 @@ conda create --name 新环境名 --clone 旧环境名
 conda env remove --name 旧环境名
 ```
 
-## 源（频道）管理命令
+### 源（频道）管理命令
 
 ```bash
 ## 添加新的源
