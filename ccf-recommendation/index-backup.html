@@ -13,87 +13,52 @@
     }
 		/* 悬浮目录样式 */
 		.sidebar {
-      display: block;
 			position: fixed;
-      width: 200px;
-			top: 20px;
-			left: 20px;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-		}
-
-    /* 控制按钮样式 */
-    .toggle-btn {
-      position: absolute;
-      background-color: #f2f2f2;
-      padding: 10px;
-      cursor: pointer;
-      z-index: 2;
-      border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
-
-    .sidebar .content {
-      display: none;
-      position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
 			background-color: #f2f2f2;
 			padding: 0px;
 			z-index: 1;
-			overflow-y: auto;
-      border-radius: 5px;
+			overflow-y: scroll;
 			box-shadow: 0 0 10px rgba(0,0,0,0.3);
 			transition: all 0.3s ease-in-out;
-    }
-    
-    .sidebar a {
-      color: black;
-      text-decoration: none;
-    }
-
-    .sidebar .toc-1 {
-      margin-left: 4px;
-      padding: 0px;
-    }
-    
-    .sidebar .toc-2 {
-      margin-left: 16px;
-      padding: 0px;
-    }
-
-		.sidebar .toc-1>li {
-			list-style-type: none;
-      padding: 0px;
-			margin-bottom: 5px;
-      font-size: smaller;
 		}
-		.sidebar .toc-2>li {
-      list-style-type: none;
+
+		.sidebar.hidden {
+			width: 0;
+			padding: 20px 0;
+			transition: all 0.3s ease-in-out;
+		}
+
+		/* .sidebar .title {
+			font-size: 24px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		} */
+
+		.sidebar .toc-1 li {
+			list-style-type: none;
+			margin-bottom: 5px;
+		}
+		.sidebar .toc-2 li {
+			list-style-type: none;
 			margin: 0px;
       padding: 0px;
-      font-size: smaller;
 		}
-
-
-    
-    .sidebar:hover .toggle-btn {
-      background-color: #f2f2f2;
-      padding: 10px;
-      border-radius: 0px;
-      box-shadow: none;
-      /* transition: all 0.1s ease-in-out; */
-    }
-    .sidebar:hover .content {
-      display: block;
-      transition: all 0.5s ease-in-out;
-    }
-
 
 		/* 页面主体样式 */
 		.main {
-			margin: 0px;
+			margin-left: 350px; /* 侧边栏宽度 */
 			padding: 20px;
 			background-color: #fff;
 			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			transition: all 0.3s ease-in-out;
+		}
+
+		.main.full-width {
+			margin-left: 0;
+			transition: all 0.3s ease-in-out;
 		}
 
     p {
@@ -121,7 +86,7 @@
       font-size: 24pt;
       margin-bottom: 6pt;
     }
-    
+
     h2 {
       color: black;
       font-family: 宋体 'Times New Roman', Times, serif;
@@ -197,190 +162,200 @@
       text-decoration: none;
     }
 
+		/* 控制按钮样式 */
+		.toggle-btn {
+			position: fixed;
+			top: 20px;
+			left: 20px;
+			background-color: #f2f2f2;
+			padding: 10px;
+			border-radius: 5px;
+			box-shadow: 0 0 10px rgba(0,0,0,0.3);
+			cursor: pointer;
+			z-index: 2;
+		}
 	</style>
 </head>
 <body>
-  
-  <!-- 悬浮目录 -->
+	<!-- 控制按钮 -->
+	<div class="toggle-btn" onclick="toggleSidebar()">目录</div>
+
+	<!-- 悬浮目录 -->
 	<div id="sidebar" class="sidebar">
-    <!-- 控制按钮 -->
-    <div class="toggle-btn">目录</div>
 		<!-- <div class="title">目录</div> -->
-    <div class="content">
-      <br/>
-      <ul class="toc-1">
-        <li>
-          <a href="#domain-1-j">计算机体系结构/并行与分布计算/存储系统</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-1-j-a">A 类</a>
-              <a href="#domain-1-j-b">B 类</a>
-              <a href="#domain-1-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-1-c-a">A 类</a>
-              <a href="#domain-1-c-b">B 类</a>
-              <a href="#domain-1-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#domain-2-j">计算机网络</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-2-j-a">A 类</a>
-              <a href="#domain-2-j-b">B 类</a>
-              <a href="#domain-2-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-2-c-a">A 类</a>
-              <a href="#domain-2-c-b">B 类</a>
-              <a href="#domain-2-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#domain-3-j">网络与信息安全</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-3-j-a">A 类</a>
-              <a href="#domain-3-j-b">B 类</a>
-              <a href="#domain-3-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-3-c-a">A 类</a>
-              <a href="#domain-3-c-b">B 类</a>
-              <a href="#domain-3-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#domain-4-j">软件工程/系统软件/程序设计语言</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-4-j-a">A 类</a>
-              <a href="#domain-4-j-b">B 类</a>
-              <a href="#domain-4-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-4-c-a">A 类</a>
-              <a href="#domain-4-c-b">B 类</a>
-              <a href="#domain-4-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#domain-5-j">数据库/数据挖掘/内容检索</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-5-j-a">A 类</a>
-              <a href="#domain-5-j-b">B 类</a>
-              <a href="#domain-5-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-5-c-a">A 类</a>
-              <a href="#domain-5-c-b">B 类</a>
-              <a href="#domain-5-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#domain-6-j">计算机科学理论</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-6-j-a">A 类</a>
-              <a href="#domain-6-j-b">B 类</a>
-              <a href="#domain-6-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-6-c-a">A 类</a>
-              <a href="#domain-6-c-b">B 类</a>
-              <a href="#domain-6-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#domain-7-j">计算机图形学与多媒体</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-7-j-a">A 类</a>
-              <a href="#domain-7-j-b">B 类</a>
-              <a href="#domain-7-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-7-c-a">A 类</a>
-              <a href="#domain-7-c-b">B 类</a>
-              <a href="#domain-7-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#domain-8-j">人工智能</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-8-j-a">A 类</a>
-              <a href="#domain-8-j-b">B 类</a>
-              <a href="#domain-8-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-8-c-a">A 类</a>
-              <a href="#domain-8-c-b">B 类</a>
-              <a href="#domain-8-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#domain-9-j">人机交互与普适计算</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-9-j-a">A 类</a>
-              <a href="#domain-9-j-b">B 类</a>
-              <a href="#domain-9-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-9-c-a">A 类</a>
-              <a href="#domain-9-c-b">B 类</a>
-              <a href="#domain-9-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a href="#domain-10-j">交叉/综合/新兴</a>
-          <ul class="toc-2">
-            <li>
-              <span>期刊：</span>
-              <a href="#domain-10-j-a">A 类</a>
-              <a href="#domain-10-j-b">B 类</a>
-              <a href="#domain-10-j-c">C 类</a>
-            </li>
-            <li>
-              <span>会议：</span>
-              <a href="#domain-10-c-a">A 类</a>
-              <a href="#domain-10-c-b">B 类</a>
-              <a href="#domain-10-c-c">C 类</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div>
+    <br/><br/>
+		<ul class="toc-1">
+			<li>
+        <a href="#domain-1-j">计算机体系结构/并行与分布计算/存储系统</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-1-j-a">A 类</a>
+            <a href="#domain-1-j-b">B 类</a>
+            <a href="#domain-1-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-1-c-a">A 类</a>
+            <a href="#domain-1-c-b">B 类</a>
+            <a href="#domain-1-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+			<li>
+        <a href="#domain-2-j">计算机网络</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-2-j-a">A 类</a>
+            <a href="#domain-2-j-b">B 类</a>
+            <a href="#domain-2-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-2-c-a">A 类</a>
+            <a href="#domain-2-c-b">B 类</a>
+            <a href="#domain-2-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+			<li>
+        <a href="#domain-3-j">网络与信息安全</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-3-j-a">A 类</a>
+            <a href="#domain-3-j-b">B 类</a>
+            <a href="#domain-3-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-3-c-a">A 类</a>
+            <a href="#domain-3-c-b">B 类</a>
+            <a href="#domain-3-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+			<li>
+        <a href="#domain-4-j">软件工程/系统软件/程序设计语言</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-4-j-a">A 类</a>
+            <a href="#domain-4-j-b">B 类</a>
+            <a href="#domain-4-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-4-c-a">A 类</a>
+            <a href="#domain-4-c-b">B 类</a>
+            <a href="#domain-4-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+			<li>
+        <a href="#domain-5-j">数据库/数据挖掘/内容检索</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-5-j-a">A 类</a>
+            <a href="#domain-5-j-b">B 类</a>
+            <a href="#domain-5-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-5-c-a">A 类</a>
+            <a href="#domain-5-c-b">B 类</a>
+            <a href="#domain-5-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+			<li>
+        <a href="#domain-6-j">计算机科学理论</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-6-j-a">A 类</a>
+            <a href="#domain-6-j-b">B 类</a>
+            <a href="#domain-6-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-6-c-a">A 类</a>
+            <a href="#domain-6-c-b">B 类</a>
+            <a href="#domain-6-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+			<li>
+        <a href="#domain-7-j">计算机图形学与多媒体</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-7-j-a">A 类</a>
+            <a href="#domain-7-j-b">B 类</a>
+            <a href="#domain-7-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-7-c-a">A 类</a>
+            <a href="#domain-7-c-b">B 类</a>
+            <a href="#domain-7-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+			<li>
+        <a href="#domain-8-j">人工智能</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-8-j-a">A 类</a>
+            <a href="#domain-8-j-b">B 类</a>
+            <a href="#domain-8-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-8-c-a">A 类</a>
+            <a href="#domain-8-c-b">B 类</a>
+            <a href="#domain-8-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+			<li>
+        <a href="#domain-9-j">人机交互与普适计算</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-9-j-a">A 类</a>
+            <a href="#domain-9-j-b">B 类</a>
+            <a href="#domain-9-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-9-c-a">A 类</a>
+            <a href="#domain-9-c-b">B 类</a>
+            <a href="#domain-9-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+			<li>
+        <a href="#domain-10-j">交叉/综合/新兴</a>
+        <ul class="toc-2">
+          <li>
+            <span>期刊：</span>
+            <a href="#domain-10-j-a">A 类</a>
+            <a href="#domain-10-j-b">B 类</a>
+            <a href="#domain-10-j-c">C 类</a>
+          </li>
+          <li>
+            <span>会议：</span>
+            <a href="#domain-10-c-a">A 类</a>
+            <a href="#domain-10-c-b">B 类</a>
+            <a href="#domain-10-c-c">C 类</a>
+          </li>
+        </ul>
+      </li>
+		</ul>
 	</div>
 
 	<!-- 页面主体 -->
@@ -5714,5 +5689,46 @@
     </table>
 	</div>
 
+	<script>
+		function toggleSidebar() {
+			let sidebar = document.getElementById("sidebar");
+			let main = document.getElementById("main");
+
+			if (sidebar.classList.contains("hidden")) {
+				sidebar.classList.remove("hidden");
+				main.classList.remove("full-width");
+			} else {
+				sidebar.classList.add("hidden");
+				main.classList.add("full-width");
+			}
+		}
+
+		window.onload = function() {
+			let sidebar = document.getElementById("sidebar");
+			let main = document.getElementById("main");
+
+			// 初始化时隐藏目录
+			sidebar.classList.add("hidden");
+			main.classList.add("full-width");
+
+			// 监听悬浮目录的鼠标点击事件，以便手动调整宽度
+			sidebar.addEventListener("mousedown", function(e) {
+				if (e.pageX < 300) { // 调整阈值，避免过小或过大
+					document.addEventListener("mousemove", mousemoveHandler);
+					document.addEventListener("mouseup", mouseupHandler);
+				}
+
+				function mousemoveHandler(me) {
+					sidebar.style.width = me.pageX + "px";
+					main.style.marginLeft = me.pageX + "px";
+				}
+
+				function mouseupHandler(me) {
+					document.removeEventListener("mousemove", mousemoveHandler);
+          document.removeEventListener("mouseup", mouseupHandler);
+        }
+      });
+    };
+    </script>
   </body>
 </html>
