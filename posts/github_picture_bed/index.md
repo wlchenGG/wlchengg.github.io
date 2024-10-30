@@ -177,7 +177,17 @@ table th:nth-of-type(3) {
 
 ## 配置VS Code
 
-TODO: 后补
+### 安装 Pic-Go 插件
+
+在 VS Code 中，安装 Pic-Go 插件，安装完成后，如下图所示填入图床配置信息：
+
+<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/20241030162158.png" alt="20241030162158" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+
+### 测试图床
+
+在任意打开的 Markdown 文件中，**先复制了图片**，然后在要插入图片位置按 `Ctrl + Alt + P`，VS Code 右下角弹窗显示上传成功，当前光标位置生成了图片链接，且能正常显示，则说明配置成功。
+
+**注意：** 在插入图片时，不要选定 Markdown 文件中的内容，否则 Pic-Go 会处理选定的内容，而不是已经复制到剪切板中的图片。
 
 
 **参考：**

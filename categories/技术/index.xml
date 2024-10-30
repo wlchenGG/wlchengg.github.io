@@ -173,7 +173,12 @@ table th:nth-of-type(3) {
 <p>这里有一个问题是，Typora 粘贴图片时，始终会默认粘贴Markdown格式的图片链接，如前一小节所示。因此，我们要将Typora自动生成的删除，然后将剪切板中的自定义格式链接粘贴进去即可。如下图所示：</p>
 <div align="center" ></div>
 <h2 id="配置vs-code" class="headerLink">
-    <a href="#%e9%85%8d%e7%bd%aevs-code" class="header-mark"></a>配置VS Code</h2><p>TODO: 后补</p>
+    <a href="#%e9%85%8d%e7%bd%aevs-code" class="header-mark"></a>配置VS Code</h2><h3 id="安装-pic-go-插件" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85-pic-go-%e6%8f%92%e4%bb%b6" class="header-mark"></a>安装 Pic-Go 插件</h3><p>在 VS Code 中，安装 Pic-Go 插件，安装完成后，如下图所示填入图床配置信息：</p>
+<div align="center" ></div>
+<h3 id="测试图床" class="headerLink">
+    <a href="#%e6%b5%8b%e8%af%95%e5%9b%be%e5%ba%8a" class="header-mark"></a>测试图床</h3><p>在任意打开的 Markdown 文件中，<strong>先复制了图片</strong>，然后在要插入图片位置按 <code>Ctrl + Alt + P</code>，VS Code 右下角弹窗显示上传成功，当前光标位置生成了图片链接，且能正常显示，则说明配置成功。</p>
+<p><strong>注意：</strong> 在插入图片时，不要选定 Markdown 文件中的内容，否则 Pic-Go 会处理选定的内容，而不是已经复制到剪切板中的图片。</p>
 <p><strong>参考：</strong></p>
 <p>[1] <a href="https://yushuaigee.gitee.io/2021/01/14/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%85%8D%E8%B4%B9%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%28%E4%BA%94%29%E2%80%94%E2%80%94Typora%20&#43;%20PicGo%20&#43;%20GitHub%20Gitee%E5%9B%BE%E5%BA%8A/" target="_blank" rel="noopener noreferrer">从零开始免费搭建自己的博客 (五)——Typora + PicGo + GitHub/Gitee 图床</a></p>]]></description></item><item><title>基于 Python 批量提取 PDF 首页</title><link>https://wlcheng.cc/posts/pdftoolbox/</link><pubDate>Fri, 13 Aug 2021 00:57:00 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/pdftoolbox/</guid><description><![CDATA[<p>最近因为汇总论文成果，需要提取论文的首页。虽然 Acrobat 提供了<code>页面组织</code>功能可以任意提取，但手动操作一次只能处理一个文件。当面对好几十篇论文时，尚未开始就已经放弃。</p>
 <p>工欲善其事必先利其器，决定造个工具，一劳永逸提高效率。</p>
