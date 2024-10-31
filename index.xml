@@ -1,4 +1,150 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Wlcheng's Life</title><link>https://wlcheng.cc/</link><description>来日方长，何惧车遥马慢</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Wed, 08 Mar 2023 11:26:27 +0100</lastBuildDate><atom:link href="https://wlcheng.cc/index.xml" rel="self" type="application/rss+xml"/><item><title>Git 常用命令和用法</title><link>https://wlcheng.cc/posts/git_command_list/</link><pubDate>Wed, 08 Mar 2023 11:26:27 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/git_command_list/</guid><description><![CDATA[<p>速查 Git 常用的命令和用法。分为基本（commit、branch、checkout、merge、rabase 等）和远程（clone、push、pull 等）两部分。</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Wlcheng's Life</title><link>https://wlcheng.cc/</link><description>来日方长，何惧车遥马慢</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Tue, 18 Jun 2024 08:56:38 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/index.xml" rel="self" type="application/rss+xml"/><item><title>Windows 自用软件清单</title><link>https://wlcheng.cc/posts/windows_envs_backup/</link><pubDate>Tue, 18 Jun 2024 08:56:38 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/windows_envs_backup/</guid><description><![CDATA[<p>为了在新系统上能快速恢复工作环境，备份一下相关配置。</p>
+<!-- more -->
+<h3 id="软件清单" class="headerLink">
+    <a href="#%e8%bd%af%e4%bb%b6%e6%b8%85%e5%8d%95" class="header-mark"></a>软件清单</h3><h4 id="必备软件" class="headerLink">
+    <a href="#%e5%bf%85%e5%a4%87%e8%bd%af%e4%bb%b6" class="header-mark"></a>必备软件</h4><ul>
+<li><a href="https://weixin.qq.com/" target="_blank" rel="noopener noreferrer">微信</a>，即时通讯</li>
+<li><a href="https://tim.qq.com/" target="_blank" rel="noopener noreferrer">TIM</a>，即时通讯</li>
+<li><a href="https://meeting.tencent.com/" target="_blank" rel="noopener noreferrer">腾讯会议</a>，视频会议</li>
+<li><a href="https://mail.163.com/" target="_blank" rel="noopener noreferrer">网易邮箱大师</a>，邮件客户端</li>
+<li><a href="https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook/?msockid=392e478147196cdc3e6f5406466e6dee#Download-the-app" target="_blank" rel="noopener noreferrer">Outlook</a>，Windows 自带邮件客户端</li>
+<li><a href="https://github.com/clashdownload/Clash_for_Windows" target="_blank" rel="noopener noreferrer">Clash for Windows</a>，科学上网。备用订阅：
+<ul>
+<li><a href="https://raw.kkgithub.com/ripaojiedian/freenode/main/clash" target="_blank" rel="noopener noreferrer">https://raw.kkgithub.com/ripaojiedian/freenode/main/clash</a></li>
+<li><a href="https://ghostcc.cc/ss.cn/cn.ovg" target="_blank" rel="noopener noreferrer">https://ghostcc.cc/ss.cn/cn.ovg</a></li>
+<li><a href="https://sub.sharecentre.online/sub" target="_blank" rel="noopener noreferrer">https://sub.sharecentre.online/sub</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>[MicroSoft Office 套件]：用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装，用 <a href="https://github.com/zbezj/HEU_KMS_Activator/releases" target="_blank" rel="noopener noreferrer">HEU_KMS_Activator</a> 激活</li>
+<li><a href="http://www.ffcell.com/" target="_blank" rel="noopener noreferrer">方方格子</a>，Excel 插件</li>
+<li><a href="https://www.texstudio.org/" target="_blank" rel="noopener noreferrer">TexStudio</a>，LaTeX 集成编辑器</li>
+<li><a href="https://www.tug.org/texlive/" target="_blank" rel="noopener noreferrer">Texlive</a>，LaTeX 编译器</li>
+</ul>
+<hr>
+<ul>
+<li>[Visio]：MicroSoft 流程图工具，可用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装</li>
+<li><a href="https://app.diagrams.net/" target="_blank" rel="noopener noreferrer">draw.io</a>，绘图工具</li>
+<li><a href="https://www.originlab.com/" target="_blank" rel="noopener noreferrer">Origin</a>，数据分析和绘图工具</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.adobe.com/cn/products/acrobat.html" target="_blank" rel="noopener noreferrer">Adobe Acrobat DC</a>，PDF 编辑/阅读器</li>
+<li><a href="https://tools.pdf24.org/zh/" target="_blank" rel="noopener noreferrer">PDF24 Creator</a>，PDF 工具箱</li>
+<li><a href="https://www.sumatrapdfreader.org/free-pdf-reader.html" target="_blank" rel="noopener noreferrer">SumatraPDF</a>，PDF 阅读器</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.aliyundrive.com/" target="_blank" rel="noopener noreferrer">阿里云盘</a>，云盘</li>
+<li><a href="https://www.jianguoyun.com/" target="_blank" rel="noopener noreferrer">坚果云</a>，文件同步工具</li>
+<li><a href="https://github.com/canton7/SyncTrayzor" target="_blank" rel="noopener noreferrer">SyncTrayzor</a>，基于 Syncthing 的开源文件同步工具</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://copytranslator.github.io/" target="_blank" rel="noopener noreferrer">CopyTranslator</a>，即时文字多源翻译工具</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.bandisoft.com/bandizip/" target="_blank" rel="noopener noreferrer">Bandizip</a>，压缩解压工具</li>
+<li><a href="https://www.voidtools.com/zh-cn/downloads/" target="_blank" rel="noopener noreferrer">Everything</a>，快速文件搜索</li>
+<li><a href="https://www.microsoft.com/store/productId/9P1WXPKB68KX?ocid=pdpshare" target="_blank" rel="noopener noreferrer">Snipaste</a>，截图贴图</li>
+<li><a href="https://www.microsoft.com/store/productId/9NV4BS3L1H4S?ocid=pdpshare" target="_blank" rel="noopener noreferrer">Quicklook</a>，快速预览文件</li>
+<li><a href="https://www.internetdownloadmanager.com/download.html" target="_blank" rel="noopener noreferrer">IDM</a>，多线程下载器</li>
+<li><a href="https://geekuninstaller.com/" target="_blank" rel="noopener noreferrer">Geek Uninstaller</a>，卸载软件</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VSCode</a>，代码编辑器，扩展性极强</li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a>，版本控制</li>
+<li><a href="https://typora.io/" target="_blank" rel="noopener noreferrer">Typora</a>，优雅的 Markdown 编辑器（v1.0 后付费）</li>
+<li><a href="https://marktext.app/" target="_blank" rel="noopener noreferrer">MarkText</a>，（仿Typora）开源 Markdown 编辑器</li>
+<li><a href="https://flowus.cn/" target="_blank" rel="noopener noreferrer">flowus 息流</a>，大纲笔记，可上传文件</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.sixyin.com/114.html" target="_blank" rel="noopener noreferrer">洛雪音乐助手</a>，音乐播放器
+<ul>
+<li><a href="https://www.sixyin.com/8498.html" target="_blank" rel="noopener noreferrer">音源</a>（听版权音乐必须导入音源）</li>
+</ul>
+</li>
+<li><a href="https://potplayer.daum.net/" target="_blank" rel="noopener noreferrer">PotPlayer</a>, 视频播放器</li>
+</ul>
+<hr>
+<h4 id="其他软件" class="headerLink">
+    <a href="#%e5%85%b6%e4%bb%96%e8%bd%af%e4%bb%b6" class="header-mark"></a>其他软件</h4><ul>
+<li><a href="https://getquicker.net/" target="_blank" rel="noopener noreferrer">Quicker</a>，指尖工具箱，快捷操作工具</li>
+<li><a href="https://www.listary.com/" target="_blank" rel="noopener noreferrer">Listary</a>，快捷文件搜索、路径定位</li>
+<li><a href="https://www.q-dir.com/" target="_blank" rel="noopener noreferrer">Q-Dir</a>，多窗口文件管理器</li>
+<li><a href="https://www.7-zip.org/" target="_blank" rel="noopener noreferrer">7-Zip</a>，压缩解压工具</li>
+<li><a href="https://www.mythicsoft.com/" target="_blank" rel="noopener noreferrer">FileLocator</a>，快速文件内容搜索</li>
+<li><a href="___" rel="">BestTrace</a>，网络诊断工具</li>
+<li><a href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer">WireShark</a>，网络抓包工具</li>
+<li><a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener noreferrer">MobaXterm</a>，SSH 客户端</li>
+<li><a href="https://www.spacedesk.net/" target="_blank" rel="noopener noreferrer">SpaceDesk</a>，桌面扩展、手写板、终端摄像头</li>
+<li><a href="https://www.petges.lu/" target="_blank" rel="noopener noreferrer">Attribute Changer</a>，文件属性修改工具</li>
+<li><a href="https://www.antp.be/software/renamer" target="_blank" rel="noopener noreferrer">Ant Renamer</a>，文件批量重命名工具</li>
+<li><a href="https://lockhunter.com/" target="_blank" rel="noopener noreferrer">LockHunter</a>，文件锁定解除工具</li>
+<li>&hellip;&hellip;</li>
+</ul>
+<h3 id="配置清单" class="headerLink">
+    <a href="#%e9%85%8d%e7%bd%ae%e6%b8%85%e5%8d%95" class="header-mark"></a>配置清单</h3><h4 id="vscode-插件备份" class="headerLink">
+    <a href="#vscode-%e6%8f%92%e4%bb%b6%e5%a4%87%e4%bb%bd" class="header-mark"></a>VSCode 插件备份</h4><ul>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense" target="_blank" rel="noopener noreferrer">Path Intelligence</a></p>
+</li>
+<li>
+<p>Latex</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop" target="_blank" rel="noopener noreferrer">Latex Workshop</a></li>
+</ul>
+</li>
+<li>
+<p>Markdown</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one" target="_blank" rel="noopener noreferrer">Markdown All in One</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced" target="_blank" rel="noopener noreferrer">Markdown Preview Enhanced</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=yzane.vscode-markdown-pdf" target="_blank" rel="noopener noreferrer">Markdown PDF</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint" target="_blank" rel="noopener noreferrer">markdownlint</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=Spades.vs-picgo" target="_blank" rel="noopener noreferrer">PicGo</a></li>
+</ul>
+</li>
+<li>
+<p>Matlab</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=krasserm.matlab-formatter" target="_blank" rel="noopener noreferrer">matlab-formatter</a></li>
+</ul>
+</li>
+<li>
+<p>Python</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" rel="noopener noreferrer">Python</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.pylance" target="_blank" rel="noopener noreferrer">Pylance</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy" target="_blank" rel="noopener noreferrer">Python Debugger</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter" target="_blank" rel="noopener noreferrer">Jupyter</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-renderers" target="_blank" rel="noopener noreferrer">Jupyter Notebook Renderers</a></li>
+</ul>
+</li>
+<li>
+<p>美化</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme" target="_blank" rel="noopener noreferrer">One Dark Pro</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming" target="_blank" rel="noopener noreferrer">Winter id Coming Theme</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank" rel="noopener noreferrer">vscode-icons</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=wwm.better-align" target="_blank" rel="noopener noreferrer">Better Align</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments" target="_blank" rel="noopener noreferrer">Better Comments</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight" target="_blank" rel="noopener noreferrer">Color Highlight</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2" target="_blank" rel="noopener noreferrer">Bracket Pair Colorizer 2</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank" rel="noopener noreferrer">prettier - Code formatter</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="ms-edge-浏览器扩展清单" class="headerLink">
+    <a href="#ms-edge-%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a9%e5%b1%95%e6%b8%85%e5%8d%95" class="header-mark"></a>MS Edge 浏览器扩展清单</h4><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">MS Edge 浏览器扩展</div></div>
+<h4 id="网站书签" class="headerLink">
+    <a href="#%e7%bd%91%e7%ab%99%e4%b9%a6%e7%ad%be" class="header-mark"></a>网站书签</h4><p><a href="/bookmarks/favorites_2024_10_31.html" rel="">MS Edge 备份书签 2024.10.31</a></p>
+]]></description></item><item><title>Git 常用命令和用法</title><link>https://wlcheng.cc/posts/git_command_list/</link><pubDate>Wed, 08 Mar 2023 11:26:27 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/git_command_list/</guid><description><![CDATA[<p>速查 Git 常用的命令和用法。分为基本（commit、branch、checkout、merge、rabase 等）和远程（clone、push、pull 等）两部分。</p>
 <p>本文基于 <a href="https://chat.openai.com/chat" target="_blank" rel="noopener noreferrer">chatGPT</a> 自动生成初稿（省时省力😁），并参考 <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">learngitbranching</a> 进行调整。</p>
 <h2 id="基本命令" class="headerLink">
     <a href="#%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4" class="header-mark"></a>基本命令</h2><p><code>git init</code>：创建一个新的 Git 仓库。</p>
@@ -988,139 +1134,4 @@ $$</p>
 </li>
 </ol>
 <h3 id="总结" class="headerLink">
-    <a href="#%e6%80%bb%e7%bb%93" class="header-mark"></a>总结</h3><p>以上方案只能说是手动，更好的当然是能直接一个操作然后实现以上步骤的自动执行。不过目前能力不足，只能到此。</p>]]></description></item><item><title>PowerShell 美化</title><link>https://wlcheng.cc/posts/powershell%E7%BE%8E%E5%8C%96/</link><pubDate>Thu, 19 Aug 2021 17:40:30 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/powershell%E7%BE%8E%E5%8C%96/</guid><description><![CDATA[<p>记录新版 PowerShell 美化过程。</p>
-<h3 id="安装-windows-terminal" class="headerLink">
-    <a href="#%e5%ae%89%e8%a3%85-windows-terminal" class="header-mark"></a>安装 Windows Terminal</h3><p>可以在微软商店 (Microsoft Store) 搜索 <code>Windows Terminal</code> 安装。</p>
-<p>商城搜索结果会有多种版本的Windows Terminal (以下将简称为Terminal)，不知选哪个的话，可直接点击此处链接 <a href="https://www.microsoft.com/store/productId/9N0DX20HK701" target="_blank" rel="noopener noreferrer">Windows Terminal - 微软商店</a>，然后点击<code>获取</code>，弹出框中同意<code>打开</code>电脑的微软商城，跳转到软件主页后，直接<code>安装</code>即可。安装过程无需做任何选项与设置，就像在手机上的软件商城中搜索软件进行安装一样简单。</p>
-<p>当然，如果想体验最新功能，可以去官方Github发布页获取最新预览版本：<a href="https://github.com/microsoft/terminal/releases" target="_blank" rel="noopener noreferrer">Windows Terminal - Github</a></p>
-<p>安装完后的 Windows Terminal，可以在系统开始菜单找到并打开。先看一下美化前的样子。</p>
-<figure><a class="lightgallery" href="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" title="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" data-thumbnail="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" data-sub-html="<h2>美化之前的PowerShell</h2>">
-        
-    </a><figcaption class="image-caption">美化之前的PowerShell</figcaption>
-    </figure>
-<p>朴实无华，看着其实也还不错。</p>
-<p>可以看到Terminal的多窗口是标签化管理的，大为方便软件内的切换。而菜单栏上右侧的 <code>+</code>号可以快速开启一个默认类型的窗口。<code>﹀</code>下拉菜单可以选择各类终端窗口。</p>
-<p>然后看一下终端显示的内容。因为要美化的是PowerShell，我便打开了一个Windows PowerShell窗口，键入命令 <code>$PSVersionTable</code>后回车，可以看到当前PowerShell的版本号为<code>5.1</code>，仍然是老版本。之后我们要将其换成 <strong>开源跨平台的船新版本</strong>。请看下文~</p>
-<h3 id="安装-powershell" class="headerLink">
-    <a href="#%e5%ae%89%e8%a3%85-powershell" class="header-mark"></a>安装 PowerShell</h3><h4 id="更新-从-microsoft-store-安装" class="headerLink">
-    <a href="#%e6%9b%b4%e6%96%b0-%e4%bb%8e-microsoft-store-%e5%ae%89%e8%a3%85" class="header-mark"></a>(更新) 从 Microsoft Store 安装</h4><p>微软商城搜索 <a href="https://www.microsoft.com/store/productId/9P95ZZKTNRN4" target="_blank" rel="noopener noreferrer">PowerShell Preview</a> ，安装即可。官方渠道，可以自动更新，无需重复配置环境。</p>
-<p>安装完成后，重新打开 Terminal。</p>
-<h4 id="从-github-下载安装" class="headerLink">
-    <a href="#%e4%bb%8e-github-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85" class="header-mark"></a>从 Github 下载安装</h4><p>采用此种方式的话，之后需要自己手动下载新版本安装包，并重新进行后续的美化配置。</p>
-<p>船新版本在哪里？当然看准官方发布渠道，我选了最新预览版：<a href="https://github.com/PowerShell/PowerShell/releases/tag/v7.2.0-preview.8" target="_blank" rel="noopener noreferrer">PowerShell</a></p>
-<p>可以观察到，曾经的PowerShell 全名为 <code>Windows PowerShell</code>，但是现在去掉了前面的<code>Windows</code>，只留<code>PowerShell</code>一词；另外发布页的 <code>Assets</code>中也确实提供了各种平台的版本。这无疑是名副其实的跨平台了。</p>
-<p>言归正传，从上面官方发布页中，我选择了 <code>7.2.0-preview-win-x64</code> 版本的<code>msi</code>安装包。下载下来安装包后，直接双击运行，会经历以下步骤，最后还有一个对话框点击<code>install</code>即可。</p>
-<p>这个船新版本的船新 Logo 灰常 Cyber 的说。</p>
-<div align="center"></div>
-<h4 id="添加-powershell-到-terminal" class="headerLink">
-    <a href="#%e6%b7%bb%e5%8a%a0-powershell-%e5%88%b0-terminal" class="header-mark"></a>添加 PowerShell 到 Terminal</h4><blockquote>
-<p>如果前面从Microsoft Store安装的PowerShell，一般会自动添加到 Temianl 中。如果没有的话，按照下面步骤自行添加即可。</p>
-</blockquote>
-<p>打开 Terminal，点开菜单栏右侧下拉菜单，点击<code>设置</code>；或者直接按快捷键 <code>Ctrl + ,</code>，调出设置界面，按照下图步骤添加我们安装的 PowerShell 到Terminal中：</p>
-<div align="center"></div>
-<blockquote>
-<p>从 Microsoft Store 安装的 PowerShell，安装目录为：<code>&quot;C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShellPreview_8wekyb3d8bbwe\pwsh.exe&quot;</code>，将此目录添加到上图的<code>命令行</code>位置即可。</p>
-</blockquote>
-<p>注意添加完后，点击<code>保存</code>。</p>
-<p>Terminal无需重启即可即时更新配置，从下拉菜单中看到 PowerShell 7 已经添加成功。</p>
-<div align="center"></div>
-<p>下面开始我们的美化之路。</p>
-<h3 id="美化-powershell" class="headerLink">
-    <a href="#%e7%be%8e%e5%8c%96-powershell" class="header-mark"></a>美化 PowerShell</h3><h4 id="安装-on-my-posh" class="headerLink">
-    <a href="#%e5%ae%89%e8%a3%85-on-my-posh" class="header-mark"></a>安装 on-my-posh</h4><p>方法一：（更新）直接在 Microsoft Store 中搜索 <code>oh-my-posh</code> 并安装。</p>
-<p>方法二：打开 Terminal，然后打开一个 PowerShell 窗口。命令行中执行以下命令安装 oh-my-posh 模块：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Install-Module</span> <span class="nb">oh-my</span><span class="n">-posh</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="设置主题" class="headerLink">
-    <a href="#%e8%ae%be%e7%bd%ae%e4%b8%bb%e9%a2%98" class="header-mark"></a>设置主题</h4><p>安装完成后，执行 <code>Get-PoshThemes</code> 命令，将以各自主题的样式列出支持的主题。</p>
-<div align="center"></div>
-<p>其中有一些乱码，这实际是一些图标，需要安装字体包来提供图标支持，具体方法后续给出。</p>
-<p>先进行主题设置。选择主题可以从以上命令的返回结果中选择自己中意的，然后执行以下命令就能进行安装：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Set-PoshPrompt</span> <span class="n">-Theme</span> <span class="err">主题名字</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>我们需要配置 PowerShell 的启动脚本，以使主题永久生效。执行以下命令打开脚本文件。若提示文件不存在，则同意创建。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">notepad</span> <span class="nv">$Profile</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>然后在打开的脚本文件中输入以下命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Import-Module</span> <span class="nb">oh-my</span><span class="n">-posh</span>
-</span></span><span class="line"><span class="cl"><span class="nb">Set-PoshPrompt</span> <span class="n">-Theme</span> <span class="n">agnosterplus</span> <span class="c"># 此处将agnosterplus替换为自己选主题名即可</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><div align="center"></div>
-<p>如果从 Microsoft Store 安装的 <code>oh-my-posh</code>，则在以上脚本文件中输入以下命令：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">oh-my</span><span class="n">-posh</span> <span class="n">init</span> <span class="n">pwsh</span> <span class="p">-</span><span class="n">-config</span> <span class="s2">&#34;</span><span class="nv">$env:POSH_THEMES_PATH</span><span class="s2">\agnosterplus.omp.json&#34;</span> <span class="p">|</span> <span class="nb">Invoke-Expression</span> 
-</span></span><span class="line"><span class="cl"><span class="c"># 此处将agnosterplus替换为自己选的主题即可</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>之后重启即可看到效果。</p>
-<h4 id="设置字体" class="headerLink">
-    <a href="#%e8%ae%be%e7%bd%ae%e5%ad%97%e4%bd%93" class="header-mark"></a>设置字体</h4><p>为了对主题所需的图标符号提供支持，需要 Nerd Fonts 类字体，可以到字体集合主页<a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Nerd Fonts</a> 挑选喜欢的字体，可以预览字体效果。选好后直接下载字体文件即可。</p>
-<div align="center"></div>
-<p>经过一番查看，我最终凭感觉选择了<a href="https://www.programmingfonts.org/#go-mono" target="_blank" rel="noopener noreferrer">Go Mono</a>。</p>
-<p>将下载的压缩包直接解压缩后，是一套字体文件，由于不需要其他用途，此处只安装正体的字体。选择不带<code>Bold</code>（加粗）不带<code>Italic</code>（斜体）的<code>Windows Compatible</code>字体文件，直接双击安装。</p>
-<div align="center"></div>
-<p>弹出的对话窗口，展示了字体样式，直接点击左上角<code>安装</code>即可。</p>
-<div align="center"></div>
-<p>字体已经安装好，接下来在 Terminal 下按<code>Ctrl + ,</code>打开设置，从左侧<code>配置文件</code>中选择到自己新建的PowerShell，我的是 PowerShell 7 ，然后右侧选择<code>外观</code>选项卡，找到<code>字体</code>下拉菜单，选择自己所选的字体名字即可，我的为 <code>GoMono NF</code>。</p>
-<div align="center"></div>
-<p>字体名可以从系统<code>字体设置</code>查看到，<code>开始</code>-&gt;<code>设置</code>-&gt;搜索<code>字体设置</code>-&gt;搜索字体关键字&rsquo;GoMono&rsquo;。可以看到我的字体名为<code>GoMono NF</code>。记住这个字体名，之后 VS Code 的终端 PowerShell 配置中会再次用到。</p>
-<div align="center"></div>
-<h4 id="设置背景图" class="headerLink">
-    <a href="#%e8%ae%be%e7%bd%ae%e8%83%8c%e6%99%af%e5%9b%be" class="header-mark"></a>设置背景图</h4><p>只需打开 Terminal 的设置，从左侧<code>配置文件</code>中选择到自己新建的PowerShell，然后右侧选择<code>外观</code>选项卡，找到<code>背景图像</code>设置项，<code>浏览</code>选择图片。选好图片后，下面会多出一些针对背景图的设置，包括模糊、透明、位置等，可以自行调整。</p>
-<div align="center"></div>
-<h3 id="vs-code-集成-powershell" class="headerLink">
-    <a href="#vs-code-%e9%9b%86%e6%88%90-powershell" class="header-mark"></a>VS Code 集成 PowerShell</h3><p>VS Code 内按快捷键 <code>Ctrl + Shift + `</code>，则在编辑窗口下面会打开一个（默认CMD）终端窗口。VS Code中已经自动集成了 CMD 和 Windows PowerShell。但我需要：1. 将新版的 PowerShell Preview 集成进来；2. 将其设置为默认打开；3. 更改终端字体，以提供主题包支持。</p>
-<p>首先<code>Ctrl + ,</code>打开设置，然后搜索<code>Terminal</code>，找到<code>Terminal &gt; Integrated &gt; Profiles: Windows</code>的项，点击下面的<code>在settings.json中编辑</code>。</p>
-<div align="center"></div>
-<p>之后在打开的<code>settings.json</code>文件下，在<code>terminal.integrated.profiles.windows</code>项内按照以下红色框中代码的格式添加自己的 PowerShell 条目，其中的<code>PowerShell 7 pre</code>替换为自拟名字即可，<code>path</code>项内的路径替换为自己的 PowerShell 安装路径。然后<strong>保存</strong>并关闭文件。</p>
-<div align="center"></div>
-<blockquote>
-<p>如果是从Microsoft Store安装的 PowserShell，上图中的 <code>path</code> 字段为：<code>&quot;C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShellPreview_8wekyb3d8bbwe\pwsh.exe&quot;</code></p>
-</blockquote>
-<p>通过以上操作，我们已经为终端窗口添加了新的 PowerShell。接下来将其设置为默认打开。</p>
-<p>仍然<code>Ctrl + ,</code>打开设置，搜索<code>Terminal</code>，找到<code>Terminal &gt; Integrated &gt; Default Profile: Windows</code>项，下拉选项中选择我们上一步添加的 PowerShell 的名字<code>PowerShell 7 pre</code>。</p>
-<div align="center"></div>
-<p>在设置页，搜索<code>Terminal Font</code>，找到<code>Terminal &gt; Integrated &gt; Font Family</code>项，将其值设置为我们前面安装的字体文件名 <code>GoMono NF</code>，由于我选的这款字体本身字号挺大，所以我还将字号改为了 <code>12</code>。</p>
-<div align="center"></div>
-<p>经过以上配置，最终的效果如下图。</p>
-<div align="center"></div>
-<h3 id="参考" class="headerLink">
-    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h3><ul>
-<li><a href="https://www.edgeless.top/PowerShell%E7%BE%8E%E5%8C%96/" target="_blank" rel="noopener noreferrer">PowerShell 美化 - j3rry</a></li>
-<li><a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Nerd Fonts</a></li>
-<li><a href="https://ohmyposh.dev/docs/pwsh" target="_blank" rel="noopener noreferrer">oh-my-push 文档</a></li>
-<li><a href="https://docs.microsoft.com/en-us/powershell/scripting/dev-cross-plat/vscode/using-vscode?view=powershell-7.2#adding-your-own-powershell-paths-to-the-session-menu" target="_blank" rel="noopener noreferrer">Using Visual Studio Code for PowerShell Development - Microsoft</a></li>
-<li><a href="https://code.visualstudio.com/docs/editor/integrated-terminal#_configuring-profiles" target="_blank" rel="noopener noreferrer">VS Code Integrated Terminal</a></li>
-<li><a href="https://www.cnblogs.com/taylorshi/p/16482694.html" target="_blank" rel="noopener noreferrer">再谈 Windows Terminal (终端) 主题和字体美化，Oh-My-Posh、Terminal-Icons、Posh-git</a></li>
-<li><a href="https://www.cnblogs.com/xiaorang/articles/windows_terminal_oh_my_posh.html" target="_blank" rel="noopener noreferrer">Windows Terminal 美化 (oh-my-posh)</a></li>
-</ul>]]></description></item></channel></rss>
+    <a href="#%e6%80%bb%e7%bb%93" class="header-mark"></a>总结</h3><p>以上方案只能说是手动，更好的当然是能直接一个操作然后实现以上步骤的自动执行。不过目前能力不足，只能到此。</p>]]></description></item></channel></rss>

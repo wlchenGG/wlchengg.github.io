@@ -1,0 +1,147 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Windows - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/windows/</link><description>Windows - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Tue, 18 Jun 2024 08:56:38 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/tags/windows/" rel="self" type="application/rss+xml"/><item><title>Windows 自用软件清单</title><link>https://wlcheng.cc/posts/windows_envs_backup/</link><pubDate>Tue, 18 Jun 2024 08:56:38 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/windows_envs_backup/</guid><description><![CDATA[<p>为了在新系统上能快速恢复工作环境，备份一下相关配置。</p>
+<!-- more -->
+<h3 id="软件清单" class="headerLink">
+    <a href="#%e8%bd%af%e4%bb%b6%e6%b8%85%e5%8d%95" class="header-mark"></a>软件清单</h3><h4 id="必备软件" class="headerLink">
+    <a href="#%e5%bf%85%e5%a4%87%e8%bd%af%e4%bb%b6" class="header-mark"></a>必备软件</h4><ul>
+<li><a href="https://weixin.qq.com/" target="_blank" rel="noopener noreferrer">微信</a>，即时通讯</li>
+<li><a href="https://tim.qq.com/" target="_blank" rel="noopener noreferrer">TIM</a>，即时通讯</li>
+<li><a href="https://meeting.tencent.com/" target="_blank" rel="noopener noreferrer">腾讯会议</a>，视频会议</li>
+<li><a href="https://mail.163.com/" target="_blank" rel="noopener noreferrer">网易邮箱大师</a>，邮件客户端</li>
+<li><a href="https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook/?msockid=392e478147196cdc3e6f5406466e6dee#Download-the-app" target="_blank" rel="noopener noreferrer">Outlook</a>，Windows 自带邮件客户端</li>
+<li><a href="https://github.com/clashdownload/Clash_for_Windows" target="_blank" rel="noopener noreferrer">Clash for Windows</a>，科学上网。备用订阅：
+<ul>
+<li><a href="https://raw.kkgithub.com/ripaojiedian/freenode/main/clash" target="_blank" rel="noopener noreferrer">https://raw.kkgithub.com/ripaojiedian/freenode/main/clash</a></li>
+<li><a href="https://ghostcc.cc/ss.cn/cn.ovg" target="_blank" rel="noopener noreferrer">https://ghostcc.cc/ss.cn/cn.ovg</a></li>
+<li><a href="https://sub.sharecentre.online/sub" target="_blank" rel="noopener noreferrer">https://sub.sharecentre.online/sub</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>[MicroSoft Office 套件]：用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装，用 <a href="https://github.com/zbezj/HEU_KMS_Activator/releases" target="_blank" rel="noopener noreferrer">HEU_KMS_Activator</a> 激活</li>
+<li><a href="http://www.ffcell.com/" target="_blank" rel="noopener noreferrer">方方格子</a>，Excel 插件</li>
+<li><a href="https://www.texstudio.org/" target="_blank" rel="noopener noreferrer">TexStudio</a>，LaTeX 集成编辑器</li>
+<li><a href="https://www.tug.org/texlive/" target="_blank" rel="noopener noreferrer">Texlive</a>，LaTeX 编译器</li>
+</ul>
+<hr>
+<ul>
+<li>[Visio]：MicroSoft 流程图工具，可用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装</li>
+<li><a href="https://app.diagrams.net/" target="_blank" rel="noopener noreferrer">draw.io</a>，绘图工具</li>
+<li><a href="https://www.originlab.com/" target="_blank" rel="noopener noreferrer">Origin</a>，数据分析和绘图工具</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.adobe.com/cn/products/acrobat.html" target="_blank" rel="noopener noreferrer">Adobe Acrobat DC</a>，PDF 编辑/阅读器</li>
+<li><a href="https://tools.pdf24.org/zh/" target="_blank" rel="noopener noreferrer">PDF24 Creator</a>，PDF 工具箱</li>
+<li><a href="https://www.sumatrapdfreader.org/free-pdf-reader.html" target="_blank" rel="noopener noreferrer">SumatraPDF</a>，PDF 阅读器</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.aliyundrive.com/" target="_blank" rel="noopener noreferrer">阿里云盘</a>，云盘</li>
+<li><a href="https://www.jianguoyun.com/" target="_blank" rel="noopener noreferrer">坚果云</a>，文件同步工具</li>
+<li><a href="https://github.com/canton7/SyncTrayzor" target="_blank" rel="noopener noreferrer">SyncTrayzor</a>，基于 Syncthing 的开源文件同步工具</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://copytranslator.github.io/" target="_blank" rel="noopener noreferrer">CopyTranslator</a>，即时文字多源翻译工具</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.bandisoft.com/bandizip/" target="_blank" rel="noopener noreferrer">Bandizip</a>，压缩解压工具</li>
+<li><a href="https://www.voidtools.com/zh-cn/downloads/" target="_blank" rel="noopener noreferrer">Everything</a>，快速文件搜索</li>
+<li><a href="https://www.microsoft.com/store/productId/9P1WXPKB68KX?ocid=pdpshare" target="_blank" rel="noopener noreferrer">Snipaste</a>，截图贴图</li>
+<li><a href="https://www.microsoft.com/store/productId/9NV4BS3L1H4S?ocid=pdpshare" target="_blank" rel="noopener noreferrer">Quicklook</a>，快速预览文件</li>
+<li><a href="https://www.internetdownloadmanager.com/download.html" target="_blank" rel="noopener noreferrer">IDM</a>，多线程下载器</li>
+<li><a href="https://geekuninstaller.com/" target="_blank" rel="noopener noreferrer">Geek Uninstaller</a>，卸载软件</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">VSCode</a>，代码编辑器，扩展性极强</li>
+<li><a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a>，版本控制</li>
+<li><a href="https://typora.io/" target="_blank" rel="noopener noreferrer">Typora</a>，优雅的 Markdown 编辑器（v1.0 后付费）</li>
+<li><a href="https://marktext.app/" target="_blank" rel="noopener noreferrer">MarkText</a>，（仿Typora）开源 Markdown 编辑器</li>
+<li><a href="https://flowus.cn/" target="_blank" rel="noopener noreferrer">flowus 息流</a>，大纲笔记，可上传文件</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.sixyin.com/114.html" target="_blank" rel="noopener noreferrer">洛雪音乐助手</a>，音乐播放器
+<ul>
+<li><a href="https://www.sixyin.com/8498.html" target="_blank" rel="noopener noreferrer">音源</a>（听版权音乐必须导入音源）</li>
+</ul>
+</li>
+<li><a href="https://potplayer.daum.net/" target="_blank" rel="noopener noreferrer">PotPlayer</a>, 视频播放器</li>
+</ul>
+<hr>
+<h4 id="其他软件" class="headerLink">
+    <a href="#%e5%85%b6%e4%bb%96%e8%bd%af%e4%bb%b6" class="header-mark"></a>其他软件</h4><ul>
+<li><a href="https://getquicker.net/" target="_blank" rel="noopener noreferrer">Quicker</a>，指尖工具箱，快捷操作工具</li>
+<li><a href="https://www.listary.com/" target="_blank" rel="noopener noreferrer">Listary</a>，快捷文件搜索、路径定位</li>
+<li><a href="https://www.q-dir.com/" target="_blank" rel="noopener noreferrer">Q-Dir</a>，多窗口文件管理器</li>
+<li><a href="https://www.7-zip.org/" target="_blank" rel="noopener noreferrer">7-Zip</a>，压缩解压工具</li>
+<li><a href="https://www.mythicsoft.com/" target="_blank" rel="noopener noreferrer">FileLocator</a>，快速文件内容搜索</li>
+<li><a href="___" rel="">BestTrace</a>，网络诊断工具</li>
+<li><a href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer">WireShark</a>，网络抓包工具</li>
+<li><a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener noreferrer">MobaXterm</a>，SSH 客户端</li>
+<li><a href="https://www.spacedesk.net/" target="_blank" rel="noopener noreferrer">SpaceDesk</a>，桌面扩展、手写板、终端摄像头</li>
+<li><a href="https://www.petges.lu/" target="_blank" rel="noopener noreferrer">Attribute Changer</a>，文件属性修改工具</li>
+<li><a href="https://www.antp.be/software/renamer" target="_blank" rel="noopener noreferrer">Ant Renamer</a>，文件批量重命名工具</li>
+<li><a href="https://lockhunter.com/" target="_blank" rel="noopener noreferrer">LockHunter</a>，文件锁定解除工具</li>
+<li>&hellip;&hellip;</li>
+</ul>
+<h3 id="配置清单" class="headerLink">
+    <a href="#%e9%85%8d%e7%bd%ae%e6%b8%85%e5%8d%95" class="header-mark"></a>配置清单</h3><h4 id="vscode-插件备份" class="headerLink">
+    <a href="#vscode-%e6%8f%92%e4%bb%b6%e5%a4%87%e4%bb%bd" class="header-mark"></a>VSCode 插件备份</h4><ul>
+<li>
+<p><a href="https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense" target="_blank" rel="noopener noreferrer">Path Intelligence</a></p>
+</li>
+<li>
+<p>Latex</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop" target="_blank" rel="noopener noreferrer">Latex Workshop</a></li>
+</ul>
+</li>
+<li>
+<p>Markdown</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one" target="_blank" rel="noopener noreferrer">Markdown All in One</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced" target="_blank" rel="noopener noreferrer">Markdown Preview Enhanced</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=yzane.vscode-markdown-pdf" target="_blank" rel="noopener noreferrer">Markdown PDF</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint" target="_blank" rel="noopener noreferrer">markdownlint</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=Spades.vs-picgo" target="_blank" rel="noopener noreferrer">PicGo</a></li>
+</ul>
+</li>
+<li>
+<p>Matlab</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=krasserm.matlab-formatter" target="_blank" rel="noopener noreferrer">matlab-formatter</a></li>
+</ul>
+</li>
+<li>
+<p>Python</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python" target="_blank" rel="noopener noreferrer">Python</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.pylance" target="_blank" rel="noopener noreferrer">Pylance</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.debugpy" target="_blank" rel="noopener noreferrer">Python Debugger</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter" target="_blank" rel="noopener noreferrer">Jupyter</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter-renderers" target="_blank" rel="noopener noreferrer">Jupyter Notebook Renderers</a></li>
+</ul>
+</li>
+<li>
+<p>美化</p>
+<ul>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme" target="_blank" rel="noopener noreferrer">One Dark Pro</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming" target="_blank" rel="noopener noreferrer">Winter id Coming Theme</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons" target="_blank" rel="noopener noreferrer">vscode-icons</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=wwm.better-align" target="_blank" rel="noopener noreferrer">Better Align</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments" target="_blank" rel="noopener noreferrer">Better Comments</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight" target="_blank" rel="noopener noreferrer">Color Highlight</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2" target="_blank" rel="noopener noreferrer">Bracket Pair Colorizer 2</a></li>
+<li><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode" target="_blank" rel="noopener noreferrer">prettier - Code formatter</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="ms-edge-浏览器扩展清单" class="headerLink">
+    <a href="#ms-edge-%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a9%e5%b1%95%e6%b8%85%e5%8d%95" class="header-mark"></a>MS Edge 浏览器扩展清单</h4><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">MS Edge 浏览器扩展</div></div>
+<h4 id="网站书签" class="headerLink">
+    <a href="#%e7%bd%91%e7%ab%99%e4%b9%a6%e7%ad%be" class="header-mark"></a>网站书签</h4><p><a href="/bookmarks/favorites_2024_10_31.html" rel="">MS Edge 备份书签 2024.10.31</a></p>
+]]></description></item></channel></rss>
