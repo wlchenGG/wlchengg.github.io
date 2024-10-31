@@ -21,14 +21,14 @@
 
 
 ---
-- [MicroSoft Office 套件]：用 [OTP](https://otp.landian.vip/zh-cn/) 安装，用 [HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases) 激活
+- [MicroSoft Office 套件](___)：用 [OTP](https://otp.landian.vip/zh-cn/) 安装，用 [HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases) 激活
 - [方方格子](http://www.ffcell.com/)，Excel 插件
 - [TexStudio](https://www.texstudio.org/)，LaTeX 集成编辑器
 - [Texlive](https://www.tug.org/texlive/)，LaTeX 编译器
 
 
 ---
-- [Visio]：MicroSoft 流程图工具，可用 [OTP](https://otp.landian.vip/zh-cn/) 安装
+- [Visio](___)：MicroSoft 流程图工具，可用 [OTP](https://otp.landian.vip/zh-cn/) 安装
 - [draw.io](https://app.diagrams.net/)，绘图工具
 - [Origin](https://www.originlab.com/)，数据分析和绘图工具
 
@@ -77,6 +77,7 @@
 - [7-Zip](https://www.7-zip.org/)，压缩解压工具
 - [FileLocator](https://www.mythicsoft.com/)，快速文件内容搜索
 - [BestTrace](___)，网络诊断工具
+- [SwitchHosts](https://switchhosts.vercel.app/zh)，hosts 编辑工具
 - [WireShark](https://www.wireshark.org/)，网络抓包工具
 - [MobaXterm](https://mobaxterm.mobatek.net/)，SSH 客户端
 - [SpaceDesk](https://www.spacedesk.net/)，桌面扩展、手写板、终端摄像头

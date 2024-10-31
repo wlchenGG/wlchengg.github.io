@@ -18,14 +18,14 @@
 </ul>
 <hr>
 <ul>
-<li>[MicroSoft Office 套件]：用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装，用 <a href="https://github.com/zbezj/HEU_KMS_Activator/releases" target="_blank" rel="noopener noreferrer">HEU_KMS_Activator</a> 激活</li>
+<li><a href="___" rel="">MicroSoft Office 套件</a>：用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装，用 <a href="https://github.com/zbezj/HEU_KMS_Activator/releases" target="_blank" rel="noopener noreferrer">HEU_KMS_Activator</a> 激活</li>
 <li><a href="http://www.ffcell.com/" target="_blank" rel="noopener noreferrer">方方格子</a>，Excel 插件</li>
 <li><a href="https://www.texstudio.org/" target="_blank" rel="noopener noreferrer">TexStudio</a>，LaTeX 集成编辑器</li>
 <li><a href="https://www.tug.org/texlive/" target="_blank" rel="noopener noreferrer">Texlive</a>，LaTeX 编译器</li>
 </ul>
 <hr>
 <ul>
-<li>[Visio]：MicroSoft 流程图工具，可用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装</li>
+<li><a href="___" rel="">Visio</a>：MicroSoft 流程图工具，可用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装</li>
 <li><a href="https://app.diagrams.net/" target="_blank" rel="noopener noreferrer">draw.io</a>，绘图工具</li>
 <li><a href="https://www.originlab.com/" target="_blank" rel="noopener noreferrer">Origin</a>，数据分析和绘图工具</li>
 </ul>
@@ -80,6 +80,7 @@
 <li><a href="https://www.7-zip.org/" target="_blank" rel="noopener noreferrer">7-Zip</a>，压缩解压工具</li>
 <li><a href="https://www.mythicsoft.com/" target="_blank" rel="noopener noreferrer">FileLocator</a>，快速文件内容搜索</li>
 <li><a href="___" rel="">BestTrace</a>，网络诊断工具</li>
+<li><a href="https://switchhosts.vercel.app/zh" target="_blank" rel="noopener noreferrer">SwitchHosts</a>，hosts 编辑工具</li>
 <li><a href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer">WireShark</a>，网络抓包工具</li>
 <li><a href="https://mobaxterm.mobatek.net/" target="_blank" rel="noopener noreferrer">MobaXterm</a>，SSH 客户端</li>
 <li><a href="https://www.spacedesk.net/" target="_blank" rel="noopener noreferrer">SpaceDesk</a>，桌面扩展、手写板、终端摄像头</li>
@@ -601,308 +602,7 @@ table th:nth-of-type(3) {
 <p>打开看看效果</p>
 <div align="center" ></div>
 <h2 id="r2018-激活流程todo" class="headerLink">
-    <a href="#r2018-%e6%bf%80%e6%b4%bb%e6%b5%81%e7%a8%8btodo" class="header-mark"></a>R2018 激活流程（TODO）</h2>]]></description></item><item><title>Rust 用过用法用例</title><link>https://wlcheng.cc/posts/rust_tips/</link><pubDate>Fri, 01 Apr 2022 22:27:18 +0200</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/rust_tips/</guid><description><![CDATA[<p>记录使用 Rust 过程中的一些用法，以及用例。</p>
-<h2 id="编程环境配置" class="headerLink">
-    <a href="#%e7%bc%96%e7%a8%8b%e7%8e%af%e5%a2%83%e9%85%8d%e7%bd%ae" class="header-mark"></a>编程环境配置</h2><h3 id="安装" class="headerLink">
-    <a href="#%e5%ae%89%e8%a3%85" class="header-mark"></a>安装</h3><ul>
-<li>
-<p><strong>Windows</strong>： 官网下载安装包 <a href="https://www.rust-lang.org/tools/install" target="_blank" rel="noopener noreferrer">https://www.rust-lang.org/tools/install</a>，直接运行安装，默认会安装到用户文件夹 <code>~/</code> 下，会用到的工具软件（<code>rustc</code>，<code>rustup</code>，<code>cargo</code>等）都在 <code>~/.cargo/bin</code> 中，并自动配置好环境变量。</p>
-</li>
-<li>
-<p><strong>Linux</strong>：直接在终端执行命令：<code>curl https://sh.rustup.rs -sSf | sh</code>，会自动完成安装和配置。</p>
-</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rustc --version <span class="c1"># 查看版本，如果没有正常输出结果，请检查以上安装、环境变量配置是否正确</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>其他安装方法和说明参考：<a href="https://forge.rust-lang.org/infra/other-installation-methods.html" target="_blank" rel="noopener noreferrer">Other Rust Installation Methods</a></p>
-<h3 id="更新和卸载" class="headerLink">
-    <a href="#%e6%9b%b4%e6%96%b0%e5%92%8c%e5%8d%b8%e8%bd%bd" class="header-mark"></a>更新和卸载</h3><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">restup update   <span class="c1"># 更新 Rust</span>
-</span></span><span class="line"><span class="cl">restup self uninstall <span class="c1"># 卸载 Rust</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="代码管理基本命令" class="headerLink">
-    <a href="#%e4%bb%a3%e7%a0%81%e7%ae%a1%e7%90%86%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4" class="header-mark"></a>代码管理基本命令</h2><h3 id="rustc-编译" class="headerLink">
-    <a href="#rustc-%e7%bc%96%e8%af%91" class="header-mark"></a>rustc 编译</h3><p>Rust 源文件以 <code>.rs</code> 为后缀。当写完一个源文件时，可通过以下命令进行编译：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rustc ./main.rs
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>顺利编译后，将生成可执行文件 main.exe 和 main.pdb。进而可以直接执行主程序，以开始思考</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">./main
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="cargo-构建和包管理工具" class="headerLink">
-    <a href="#cargo-%e6%9e%84%e5%bb%ba%e5%92%8c%e5%8c%85%e7%ae%a1%e7%90%86%e5%b7%a5%e5%85%b7" class="header-mark"></a>cargo 构建和包管理工具</h3><h4 id="查看版本" class="headerLink">
-    <a href="#%e6%9f%a5%e7%9c%8b%e7%89%88%e6%9c%ac" class="header-mark"></a>查看版本</h4><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo --version
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="new-创建一个项目并进入项目目录" class="headerLink">
-    <a href="#new-%e5%88%9b%e5%bb%ba%e4%b8%80%e4%b8%aa%e9%a1%b9%e7%9b%ae%e5%b9%b6%e8%bf%9b%e5%85%a5%e9%a1%b9%e7%9b%ae%e7%9b%ae%e5%bd%95" class="header-mark"></a><code>new</code> 创建一个项目并进入项目目录</h4><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo new project
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> project
-</span></span><span class="line"><span class="cl"><span class="c1"># 执行 tree 命令查看项目目录结构</span>
-</span></span><span class="line"><span class="cl">project     <span class="c1"># 跟目录放代码无关文件</span>
-</span></span><span class="line"><span class="cl">│ .gitignore  <span class="c1"># git 忽略文件过滤器，cargo 在此创建了一个 git 仓库</span>
-</span></span><span class="line"><span class="cl">│ Cargo.toml  <span class="c1"># cargo 配置文件</span>
-</span></span><span class="line"><span class="cl">└─src         <span class="c1"># 代码源文件目录</span>
-</span></span><span class="line"><span class="cl">    main.rs   <span class="c1"># 主程序源文件，放主程序源代码的地方</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="build-构建项目" class="headerLink">
-    <a href="#build-%e6%9e%84%e5%bb%ba%e9%a1%b9%e7%9b%ae" class="header-mark"></a><code>build</code> 构建项目</h4><p>在项目<strong>根目录</strong>下，执行下列命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo build
-</span></span><span class="line"><span class="cl"><span class="c1">#   输出为</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#   Compiling hello_cargo v0.1.0 (E:\DevelopmentProject\Rust\hello_cargo)</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#   Finished dev [unoptimized + debuginfo] target(s) in 1.66s</span>
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="run-运行项目" class="headerLink">
-    <a href="#run-%e8%bf%90%e8%a1%8c%e9%a1%b9%e7%9b%ae" class="header-mark"></a><code>run</code> 运行项目</h4><p>在项目<strong>根目录</strong>下，执行下列命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo run
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将依次执行 build 和生成的 &rsquo;exe&rsquo; 程序：</p>
-<ol>
-<li>如果已有构建的 &lsquo;.exe&rsquo; 且没再修改源代码，则不构建，直接执行 &lsquo;.exe&rsquo; 程序。输出为</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    Finished dev <span class="o">[</span>unoptimized + debuginfo<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in 0.25s
-</span></span><span class="line"><span class="cl">    Running <span class="sb">`</span>target<span class="se">\d</span>ebug<span class="se">\h</span>ello_cargo.exe<span class="sb">`</span>
-</span></span><span class="line"><span class="cl">    Hello, world!
-</span></span></code></pre></td></tr></table>
-</div>
-</div><ol start="2">
-<li>如果已有构建的 exe 且又修改了源代码，或者没有构建，则先构建，然后执行 &rsquo;exe&rsquo; 程序。输出为</li>
-</ol>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">    Compiling hello_cargo v0.1.0 <span class="o">(</span>E:<span class="se">\D</span>evelopmentProject<span class="se">\R</span>ust<span class="se">\h</span>ello_cargo<span class="o">)</span>
-</span></span><span class="line"><span class="cl">    Finished dev <span class="o">[</span>unoptimized + debuginfo<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in 0.25s
-</span></span><span class="line"><span class="cl">    Running <span class="sb">`</span>target<span class="se">\d</span>ebug<span class="se">\h</span>ello_cargo.exe<span class="sb">`</span>
-</span></span><span class="line"><span class="cl">    Hello, world!
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h4 id="check-检查项目" class="headerLink">
-    <a href="#check-%e6%a3%80%e6%9f%a5%e9%a1%b9%e7%9b%ae" class="header-mark"></a><code>check</code> 检查项目</h4><p>在项目<strong>根目录</strong>下，执行下列命令</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cargo run
-</span></span></code></pre></td></tr></table>
-</div>
-</div><p>将对代码进行检查，确保能够编译，但并不生成 &lsquo;.exe&rsquo; 可执行文件。能大大提高效率。</p>
-<p>可以和 <code>check</code> 的时间比较一下：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ cargo build
-</span></span><span class="line"><span class="cl">    Compiling hello_cargo v0.1.0 <span class="o">(</span>E:<span class="se">\D</span>evelopmentProject<span class="se">\R</span>ust<span class="se">\h</span>ello_cargo<span class="o">)</span>
-</span></span><span class="line"><span class="cl">    Finished dev <span class="o">[</span>unoptimized + debuginfo<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in 0.53s
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">$ cargo check
-</span></span><span class="line"><span class="cl">    Checking hello_cargo v0.1.0 <span class="o">(</span>E:<span class="se">\D</span>evelopmentProject<span class="se">\R</span>ust<span class="se">\h</span>ello_cargo<span class="o">)</span>
-</span></span><span class="line"><span class="cl">    Finished dev <span class="o">[</span>unoptimized + debuginfo<span class="o">]</span> target<span class="o">(</span>s<span class="o">)</span> in 0.21s
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="一些概念和用法整理" class="headerLink">
-    <a href="#%e4%b8%80%e4%ba%9b%e6%a6%82%e5%bf%b5%e5%92%8c%e7%94%a8%e6%b3%95%e6%95%b4%e7%90%86" class="header-mark"></a>一些概念和用法整理</h2><h3 id="量" class="headerLink">
-    <a href="#%e9%87%8f" class="header-mark"></a>量</h3><h4 id="变量与不可变量" class="headerLink">
-    <a href="#%e5%8f%98%e9%87%8f%e4%b8%8e%e4%b8%8d%e5%8f%af%e5%8f%98%e9%87%8f" class="header-mark"></a>变量与不可变量</h4><p>Rust 中，变量和引用默认都是是不可变量（immutable variable），要声明可变的（mutable）变量必须显示使用 <code>mut</code>。</p>
-<h4 id="常量与不可变量" class="headerLink">
-    <a href="#%e5%b8%b8%e9%87%8f%e4%b8%8e%e4%b8%8d%e5%8f%af%e5%8f%98%e9%87%8f" class="header-mark"></a>常量与不可变量</h4><table>
-<thead>
-<tr>
-<th>类别</th>
-<th>英文</th>
-<th>关键字</th>
-<th>初始值来源</th>
-<th style="text-align:center">赋值次数</th>
-<th>是否必须指定数据类型</th>
-<th>命名规范</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>常量</td>
-<td>constant</td>
-<td><code>const</code></td>
-<td>常量值/常量表达式</td>
-<td style="text-align:center">仅初始化</td>
-<td>必须</td>
-<td>全大写且下划线连接（若否则有编译器警告）</td>
-</tr>
-<tr>
-<td>不可变量</td>
-<td>immutable variable</td>
-<td><code>let mut</code></td>
-<td>常量值/变量表达式</td>
-<td style="text-align:center">仅初始化</td>
-<td>非必须</td>
-<td>遵循变量命名规范</td>
-</tr>
-</tbody>
-</table>
-<h4 id="变量与隐藏shadowing" class="headerLink">
-    <a href="#%e5%8f%98%e9%87%8f%e4%b8%8e%e9%9a%90%e8%97%8fshadowing" class="header-mark"></a>变量与隐藏（Shadowing）</h4><p>一般来说，以下对 <code>x</code> 二次赋值会编译出错，这是因为 <code>let</code> 默认是不可变量：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 编译到此处会出错
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>为此，可以
-<strong>隐藏</strong>：指可以通过 <code>let</code> 用旧变量名来声明一个新的变量，此时新的变量将隐藏旧变量。比如</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="c1">// 例 1：可实现二次赋值的作用
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// 用 let 声明新的不可变量，
-</span></span></span><span class="line"><span class="cl"><span class="c1">// 例 2：新声明不可变量可以是不同的数据类型
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">let</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&#34;-+-+-+&#34;</span><span class="p">;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="kd">let</span><span class="w"> </span><span class="n">spaces</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spaces</span><span class="p">.</span><span class="n">len</span><span class="p">();</span><span class="w"> </span><span class="c1">//
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p>这带来了以下好处，也是<strong>隐藏</strong> 与 <code>mut</code> 变量的区别：</p>
-<ul>
-<li>
-<p><strong>按需赋值</strong>（自己取的名）：隐藏可以保持变量的不可变性，提高代码的安全可维护。或许可以将其称之为“按需赋值”。而 <code>mut</code> 就随时可以对值进行改变，从安全来看具有一定的隐患。</p>
-</li>
-<li>
-<p><strong>数据类型可变</strong>：隐藏实际是在创建新变量，因此可以用新的不同的数据类型。而 <code>mut</code> 虽然可以灵活赋值，但数据类型在初始化时就已固定，不能再改变，如果强制赋不同类型的值将导致编译错误。</p>
-</li>
-</ul>
-<h3 id="范围" class="headerLink">
-    <a href="#%e8%8c%83%e5%9b%b4" class="header-mark"></a>范围</h3><p><strong>范围表达式</strong>：<code>start..=end</code>，表示 <code>start</code> 到 <code>end</code> 的序列。</p>
-<h3 id="格式" class="headerLink">
-    <a href="#%e6%a0%bc%e5%bc%8f" class="header-mark"></a>格式</h3><ul>
-<li>以 <code>.</code> 调用函数时，可以换行，提高可读性，比如</li>
-</ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-Rust" data-lang="Rust"><span class="line"><span class="cl"><span class="w">    </span><span class="n">io</span>::<span class="n">stdin</span><span class="p">()</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">.</span><span class="n">read_line</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">var</span><span class="p">);</span><span class="w">    </span><span class="c1">// 从命令行读取输入
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">        </span><span class="p">.</span><span class="n">expect</span><span class="p">(</span><span class="s">&#34;读取失败！&#34;</span><span class="p">);</span><span class="w">    </span><span class="c1">// 异常处理
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="c1">// 等价于
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="w">    </span><span class="n">io</span>::<span class="n">stdin</span><span class="p">().</span><span class="n">read_line</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="n">var</span><span class="p">).</span><span class="n">expect</span><span class="p">(</span><span class="s">&#34;读取失败！&#34;</span><span class="p">);</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><h3 id="crate" class="headerLink">
-    <a href="#crate" class="header-mark"></a>crate</h3><p>类似 Python 中的 package，Rust 中称为 crate。</p>
-<p>在 Rust 中，项目程序是一个 <code>二级制crate</code>，而引入的外部工具包是 <code>库 crate</code>，比如 <code>rand</code>。要调库crate需要在项目根目录的 <code>Cargo.toml</code> 文件中的依赖部分 <code>[dependencies]</code> 执行库名及版本，比如：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="p">[</span><span class="l">dependencies]</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="l">rand = &#34;0.8.3&#34;</span><span class="w">
-</span></span></span></code></pre></td></tr></table>
-</div>
-</div><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">添加依赖 rand 时的构建过程</div></div>
-<h3 id="文档" class="headerLink">
-    <a href="#%e6%96%87%e6%a1%a3" class="header-mark"></a>文档</h3><p>在安装 Rust 时，自动安装了离线文档，可通过以下命令打开：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">cargo doc --open
-</span></span></code></pre></td></tr></table>
-</div>
-</div><h2 id="rust-学习资源" class="headerLink">
-    <a href="#rust-%e5%ad%a6%e4%b9%a0%e8%b5%84%e6%ba%90" class="header-mark"></a>Rust 学习资源</h2><p>[1] <a href="https://rust-book.cs.brown.edu/" target="_blank" rel="noopener noreferrer">Rust Book experiment</a>：一本线上教程书，几乎每一节都有随堂问题，可以交互答题，巩固知识。</p>]]></description></item><item><title>以我之名，去火星旅行（Send Your Name to Mars）</title><link>https://wlcheng.cc/posts/to_mars/</link><pubDate>Sun, 12 Dec 2021 13:19:28 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/to_mars/</guid><description><![CDATA[<p>我去不了火星，但是我的名字可以！</p>
+    <a href="#r2018-%e6%bf%80%e6%b4%bb%e6%b5%81%e7%a8%8btodo" class="header-mark"></a>R2018 激活流程（TODO）</h2>]]></description></item><item><title>以我之名，去火星旅行（Send Your Name to Mars）</title><link>https://wlcheng.cc/posts/to_mars/</link><pubDate>Sun, 12 Dec 2021 13:19:28 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/to_mars/</guid><description><![CDATA[<p>我去不了火星，但是我的名字可以！</p>
 <p>时隔两年，NASA 的第二次 <code>“Send Your Name to Mars”</code> 浪漫主义火星旅行项目又开始招募游客啦。(～￣▽￣)～</p>
 <p>接下来我们就一起来看看，如何才能拿到开往火星的飞船船票（登机牌）呢？</p>
 <p>首先进入我们的售票大厅：<a href="https://mars.nasa.gov/participate/send-your-name/future?utm_source=iContact&amp;utm_medium=email&amp;utm_campaign=nasas-mars-public-engagement-team&amp;utm_content=20211210-MarsNewsletter" target="_blank" rel="noopener noreferrer">免费领票处</a></p>
@@ -947,110 +647,7 @@ table th:nth-of-type(3) {
 <p>几个字节的数据，仿佛牵系着我的灵魂
 当我在蓝色星球上彷徨时，会想起在孤寂的红色大地上
 有你，在以坚定的意志，探索前进</p>
-<p>我们的名字，承载着毅力，在前进！</p>]]></description></item><item><title>数学分析</title><link>https://wlcheng.cc/posts/mathematics_analysis/</link><pubDate>Fri, 15 Oct 2021 18:47:46 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/mathematics_analysis/</guid><description><![CDATA[<p>数学分析基础知识点。</p>
-<h2 id="极限" class="headerLink">
-    <a href="#%e6%9e%81%e9%99%90" class="header-mark"></a>极限</h2><h2 id="导数微分" class="headerLink">
-    <a href="#%e5%af%bc%e6%95%b0%e5%be%ae%e5%88%86" class="header-mark"></a>导数、微分</h2><h2 id="微分学基本定理及导数应用" class="headerLink">
-    <a href="#%e5%be%ae%e5%88%86%e5%ad%a6%e5%9f%ba%e6%9c%ac%e5%ae%9a%e7%90%86%e5%8f%8a%e5%af%bc%e6%95%b0%e5%ba%94%e7%94%a8" class="header-mark"></a>微分学基本定理及导数应用</h2><h3 id="中值定理" class="headerLink">
-    <a href="#%e4%b8%ad%e5%80%bc%e5%ae%9a%e7%90%86" class="header-mark"></a>中值定理</h3><hr>
-<p><strong>定理1（费马定理）</strong>
-<em>若（i）函数$f(x)$在$x_0$点的某一邻域$O(x_0,\delta)$内有定义，并且在此邻域内恒有</em>
-<em>$$f(x) \leq f(x_0)，$$</em>
-<em>或者 $$f(x) \geq f(x_0)；$$</em>
-<em>（ii）函数$f(x)$在$x_0$点可导，则有</em>
-<em>$$f^{\prime}(x)=0$$</em></p>
-<p><strong>几何意义：</strong> 如果曲线在一点处有极大（小）值，且在该点处有切线，则该切线必定是水平的。</p>
-<hr>
-<p><strong>定理2（拉格朗日中值定理，微分学的中值定理）</strong>
-<em>若函数$f(x)$满足</em>
-<em>（i）在$[a,b]$连续；</em>
-<em>（ii）在$(a,b)$可导，</em>
-<em>则在$(a,b)$内至少存在一点$\xi$，使</em>
-<em>$$f^{\prime}(\xi) = \frac{f(b)-f(a)}{b-a}.$$</em></p>
-<ul>
-<li>当$f(a)=f(b)$时，定理也称为<strong>罗尔定理</strong>。</li>
-<li>定理结论式可写为$f^{\prime}(a+\theta (b-a)) = \frac{f(b)-f(a)}{b-a}$ 或者$f(b)-f(a) = f^{\prime}(a+\theta (b-a)) (b-a)$，其中，$0&lt;\theta&lt;1$。</li>
-<li>定理结论的式子称为<strong>中值公式</strong>或者<strong>拉格朗日公式</strong>。</li>
-<li>定理的条件是<strong>充分条件</strong>。</li>
-</ul>
-<hr>
-<p><strong>推论1</strong>
-<em>若$f(x)$对$(a,b)$内每一点$x$都有$f^{\prime}(x)=0$，则在区间$a,b$内$f(x)$为一常数。</em></p>
-<p><strong>推论2</strong>
-<em>若两函数$f(x)$和$g(x)$在$(a,b)$内成立</em>
-<em>$$f^{\prime}(x) = g^{\prime}(x)，$$</em>
-<em>则在$(a,b)$内$f(x)=g(x)+c$（$c$为一常数）</em>。</p>
-<p><strong>定义（利普希茨Lipschitz条件）</strong>
-若$f(x)$在$[a,b]$上有定义，且存在常数$L$，使对$[a,b]$上任意两点$x^{\prime}$，$x^{\prime\prime}$，
-$$|f(x^{\prime}-f(x^{\prime\prime})| \leq L|x^{\prime}-x^{\prime\prime}|$$
-成立，则称$f(x)$在$[a,b]$上满足<strong>利普希茨（Lipschitz）条件</strong>。</p>
-<p><strong>推论3</strong>
-<em>若$f(x)$在$[a,b]$上存在有界导数，则$f(x)$在$[a,b]$上满足利普希茨条件。</em></p>
-<hr>
-<p><strong>定理3（柯西中值定理）</strong>
-<em>若$f(x)$与$g(x)$在闭区间$[a,b]$上连续，在开区间$(a,b)$内可导，并且$g^{\prime}(x) \neq 0$，则在$(a,b)$内至少存在一点$\xi$，使</em>
-<em>$$\frac{f(b)-f(a)}{g(b)-g(a)} = \frac{f^{\prime}(\xi)}{g^{\prime}(\xi)}.$$</em></p>
-<hr>
-<h3 id="泰勒公式" class="headerLink">
-    <a href="#%e6%b3%b0%e5%8b%92%e5%85%ac%e5%bc%8f" class="header-mark"></a>泰勒公式</h3><h4 id="一阶导近似" class="headerLink">
-    <a href="#%e4%b8%80%e9%98%b6%e5%af%bc%e8%bf%91%e4%bc%bc" class="header-mark"></a>一阶导近似</h4><p>当$x$与$x_0$充分接近时，$f(x)$可以通过一阶导数进行近似，即
-$$f(x) \approx f(x_0) + f^{\prime}(x_0)(x-x_0).$$</p>
-<p>当$|x|$很小时，常用近似式：</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>$\sin(x) \approx x$</td>
-<td>$\tan(x) \approx x$</td>
-<td>$\sqrt[n]{1 \pm x} \approx 1\pm \frac{x}{n}$</td>
-</tr>
-<tr>
-<td>$\frac{1}{1+x} \approx 1-x$</td>
-<td>$e^x \approx 1+x$</td>
-<td>$\ln (1+x) \approx x$</td>
-</tr>
-</tbody>
-</table>
-<h4 id="泰勒公式-1" class="headerLink">
-    <a href="#%e6%b3%b0%e5%8b%92%e5%85%ac%e5%bc%8f-1" class="header-mark"></a>泰勒公式</h4><p><strong>定理</strong></p>
-<p>若$f(x)$在$x=0$点的某个邻域内有直到$n+1$阶连续导数，那么在此邻域内有</p>
-<p>$$f(x)=f(0) + {f}^{\prime}(0)x + \frac{{f}^{\prime\prime}(0)}{2!}x^2+\dots + \frac{{f}^{(n)}(0)}{n!}x^n + R_n(x),$$
-$$R_n(x) = \frac{{f}^{(n+1)}(\xi)}{(n+1)!}x^{n+1}, (0&lt;x&lt;\xi).$$</p>
-<p>以上就是函数$f(x)$在$x=0$点附近关于$x$的幂函数展开式，称为<strong>泰勒展开式</strong>，其中$R_n(x)$叫做<strong>拉格朗日余项</strong>（$R_n(x)$表示为$o(x^n)$时称为<strong>佩亚诺余项</strong>）。</p>
-<hr>
-<h3 id="函数的单调性凸性与极值" class="headerLink">
-    <a href="#%e5%87%bd%e6%95%b0%e7%9a%84%e5%8d%95%e8%b0%83%e6%80%a7%e5%87%b8%e6%80%a7%e4%b8%8e%e6%9e%81%e5%80%bc" class="header-mark"></a>函数的单调性、凸性与极值</h3><h4 id="函数的单调性" class="headerLink">
-    <a href="#%e5%87%bd%e6%95%b0%e7%9a%84%e5%8d%95%e8%b0%83%e6%80%a7" class="header-mark"></a>函数的单调性</h4><p><strong>定理1（函数单调性与导数数正负的关系）</strong></p>
-<p>若$f(x)$在$[a,b]$连续，在$(a,b)$可导，则$f(x)$在$[a,b]$单调增加（或单调减少）的充要条件为在$(a,b)$内$f^{\prime}(x) \geq 0$ （或 $f^{\prime}(x) \leq 0$）。用符号表示为</p>
-<p>$$
-\begin{aligned}
-f(x)在[a,b]上 \nearrow \Longleftrightarrow f^{\prime}(x) \geq 0, \newline
-f(x)在[a,b]上 \searrow \Longleftrightarrow f^{\prime}(x) \leq 0.
-\end{aligned}
-$$</p>
-<h4 id="函数的极大值和极小值" class="headerLink">
-    <a href="#%e5%87%bd%e6%95%b0%e7%9a%84%e6%9e%81%e5%a4%a7%e5%80%bc%e5%92%8c%e6%9e%81%e5%b0%8f%e5%80%bc" class="header-mark"></a>函数的极大值和极小值</h4><p><strong>定义（极值、极值点）</strong></p>
-<p>若对于某一点$x_0$，存在$x_0$的一个邻域$(x_0-\delta, x_0+\delta)(\delta&gt;0)$，使对于此邻域中的任意点$x$，都有$f(x) \leq f(x_0)$（或$f(x) \geq f(x_0)$），则称$f(x)$在$x_0$有一极大（小）值$f(x_0)$，$x_0$为极大（小）值点。</p>
-<ul>
-<li>极值是<strong>局部的</strong>极值。</li>
-</ul>
-<p><strong>定理2（极值必要条件）</strong></p>
-<p>若$x_0$是$f(x)$的极值点，那么$x_0$只可能是$f^{\prime}(x)$的零点或者$f(x)$的不可导点。</p>
-<p><strong>定理3（极值判别法之一）</strong></p>
-<p>设$f(x)$在$(x_0-\delta,x_0)$和$(x_0,x_0+\delta)$（其中$\delta&gt;0$）可导，那么</p>
-<p>（i）若在$(x_0-\delta,x_0)$内$f^{\prime}(x)&lt;0$，而在$(x_0,x_0+\delta)$内$f^{\prime}(x)&gt;0$，则$x_0$为极小值点；</p>
-<p>（ii）若在$(x_0-\delta,x_0)$内$f^{\prime}(x)&gt;0$，而在$(x_0,x_0+\delta)$内$f^{\prime}(x)&lt;0$，则$x_0$为极大值点；</p>
-<p>（i）若在这两个区间内$f^{\prime}(x)$不变号，则$x_0$不是极值点。</p>
-<p><strong>定理4（极值判别法之二）</strong></p>
-<p>设$f(x)$为一阶、二阶可导，且$f^{\prime}(x_0)=0$，那么</p>
-<p>（i）若$f^{\prime\prime}(x_0)&lt;0$，则$f(x_0)$是极大值；</p>
-<p>（ii）若$f^{\prime\prime}(x_0)&gt;0$，则$f(x_0)$是极小值。</p>]]></description></item><item><title>Cisco Packet Tracer 学习 —— 安装</title><link>https://wlcheng.cc/posts/cisco_packet_tracer_install/</link><pubDate>Tue, 12 Oct 2021 11:00:17 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/cisco_packet_tracer_install/</guid><description><![CDATA[<p>思科网络仿真工具 Cisco Packet Tracer 学习系列之一：软件获取及安装。</p>
+<p>我们的名字，承载着毅力，在前进！</p>]]></description></item><item><title>Cisco Packet Tracer 学习 —— 安装</title><link>https://wlcheng.cc/posts/cisco_packet_tracer_install/</link><pubDate>Tue, 12 Oct 2021 11:00:17 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/cisco_packet_tracer_install/</guid><description><![CDATA[<p>思科网络仿真工具 Cisco Packet Tracer 学习系列之一：软件获取及安装。</p>
 <h2 id="注册账号" class="headerLink">
     <a href="#%e6%b3%a8%e5%86%8c%e8%b4%a6%e5%8f%b7" class="header-mark"></a>注册账号</h2><p>在<a href="https://id.cisco.com/signin/register" target="_blank" rel="noopener noreferrer">Cisco Packet Tracer</a>填写信息进行注册。</p>
 <div align="center" ></div>
@@ -1134,4 +731,455 @@ $$</p>
 </li>
 </ol>
 <h3 id="总结" class="headerLink">
-    <a href="#%e6%80%bb%e7%bb%93" class="header-mark"></a>总结</h3><p>以上方案只能说是手动，更好的当然是能直接一个操作然后实现以上步骤的自动执行。不过目前能力不足，只能到此。</p>]]></description></item></channel></rss>
+    <a href="#%e6%80%bb%e7%bb%93" class="header-mark"></a>总结</h3><p>以上方案只能说是手动，更好的当然是能直接一个操作然后实现以上步骤的自动执行。不过目前能力不足，只能到此。</p>]]></description></item><item><title>PowerShell 美化</title><link>https://wlcheng.cc/posts/powershell%E7%BE%8E%E5%8C%96/</link><pubDate>Thu, 19 Aug 2021 17:40:30 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/powershell%E7%BE%8E%E5%8C%96/</guid><description><![CDATA[<p>记录新版 PowerShell 美化过程。</p>
+<h3 id="安装-windows-terminal" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85-windows-terminal" class="header-mark"></a>安装 Windows Terminal</h3><p>可以在微软商店 (Microsoft Store) 搜索 <code>Windows Terminal</code> 安装。</p>
+<p>商城搜索结果会有多种版本的Windows Terminal (以下将简称为Terminal)，不知选哪个的话，可直接点击此处链接 <a href="https://www.microsoft.com/store/productId/9N0DX20HK701" target="_blank" rel="noopener noreferrer">Windows Terminal - 微软商店</a>，然后点击<code>获取</code>，弹出框中同意<code>打开</code>电脑的微软商城，跳转到软件主页后，直接<code>安装</code>即可。安装过程无需做任何选项与设置，就像在手机上的软件商城中搜索软件进行安装一样简单。</p>
+<p>当然，如果想体验最新功能，可以去官方Github发布页获取最新预览版本：<a href="https://github.com/microsoft/terminal/releases" target="_blank" rel="noopener noreferrer">Windows Terminal - Github</a></p>
+<p>安装完后的 Windows Terminal，可以在系统开始菜单找到并打开。先看一下美化前的样子。</p>
+<figure><a class="lightgallery" href="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" title="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" data-thumbnail="https://i.loli.net/2021/08/19/bTVWEIBykK74J3Y.png" data-sub-html="<h2>美化之前的PowerShell</h2>">
+        
+    </a><figcaption class="image-caption">美化之前的PowerShell</figcaption>
+    </figure>
+<p>朴实无华，看着其实也还不错。</p>
+<p>可以看到Terminal的多窗口是标签化管理的，大为方便软件内的切换。而菜单栏上右侧的 <code>+</code>号可以快速开启一个默认类型的窗口。<code>﹀</code>下拉菜单可以选择各类终端窗口。</p>
+<p>然后看一下终端显示的内容。因为要美化的是PowerShell，我便打开了一个Windows PowerShell窗口，键入命令 <code>$PSVersionTable</code>后回车，可以看到当前PowerShell的版本号为<code>5.1</code>，仍然是老版本。之后我们要将其换成 <strong>开源跨平台的船新版本</strong>。请看下文~</p>
+<h3 id="安装-powershell" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85-powershell" class="header-mark"></a>安装 PowerShell</h3><h4 id="更新-从-microsoft-store-安装" class="headerLink">
+    <a href="#%e6%9b%b4%e6%96%b0-%e4%bb%8e-microsoft-store-%e5%ae%89%e8%a3%85" class="header-mark"></a>(更新) 从 Microsoft Store 安装</h4><p>微软商城搜索 <a href="https://www.microsoft.com/store/productId/9P95ZZKTNRN4" target="_blank" rel="noopener noreferrer">PowerShell Preview</a> ，安装即可。官方渠道，可以自动更新，无需重复配置环境。</p>
+<p>安装完成后，重新打开 Terminal。</p>
+<h4 id="从-github-下载安装" class="headerLink">
+    <a href="#%e4%bb%8e-github-%e4%b8%8b%e8%bd%bd%e5%ae%89%e8%a3%85" class="header-mark"></a>从 Github 下载安装</h4><p>采用此种方式的话，之后需要自己手动下载新版本安装包，并重新进行后续的美化配置。</p>
+<p>船新版本在哪里？当然看准官方发布渠道，我选了最新预览版：<a href="https://github.com/PowerShell/PowerShell/releases/tag/v7.2.0-preview.8" target="_blank" rel="noopener noreferrer">PowerShell</a></p>
+<p>可以观察到，曾经的PowerShell 全名为 <code>Windows PowerShell</code>，但是现在去掉了前面的<code>Windows</code>，只留<code>PowerShell</code>一词；另外发布页的 <code>Assets</code>中也确实提供了各种平台的版本。这无疑是名副其实的跨平台了。</p>
+<p>言归正传，从上面官方发布页中，我选择了 <code>7.2.0-preview-win-x64</code> 版本的<code>msi</code>安装包。下载下来安装包后，直接双击运行，会经历以下步骤，最后还有一个对话框点击<code>install</code>即可。</p>
+<p>这个船新版本的船新 Logo 灰常 Cyber 的说。</p>
+<div align="center"></div>
+<h4 id="添加-powershell-到-terminal" class="headerLink">
+    <a href="#%e6%b7%bb%e5%8a%a0-powershell-%e5%88%b0-terminal" class="header-mark"></a>添加 PowerShell 到 Terminal</h4><blockquote>
+<p>如果前面从Microsoft Store安装的PowerShell，一般会自动添加到 Temianl 中。如果没有的话，按照下面步骤自行添加即可。</p>
+</blockquote>
+<p>打开 Terminal，点开菜单栏右侧下拉菜单，点击<code>设置</code>；或者直接按快捷键 <code>Ctrl + ,</code>，调出设置界面，按照下图步骤添加我们安装的 PowerShell 到Terminal中：</p>
+<div align="center"></div>
+<blockquote>
+<p>从 Microsoft Store 安装的 PowerShell，安装目录为：<code>&quot;C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShellPreview_8wekyb3d8bbwe\pwsh.exe&quot;</code>，将此目录添加到上图的<code>命令行</code>位置即可。</p>
+</blockquote>
+<p>注意添加完后，点击<code>保存</code>。</p>
+<p>Terminal无需重启即可即时更新配置，从下拉菜单中看到 PowerShell 7 已经添加成功。</p>
+<div align="center"></div>
+<p>下面开始我们的美化之路。</p>
+<h3 id="美化-powershell" class="headerLink">
+    <a href="#%e7%be%8e%e5%8c%96-powershell" class="header-mark"></a>美化 PowerShell</h3><h4 id="安装-on-my-posh" class="headerLink">
+    <a href="#%e5%ae%89%e8%a3%85-on-my-posh" class="header-mark"></a>安装 on-my-posh</h4><p>方法一：（更新）直接在 Microsoft Store 中搜索 <code>oh-my-posh</code> 并安装。</p>
+<p>方法二：打开 Terminal，然后打开一个 PowerShell 窗口。命令行中执行以下命令安装 oh-my-posh 模块：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Install-Module</span> <span class="nb">oh-my</span><span class="n">-posh</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h4 id="设置主题" class="headerLink">
+    <a href="#%e8%ae%be%e7%bd%ae%e4%b8%bb%e9%a2%98" class="header-mark"></a>设置主题</h4><p>安装完成后，执行 <code>Get-PoshThemes</code> 命令，将以各自主题的样式列出支持的主题。</p>
+<div align="center"></div>
+<p>其中有一些乱码，这实际是一些图标，需要安装字体包来提供图标支持，具体方法后续给出。</p>
+<p>先进行主题设置。选择主题可以从以上命令的返回结果中选择自己中意的，然后执行以下命令就能进行安装：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Set-PoshPrompt</span> <span class="n">-Theme</span> <span class="err">主题名字</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>我们需要配置 PowerShell 的启动脚本，以使主题永久生效。执行以下命令打开脚本文件。若提示文件不存在，则同意创建。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="n">notepad</span> <span class="nv">$Profile</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>然后在打开的脚本文件中输入以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">Import-Module</span> <span class="nb">oh-my</span><span class="n">-posh</span>
+</span></span><span class="line"><span class="cl"><span class="nb">Set-PoshPrompt</span> <span class="n">-Theme</span> <span class="n">agnosterplus</span> <span class="c"># 此处将agnosterplus替换为自己选主题名即可</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><div align="center"></div>
+<p>如果从 Microsoft Store 安装的 <code>oh-my-posh</code>，则在以上脚本文件中输入以下命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-powershell" data-lang="powershell"><span class="line"><span class="cl"><span class="nb">oh-my</span><span class="n">-posh</span> <span class="n">init</span> <span class="n">pwsh</span> <span class="p">-</span><span class="n">-config</span> <span class="s2">&#34;</span><span class="nv">$env:POSH_THEMES_PATH</span><span class="s2">\agnosterplus.omp.json&#34;</span> <span class="p">|</span> <span class="nb">Invoke-Expression</span> 
+</span></span><span class="line"><span class="cl"><span class="c"># 此处将agnosterplus替换为自己选的主题即可</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><p>之后重启即可看到效果。</p>
+<h4 id="设置字体" class="headerLink">
+    <a href="#%e8%ae%be%e7%bd%ae%e5%ad%97%e4%bd%93" class="header-mark"></a>设置字体</h4><p>为了对主题所需的图标符号提供支持，需要 Nerd Fonts 类字体，可以到字体集合主页<a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Nerd Fonts</a> 挑选喜欢的字体，可以预览字体效果。选好后直接下载字体文件即可。</p>
+<div align="center"></div>
+<p>经过一番查看，我最终凭感觉选择了<a href="https://www.programmingfonts.org/#go-mono" target="_blank" rel="noopener noreferrer">Go Mono</a>。</p>
+<p>将下载的压缩包直接解压缩后，是一套字体文件，由于不需要其他用途，此处只安装正体的字体。选择不带<code>Bold</code>（加粗）不带<code>Italic</code>（斜体）的<code>Windows Compatible</code>字体文件，直接双击安装。</p>
+<div align="center"></div>
+<p>弹出的对话窗口，展示了字体样式，直接点击左上角<code>安装</code>即可。</p>
+<div align="center"></div>
+<p>字体已经安装好，接下来在 Terminal 下按<code>Ctrl + ,</code>打开设置，从左侧<code>配置文件</code>中选择到自己新建的PowerShell，我的是 PowerShell 7 ，然后右侧选择<code>外观</code>选项卡，找到<code>字体</code>下拉菜单，选择自己所选的字体名字即可，我的为 <code>GoMono NF</code>。</p>
+<div align="center"></div>
+<p>字体名可以从系统<code>字体设置</code>查看到，<code>开始</code>-&gt;<code>设置</code>-&gt;搜索<code>字体设置</code>-&gt;搜索字体关键字&rsquo;GoMono&rsquo;。可以看到我的字体名为<code>GoMono NF</code>。记住这个字体名，之后 VS Code 的终端 PowerShell 配置中会再次用到。</p>
+<div align="center"></div>
+<h4 id="设置背景图" class="headerLink">
+    <a href="#%e8%ae%be%e7%bd%ae%e8%83%8c%e6%99%af%e5%9b%be" class="header-mark"></a>设置背景图</h4><p>只需打开 Terminal 的设置，从左侧<code>配置文件</code>中选择到自己新建的PowerShell，然后右侧选择<code>外观</code>选项卡，找到<code>背景图像</code>设置项，<code>浏览</code>选择图片。选好图片后，下面会多出一些针对背景图的设置，包括模糊、透明、位置等，可以自行调整。</p>
+<div align="center"></div>
+<h3 id="vs-code-集成-powershell" class="headerLink">
+    <a href="#vs-code-%e9%9b%86%e6%88%90-powershell" class="header-mark"></a>VS Code 集成 PowerShell</h3><p>VS Code 内按快捷键 <code>Ctrl + Shift + `</code>，则在编辑窗口下面会打开一个（默认CMD）终端窗口。VS Code中已经自动集成了 CMD 和 Windows PowerShell。但我需要：1. 将新版的 PowerShell Preview 集成进来；2. 将其设置为默认打开；3. 更改终端字体，以提供主题包支持。</p>
+<p>首先<code>Ctrl + ,</code>打开设置，然后搜索<code>Terminal</code>，找到<code>Terminal &gt; Integrated &gt; Profiles: Windows</code>的项，点击下面的<code>在settings.json中编辑</code>。</p>
+<div align="center"></div>
+<p>之后在打开的<code>settings.json</code>文件下，在<code>terminal.integrated.profiles.windows</code>项内按照以下红色框中代码的格式添加自己的 PowerShell 条目，其中的<code>PowerShell 7 pre</code>替换为自拟名字即可，<code>path</code>项内的路径替换为自己的 PowerShell 安装路径。然后<strong>保存</strong>并关闭文件。</p>
+<div align="center"></div>
+<blockquote>
+<p>如果是从Microsoft Store安装的 PowserShell，上图中的 <code>path</code> 字段为：<code>&quot;C:\Users\用户名\AppData\Local\Microsoft\WindowsApps\Microsoft.PowerShellPreview_8wekyb3d8bbwe\pwsh.exe&quot;</code></p>
+</blockquote>
+<p>通过以上操作，我们已经为终端窗口添加了新的 PowerShell。接下来将其设置为默认打开。</p>
+<p>仍然<code>Ctrl + ,</code>打开设置，搜索<code>Terminal</code>，找到<code>Terminal &gt; Integrated &gt; Default Profile: Windows</code>项，下拉选项中选择我们上一步添加的 PowerShell 的名字<code>PowerShell 7 pre</code>。</p>
+<div align="center"></div>
+<p>在设置页，搜索<code>Terminal Font</code>，找到<code>Terminal &gt; Integrated &gt; Font Family</code>项，将其值设置为我们前面安装的字体文件名 <code>GoMono NF</code>，由于我选的这款字体本身字号挺大，所以我还将字号改为了 <code>12</code>。</p>
+<div align="center"></div>
+<p>经过以上配置，最终的效果如下图。</p>
+<div align="center"></div>
+<h3 id="参考" class="headerLink">
+    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h3><ul>
+<li><a href="https://www.edgeless.top/PowerShell%E7%BE%8E%E5%8C%96/" target="_blank" rel="noopener noreferrer">PowerShell 美化 - j3rry</a></li>
+<li><a href="https://www.nerdfonts.com/font-downloads" target="_blank" rel="noopener noreferrer">Nerd Fonts</a></li>
+<li><a href="https://ohmyposh.dev/docs/pwsh" target="_blank" rel="noopener noreferrer">oh-my-push 文档</a></li>
+<li><a href="https://docs.microsoft.com/en-us/powershell/scripting/dev-cross-plat/vscode/using-vscode?view=powershell-7.2#adding-your-own-powershell-paths-to-the-session-menu" target="_blank" rel="noopener noreferrer">Using Visual Studio Code for PowerShell Development - Microsoft</a></li>
+<li><a href="https://code.visualstudio.com/docs/editor/integrated-terminal#_configuring-profiles" target="_blank" rel="noopener noreferrer">VS Code Integrated Terminal</a></li>
+<li><a href="https://www.cnblogs.com/taylorshi/p/16482694.html" target="_blank" rel="noopener noreferrer">再谈 Windows Terminal (终端) 主题和字体美化，Oh-My-Posh、Terminal-Icons、Posh-git</a></li>
+<li><a href="https://www.cnblogs.com/xiaorang/articles/windows_terminal_oh_my_posh.html" target="_blank" rel="noopener noreferrer">Windows Terminal 美化 (oh-my-posh)</a></li>
+</ul>]]></description></item><item><title>基于 Python 批量提取 PDF 首页</title><link>https://wlcheng.cc/posts/pdftoolbox/</link><pubDate>Fri, 13 Aug 2021 00:57:00 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/pdftoolbox/</guid><description><![CDATA[<p>最近因为汇总论文成果，需要提取论文的首页。虽然 Acrobat 提供了<code>页面组织</code>功能可以任意提取，但手动操作一次只能处理一个文件。当面对好几十篇论文时，尚未开始就已经放弃。</p>
+<p>工欲善其事必先利其器，决定造个工具，一劳永逸提高效率。</p>
+<p>以下代码基于 <a href="https://cloud.tencent.com/developer/article/1584421" target="_blank" rel="noopener noreferrer">小白程序猿</a> 的方案，面向我自己的需求作了一些调整适配，在此致谢🫡</p>
+<div class="details admonition tip">
+        <div class="details-summary admonition-title">
+            <i class="icon fas fa-lightbulb fa-fw"></i>插播推荐 PDF 补丁丁<i class="details-icon fas fa-angle-right fa-fw"></i>
+        </div>
+        <div class="details-content">
+            <div class="admonition-content">一个满满情怀的 PDF 神器：<a href="https://www.cnblogs.com/pdfpatcher/" target="_blank" rel="noopener noreferrer">PDF 补丁丁</a>，已开源在<a href="https://github.com/wmjordan/PDFPatcher" target="_blank" rel="noopener noreferrer">PDFPatcher</a>，三方长文教程：<a href="https://post.smzdm.com/p/anx09ww3/" target="_blank" rel="noopener noreferrer">免费了 12 年的神器开源了，你可能不知道它有多强大</a></div>
+        </div>
+    </div>
+<h2 id="环境与原料" class="headerLink">
+    <a href="#%e7%8e%af%e5%a2%83%e4%b8%8e%e5%8e%9f%e6%96%99" class="header-mark"></a>环境与原料</h2><ul>
+<li>
+<p><strong>Python</strong></p>
+</li>
+<li>
+<p><strong>PyMuPDF模块</strong></p>
+</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install PyMuPDF
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="工具代码" class="headerLink">
+    <a href="#%e5%b7%a5%e5%85%b7%e4%bb%a3%e7%a0%81" class="header-mark"></a>工具代码</h2><p>以下为完整代码：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># coding:utf-8</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
+</span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">fitz</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解析</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 函数将file_path中所有文件（包括子目录中的文件），处理后，按照原目录保存到save_path下。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 即save_path下的文件夹结构和file_path一致。</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">analysis</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">,</span> <span class="n">num</span><span class="p">,</span> <span class="n">toimg</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 资源列表</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_array</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 目录循环压入</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_count</span> <span class="o">=</span> <span class="n">get_path_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">file_count</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 单文件，单次调用</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 判断为空情况</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">file_array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此目录下无文件&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 执行解析</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_count_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_array</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;程序运行中，共计</span><span class="si">%s</span><span class="s2">个文件&#34;</span> <span class="o">%</span> <span class="n">file_count_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">success_num</span> <span class="o">=</span> <span class="n">file_count_num</span>
+</span></span><span class="line"><span class="cl">    <span class="n">failed_file_array</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">file_array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;原文件路径：</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 获取文件名称及类型</span>
+</span></span><span class="line"><span class="cl">        <span class="n">file_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(&#34;文件信息：%s&#34; % file_name)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="s1">&#39;.pdf&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">file_name</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此文件非PDF文件，跳过&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">failed_file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;非 PDF文件：&#34;</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">success_num</span> <span class="o">=</span> <span class="n">success_num</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">            <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="c1">#  打开PDF文件，生成一个对象</span>
+</span></span><span class="line"><span class="cl">        <span class="n">doc</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 总页数</span>
+</span></span><span class="line"><span class="cl">        <span class="n">count_page</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">pageCount</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># print(&#34;文件共计：%s页&#34; % count_page)</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="n">toimg</span> <span class="o">==</span> <span class="kc">False</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 仅提取页面</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">count_page</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc2</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>      <span class="c1"># 创建新的空PDF</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc2</span><span class="o">.</span><span class="n">insert_pdf</span><span class="p">(</span><span class="n">doc</span><span class="p">,</span> <span class="n">to_page</span> <span class="o">=</span> <span class="n">num</span><span class="p">)</span>  <span class="c1"># 提取doc的第1页到doc2</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 创建子目录</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_1</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_2</span> <span class="o">=</span> <span class="n">p_1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p_2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">p_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取到路径：&#34;</span> <span class="o">+</span> <span class="n">p_2</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">doc2</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">p_2</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>    <span class="c1"># 保存提取出的PDF文件</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取完成&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此文档无内容，跳过&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">failed_file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&#34;文件无内容：&#34;</span> <span class="o">+</span> <span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">success_num</span> <span class="o">=</span> <span class="n">success_num</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">        <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="c1"># 将页面转换为图片</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="n">count_page</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="n">page</span> <span class="o">=</span> <span class="n">doc</span><span class="p">[</span><span class="n">num</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">                <span class="n">rotate</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 每个尺寸的缩放系数为2，这将为我们生成分辨率提高四倍的图像。</span>
+</span></span><span class="line"><span class="cl">                <span class="n">zoom_x</span> <span class="o">=</span> <span class="mf">2.0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">zoom_y</span> <span class="o">=</span> <span class="mf">2.0</span>
+</span></span><span class="line"><span class="cl">                <span class="n">trans</span> <span class="o">=</span> <span class="n">fitz</span><span class="o">.</span><span class="n">Matrix</span><span class="p">(</span><span class="n">zoom_x</span><span class="p">,</span> <span class="n">zoom_y</span><span class="p">)</span><span class="o">.</span><span class="n">preRotate</span><span class="p">(</span><span class="n">rotate</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pm</span> <span class="o">=</span> <span class="n">page</span><span class="o">.</span><span class="n">getPixmap</span><span class="p">(</span><span class="n">matrix</span><span class="o">=</span><span class="n">trans</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 保存路径</span>
+</span></span><span class="line"><span class="cl">                <span class="c1"># 创建子目录</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_1</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">p_2</span> <span class="o">=</span> <span class="n">p_1</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">p_2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">p_2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                
+</span></span><span class="line"><span class="cl">                <span class="n">new_file_name</span> <span class="o">=</span> <span class="n">file_name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;.pdf&#34;</span><span class="p">,</span> <span class="s2">&#34;&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取到路径：&#34;</span> <span class="o">+</span> <span class="n">p_2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">new_file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">pm</span><span class="o">.</span><span class="n">writePNG</span><span class="p">(</span><span class="n">p_2</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1">.png&#39;</span> <span class="o">%</span> <span class="n">new_file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;提取并转换为图片完成&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="k">else</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">                <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;此文档无内容，跳过&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">failed_file_array</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">                <span class="n">success_num</span> <span class="o">=</span> <span class="n">success_num</span> <span class="o">-</span> <span class="mi">1</span>
+</span></span><span class="line"><span class="cl">                <span class="k">continue</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\n\n</span><span class="s2">合计 </span><span class="si">%d</span><span class="s2"> 个文件提取成功，以下文件提取失败：&#34;</span> <span class="o">%</span> <span class="n">success_num</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">failed_file_array</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 返回目录下所有文件</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">get_path_file</span><span class="p">(</span><span class="n">files_path</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
+</span></span><span class="line"><span class="cl">    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">files_path</span><span class="p">,</span> <span class="n">topdown</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">            <span class="n">f_p</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\</span><span class="s2">&#34;</span><span class="p">,</span> <span class="s2">&#34;/&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">            <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f_p</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">data</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 规范路径的斜杠格式</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">uni_path</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># return path.replace(r&#39;\/&#39;.replace(os.sep, &#39;&#39;), os.sep)  # 转换为当前系统的格式</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\\\</span><span class="s2">&#34;</span><span class="p">,</span><span class="s2">&#34;/&#34;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&#34;</span><span class="se">\\</span><span class="s2">&#34;</span><span class="p">,</span><span class="s2">&#34;/&#34;</span><span class="p">)</span> <span class="c1"># 统一转换为unix格式</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|---------------------------------|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|++++++++  PDF处理工具箱  ++++++++|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|---------------------------------|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|                                 |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;| 1. PDF 批量提取首页             |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;| 2. PDF 批量提取首页并转换为图片 |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|                                 |&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;|---------------------------------|&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 选择处理方式</span>
+</span></span><span class="line"><span class="cl">    <span class="n">toimg</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="n">choice</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;请输入要执行操作的编号：&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;1&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">toimg</span> <span class="o">=</span> <span class="kc">False</span>
+</span></span><span class="line"><span class="cl">    <span class="k">elif</span> <span class="n">choice</span> <span class="o">==</span> <span class="s1">&#39;2&#39;</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">toimg</span> <span class="o">=</span><span class="kc">True</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 当前目录下的文件</span>
+</span></span><span class="line"><span class="cl">    <span class="n">now_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;当前位置：</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span> <span class="n">now_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 保存路径</span>
+</span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;请输入参数，以 / 结尾&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;提取文件保存地址:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 判断目录</span>
+</span></span><span class="line"><span class="cl">    <span class="n">save_path_status</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="ow">not</span> <span class="n">save_path_status</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 截取页数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">num</span> <span class="o">=</span> <span class="mi">0</span> <span class="c1"># 截取第一页</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># 路径或文件名</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;待处理PDF文件地址:&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># 调用方法</span>
+</span></span><span class="line"><span class="cl">    <span class="n">analysis</span><span class="p">(</span><span class="n">uni_path</span><span class="p">(</span><span class="n">file_path</span><span class="p">),</span> <span class="n">uni_path</span><span class="p">(</span><span class="n">save_path</span><span class="p">),</span> <span class="n">num</span><span class="p">,</span> <span class="n">toimg</span><span class="p">)</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h2 id="参考" class="headerLink">
+    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><p><a href="https://cloud.tencent.com/developer/article/1584421" target="_blank" rel="noopener noreferrer">Python 提取 PDF 第一页为封面图片【批量提取】</a></p>
+<p><a href="https://blog.csdn.net/lnotime/article/details/87720332" target="_blank" rel="noopener noreferrer">Python 把任意系统的路径转换成当前系统的格式（关于 / \ 分隔符的）</a></p>
+<p><a href="https://www.jianshu.com/p/bbad16822eab" target="_blank" rel="noopener noreferrer">python中os.walk的用法</a></p>
+<p><a href="https://pymupdf.readthedocs.io/en/latest/document.html#Document.insert_pdf" target="_blank" rel="noopener noreferrer">python PyMuPDF(fitz)包中insert_pdf的用法</a></p>]]></description></item></channel></rss>
