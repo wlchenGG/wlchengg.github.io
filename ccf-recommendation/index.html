@@ -106,6 +106,10 @@
       margin: 0pt;
     }
 
+    sup {
+      font-size: 8pt;
+    }
+
     h1,h1.title {
       color: black;
       font-family: 'Times New Roman', SimSun, "宋体", Times, serif;
@@ -144,6 +148,11 @@
     tr.add td  {
       color: red;
       font-weight: 700;
+    }
+
+    .ren {
+      color: #00af50;
+      font-weight: 500;
     }
 
     .del {
@@ -391,6 +400,7 @@
     <p class="tip">*** <span class="up">标黄</span>：表示现在 2019 年第五版目录中，升级至 A/B</p>
     <p class="tip">*** <span class="add">红字</span>：表示不在 2019 年第五版目录中， 直接申请 A/B/C</p>
     <p class="tip">*** <span class="del">删掉</span>：表示从 2019 年第五版目录中移除</p>
+    <p class="tip">*** <span class="ren">绿色</span>：表示名称更新（2024.6.28 -- https://www.ccf.org.cn/Academic_Evaluation/By_category/）：<a href="#ref1">[1] WASA</a>, <a href="#ref2">[2] ISS</a>, <a href="#ref3">[3] SSE</a>, <a href="#ref4">[4] FSE</a></p>
     <hr>
     <h1 id="domain-1-j">中国计算机学会推荐国际学术期刊</h1>
     <p class="domain">（计算机体系结构/并行与分布计算/存储系统）</p>
@@ -1567,8 +1577,8 @@
         </tr>
         <tr>
           <td>18</td>
-          <td>WASA</td>
-          <td>International Conference on Wireless Algorithms, Systems, and Applications</td>
+          <td>WASA <sup><a href="#ref-wasa" id="ref1">[1]</a></sup></td>
+          <td class="ren">The International Conference on Wireless Artificial Intelligent Computing Systems and Applications</td>
           <td>Springer</td>
           <td><a href="http://dblp.uni-trier.de/db/conf/wasa/" class="page" target="_blank">http://dblp.uni-trier.de/db/conf/wasa/</a></td>
         </tr>
@@ -2340,8 +2350,8 @@
         </tr>
         <tr>
           <td>3</td>
-          <td>FSE/ESEC</td>
-          <td>ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering
+          <td class="ren">FSE <sup><a href="#ref-fse" id="ref4">[4]</a></sup></td>
+          <td class="ren">ACM International Conference on the Foundations of Software Engineering
           </td>
           <td>ACM</td>
           <td><a href="http://dblp.uni-trier.de/db/conf/sigsoft/" class="page" target="_blank">http://dblp.uni-trier.de/db/conf/sigsoft/</a></td>
@@ -2643,8 +2653,8 @@
         </tr>
         <tr>
           <td>13</td>
-          <td>SCC</td>
-          <td>IEEE International Conference on Services Computing</td>
+          <td class="ren">SSE <sup><a href="#ref-ieeesse" id="ref3">[3]</a></sup></td>
+          <td class="ren">IEEE International Conference on Software Services Engineering</td>
           <td>IEEE</td>
           <td><a href="http://dblp.uni-trier.de/db/conf/IEEEscc/" class="page" target="_blank">http://dblp.uni-trier.de/db/conf/IEEEscc/</a></td>
         </tr>
@@ -5243,8 +5253,8 @@
         </tr>
         <tr>
           <td>3</td>
-          <td>ITS</td>
-          <td>ACM International Conference on Interactive Tabletops and Surfaces</td>
+          <td class="ren">ISS <sup><a href="#ref-iss" id="ref2">[2]</a></sup></td>
+          <td class="ren">ACM International Conference on Interactive Surfaces and Spaces</td>
           <td>ACM</td>
           <td><a href="http://dblp.uni-trier.de/db/conf/tabletop/" class="page" target="_blank">http://dblp.uni-trier.de/db/conf/tabletop/</a></td>
         </tr>
@@ -5829,7 +5839,11 @@
           <td><a href="https://dblp.org/db/conf/icic/index.html" class="page" target="_blank">https://dblp.org/db/conf/icic/index.html</a></td>
       </tbody>
     </table>
+    <h2 id="ref-ps">补充说明</h2>
+    <p id="ref-wasa" class="tip"><a href="#ref1">[1]</a> 该会议全称于 2006 年 8 月 - 2023 年 7 月为 International Conference on Wireless Algorithms, Systems, and Applications，2024 年 6 月改名为现有名称 The International Conference on Wireless Artificial Intelligent Computing Systems and Applications</p>
+    <p id="ref-iss" class="tip"><a href="#ref2">[2]</a> 该会议全称于 2009 年 11 月 - 2016 年 10 月为 ACM International Conference on Interactive Tabletops and Surfaces（简称：ITS），2016 年 11 月改名为现有名称 ACM International Conference on Interactive Surfaces and Spaces（简称：ISS）</p>
+    <p id="ref-ieeesse" class="tip"><a href="#ref3">[3]</a> 该会议全称于 2004 年 9 月 - 2022 年 7 月为 IEEE International Conference on Services Computing (IEEE SCC)，2023 年 7 月 改名为现有名称IEEE International Conference on Software Services Engineering (IEEE SSE)</p>
+    <p id="ref-fse" class="tip"><a href="#ref4">[4]</a> 该会议全称于 2018 年 1 月 - 2023 年 12 月为 ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering (FSE/ESEC)，2024 年 1 月改名为现有名称 ACM International Conference on the Foundations of Software Engineering (FSE)</p>
 	</div>
-
   </body>
 </html>
