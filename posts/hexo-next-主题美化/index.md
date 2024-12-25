@@ -9,20 +9,20 @@
 ### 主题设置
 
 #### 侧边菜单栏
-<div align="center"><img src="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/Hexo-NexT-主题美化_20210724005042_2021-07-24-00-50-44.png" alt="Hexo-NexT-主题美化_20210724005042_2021-07-24-00-50-44" width="75%" align="center"/></div>
+<div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724005042_2021-07-24-00-50-44.png" alt="Hexo-NexT-主题美化_20210724005042_2021-07-24-00-50-44" width="75%" align="center"/></div>
 
 #### 侧边栏头像
-<div align="center"><img src="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/Hexo-NexT-主题美化_20210724004758_2021-07-24-00-47-59.png" alt="Hexo-NexT-主题美化_20210724004758_2021-07-24-00-47-59" width="75%" align="center"/></div>
+<div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724004758_2021-07-24-00-47-59.png" alt="Hexo-NexT-主题美化_20210724004758_2021-07-24-00-47-59" width="75%" align="center"/></div>
 
 #### 侧边栏插入网易云音乐外链
 
 ##### 单曲外链
 
 打开单曲主页，生成外链：
-<div align="center"><img src="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/Hexo-NexT-主题美化_20210724160017_2021-07-24-16-00-19.png" alt="Hexo-NexT-主题美化_20210724160017_2021-07-24-16-00-19" width="75%" align="center"/></div>
+<div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724160017_2021-07-24-16-00-19.png" alt="Hexo-NexT-主题美化_20210724160017_2021-07-24-16-00-19" width="75%" align="center"/></div>
 
 复制外链 HTML 代码：
-<div align="center"><img src="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/Hexo-NexT-主题美化_20210724160118_2021-07-24-16-01-20.png" alt="Hexo-NexT-主题美化_20210724160118_2021-07-24-16-01-20" width="75%" align="center"/></div>
+<div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724160118_2021-07-24-16-01-20.png" alt="Hexo-NexT-主题美化_20210724160118_2021-07-24-16-01-20" width="75%" align="center"/></div>
 
 将代码至于标签下：
 ```html
@@ -34,10 +34,10 @@
 
 ##### 歌单外链
 
-<div align="center"><img src="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/Hexo-NexT-主题美化_20210724153821_2021-07-24-15-38-22.png" alt="Hexo-NexT-主题美化_20210724153821_2021-07-24-15-38-22" width="75%" align="center"/></div>
+<div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724153821_2021-07-24-15-38-22.png" alt="Hexo-NexT-主题美化_20210724153821_2021-07-24-15-38-22" width="75%" align="center"/></div>
 
 如果出现以上的版权限制，按照[链接](https://blog.51cto.com/u_13640625/3033164)进行以下操作，：
-<div align="center"><img src="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/Hexo-NexT-主题美化_20210724154510_2021-07-24-15-45-12.png" alt="Hexo-NexT-主题美化_20210724154510_2021-07-24-15-45-12" width="75%" align="center"/></div>
+<div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724154510_2021-07-24-15-45-12.png" alt="Hexo-NexT-主题美化_20210724154510_2021-07-24-15-45-12" width="75%" align="center"/></div>
 
 组合成外链地址：https://music.163.com/#/outchain/0/37673790/
 但很遗憾，弹出**生成失败**的提示，应该是版权限制。
@@ -386,7 +386,7 @@ NexT.boot.refresh = function () {
 #### 页脚展示建站时间
 
 
-<div align="center"><img src="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/Hexo-NexT-主题美化_20210724012910_2021-07-24-01-29-12.png" alt="Hexo-NexT-主题美化_20210724012910_2021-07-24-01-29-12" width="75%" align="center"/></div>
+<div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724012910_2021-07-24-01-29-12.png" alt="Hexo-NexT-主题美化_20210724012910_2021-07-24-01-29-12" width="75%" align="center"/></div>
 
 #### 字数与阅读时长统计
 
@@ -418,7 +418,7 @@ symbols_count_time:
 <div align="center"><img src="${url}" alt="${uploadedName}" width="75%" align="center"/></div>
 ```
 如下图所示：
-<div align="center"><img src="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/Hexo-NexT-主题美化_20210724151157_2021-07-24-15-11-58.png" alt="Hexo-NexT-主题美化_20210724151157_2021-07-24-15-11-58" width="75%" align="center"/></div>
+<div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724151157_2021-07-24-15-11-58.png" alt="Hexo-NexT-主题美化_20210724151157_2021-07-24-15-11-58" width="75%" align="center"/></div>
 
 
 
@@ -427,7 +427,7 @@ symbols_count_time:
 ##### 主题在本地能渲染，而部署到Github后丢失主题
 
 作为个人主页时，
-<div align="center"><img src="https://fastly.jsdelivr.net/gh/wlchenGG/PicBed/images_for_blogs/Hexo-NexT-主题美化_20210724144005_2021-07-24-14-40-06.png" alt="Hexo-NexT-主题美化_20210724144005_2021-07-24-14-40-06" width="75%" align="center"/></div>
+<div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724144005_2021-07-24-14-40-06.png" alt="Hexo-NexT-主题美化_20210724144005_2021-07-24-14-40-06" width="75%" align="center"/></div>
 
 作为项目主页时，
 <div align="center"><img src="https://i.loli.net/2021/07/28/jKweLPFbaMqu93N.png" alt="20210728031654" width="75%" align="center"/></div>

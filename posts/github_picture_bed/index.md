@@ -13,19 +13,19 @@ Github仓库支持`1G`存储容量。
 
 在Github主页点击`New Repository`开始创建仓库。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506185400.png" alt="20220506185400" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506185400.png" alt="20220506185400" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 基本设置：`仓库名`，`描述`，仓库类型`public`，勾选`Add a README file`，其他保持默认即可。然后点击`Create repo`。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506190127.png" alt="20220506190127" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506190127.png" alt="20220506190127" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 然后网页会自动跳转到我们刚刚创建的仓库主页。我们要在这个仓库下面创建一个文件夹用于以后存放图片（当然不创建文件夹，直接将图片上传到仓库个目录也可以）。点击`Add file`下的`Create new file`。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506192016.png" alt="20220506192016" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506192016.png" alt="20220506192016" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 跳转到以下页面，我们按照图中方式依次输入`foldername`，`/`，`filename`，名字自己任取就行。因为这里不支持只创建文件夹，因此需要给出一个文件名。点击`Commit new file`提交更改。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506192200.png" alt="20220506192200" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506192200.png" alt="20220506192200" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 ### 创建repo token
 
@@ -33,24 +33,24 @@ token 用于给后面我们用 PicGo 访问仓库并上传图片赋予权限。
 
 首先在自己的头像下点击`Settings`。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506193458.png" alt="20220506193458" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506193458.png" alt="20220506193458" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 在左侧边栏往下找到并打开`Developer settings`
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506194000.png" alt="20220506194000" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506194000.png" alt="20220506194000" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 如下图，点击左侧边栏`Personal access token`，然后点击`Generate new token`
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506232019743.png" alt="image-20220506232019743" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/image-20220506232019743.png" alt="image-20220506232019743" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 此步因为要赋予权限，因此会弹出窗口验证账号密码，填入后`Confirm password`即可。
 然后就会到以下的 token 设置界面，按照图中所述进行创建即可。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506195204.png" alt="20220506195204" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506195204.png" alt="20220506195204" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 成功生成token后，马上复制下来，之后配置PicGo会用到。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506232149655.png" alt="image-20220506232149655" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/image-20220506232149655.png" alt="image-20220506232149655" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 通过以上过程，我们的图床算是搭建完毕了，接下来就要利用 PicGo 实现从本地上传图片，并获取图片链接。
 
@@ -58,21 +58,21 @@ token 用于给后面我们用 PicGo 访问仓库并上传图片赋予权限。
 
 官方网站：[PicGo](https://molunerfinn.com/PicGo/)。此处下载稳定版本的 [PicGo](https://mirror.ghproxy.com/https://github.com/Molunerfinn/PicGo/releases/download/v2.3.0/PicGo-Setup-2.3.0-x64.exe)。下载后，按下图安装即可
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506200746.png" alt="20220506200746" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506200746.png" alt="20220506200746" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 启动后，直接左键单击托盘图标，打开PicGo设置界面
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506200941.png" alt="20220506200941" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506200941.png" alt="20220506200941" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 如下图，左侧展开`图床设置`，点击`Github图床`，右侧填入相关设置信息。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506201703.png" alt="20220506201703" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506201703.png" alt="20220506201703" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 以上填写各项的说明：
 
 对于`仓库名`，`分支名`，`存储路径`这几项，我们已经通过前面的步骤创建了，打开如下的仓库主页面，就可以知道。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506202323.png" alt="20220506202323" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506202323.png" alt="20220506202323" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 而对于`token`，我们前面创建并已经复制了的，粘贴进来就可以。
 
@@ -106,7 +106,7 @@ token 用于给后面我们用 PicGo 访问仓库并上传图片赋予权限。
 
 我们可以测试一下，在上传区，改为 Github图床，然后上传一张图片，稍作等待，提示上传成功后，将自动复制创建好的链接（这个链接默认为markdown的，后续我们会自定义一下）。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506205131.png" alt="20220506205131" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506205131.png" alt="20220506205131" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 以下是我测试生成的默认markdown格式链接，你可以将其放入markdown文件中测试一下，是一张可正常访问的图片，说明能够正常上传。
 
@@ -116,21 +116,21 @@ token 用于给后面我们用 PicGo 访问仓库并上传图片赋予权限。
 
 打开Typora，按照下图设置。其中第7步选择自己安装PicGo的位置。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506220821.png" alt="20220506220821" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506220821.png" alt="20220506220821" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>
 
 测试一下，在Typora编辑界面，粘贴或者拖入图片时，将自动以Markdown格式插入图片，从链接可以看出图像已经上传。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506224317.png" alt="20220506224317" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506224317.png" alt="20220506224317" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 我们手头已经有很多文档，图片都是本地保存的怎么办呢。只需要完成以上设置后，通过以下选项，就可以将当前文档中的所有本地图片上传到图床中，并会自动将文档中的图片链接全部替换为图床链接。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506230959338.png" alt="image-20220506230959338" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/image-20220506230959338.png" alt="image-20220506230959338" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 ## 自定义链接格式控制图片样式（可选）
 
 打开PicGo，按照以下步骤设置
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506205704.png" alt="20220506205704" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506205704.png" alt="20220506205704" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 其中，自定义链接的格式（这是一段HTML代码，我们用来美化图片的显示样式。
 我们给出如下几种，自行选择所需，将其粘贴到上图4的框中即可。
@@ -149,13 +149,13 @@ table th:nth-of-type(3) {
 
 | 美化方式 | 效果图  | 链接格式  |
 |:---:|:---:|---|
-| 控制大小 | <div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg" alt="wallpaper19" width="120"/></div> | `<div align="center" ><img src="$url" alt="$fileName" width="75%"/></div>`  |
-| 圆角处理 | <div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="border-radius:10px;"/></div>  | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="border-radius:10px;"/></div>` |
-| 图片阴影 | <div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/></div>  | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/></div>` |
-| 阴影+圆角| <div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div> | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>` |
-| 阴影+标题 | <div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>  | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>` |
-| 圆角+标题| <div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div> | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>` |
-| 阴影+圆角+标题 | <div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div> | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>` |
+| 控制大小 | <div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120"/></div> | `<div align="center" ><img src="$url" alt="$fileName" width="75%"/></div>`  |
+| 圆角处理 | <div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="border-radius:10px;"/></div>  | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="border-radius:10px;"/></div>` |
+| 图片阴影 | <div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/></div>  | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/></div>` |
+| 阴影+圆角| <div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div> | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>` |
+| 阴影+标题 | <div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>  | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>` |
+| 圆角+标题| <div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div> | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>` |
+| 阴影+圆角+标题 | <div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div> | `<div align="center" ><img src="$url" alt="$fileName" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>` |
 
 其中，
 
@@ -167,13 +167,13 @@ table th:nth-of-type(3) {
 
 配置完以上自定义链接格式后，如下图，在PicGo上传界面，选定`custom`，之后就可以退出PicGo了。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20220506220650.png" alt="20220506220650" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506220650.png" alt="20220506220650" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 在Typora中，同样是拖入或者粘贴图片时，就会获取以上设置的链接到剪切板中，只需要粘贴到Typora中即可。
 
 这里有一个问题是，Typora 粘贴图片时，始终会默认粘贴Markdown格式的图片链接，如前一小节所示。因此，我们要将Typora自动生成的删除，然后将剪切板中的自定义格式链接粘贴进去即可。如下图所示：
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/image-20220506231341704.png" alt="image-20220506231341704" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/image-20220506231341704.png" alt="image-20220506231341704" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 ## 配置VS Code
 
@@ -181,7 +181,7 @@ table th:nth-of-type(3) {
 
 在 VS Code 中，安装 Pic-Go 插件，安装完成后，如下图所示填入图床配置信息：
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/20241030162158.png" alt="20241030162158" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/20241030162158.png" alt="20241030162158" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 ### 测试图床
 

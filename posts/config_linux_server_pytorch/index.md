@@ -23,11 +23,11 @@ bash Miniconda3-py310_23.1.0-1-Linux-x86_64.sh
 
 输入 `yes` 同意协议；然后 `回车` 采用默认安装路径，或者手动输入指定的安装路径：
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20230301163116.png" alt="20230301163116" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20230301163116.png" alt="20230301163116" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 下面询问在打开命令行时是否自动进入 conda 的 `base` 环境：输入 `yes` 后回车，然后执行 `conda config --set auto_activate_base false` 关闭自动初始化。p.s. 这样做可以免去手动添加环境变量的过程。
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20230301164006.png" alt="20230301164006" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20230301164006.png" alt="20230301164006" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 ### 添加软件源（频道）
 
@@ -93,7 +93,7 @@ import torch
 torch.__version__
 ```
 
-<div align="center" ><img src="https://fastly.jsdelivr.net/gh/wlchengg/PicBed@main/images_for_blogs/20230301180410.png" alt="20230301180410" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20230301180410.png" alt="20230301180410" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 
 
 **参考：**
