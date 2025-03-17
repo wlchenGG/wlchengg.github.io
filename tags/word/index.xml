@@ -13,7 +13,7 @@
 <h4 id="原材料" class="headerLink">
     <a href="#%e5%8e%9f%e6%9d%90%e6%96%99" class="header-mark"></a>原材料</h4><p>所给文件是 <code>docx</code> 格式的 Word 文档，总大小 35MB；内含 73 张 <code>png</code> 格式截图，每张图占满一页；截图是期刊论文的首页截图，文字内容小且多，要尽量保证清晰。</p>
 <p>上个全景图看看😲</p>
-<div align="center"></div>
+<div align="center"><img src="https://i.loli.net/2021/08/20/RNfZVojaKEkx4Py.png" alt="20210820214122" width="600" align="center"/></div>
 <h4 id="分析与准备" class="headerLink">
     <a href="#%e5%88%86%e6%9e%90%e4%b8%8e%e5%87%86%e5%a4%87" class="header-mark"></a>分析与准备</h4><p>时间紧，任务重，得高效解决。初步分析，涉及三点：</p>
 <ul>
@@ -79,9 +79,9 @@
 <li><strong>问题：</strong></li>
 </ul>
 <p>首先来说，MathType 正确加载的话，Word 的菜单栏上会有 MathType，如下</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png" alt="mathtype-setup-for-word_Image001_2021-07-24-01-06-17" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>而现在问题是，打开Word，菜单栏没有 MathType 项，</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png" alt="mathtype-setup-for-word_Image002_2021-07-24-01-06-59" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <ul>
 <li><strong>原因：</strong></li>
 </ul>
@@ -106,12 +106,12 @@
 <li><strong>准备工作：</strong></li>
 </ul>
 <p>首先查看 Office Word 版本以及 MathType版本，兼容关系为</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png" alt="mathtype-setup-for-word_Image003_2021-07-24-01-07-19" width="65%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>查看我的版本分别为</p>
 <p><strong>Word</strong>：<strong>文件</strong>-&gt;<strong>账户</strong>-&gt;<strong>关于</strong>-&gt; Office <strong>365 32</strong>位，因此需要MathType 版本大于 <strong>6.9b</strong></p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png" alt="mathtype-setup-for-word_Image004_2021-07-24-01-07-53" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p><strong>MathType</strong>：<strong>关于</strong>-&gt;<strong>7.2.0.420</strong> &gt; <strong>6.9b</strong></p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png" alt="mathtype-setup-for-word_Image005_2021-07-24-01-08-03" width="45%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>确定Word 和 MathType安装路径：</p>
 <ul>
 <li>
@@ -126,29 +126,29 @@
 <li><strong>步骤：</strong></li>
 </ul>
 <p>Word菜单栏-&gt;<strong>文件</strong>-&gt;<strong>选项</strong>-&gt;<strong>加载项</strong>-&gt;底部<strong>管理</strong>下拉框选择 <strong>Word加载项</strong> 并点击<strong>转到</strong>，弹出类似下面的对话框，</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png" alt="mathtype-setup-for-word_Image006_2021-07-24-01-08-15" width="55%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>没问题的情况下，这里的第一项应该是被勾选上的，如下说明。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png" alt="mathtype-setup-for-word_Image007_2021-07-24-01-08-25" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>如果，没有以上对话框中的项，则选择从以下两个目录之一中 <strong>添加</strong> 正确版本的 <strong>.dotm</strong>文件，然后勾选并确定。</p>
 <p>D:\Math\MathType\Office Support\32 （32位 Office）<br>
 D:\Math\MathType\Office Support\64 （64位 Office）</p>
 <p>对于我的版本，选择 <strong>MathType Commands 2016.dotm</strong> 这一个</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png" alt="mathtype-setup-for-word_Image008_2021-07-24-01-08-36" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>勾选  <strong>MathType Commands 2016.dotm</strong> 项并 确定后，Word会加载出MathType 的菜单项，如图1所示。</p>
 <p>然而，然而，然而事情并非如此简单，</p>
 <p>当关闭Word，并重新打开后，忙半天加上的MathType 菜单项又没啦。</p>
 <p>这么看应该是设置的问题，在Word 启动时，并没有自动加载 MathType 加载项。那么要自动加载，是不是就得把这个MathType Commands 2016.dotm 文件放到Word 的默认加载目录下面？</p>
 <p>但是再次按照第3步，打开Word 加载项对话框，发现有这一项，但却没有勾选。那么怎么设置为默认勾选呢？</p>
 <p>幸而 <a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133-word2016-32" target="_blank" rel="noopener noreferrer">[2]</a> 对此也给出了解决方案：由于不同版本的系统、Office软件或者不同用户自定义的原因，Word 的加载项路径可能不一样。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png" alt="mathtype-setup-for-word_Image009_2021-07-24-01-08-51" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>根据说明，需要将前面的两个文件拷贝到 Word的加载项（启动项）目录下面，目录存在以上图中 3种可能，图中 1和 2根据 Office 是32位/64位只取其一。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png" alt="mathtype-setup-for-word_Image010_2021-07-24-01-09-07" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>以做对比，将可能的三个目录位置都打开，如下1、2、3，依次将这两个文件放到这三个目录下，</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png" alt="mathtype-setup-for-word_Image011_2021-07-24-01-09-17" width="100%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>经过尝试，，放在 2对应路径下时，Word成功加载了MathType菜单项。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png" alt="mathtype-setup-for-word_Image012_2021-07-24-01-09-27" width="100%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>比较前后两张图，此处有一个问题，下图中除了拷贝进去的两个模板文件外，还有一个MathPage.wll，这个文件实际上是一种DLL文件，也不可少，也是来自于MathType的安装目录，事实上，当MathType安装成功后，会自动将其拷贝到这个 2 对应的目录，一般无需手动添加，如果发现没有，可以从MathType安装根目录下的MathType文件夹里面找到，如下图，根据32位或64位选择。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png" alt="mathtype-setup-for-word_Image013_2021-07-24-01-09-39" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <ul>
 <li><strong>总结</strong></li>
 </ul>

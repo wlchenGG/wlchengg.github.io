@@ -19,6 +19,7 @@
 {{< friend name="饼藏的情敌" url="https://zjhzzy.github.io" avatar="https://q.qlogo.cn/g?b=qq&nk=822627809&s=640" bio="在追求梦想的路上，坚持不懈" >}}
 {{< friend name="夜轻Blog" url="https://blog.180280.xyz/" avatar="https://blog.180280.xyz/usr/uploads/favicon.jpg" bio="一个人" >}}
 {{< friend name="V2 方圆" url="https://v2fy.com/" avatar="/images/v2fy.png" bio="很全很赞的工具资源导航" >}}
+{{< friend name="KalosAner Blog" url="https://kalosaner.github.io/" avatar="https://avatars.githubusercontent.com/u/65274820" bio="欲速则不达" >}}
 
 
 {{< admonition type=tip title="友链互换，请按以下格式留言 😎" open=true >}}

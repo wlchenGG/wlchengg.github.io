@@ -41,37 +41,37 @@
     <a href="#%e6%90%ad%e5%bb%bagithub%e5%9b%be%e5%ba%8a" class="header-mark"></a>搭建Github图床</h2><p>Github仓库支持<code>1G</code>存储容量。</p>
 <h3 id="创建github仓库" class="headerLink">
     <a href="#%e5%88%9b%e5%bb%bagithub%e4%bb%93%e5%ba%93" class="header-mark"></a>创建Github仓库</h3><p>在Github主页点击<code>New Repository</code>开始创建仓库。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506185400.png" alt="20220506185400" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>基本设置：<code>仓库名</code>，<code>描述</code>，仓库类型<code>public</code>，勾选<code>Add a README file</code>，其他保持默认即可。然后点击<code>Create repo</code>。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506190127.png" alt="20220506190127" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>然后网页会自动跳转到我们刚刚创建的仓库主页。我们要在这个仓库下面创建一个文件夹用于以后存放图片（当然不创建文件夹，直接将图片上传到仓库个目录也可以）。点击<code>Add file</code>下的<code>Create new file</code>。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506192016.png" alt="20220506192016" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>跳转到以下页面，我们按照图中方式依次输入<code>foldername</code>，<code>/</code>，<code>filename</code>，名字自己任取就行。因为这里不支持只创建文件夹，因此需要给出一个文件名。点击<code>Commit new file</code>提交更改。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506192200.png" alt="20220506192200" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <h3 id="创建repo-token" class="headerLink">
     <a href="#%e5%88%9b%e5%bb%barepo-token" class="header-mark"></a>创建repo token</h3><p>token 用于给后面我们用 PicGo 访问仓库并上传图片赋予权限。</p>
 <p>首先在自己的头像下点击<code>Settings</code>。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506193458.png" alt="20220506193458" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>在左侧边栏往下找到并打开<code>Developer settings</code></p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506194000.png" alt="20220506194000" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>如下图，点击左侧边栏<code>Personal access token</code>，然后点击<code>Generate new token</code></p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/image-20220506232019743.png" alt="image-20220506232019743" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>此步因为要赋予权限，因此会弹出窗口验证账号密码，填入后<code>Confirm password</code>即可。
 然后就会到以下的 token 设置界面，按照图中所述进行创建即可。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506195204.png" alt="20220506195204" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>成功生成token后，马上复制下来，之后配置PicGo会用到。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/image-20220506232149655.png" alt="image-20220506232149655" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>通过以上过程，我们的图床算是搭建完毕了，接下来就要利用 PicGo 实现从本地上传图片，并获取图片链接。</p>
 <h2 id="配置picgo" class="headerLink">
     <a href="#%e9%85%8d%e7%bd%aepicgo" class="header-mark"></a>配置PicGo</h2><p>官方网站：<a href="https://molunerfinn.com/PicGo/" target="_blank" rel="noopener noreferrer">PicGo</a>。此处下载稳定版本的 <a href="https://mirror.ghproxy.com/https://github.com/Molunerfinn/PicGo/releases/download/v2.3.0/PicGo-Setup-2.3.0-x64.exe" target="_blank" rel="noopener noreferrer">PicGo</a>。下载后，按下图安装即可</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506200746.png" alt="20220506200746" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>启动后，直接左键单击托盘图标，打开PicGo设置界面</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506200941.png" alt="20220506200941" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>如下图，左侧展开<code>图床设置</code>，点击<code>Github图床</code>，右侧填入相关设置信息。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506201703.png" alt="20220506201703" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>以上填写各项的说明：</p>
 <p>对于<code>仓库名</code>，<code>分支名</code>，<code>存储路径</code>这几项，我们已经通过前面的步骤创建了，打开如下的仓库主页面，就可以知道。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506202323.png" alt="20220506202323" width="90%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>而对于<code>token</code>，我们前面创建并已经复制了的，粘贴进来就可以。</p>
 <p>对于自定义域名，</p>
 <p>我们上传图片的Github官方链接是：
@@ -82,28 +82,27 @@
 <p>⭕<code>https://fastly.jsdelivr.net/gh/用户名/仓库名@分支名</code></p>
 <p>或者其他备用：</p>
 <blockquote>
-<p>CloudFlare：<code>test1.jsdelivr.net</code></p>
+  <p>CloudFlare：<code>test1.jsdelivr.net</code></p>
 <p>CloudFlare：<code>testingcf.jsdelivr.net</code></p>
 <p>Fastly：<code>fastly.jsdelivr.net</code></p>
 <p>GCORE：<code>gcore.jsdelivr.net</code></p>
-</blockquote>
-<p><font color=#FF0000>那么对于我的设置，我这里应该填入的是：</font>
+</blockquote><p><font color=#FF0000>那么对于我的设置，我这里应该填入的是：</font>
 <code>https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main</code></p>
 <p>填好以上信息后，点击确定即可设置成功。</p>
 <p>我们可以测试一下，在上传区，改为 Github图床，然后上传一张图片，稍作等待，提示上传成功后，将自动复制创建好的链接（这个链接默认为markdown的，后续我们会自定义一下）。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506205131.png" alt="20220506205131" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>以下是我测试生成的默认markdown格式链接，你可以将其放入markdown文件中测试一下，是一张可正常访问的图片，说明能够正常上传。</p>
 <p><code>![](https://fastly.jsdelivr.net/gh/wlchenGG/myPictureBed@main/images/wallpaper19.jpg)</code></p>
 <h2 id="配置typora" class="headerLink">
     <a href="#%e9%85%8d%e7%bd%aetypora" class="header-mark"></a>配置Typora</h2><p>打开Typora，按照下图设置。其中第7步选择自己安装PicGo的位置。</p>
-<div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506220821.png" alt="20220506220821" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div>
 <p>测试一下，在Typora编辑界面，粘贴或者拖入图片时，将自动以Markdown格式插入图片，从链接可以看出图像已经上传。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506224317.png" alt="20220506224317" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>我们手头已经有很多文档，图片都是本地保存的怎么办呢。只需要完成以上设置后，通过以下选项，就可以将当前文档中的所有本地图片上传到图床中，并会自动将文档中的图片链接全部替换为图床链接。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/image-20220506230959338.png" alt="image-20220506230959338" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <h2 id="自定义链接格式控制图片样式可选" class="headerLink">
     <a href="#%e8%87%aa%e5%ae%9a%e4%b9%89%e9%93%be%e6%8e%a5%e6%a0%bc%e5%bc%8f%e6%8e%a7%e5%88%b6%e5%9b%be%e7%89%87%e6%a0%b7%e5%bc%8f%e5%8f%af%e9%80%89" class="header-mark"></a>自定义链接格式控制图片样式（可选）</h2><p>打开PicGo，按照以下步骤设置</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506205704.png" alt="20220506205704" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>其中，自定义链接的格式（这是一段HTML代码，我们用来美化图片的显示样式。
 我们给出如下几种，自行选择所需，将其粘贴到上图4的框中即可。</p>
 <style>
@@ -117,65 +116,68 @@ table th:nth-of-type(3) {
     width: 68%;
 }
 </style>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">美化方式</th>
-<th style="text-align:center">效果图</th>
-<th>链接格式</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">控制大小</td>
-<td style="text-align:center"><div align="center" ></div></td>
-<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot;/&gt;&lt;/div&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:center">圆角处理</td>
-<td style="text-align:center"><div align="center" ></div></td>
-<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;border-radius:10px;&quot;/&gt;&lt;/div&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:center">图片阴影</td>
-<td style="text-align:center"><div align="center" ></div></td>
-<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);&quot;/&gt;&lt;/div&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:center">阴影+圆角</td>
-<td style="text-align:center"><div align="center" ></div></td>
-<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;&quot;/&gt;&lt;/div&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:center">阴影+标题</td>
-<td style="text-align:center"><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div></td>
-<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);&quot;/&gt;&lt;br&gt;&lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;&quot;&gt;此处插入标题&lt;/div&gt;&lt;/div&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:center">圆角+标题</td>
-<td style="text-align:center"><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div></td>
-<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;border-radius:10px;&quot;/&gt;&lt;br&gt;&lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;&quot;&gt;此处插入标题&lt;/div&gt;&lt;/div&gt;</code></td>
-</tr>
-<tr>
-<td style="text-align:center">阴影+圆角+标题</td>
-<td style="text-align:center"><div align="center" ><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div></td>
-<td><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;&quot;/&gt;&lt;br&gt;&lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;&quot;&gt;此处插入标题&lt;/div&gt;&lt;/div&gt;</code></td>
-</tr>
-</tbody>
-</table>
+
+<div class="table-wrapper">
+  <table>
+    <thead>
+        <tr>
+            <th style="text-align: center">美化方式</th>
+            <th style="text-align: center">效果图</th>
+            <th style="text-align: ">链接格式</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: center">控制大小</td>
+            <td style="text-align: center"><div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120"/></div></td>
+            <td style="text-align: "><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot;/&gt;&lt;/div&gt;</code></td>
+        </tr>
+        <tr>
+            <td style="text-align: center">圆角处理</td>
+            <td style="text-align: center"><div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="border-radius:10px;"/></div></td>
+            <td style="text-align: "><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;border-radius:10px;&quot;/&gt;&lt;/div&gt;</code></td>
+        </tr>
+        <tr>
+            <td style="text-align: center">图片阴影</td>
+            <td style="text-align: center"><div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/></div></td>
+            <td style="text-align: "><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);&quot;/&gt;&lt;/div&gt;</code></td>
+        </tr>
+        <tr>
+            <td style="text-align: center">阴影+圆角</td>
+            <td style="text-align: center"><div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div></td>
+            <td style="text-align: "><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;&quot;/&gt;&lt;/div&gt;</code></td>
+        </tr>
+        <tr>
+            <td style="text-align: center">阴影+标题</td>
+            <td style="text-align: center"><div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div></td>
+            <td style="text-align: "><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);&quot;/&gt;&lt;br&gt;&lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;&quot;&gt;此处插入标题&lt;/div&gt;&lt;/div&gt;</code></td>
+        </tr>
+        <tr>
+            <td style="text-align: center">圆角+标题</td>
+            <td style="text-align: center"><div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div></td>
+            <td style="text-align: "><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;border-radius:10px;&quot;/&gt;&lt;br&gt;&lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;&quot;&gt;此处插入标题&lt;/div&gt;&lt;/div&gt;</code></td>
+        </tr>
+        <tr>
+            <td style="text-align: center">阴影+圆角+标题</td>
+            <td style="text-align: center"><div align="center" ><img src="https://img2.wlcheng.cc/images/wallpaper19.jpg" alt="wallpaper19" width="120" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">此处插入标题</div></div></td>
+            <td style="text-align: "><code>&lt;div align=&quot;center&quot; &gt;&lt;img src=&quot;$url&quot; alt=&quot;$fileName&quot; width=&quot;75%&quot; style=&quot;box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;&quot;/&gt;&lt;br&gt;&lt;div style=&quot;color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;&quot;&gt;此处插入标题&lt;/div&gt;&lt;/div&gt;</code></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
 <p>其中，</p>
 <p><code>width=&quot;75%&quot;</code>：控制图片大小，百分比是占整个文档宽度的比例（方便适配不同网页大小），也可以直接写成<code>width=&quot;300&quot;</code>等整数用来控制图片的绝对大小。</p>
 <p><code>border-radius:10px;</code>：用来控制圆角大小。</p>
 <p><code>此处插入标题</code>：为图片设置标题。</p>
 <p>配置完以上自定义链接格式后，如下图，在PicGo上传界面，选定<code>custom</code>，之后就可以退出PicGo了。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20220506220650.png" alt="20220506220650" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>在Typora中，同样是拖入或者粘贴图片时，就会获取以上设置的链接到剪切板中，只需要粘贴到Typora中即可。</p>
 <p>这里有一个问题是，Typora 粘贴图片时，始终会默认粘贴Markdown格式的图片链接，如前一小节所示。因此，我们要将Typora自动生成的删除，然后将剪切板中的自定义格式链接粘贴进去即可。如下图所示：</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/image-20220506231341704.png" alt="image-20220506231341704" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <h2 id="配置vs-code" class="headerLink">
     <a href="#%e9%85%8d%e7%bd%aevs-code" class="header-mark"></a>配置VS Code</h2><h3 id="安装-pic-go-插件" class="headerLink">
     <a href="#%e5%ae%89%e8%a3%85-pic-go-%e6%8f%92%e4%bb%b6" class="header-mark"></a>安装 Pic-Go 插件</h3><p>在 VS Code 中，安装 Pic-Go 插件，安装完成后，如下图所示填入图床配置信息：</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img2.wlcheng.cc/images/20241030162158.png" alt="20241030162158" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <h3 id="测试图床" class="headerLink">
     <a href="#%e6%b5%8b%e8%af%95%e5%9b%be%e5%ba%8a" class="header-mark"></a>测试图床</h3><p>在任意打开的 Markdown 文件中，<strong>先复制了图片</strong>，然后在要插入图片位置按 <code>Ctrl + Alt + P</code>，VS Code 右下角弹窗显示上传成功，当前光标位置生成了图片链接，且能正常显示，则说明配置成功。</p>
 <p><strong>注意：</strong> 在插入图片时，不要选定 Markdown 文件中的内容，否则 Pic-Go 会处理选定的内容，而不是已经复制到剪切板中的图片。</p>
@@ -184,13 +186,13 @@ table th:nth-of-type(3) {
 <p>工欲善其事必先利其器，决定造个工具，一劳永逸提高效率。</p>
 <p>以下代码基于 <a href="https://cloud.tencent.com/developer/article/1584421" target="_blank" rel="noopener noreferrer">小白程序猿</a> 的方案，面向我自己的需求作了一些调整适配，在此致谢🫡</p>
 <div class="details admonition tip">
-        <div class="details-summary admonition-title">
-            <i class="icon fas fa-lightbulb fa-fw"></i>插播推荐 PDF 补丁丁<i class="details-icon fas fa-angle-right fa-fw"></i>
-        </div>
-        <div class="details-content">
-            <div class="admonition-content">一个满满情怀的 PDF 神器：<a href="https://www.cnblogs.com/pdfpatcher/" target="_blank" rel="noopener noreferrer">PDF 补丁丁</a>，已开源在<a href="https://github.com/wmjordan/PDFPatcher" target="_blank" rel="noopener noreferrer">PDFPatcher</a>，三方长文教程：<a href="https://post.smzdm.com/p/anx09ww3/" target="_blank" rel="noopener noreferrer">免费了 12 年的神器开源了，你可能不知道它有多强大</a></div>
-        </div>
+    <div class="details-summary admonition-title">
+        <span class="icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M96.06 454.35c.01 6.29 1.87 12.45 5.36 17.69l17.09 25.69a31.99 31.99 0 0 0 26.64 14.28h61.71a31.99 31.99 0 0 0 26.64-14.28l17.09-25.69a31.989 31.989 0 0 0 5.36-17.69l.04-38.35H96.01l.05 38.35zM0 176c0 44.37 16.45 84.85 43.56 115.78 16.52 18.85 42.36 58.23 52.21 91.45.04.26.07.52.11.78h160.24c.04-.26.07-.51.11-.78 9.85-33.22 35.69-72.6 52.21-91.45C335.55 260.85 352 220.37 352 176 352 78.61 272.91-.3 175.45 0 73.44.31 0 82.97 0 176zm176-80c-44.11 0-80 35.89-80 80 0 8.84-7.16 16-16 16s-16-7.16-16-16c0-61.76 50.24-112 112-112 8.84 0 16 7.16 16 16s-7.16 16-16 16z"/></svg></span>插播推荐 PDF 补丁丁<span class="details-icon"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/></svg></span>
     </div>
+    <div class="details-content">
+        <div class="admonition-content">一个满满情怀的 PDF 神器：<a href="https://www.cnblogs.com/pdfpatcher/" target="_blank" rel="noopener noreferrer">PDF 补丁丁</a>，已开源在<a href="https://github.com/wmjordan/PDFPatcher" target="_blank" rel="noopener noreferrer">PDFPatcher</a>，三方长文教程：<a href="https://post.smzdm.com/p/anx09ww3/" target="_blank" rel="noopener noreferrer">免费了 12 年的神器开源了，你可能不知道它有多强大</a></div></div></div>
 <h2 id="环境与原料" class="headerLink">
     <a href="#%e7%8e%af%e5%a2%83%e4%b8%8e%e5%8e%9f%e6%96%99" class="header-mark"></a>环境与原料</h2><ul>
 <li>
@@ -200,159 +202,199 @@ table th:nth-of-type(3) {
 <p><strong>PyMuPDF模块</strong></p>
 </li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install PyMuPDF
-</span></span></code></pre></td></tr></table>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled
+      aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">bash</p>
+    </div>
+    <div class="tw-flex">
+      <button 
+        class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle line numbers"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M61.77 401l17.5-20.15a19.92 19.92 0 0 0 5.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h22.83a157.41 157.41 0 0 0-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33 0 15.94 2.44 15.94 9.09 0 4.72-4.2 8.22-14.36 8.22a41.54 41.54 0 0 1-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16 0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM16 160h64a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H64V40a8 8 0 0 0-8-8H32a8 8 0 0 0-7.14 4.42l-8 16A8 8 0 0 0 24 64h8v64H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8zm-3.91 160H80a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44 0-29.06-25-39.56-44.47-39.56-21.36 0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44 0 0 1 9.46-3.84c3.33 0 9.28 1.56 9.28 8.75C51 248.19 0 257.31 0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
+
+      <button 
+        class="
+          wrap-code-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle code wrap"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
+      
+      <button 
+        class="
+          copy-code-button
+          tw-select-none
+          tw-mx-2 
+          tw-hidden
+          group-[.is-open]:tw-block
+          hover:tw-text-fgColor-link 
+          print:!tw-hidden"
+        title="Copy code">
+          <span class="copy-icon tw-block"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg></span>
+          <span class="check-icon tw-hidden"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
+      </button>
+        
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled
+        aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-id-1" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto
+      tw-scrollbar-thin
+      "><span class="line"><span class="cl">pip install PyMuPDF</span></span></code></pre>
 </div>
-</div><h2 id="工具代码" class="headerLink">
+<h2 id="工具代码" class="headerLink">
     <a href="#%e5%b7%a5%e5%85%b7%e4%bb%a3%e7%a0%81" class="header-mark"></a>工具代码</h2><p>以下为完整代码：</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># coding:utf-8</span>
+<div class="code-block highlight is-closed show-line-numbers  tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled
+      aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">python</p>
+    </div>
+    <div class="tw-flex">
+      <button 
+        class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle line numbers"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M61.77 401l17.5-20.15a19.92 19.92 0 0 0 5.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h22.83a157.41 157.41 0 0 0-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33 0 15.94 2.44 15.94 9.09 0 4.72-4.2 8.22-14.36 8.22a41.54 41.54 0 0 1-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16 0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM16 160h64a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H64V40a8 8 0 0 0-8-8H32a8 8 0 0 0-7.14 4.42l-8 16A8 8 0 0 0 24 64h8v64H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8zm-3.91 160H80a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44 0-29.06-25-39.56-44.47-39.56-21.36 0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44 0 0 1 9.46-3.84c3.33 0 9.28 1.56 9.28 8.75C51 248.19 0 257.31 0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
+
+      <button 
+        class="
+          wrap-code-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle code wrap"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
+      
+      <button 
+        class="
+          copy-code-button
+          tw-select-none
+          tw-mx-2 
+          tw-hidden
+          group-[.is-open]:tw-block
+          hover:tw-text-fgColor-link 
+          print:!tw-hidden"
+        title="Copy code">
+          <span class="copy-icon tw-block"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg></span>
+          <span class="check-icon tw-hidden"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
+      </button>
+        
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled
+        aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-id-2" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto
+      tw-scrollbar-thin
+      "><span class="line"><span class="cl"><span class="c1"># coding:utf-8</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">os</span>
 </span></span><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">fitz</span>
 </span></span><span class="line"><span class="cl">
@@ -489,10 +531,9 @@ table th:nth-of-type(3) {
 </span></span><span class="line"><span class="cl">    <span class="n">file_path</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&#34;待处理PDF文件地址:&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">    <span class="c1"># 调用方法</span>
-</span></span><span class="line"><span class="cl">    <span class="n">analysis</span><span class="p">(</span><span class="n">uni_path</span><span class="p">(</span><span class="n">file_path</span><span class="p">),</span> <span class="n">uni_path</span><span class="p">(</span><span class="n">save_path</span><span class="p">),</span> <span class="n">num</span><span class="p">,</span> <span class="n">toimg</span><span class="p">)</span>
-</span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl">    <span class="n">analysis</span><span class="p">(</span><span class="n">uni_path</span><span class="p">(</span><span class="n">file_path</span><span class="p">),</span> <span class="n">uni_path</span><span class="p">(</span><span class="n">save_path</span><span class="p">),</span> <span class="n">num</span><span class="p">,</span> <span class="n">toimg</span><span class="p">)</span></span></span></code></pre>
 </div>
-</div><h2 id="参考" class="headerLink">
+<h2 id="参考" class="headerLink">
     <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><p><a href="https://cloud.tencent.com/developer/article/1584421" target="_blank" rel="noopener noreferrer">Python 提取 PDF 第一页为封面图片【批量提取】</a></p>
 <p><a href="https://blog.csdn.net/lnotime/article/details/87720332" target="_blank" rel="noopener noreferrer">Python 把任意系统的路径转换成当前系统的格式（关于 / \ 分隔符的）</a></p>
 <p><a href="https://www.jianshu.com/p/bbad16822eab" target="_blank" rel="noopener noreferrer">python中os.walk的用法</a></p>
@@ -529,9 +570,9 @@ table th:nth-of-type(3) {
 <li><strong>问题：</strong></li>
 </ul>
 <p>首先来说，MathType 正确加载的话，Word 的菜单栏上会有 MathType，如下</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image001_2021-07-24-01-06-17.png" alt="mathtype-setup-for-word_Image001_2021-07-24-01-06-17" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>而现在问题是，打开Word，菜单栏没有 MathType 项，</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image002_2021-07-24-01-06-59.png" alt="mathtype-setup-for-word_Image002_2021-07-24-01-06-59" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <ul>
 <li><strong>原因：</strong></li>
 </ul>
@@ -556,12 +597,12 @@ table th:nth-of-type(3) {
 <li><strong>准备工作：</strong></li>
 </ul>
 <p>首先查看 Office Word 版本以及 MathType版本，兼容关系为</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image003_2021-07-24-01-07-19.png" alt="mathtype-setup-for-word_Image003_2021-07-24-01-07-19" width="65%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>查看我的版本分别为</p>
 <p><strong>Word</strong>：<strong>文件</strong>-&gt;<strong>账户</strong>-&gt;<strong>关于</strong>-&gt; Office <strong>365 32</strong>位，因此需要MathType 版本大于 <strong>6.9b</strong></p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image004_2021-07-24-01-07-53.png" alt="mathtype-setup-for-word_Image004_2021-07-24-01-07-53" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p><strong>MathType</strong>：<strong>关于</strong>-&gt;<strong>7.2.0.420</strong> &gt; <strong>6.9b</strong></p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image005_2021-07-24-01-08-03.png" alt="mathtype-setup-for-word_Image005_2021-07-24-01-08-03" width="45%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>确定Word 和 MathType安装路径：</p>
 <ul>
 <li>
@@ -576,29 +617,29 @@ table th:nth-of-type(3) {
 <li><strong>步骤：</strong></li>
 </ul>
 <p>Word菜单栏-&gt;<strong>文件</strong>-&gt;<strong>选项</strong>-&gt;<strong>加载项</strong>-&gt;底部<strong>管理</strong>下拉框选择 <strong>Word加载项</strong> 并点击<strong>转到</strong>，弹出类似下面的对话框，</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image006_2021-07-24-01-08-15.png" alt="mathtype-setup-for-word_Image006_2021-07-24-01-08-15" width="55%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>没问题的情况下，这里的第一项应该是被勾选上的，如下说明。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image007_2021-07-24-01-08-25.png" alt="mathtype-setup-for-word_Image007_2021-07-24-01-08-25" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>如果，没有以上对话框中的项，则选择从以下两个目录之一中 <strong>添加</strong> 正确版本的 <strong>.dotm</strong>文件，然后勾选并确定。</p>
 <p>D:\Math\MathType\Office Support\32 （32位 Office）<br>
 D:\Math\MathType\Office Support\64 （64位 Office）</p>
 <p>对于我的版本，选择 <strong>MathType Commands 2016.dotm</strong> 这一个</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image008_2021-07-24-01-08-36.png" alt="mathtype-setup-for-word_Image008_2021-07-24-01-08-36" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>勾选  <strong>MathType Commands 2016.dotm</strong> 项并 确定后，Word会加载出MathType 的菜单项，如图1所示。</p>
 <p>然而，然而，然而事情并非如此简单，</p>
 <p>当关闭Word，并重新打开后，忙半天加上的MathType 菜单项又没啦。</p>
 <p>这么看应该是设置的问题，在Word 启动时，并没有自动加载 MathType 加载项。那么要自动加载，是不是就得把这个MathType Commands 2016.dotm 文件放到Word 的默认加载目录下面？</p>
 <p>但是再次按照第3步，打开Word 加载项对话框，发现有这一项，但却没有勾选。那么怎么设置为默认勾选呢？</p>
 <p>幸而 <a href="https://docs.wiris.com/en/mathtype/mathtype_desktop/support_notices/tn133-word2016-32" target="_blank" rel="noopener noreferrer">[2]</a> 对此也给出了解决方案：由于不同版本的系统、Office软件或者不同用户自定义的原因，Word 的加载项路径可能不一样。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image009_2021-07-24-01-08-51.png" alt="mathtype-setup-for-word_Image009_2021-07-24-01-08-51" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>根据说明，需要将前面的两个文件拷贝到 Word的加载项（启动项）目录下面，目录存在以上图中 3种可能，图中 1和 2根据 Office 是32位/64位只取其一。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image010_2021-07-24-01-09-07.png" alt="mathtype-setup-for-word_Image010_2021-07-24-01-09-07" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>以做对比，将可能的三个目录位置都打开，如下1、2、3，依次将这两个文件放到这三个目录下，</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image011_2021-07-24-01-09-17.png" alt="mathtype-setup-for-word_Image011_2021-07-24-01-09-17" width="100%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>经过尝试，，放在 2对应路径下时，Word成功加载了MathType菜单项。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image012_2021-07-24-01-09-27.png" alt="mathtype-setup-for-word_Image012_2021-07-24-01-09-27" width="100%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <p>比较前后两张图，此处有一个问题，下图中除了拷贝进去的两个模板文件外，还有一个MathPage.wll，这个文件实际上是一种DLL文件，也不可少，也是来自于MathType的安装目录，事实上，当MathType安装成功后，会自动将其拷贝到这个 2 对应的目录，一般无需手动添加，如果发现没有，可以从MathType安装根目录下的MathType文件夹里面找到，如下图，根据32位或64位选择。</p>
-<div align="center" ></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/mathtype-setup-for-word_Image013_2021-07-24-01-09-39.png" alt="mathtype-setup-for-word_Image013_2021-07-24-01-09-39" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/></div>
 <ul>
 <li><strong>总结</strong></li>
 </ul>
