@@ -35,8 +35,10 @@
 
 ---
 - [Adobe Acrobat DC](https://www.adobe.com/cn/products/acrobat.html)，PDF 编辑/阅读器
-- [PDF24 Creator](https://tools.pdf24.org/zh/)，PDF 工具箱
+- [PDF24 Creator](https://tools.pdf24.org/zh/)，PDF 工具箱，特好用
 - [SumatraPDF](https://www.sumatrapdfreader.org/free-pdf-reader.html)，PDF 阅读器
+- [PDF 补丁丁](https://www.cnblogs.com/pdfpatcher)，情怀的强大 PDF 编辑工具。半自动制目录、解除限制、替换字体等等。作者的情怀：
+<div align="center" ><img src="https://img1.xiangyichen.cn/images/20250402212237.png" alt="20250402212237" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;"></div></div>
 
 ---
 - [阿里云盘](https://www.aliyundrive.com/)，云盘
@@ -49,8 +51,8 @@
 ---
 - [Bandizip](https://www.bandisoft.com/bandizip/)，压缩解压工具
 - [Everything](https://www.voidtools.com/zh-cn/downloads/)，快速文件搜索
-- [Snipaste](https://www.microsoft.com/store/productId/9P1WXPKB68KX?ocid=pdpshare)，截图贴图
-- [Quicklook](https://www.microsoft.com/store/productId/9NV4BS3L1H4S?ocid=pdpshare)，快速预览文件
+- [Snipaste](https://apps.microsoft.com/detail/9P1WXPKB68KX?hl=zh-cn&gl=CN&ocid=pdpshare)，截图贴图
+- [Quicklook](https://apps.microsoft.com/detail/9NV4BS3L1H4S?hl=zh&gl=CN&ocid=pdpshare)，快速预览文件
 - [IDM](https://www.internetdownloadmanager.com/download.html)，多线程下载器
 - [Geek Uninstaller](https://geekuninstaller.com/)，卸载软件
 
@@ -66,7 +68,9 @@
 - [洛雪音乐助手](https://www.sixyin.com/114.html)，音乐播放器
   - [音源](https://www.sixyin.com/8498.html)（听版权音乐必须导入音源）
 - [PotPlayer](https://potplayer.daum.net/), 视频播放器
-
+- [WallHaven 客户端](https://github.com/Alxndr/whc)，壁纸下载工具
+- [EarTrumpet](https://apps.microsoft.com/detail/9NBLGGH516XP?hl=zh-cn&gl=CN&ocid=pdpshare)，软件独立音量控制
+- [Twinkle Tray](https://apps.microsoft.com/detail/9PLJWWSV01LK?hl=neutral&gl=CN&ocid=pdpshare)，显示器亮度调节
 ---
 
 
@@ -76,6 +80,10 @@
 - [Q-Dir](https://www.q-dir.com/)，多窗口文件管理器
 - [7-Zip](https://www.7-zip.org/)，压缩解压工具
 - [FileLocator](https://www.mythicsoft.com/)，快速文件内容搜索
+- [TextSeek](https://www.textseek.net/)，快速文件内容搜索
+- [Beyond Compare](https://www.scootersoftware.com/)，文件对比工具
+- [WinMerge](https://winmerge.org/)，文件夹/文件对比工具，开源
+- [Meld](https://meldmerge.org/)，文件夹/文件对比工具，开源，Win/Mac/Linux
 - [BestTrace](___)，网络诊断工具
 - [SwitchHosts](https://switchhosts.vercel.app/zh)，hosts 编辑工具
 - [WireShark](https://www.wireshark.org/)，网络抓包工具
