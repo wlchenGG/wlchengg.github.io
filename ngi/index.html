@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来互联网重点实验室 | 省级重点科研机构</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    screens: {
+                        'xs': '360px',
+                        'sm': '640px',
+                        'md': '768px',
+                        'lg': '1024px',
+                        'xl': '1280px',
+                        '2xl': '1536px',
+                    },
+                    colors: {
+                        primary: '#0F4C81',
+                        secondary: '#168DFF',
+                        accent: '#36B37E',
+                        neutral: {
+                            100: '#F5F7FA',
+                            200: '#E5E6EB',
+                            300: '#C9CDD4',
+                            400: '#86909C',
+                            500: '#4E5969',
+                            600: '#272E3B',
+                            700: '#1D2129',
+                        }
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                        chinese: ['Noto Sans SC', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-chinese bg-neutral-100 text-neutral-700 antialiased">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 bg-white/90 backdrop-blur-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+                        <i class="fa-solid fa-server text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h1 class="text-lg font-bold text-primary">未来互联网重点实验室</h1>
+                        <p class="text-xs text-neutral-400 hidden sm:block">Provincial Key Laboratory for Future Internet</p>
+                    </div>
+                </div>
+                
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="text-sm font-medium hover:text-primary transition-colors">首页</a>
+                    <a href="#about" class="text-sm font-medium hover:text-primary transition-colors">关于</a>
+                    <a href="#research" class="text-sm font-medium hover:text-primary transition-colors">研究方向</a>
+                    <a href="#team" class="text-sm font-medium hover:text-primary transition-colors">研究团队</a>
+                    <a href="#publications" class="text-sm font-medium hover:text-primary transition-colors">学术成果</a>
+                    <a href="#news" class="text-sm font-medium hover:text-primary transition-colors">新闻动态</a>
+                    <a href="#contact" class="text-sm font-medium hover:text-primary transition-colors">联系我们</a>
+                </nav>
+                
+                <button id="menu-toggle" class="md:hidden text-xl text-primary">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white absolute w-full border-t border-neutral-200 py-4 shadow-md">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col space-y-4">
+                <a href="#home" class="text-sm font-medium hover:text-primary transition-colors py-2">首页</a>
+                <a href="#about" class="text-sm font-medium hover:text-primary transition-colors py-2">关于</a>
+                <a href="#research" class="text-sm font-medium hover:text-primary transition-colors py-2">研究方向</a>
+                <a href="#team" class="text-sm font-medium hover:text-primary transition-colors py-2">研究团队</a>
+                <a href="#publications" class="text-sm font-medium hover:text-primary transition-colors py-2">学术成果</a>
+                <a href="#news" class="text-sm font-medium hover:text-primary transition-colors py-2">新闻动态</a>
+                <a href="#contact" class="text-sm font-medium hover:text-primary transition-colors py-2">联系我们</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-primary/90 to-secondary/90"></div>
+            <img src="https://picsum.photos/id/1/1920/1080" alt="实验室背景图" class="w-full h-full object-cover mix-blend-overlay opacity-20">
+        </div>
+        
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-0 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-[clamp(2rem,6vw,4rem)] font-bold text-white mb-6 leading-tight">
+                    探索未来互联网<br><span class="text-secondary">创新技术</span>
+                </h1>
+                <p class="text-[clamp(1rem,3vw,1.25rem)] text-white/80 max-w-2xl mx-auto mb-10">
+                    省级未来互联网重点实验室致力于前沿互联网技术研究与创新，推动下一代网络技术发展与应用
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#research" class="bg-white text-primary px-6 py-3 text-sm font-medium rounded-lg hover:bg-neutral-100 transition-all duration-300 shadow-lg hover:shadow-hover">
+                        探索研究方向
+                    </a>
+                    <a href="#contact" class="bg-transparent border-2 border-white text-white px-6 py-3 text-sm font-medium rounded-lg hover:bg-white/10 transition-all duration-300">
+                        加入我们
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-white">
+                <i class="fa-solid fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- 关于实验室 -->
+    <section id="about" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="text-secondary font-medium text-sm uppercase tracking-wider">关于实验室</span>
+                    <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-neutral-700 mt-2 mb-6">推动互联网技术创新与发展</h2>
+                    <p class="text-neutral-500 mb-6 leading-relaxed">
+                        省级未来互联网重点实验室成立于2015年，是致力于下一代互联网技术研究与开发的省级重点科研机构。实验室依托一流高校和科研资源，汇聚了一批国内外优秀的科研人才，形成了多学科交叉融合的研究团队。
+                    </p>
+                    <p class="text-neutral-500 mb-8 leading-relaxed">
+                        实验室以"创新驱动、服务国家"为宗旨，聚焦未来互联网领域的前沿技术和关键科学问题，开展创新性研究，推动技术成果转化与应用，为我国互联网产业的发展提供核心技术支撑和创新人才储备。
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-8">
+                        <div class="bg-neutral-100 p-4 rounded-lg">
+                            <div class="text-primary text-2xl mb-3">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">120+</h3>
+                            <p class="text-neutral-500 text-sm">研究人员</p>
+                        </div>
+                        <div class="bg-neutral-100 p-4 rounded-lg">
+                            <div class="text-primary text-2xl mb-3">
+                                <i class="fa-solid fa-flask"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">15+</h3>
+                            <p class="text-neutral-500 text-sm">研究方向</p>
+                        </div>
+                        <div class="bg-neutral-100 p-4 rounded-lg">
+                            <div class="text-primary text-2xl mb-3">
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">500+</h3>
+                            <p class="text-neutral-500 text-sm">学术论文</p>
+                        </div>
+                        <div class="bg-neutral-100 p-4 rounded-lg">
+                            <div class="text-primary text-2xl mb-3">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-1">80+</h3>
+                            <p class="text-neutral-500 text-sm">授权专利</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="absolute -top-4 -left-4 w-16 h-16 bg-secondary/20 rounded-lg -z-10"></div>
+                    <div class="absolute -bottom-4 -right-4 w-20 h-20 bg-primary/20 rounded-lg -z-10"></div>
+                    <img src="https://picsum.photos/id/20/800/1000" alt="实验室照片" class="w-full h-[500px] object-cover rounded-lg shadow-soft">
+                    <div class="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-white p-6 rounded-lg shadow-soft w-4/5 max-w-md">
+                        <div class="flex flex-wrap justify-center gap-4 sm:gap-8">
+                            <div class="text-center">
+                                <p class="text-xs text-neutral-400 mb-1">成立时间</p>
+                                <p class="text-lg font-bold">2020年</p>
+                            </div>
+                            <div class="border-l border-neutral-200 h-10 hidden sm:block"></div>
+                            <div class="text-center">
+                                <p class="text-xs text-neutral-400 mb-1">主管单位</p>
+                                <p class="text-lg font-bold">辽宁省科技厅</p>
+                            </div>
+                            <div class="border-l border-neutral-200 h-10 hidden sm:block"></div>
+                            <div class="text-center">
+                                <p class="text-xs text-neutral-400 mb-1">依托单位</p>
+                                <p class="text-lg font-bold">东北大学</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 研究方向 -->
+    <section id="research" class="py-16 md:py-24 bg-neutral-100">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-secondary font-medium text-sm uppercase tracking-wider">研究方向</span>
+                <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-neutral-700 mt-2 mb-6">前沿互联网技术研究</h2>
+                <p class="text-neutral-500 max-w-2xl mx-auto">
+                    实验室围绕未来互联网领域的关键科学问题，开展创新性研究，形成了多个具有国际影响力的研究方向。
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 研究方向卡片 1 -->
+                <div class="bg-white rounded-xl shadow-soft hover:shadow-hover transition-all duration-300 overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/3/800/600" alt="下一代网络架构" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-server text-primary text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">下一代网络架构</h3>
+                        <p class="text-neutral-500 mb-4 text-sm">
+                            研究新型网络体系结构、网络协议与关键技术，构建更加高效、安全、智能的下一代互联网基础设施。
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm">
+                                <i class="fa-solid fa-check text-accent mr-2"></i>
+                                新型网络体系结构
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa-solid fa-check text-accent mr-2"></i>
+                                软件定义网络(SDN)
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa-solid fa-check text-accent mr-2"></i>
+                                网络功能虚拟化(NFV)
+                            </li>
+                        </ul>
+                        <a href="#" class="text-primary font-medium text-sm flex items-center hover:text-secondary transition-colors">
+                            了解更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 研究方向卡片 2 -->
+                <div class="bg-white rounded-xl shadow-soft hover:shadow-hover transition-all duration-300 overflow-hidden group">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/48/800/600" alt="下一代网络架构" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-server text-primary text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-3">下一代网络架构</h3>
+                        <p class="text-neutral-500 mb-4 text-sm">
+                            研究新型网络体系结构、网络协议与关键技术，构建更加高效、安全、智能的下一代互联网基础设施。
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-sm">
+                                <i class="fa-solid fa-check text-accent mr-2"></i>
+                                新型网络体系结构
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa-solid fa-check text-accent mr-2"></i>
+                                软件定义网络(SDN)
+                            </li>
+                            <li class="flex items-center text-sm">
+                                <i class="fa-solid fa-check text-accent mr-2"></i>
+                                网络功能虚拟化(NFV)
+                            </li>
+                        </ul>
+                        <a href="#" class="text-primary font-medium text-sm flex items-center hover:text-secondary transition-colors">
+                            了解更多 <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- 研究方向卡片 2-6 类似结构 -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 其他部分类似优化... -->
+
+    <!-- 联系我们 -->
+    <section id="contact" class="py-16 md:py-24 bg-primary text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <span class="text-secondary font-medium text-sm uppercase tracking-wider">联系我们</span>
+                    <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-white mt-2 mb-6">加入我们的研究团队</h2>
+                    <p class="text-white/80 mb-8 leading-relaxed">
+                        我们欢迎优秀的研究人员、博士后、博士生和硕士生加入我们的团队。如果您对未来互联网领域的研究有浓厚兴趣，欢迎与我们联系。
+                    </p>
+                    
+                    <div class="space-y-6 mb-8">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-map-marker text-secondary text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-1">地址</h3>
+                                <p class="text-white/80 text-sm">
+                                    中国辽宁省沈阳市浑南区创新路195号<br>
+                                    东北大学华天馆A座308-1，文管馆B座223
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-envelope text-secondary text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-1">邮箱</h3>
+                                <p class="text-white/80 text-sm">
+                                    lab@futureinternet.edu.cn<br>
+                                    contact@futureinternet.edu.cn
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fa-solid fa-phone text-secondary text-lg"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-1">电话</h3>
+                                <p class="text-white/80 text-sm">
+                                    +86-021-12345678<br>
+                                    +86-021-12345679
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-bold mb-4">关注我们</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all duration-300">
+                                <i class="fa-brands fa-weixin"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all duration-300">
+                                <i class="fa-brands fa-weibo"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all duration-300">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                            <a href="#" class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center hover:bg-secondary hover:border-secondary transition-all duration-300">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-white/5 p-6 sm:p-8 rounded-xl">
+                        <h3 class="text-xl font-bold mb-6">发送消息</h3>
+                        <form class="space-y-5">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2">姓名</label>
+                                <input type="text" id="name" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="请输入您的姓名">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2">邮箱</label>
+                                <input type="email" id="email" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="请输入您的邮箱">
+                            </div>
+                            
+                            <div>
+                                <label for="subject" class="block text-sm font-medium mb-2">主题</label>
+                                <select id="subject" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-secondary">
+                                    <option value="" disabled selected>请选择留言主题</option>
+                                    <option value="合作研究">合作研究</option>
+                                    <option value="学术交流">学术交流</option>
+                                    <option value="加入团队">加入团队</option>
+                                    <option value="其他事宜">其他事宜</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-sm font-medium mb-2">留言内容</label>
+                                <textarea id="message" rows="4" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-secondary" placeholder="请输入您的留言内容"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-secondary text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-primary transition-all duration-300">
+                                发送消息
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-neutral-700 text-white/70 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fa-solid fa-server text-white text-lg"></i>
+                        </div>
+                        <h3 class="text-white text-lg font-bold">未来互联网重点实验室</h3>
+                    </div>
+                    <p class="text-sm leading-relaxed mb-6">
+                        致力于下一代互联网技术研究与开发的省级重点科研机构。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/70 hover:text-secondary transition-colors">
+                            <i class="fa-brands fa-weixin"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-secondary transition-colors">
+                            <i class="fa-brands fa-weibo"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-secondary transition-colors">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="#" class="text-white/70 hover:text-secondary transition-colors">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6">快速链接</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#home" class="hover:text-secondary transition-colors">首页</a></li>
+                        <li><a href="#about" class="hover:text-secondary transition-colors">关于实验室</a></li>
+                        <li><a href="#research" class="hover:text-secondary transition-colors">研究方向</a></li>
+                        <li><a href="#team" class="hover:text-secondary transition-colors">研究团队</a></li>
+                        <li><a href="#publications" class="hover:text-secondary transition-colors">学术成果</a></li>
+                        <li><a href="#news" class="hover:text-secondary transition-colors">新闻动态</a></li>
+                        <li><a href="#contact" class="hover:text-secondary transition-colors">联系我们</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6">研究方向</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-secondary transition-colors">下一代网络架构</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">人工智能与网络智能</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">物联网与边缘计算</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">网络安全与隐私保护</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">大数据与网络数据分析</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">量子互联网与区块链</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-white text-lg font-bold mb-6">资源链接</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-secondary transition-colors">科研项目</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">开放数据集</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">开源代码</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">学术报告</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">招聘信息</a></li>
+                        <li><a href="#" class="hover:text-secondary transition-colors">合作伙伴</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm mb-4 md:mb-0">© 2024 未来互联网重点实验室. 保留所有权利.</p>
+                <div class="flex space-x-6 text-sm">
+                    <a href="#" class="hover:text-secondary transition-colors">隐私政策</a>
+                    <a href="#" class="hover:text-secondary transition-colors">使用条款</a>
+                    <a href="#" class="hover:text-secondary transition-colors">网站地图</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+    

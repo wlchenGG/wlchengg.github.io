@@ -1,4 +1,663 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Wlcheng's Life</title><link>https://wlcheng.cc/posts/</link><description>所有文章 | Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Thu, 03 Apr 2025 18:39:48 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/posts/" rel="self" type="application/rss+xml"/><item><title>Matlab 2021a 安装与激活</title><link>https://wlcheng.cc/posts/install_matlab/</link><pubDate>Thu, 03 Apr 2025 18:39:48 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/install_matlab/</guid><description><![CDATA[<p>本文记录安装 Matlab 2021a 的安装过程，以及光天化日下的激活方法。</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Wlcheng's Life</title><link>https://wlcheng.cc/posts/</link><description>所有文章 | Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Sun, 08 Jun 2025 11:26:27 +0100</lastBuildDate><atom:link href="https://wlcheng.cc/posts/" rel="self" type="application/rss+xml"/><item><title>Git 常用命令和用法</title><link>https://wlcheng.cc/posts/git_command_list/</link><pubDate>Sun, 08 Jun 2025 11:26:27 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/git_command_list/</guid><description><![CDATA[<p>速查 Git 常用的命令和用法。分为基本（commit、branch、checkout、merge、rabase 等）和远程（clone、push、pull 等）两部分。</p>
+<p>本文基于 <a href="https://chat.openai.com/chat" target="_blank" rel="noopener noreferrer">chatGPT</a> 自动生成初稿（省时省力😁），并参考 <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">learngitbranching</a> 进行调整。</p>
+<h2 id="基本命令" class="headerLink">
+    <a href="#%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4" class="header-mark"></a>基本命令</h2><p><code>git init</code>：创建一个新的 Git 仓库。</p>
+<p><code>git add [file]</code>：将文件添加到 Git 的暂存区。</p>
+<p><code>git commit -m [message]</code>：将暂存区的文件提交到 Git 仓库，并添加一条注释。</p>
+<p><code>git status</code>：查看当前 Git 仓库的状态，包括已修改、已暂存和未跟踪的文件。</p>
+<p><code>git diff</code>：查看未暂存文件和最后一次提交之间的差异。</p>
+<p><code>git diff --staged</code>：查看已暂存文件和最后一次提交之间的差异。</p>
+<p><code>git log</code>：查看 Git 仓库的提交历史。</p>
+<p><code>git reflog</code>：查看命令历史，即分支的所有操作记录。</p>
+<p><code>git tag [name]</code>：给当前的提交打上标签。</p>
+<p><code>git reset</code>：取消暂存或取消上一次提交。</p>
+<p><code>git rm [file]</code>：从 Git 仓库中删除文件。</p>
+<h2 id="分支相关" class="headerLink">
+    <a href="#%e5%88%86%e6%94%af%e7%9b%b8%e5%85%b3" class="header-mark"></a>分支相关</h2><p><code>git branch [name]</code>：创建一个新的分支。</p>
+<p><code>git branch -d[D] [name]</code>：删除[强制删除]一个分支。</p>
+<p><code>git checkout [branch-name]</code>：切换到另一个分支。</p>
+<p><code>git checkout -b [branch-name]</code>：创建同时切换到另一个分支。</p>
+<p><code>git merge [branch]</code>：将指定的分支合并到当前分支。</p>
+<p><code>git rebase [branch]</code>：将当前分支的提交步骤顺接到指定分支。</p>
+<h2 id="远程相关" class="headerLink">
+    <a href="#%e8%bf%9c%e7%a8%8b%e7%9b%b8%e5%85%b3" class="header-mark"></a>远程相关</h2><p><code>git clone [url]</code>：从远程仓库克隆一个副本到本地。</p>
+<p><code>git pull</code>：从远程仓库拉取最新的代码到本地。</p>
+<p><code>git push [origin] [master]</code>：将本地 master 分支推送到远程仓库。</p>
+<p><code>git remote -[v]</code> 查看远程仓库[详细]信息。</p>
+<p><code>git remote add [name] [url]</code>：将远程仓库添加到 Git 仓库。</p>
+<p><code>git fetch</code>：从远程仓库获取最新的代码，但不进行合并。先<code>fetch</code>，再<code>merge</code>就相当于<code>pull</code>。</p>
+<h2 id="其他" class="headerLink">
+    <a href="#%e5%85%b6%e4%bb%96" class="header-mark"></a>其他</h2><p><code>HEAD</code>：指向当前正在处理的提交记录。</p>
+<p><code>C^[number]</code>：表示指向提交记录 <code>C</code> 的第 <code>number</code> 个直接父记录（宽度搜索）。一个记录可能会有多个父记录（执行 <code>merge</code> 时产生）。<code>C^</code> 和 <code>C^1</code> 等价；<code>number</code>大于 1 时表示指向其他父记录。</p>
+<p><code>C~[number]</code>：表示指向提交记录 <code>C</code> 的回溯第 <code>number</code> 代的祖先记录（深度搜索）。</p>
+<h2 id="参考" class="headerLink">
+    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><ul>
+<li>[1] Peter Cottle. learngitbranching. <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">https://learngitbranching.js.org/?locale=zh_CN</a></li>
+<li>[2] GitHub Docs. Git Cheat Sheets. <a href="https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/" target="_blank" rel="noopener noreferrer">https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/</a></li>
+<li>[3] Visual Git Cheat Sheet. <a href="https://ndpsoftware.com/git-cheatsheet.html" target="_blank" rel="noopener noreferrer">https://ndpsoftware.com/git-cheatsheet.html</a></li>
+<li>[4] Blue Stragglers. 一个有趣的 Git 练习网站. <a href="https://zhuanlan.zhihu.com/p/383960650" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/383960650</a></li>
+</ul>
+<h1 id="更多-git-知识和用法" class="headerLink">
+    <a href="#%e6%9b%b4%e5%a4%9a-git-%e7%9f%a5%e8%af%86%e5%92%8c%e7%94%a8%e6%b3%95" class="header-mark"></a>更多 git 知识和用法</h1><h2 id="git-本地仓库文件夹结构" class="headerLink">
+    <a href="#git-%e6%9c%ac%e5%9c%b0%e4%bb%93%e5%ba%93%e6%96%87%e4%bb%b6%e5%a4%b9%e7%bb%93%e6%9e%84" class="header-mark"></a>git 本地仓库文件夹结构</h2><p>在 git repo 文件夹下，命令行执行 <code>git init</code> 初始化后，会生成一个 .git 文件夹，里面包含以下内容：</p>
+<ul>
+<li>.git/HEAD：指向当前分支</li>
+<li>.git/config：配置文件</li>
+<li>.git/description：描述文件</li>
+<li>.git/index：索引文件</li>
+<li>.git/hooks/：钩子脚本</li>
+<li>.git/info/：包含全局忽略文件</li>
+<li>.git/objects/：存储对象（commit、tree、blob）</li>
+<li>.git/refs/：存储引用（branch、tag）</li>
+<li>.git/logs/：存储提交日志</li>
+</ul>
+<p>一般来说，<code>.git</code> 文件夹自动隐藏了，Power Shell 可以通过 <code>ls -Hidden</code> 命令查看。</p>
+<h2 id="git-中的一些概念" class="headerLink">
+    <a href="#git-%e4%b8%ad%e7%9a%84%e4%b8%80%e4%ba%9b%e6%a6%82%e5%bf%b5" class="header-mark"></a>git 中的一些概念</h2><h3 id="对象名词" class="headerLink">
+    <a href="#%e5%af%b9%e8%b1%a1%e5%90%8d%e8%af%8d" class="header-mark"></a>对象（名词）</h3><ul>
+<li><code>commit</code>：提交，每次提交都会生成一个 commit id，commit id 是一个 40 位的哈希值，用来唯一标识一个 commit。</li>
+<li><code>tree</code>：树，每个 commit 都有一个 tree，用来存储该 commit 修改的文件和目录结构。</li>
+<li><code>blob</code>：块，每个文件都会被存储为一个 blob，用来存储文件的内容。</li>
+<li><code>branch</code>：分支，每个分支都有一个指向最新的 commit 的指针。</li>
+<li><code>tag</code>：标签，用来标记某个 commit，通常用来标记 release 版本。</li>
+<li><code>HEAD</code>：当前分支的指针，指向当前分支的最新 commit。</li>
+<li><code>index</code>：索引，用来存储暂存区的文件。</li>
+<li><code>remote</code>：远程仓库，用来存储远程的 git 仓库。</li>
+</ul>
+<h3 id="origin-远程仓库别名" class="headerLink">
+    <a href="#origin-%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e5%88%ab%e5%90%8d" class="header-mark"></a><code>origin</code> 远程仓库别名</h3><ul>
+<li><code>origin</code>：远程仓库的别名，通常用来表示远程仓库。可以把它看作是远程仓库的“默认地址”。
+在 Git 中，<code>origin</code> 是一个默认的远程仓库名称，它通常指向你克隆时指定的远程仓库。简单来说，<code>origin</code> 代表远程仓库的默认别名。你可以把它看作是远程仓库的“默认地址”。</li>
+</ul>
+<ol>
+<li>
+<p><strong>默认远程仓库名称</strong>：</p>
+<ul>
+<li>当你克隆一个仓库时，Git 会自动把源仓库的 URL 赋给一个默认的远程名称 <code>origin</code>。</li>
+<li>例如，执行 <code>git clone https://github.com/user/repo.git</code> 后，<code>origin</code> 就会指向该 URL。</li>
+</ul>
+</li>
+<li>
+<p><strong>查看远程仓库地址</strong>：</p>
+<ul>
+<li>
+<p>你可以通过以下命令查看 <code>origin</code>（以及其他远程仓库）的 URL：</p>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled
+      aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">bash</p>
+    </div>
+    <div class="tw-flex">
+      <button 
+        class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle line numbers"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M61.77 401l17.5-20.15a19.92 19.92 0 0 0 5.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h22.83a157.41 157.41 0 0 0-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33 0 15.94 2.44 15.94 9.09 0 4.72-4.2 8.22-14.36 8.22a41.54 41.54 0 0 1-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16 0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM16 160h64a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H64V40a8 8 0 0 0-8-8H32a8 8 0 0 0-7.14 4.42l-8 16A8 8 0 0 0 24 64h8v64H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8zm-3.91 160H80a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44 0-29.06-25-39.56-44.47-39.56-21.36 0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44 0 0 1 9.46-3.84c3.33 0 9.28 1.56 9.28 8.75C51 248.19 0 257.31 0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
+
+      <button 
+        class="
+          wrap-code-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle code wrap"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
+      
+      <button 
+        class="
+          copy-code-button
+          tw-select-none
+          tw-mx-2 
+          tw-hidden
+          group-[.is-open]:tw-block
+          hover:tw-text-fgColor-link 
+          print:!tw-hidden"
+        title="Copy code">
+          <span class="copy-icon tw-block"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg></span>
+          <span class="check-icon tw-hidden"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
+      </button>
+        
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled
+        aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-id-1" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto
+      tw-scrollbar-thin
+      "><span class="line"><span class="cl">git remote -v</span></span></code></pre>
+</div>
+<p>输出示例：</p>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled
+      aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">bash</p>
+    </div>
+    <div class="tw-flex">
+      <button 
+        class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle line numbers"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M61.77 401l17.5-20.15a19.92 19.92 0 0 0 5.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h22.83a157.41 157.41 0 0 0-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33 0 15.94 2.44 15.94 9.09 0 4.72-4.2 8.22-14.36 8.22a41.54 41.54 0 0 1-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16 0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM16 160h64a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H64V40a8 8 0 0 0-8-8H32a8 8 0 0 0-7.14 4.42l-8 16A8 8 0 0 0 24 64h8v64H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8zm-3.91 160H80a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44 0-29.06-25-39.56-44.47-39.56-21.36 0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44 0 0 1 9.46-3.84c3.33 0 9.28 1.56 9.28 8.75C51 248.19 0 257.31 0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
+
+      <button 
+        class="
+          wrap-code-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle code wrap"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
+      
+      <button 
+        class="
+          copy-code-button
+          tw-select-none
+          tw-mx-2 
+          tw-hidden
+          group-[.is-open]:tw-block
+          hover:tw-text-fgColor-link 
+          print:!tw-hidden"
+        title="Copy code">
+          <span class="copy-icon tw-block"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg></span>
+          <span class="check-icon tw-hidden"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
+      </button>
+        
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled
+        aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-id-2" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto
+      tw-scrollbar-thin
+      "><span class="line"><span class="cl">origin  https://github.com/user/repo.git <span class="o">(</span>fetch<span class="o">)</span>
+</span></span><span class="line"><span class="cl">origin  https://github.com/user/repo.git <span class="o">(</span>push<span class="o">)</span></span></span></code></pre>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>常见的 <code>origin</code> 用法</strong>：</p>
+<ul>
+<li><code>git fetch origin</code>：从 <code>origin</code> 获取远程更新。</li>
+<li><code>git push origin &lt;branch-name&gt;</code>：将本地的某个分支推送到 <code>origin</code> 上。</li>
+<li><code>git pull origin &lt;branch-name&gt;</code>：从 <code>origin</code> 拉取并合并远程分支到当前分支。</li>
+</ul>
+</li>
+<li>
+<p><strong>修改远程仓库名称</strong>：</p>
+<ul>
+<li>
+<p>如果你想给远程仓库指定不同的名称（除了 <code>origin</code>），可以使用 <code>git remote rename</code> 命令：</p>
+<div class="code-block highlight is-open show-line-numbers  tw-group tw-my-2">
+  <div class="
+    code-block-title 
+    
+    tw-flex 
+    tw-flex-row 
+    tw-justify-between 
+    tw-w-full tw-bg-bgColor-secondary
+    ">      
+    <button 
+      class="
+        tw-select-none 
+        tw-mx-2 
+        tw-block
+        group-[.is-open]:tw-rotate-90
+        tw-transition-[transform] 
+        tw-duration-500 
+        tw-ease-in-out
+        print:!tw-hidden"
+      disabled
+      aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z"/></svg></button>
+
+    <div class="code-block-title-bar tw-w-full">
+      <p class="tw-select-none !tw-my-1">bash</p>
+    </div>
+    <div class="tw-flex">
+      <button 
+        class="
+          line-number-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.show-line-numbers]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle line numbers"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M61.77 401l17.5-20.15a19.92 19.92 0 0 0 5.07-14.19v-3.31C84.34 356 80.5 352 73 352H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8h22.83a157.41 157.41 0 0 0-11 12.31l-5.61 7c-4 5.07-5.25 10.13-2.8 14.88l1.05 1.93c3 5.76 6.29 7.88 12.25 7.88h4.73c10.33 0 15.94 2.44 15.94 9.09 0 4.72-4.2 8.22-14.36 8.22a41.54 41.54 0 0 1-15.47-3.12c-6.49-3.88-11.74-3.5-15.6 3.12l-5.59 9.31c-3.72 6.13-3.19 11.72 2.63 15.94 7.71 4.69 20.38 9.44 37 9.44 34.16 0 48.5-22.75 48.5-44.12-.03-14.38-9.12-29.76-28.73-34.88zM496 224H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm0-160H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16V80a16 16 0 0 0-16-16zm0 320H176a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h320a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM16 160h64a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H64V40a8 8 0 0 0-8-8H32a8 8 0 0 0-7.14 4.42l-8 16A8 8 0 0 0 24 64h8v64H16a8 8 0 0 0-8 8v16a8 8 0 0 0 8 8zm-3.91 160H80a8 8 0 0 0 8-8v-16a8 8 0 0 0-8-8H41.32c3.29-10.29 48.34-18.68 48.34-56.44 0-29.06-25-39.56-44.47-39.56-21.36 0-33.8 10-40.46 18.75-4.37 5.59-3 10.84 2.8 15.37l8.58 6.88c5.61 4.56 11 2.47 16.12-2.44a13.44 13.44 0 0 1 9.46-3.84c3.33 0 9.28 1.56 9.28 8.75C51 248.19 0 257.31 0 304.59v4C0 316 5.08 320 12.09 320z"/></svg></button>
+
+      <button 
+        class="
+          wrap-code-button
+          tw-select-none 
+          tw-mx-2 
+          tw-hidden 
+          group-[.is-open]:tw-block 
+          group-[.is-wrap]:tw-text-fgColor-link 
+          print:!tw-hidden" 
+        title="Toggle code wrap"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"/></svg></button>
+      
+      <button 
+        class="
+          copy-code-button
+          tw-select-none
+          tw-mx-2 
+          tw-hidden
+          group-[.is-open]:tw-block
+          hover:tw-text-fgColor-link 
+          print:!tw-hidden"
+        title="Copy code">
+          <span class="copy-icon tw-block"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"/></svg></span>
+          <span class="check-icon tw-hidden"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg></span>
+      </button>
+        
+      <button 
+        class="
+          tw-select-none 
+          tw-mx-2 
+          tw-block 
+          group-[.is-open]:tw-hidden 
+          print:!tw-hidden" 
+        disabled
+        aria-hidden="true"><svg class="icon"
+    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M328 256c0 39.8-32.2 72-72 72s-72-32.2-72-72 32.2-72 72-72 72 32.2 72 72zm104-72c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72zm-352 0c-39.8 0-72 32.2-72 72s32.2 72 72 72 72-32.2 72-72-32.2-72-72-72z"/></svg></button>
+    </div>
+  </div>
+  <pre style="counter-reset: codeblock;" class="tw-block tw-m-0 tw-p-0"><code 
+    id="codeblock-id-3" 
+    class="
+      chroma 
+      !tw-block 
+      tw-p-0
+      tw-m-0
+      tw-transition-[max-height] 
+      tw-duration-500 
+      tw-ease-in-out 
+      group-[.is-closed]:!tw-max-h-0 
+      group-[.is-wrap]:tw-text-wrap
+      tw-overflow-y-hidden
+      tw-overflow-x-auto
+      tw-scrollbar-thin
+      "><span class="line"><span class="cl">git remote rename origin new-remote-name</span></span></code></pre>
+</div>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>origin</code> 只是一个名字</strong>：</p>
+<ul>
+<li><code>origin</code> 只是一个约定俗成的名称，你完全可以把它改为其他名字。如果你与多个远程仓库交互，可以给每个远程仓库取不同的名字，例如 <code>upstream</code> 或 <code>myfork</code>，这样有助于区分不同的远程仓库。</li>
+</ul>
+</li>
+</ol>
+<p>总之，<code>origin</code> 是 Git 中的一个默认远程仓库别名，用于简化与远程仓库的交互。</p>
+<h3 id="操作动词" class="headerLink">
+    <a href="#%e6%93%8d%e4%bd%9c%e5%8a%a8%e8%af%8d" class="header-mark"></a>操作（动词）</h3><ul>
+<li><code>push</code>：推送，将本地的 commit 推送到远程仓库。</li>
+<li><code>pull</code>：拉取，从远程仓库拉取最新的 commit。</li>
+<li><code>merge</code>：合并，将两个分支的 commit 合并成一个 commit。</li>
+<li><code>rebase</code>：变基，将一个分支的 commit 变基到另一个分支上。</li>
+<li><code>reset</code>：重置，将暂存区和工作区重置到指定的 commit。</li>
+<li><code>checkout</code>：检出，将工作区切换到指定的 commit。</li>
+</ul>
+<h2 id="git-基本命令" class="headerLink">
+    <a href="#git-%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4" class="header-mark"></a>git 基本命令</h2><ul>
+<li>
+<p><code>git init</code>：初始化 git 仓库</p>
+</li>
+<li>
+<p><code>git add &lt;file&gt;...</code>：添加文件到暂存区</p>
+</li>
+<li>
+<p><code>git add .</code> 或 <code>git add -A</code>：添加所有文件到暂存区</p>
+</li>
+<li>
+<p><code>git status</code>：查看当前 git 状态</p>
+</li>
+</ul>
+<hr>
+<ul>
+<li><code>git diff</code>：查看暂存区与工作区的差异</li>
+<li><code>git diff --cached</code>：查看暂存区与本地仓库的差异</li>
+<li><code>git diff HEAD</code>：查看工作区与本地仓库的差异</li>
+<li><code>git diff &lt;commit&gt;</code>：查看工作区与指定 commit 的差异</li>
+<li><code>git diff &lt;commit&gt; &lt;commit&gt;</code>：查看两个 commit 之间的差异</li>
+<li><code>git diff &lt;branch&gt;</code>：查看工作区与指定 branch 的差异</li>
+<li><code>git diff &lt;branch&gt; &lt;branch&gt;</code>：查看两个 branch 之间的差异</li>
+<li><code>git diff &lt;commit&gt; &lt;branch&gt;</code>：查看 commit 与 branch 之间的差异</li>
+<li><code>git diff &lt;commit&gt; &lt;commit&gt; &lt;branch&gt;</code>：查看两个 commit 与 branch 之间的差异</li>
+<li><code>git diff &lt;commit&gt; &lt;commit&gt; &lt;commit&gt;</code>：查看三个 commit 之间的差异</li>
+</ul>
+<hr>
+<ul>
+<li><code>git rm &lt;file&gt;</code>：删除文件</li>
+<li><code>git mv &lt;file&gt; &lt;file&gt;</code>：移动文件</li>
+<li><code>git rm --cached &lt;file&gt;</code>：删除暂存区的文件</li>
+<li><code>git mv --cached &lt;file&gt; &lt;file&gt;</code>：移动暂存区的文件</li>
+</ul>
+<hr>
+<ul>
+<li><code>git reset</code>：重置暂存区</li>
+<li><code>git reset --hard</code>：重置暂存区和工作区</li>
+<li><code>git reset --soft</code>：重置暂存区，保留工作区</li>
+<li><code>git reset --mixed</code>：重置暂存区和工作区，保留 commit</li>
+<li><code>git reset --hard &lt;commit&gt;</code>：重置暂存区和工作区到指定 commit</li>
+<li><code>git reset --soft &lt;commit&gt;</code>：重置暂存区到指定 commit，保留工作区</li>
+<li><code>git reset --mixed &lt;commit&gt;</code>：重置暂存区和工作区到指定 commit，保留 commit</li>
+<li><code>git reset --hard HEAD~1</code>：重置暂存区和工作区到上一个 commit</li>
+<li><code>git reset --hard HEAD^^</code>：重置暂存区和工作区到上两个 commit</li>
+<li><code>git reset --hard HEAD~n</code>：重置暂存区和工作区到上 n 个 commit</li>
+<li>撤销提交后恢复（<code>git reset</code>、<code>git commit --amend</code>、<code>git revert</code>等方式撤销/修改了原来的提交）</li>
+<li>
+<ol>
+<li><code>git log</code>：查看提交日志，找到需要恢复的 commit id</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li><code>git reset --hard &lt;commit_id&gt;</code>：重置暂存区和工作区到指定 commit</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li><code>git reflog</code>：查看引用日志，找到需要恢复的 commit id。Git 的 reflog 记录了仓库中 HEAD 和分支头的变动历史。即使提交被撤销，它们仍然被记录在 reflog 中，只要它们还在 Git 的数据库中。</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li><code>git reset --hard &lt;commit_id&gt;</code>：重置暂存区和工作区到指定 commit</li>
+</ol>
+</li>
+</ul>
+<hr>
+<ul>
+<li><code>git commit -m &quot;commit message&quot;</code>：提交暂存区的文件到本地仓库</li>
+<li><code>git commit</code>：提交暂存区的文件到本地仓库</li>
+<li><code>git commit --amend</code>：修改最近一次提交的 commit message</li>
+</ul>
+<hr>
+<ul>
+<li><code>git log</code>：查看提交日志，展示每次提交的 commit id、commit message、commit author、commit date</li>
+<li><code>git log --oneline</code>：查看提交日志（简洁），展示每次提交的 commit id 和 commit message</li>
+<li><code>git log --graph</code>：查看提交日志（图形化），展示提交树</li>
+<li><code>git log --stat</code>：查看提交日志（统计），展示每次提交的修改文件和修改数</li>
+<li><code>git log --pretty=format:&quot;%h - %an, %ar : %s&quot;</code>：查看提交日志（自定义格式），展示每次提交的 commit id、commit author、commit date 和 commit message</li>
+<li><code>git log --pretty=format:&quot;%h - %an, %ar : %s&quot; --graph</code>：查看提交日志（自定义格式+图形化），展示每次提交的 commit id、commit author、commit date 和 commit message</li>
+<li><code>git log &lt;branch&gt;</code>：查看指定分支的提交日志</li>
+</ul>
+<hr>
+<ul>
+<li><code>git tag</code>：查看所有标签</li>
+<li><code>git show &lt;tagname&gt;</code>：查看标签信息</li>
+<li><code>git tag &lt;tagname&gt;</code>：创建轻量标签</li>
+<li><code>git tag &lt;tagname&gt; &lt;commit_hash&gt;</code>：为指定 commit 创建标签</li>
+<li><code>git tag -a &lt;tagname&gt; -m &quot;tag message&quot;</code>：创建带有描述的标签</li>
+<li><code>git tag -d &lt;tagname&gt;</code>：删除本地标签</li>
+<li><code>git push origin &lt;tagname&gt;</code>：推送标签到远程仓库。标签默认旨在本地仓库存在。</li>
+<li><code>git push origin --tags</code>：推送所有标签到远程仓库</li>
+<li>删除远程标签步骤</li>
+<li>
+<ol>
+<li>删除本地标签：<code>git tag -d &lt;tagname&gt;</code></li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>删除远程标签：<code>git push origin --delete tag &lt;tag_name&gt;</code></li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>验证是否删除：<code>git ls-remote --tags origin</code></li>
+</ol>
+</li>
+</ul>
+<hr>
+<ul>
+<li><code>git merge &lt;branch&gt;</code>：合并指定 branch 到当前 branch</li>
+<li><code>git merge --no-ff &lt;branch&gt;</code>：合并指定 branch 到当前 branch，不使用 fast-forward</li>
+<li><code>git merge --squash &lt;branch&gt;</code>：合并指定 branch 到当前 branch，将所有 commit 合并为一个 commit</li>
+<li><code>git merge --no-commit &lt;branch&gt;</code>：合并指定 branch 到当前 branch，不自动提交</li>
+<li><code>git merge --abort</code>：取消合并，回到合并前的状态</li>
+<li><code>git merge --continue</code>：继续合并，解决冲突后继续合并，解决冲突后需要手动提交</li>
+<li><code>git merge --ff-only &lt;branch&gt;</code>：合并指定 branch 到当前 branch，只使用 fast-forward</li>
+<li><code>git merge --no-ff --no-commit &lt;branch&gt;</code>：合并指定 branch 到当前 branch，不使用 fast-forward，不自动提交</li>
+<li><code>git merge --no-ff --squash &lt;branch&gt;</code>：合并指定 branch 到当前 branch，不使用 fast-forward，将所有 commit 合并为一个 commit</li>
+<li><code>git merge --no-ff --no-commit --squash &lt;branch&gt;</code>：合并指定 branch 到当前 branch，不使用 fast-forward，不自动提交，将所有 commit 合并为一个 commit</li>
+</ul>
+<hr>
+<ul>
+<li><code>git rebase &lt;branch&gt;</code>：将当前 branch 的提交应用到指定 branch 上，保留指定 branch 的提交</li>
+<li><code>git rebase --onto &lt;branch&gt; &lt;branch&gt;</code>：将当前 branch 的提交应用到指定 branch 上，忽略指定 branch 的提交</li>
+<li><code>git rebase --interactive &lt;branch&gt;</code>：交互式 rebase，可以修改、删除、合并提交</li>
+</ul>
+<hr>
+<ul>
+<li><code>git branch</code>：查看当前分支</li>
+<li><code>git branch &lt;branch&gt;</code>：创建分支</li>
+<li><code>git branch -d &lt;branch&gt;</code>：删除分支</li>
+<li><code>git branch -D &lt;branch&gt;</code>：强制删除分支</li>
+<li><code>git branch -m &lt;branch&gt;</code>：重命名分支</li>
+<li><code>git branch -M &lt;branch&gt;</code>：强制重命名分支</li>
+<li><code>git branch -r</code>：查看远程分支</li>
+<li><code>git branch -a</code>：查看所有分支</li>
+<li><code>git branch -vv</code>：查看本地分支与远程分支的关联</li>
+<li><code>git branch -u &lt;remote&gt;/&lt;branch&gt;</code>：设置本地分支与远程分支的关联</li>
+<li><code>git branch -d -r &lt;remote&gt;/&lt;branch&gt;</code>：删除远程分支</li>
+<li><code>git branch -D -r &lt;remote&gt;/&lt;branch&gt;</code>：强制删除远程分支
+重命名远程分支</li>
+<li><code>git branch -m &lt;old-branch&gt; &lt;new-branch&gt;</code>：重命名本地分支</li>
+<li><code>git branch -M &lt;old-branch&gt; &lt;new-branch&gt;</code>：强制重命名本地分支</li>
+</ul>
+<hr>
+<ul>
+<li><code>git checkout &lt;branch&gt;</code>：切换分支</li>
+<li><code>git checkout -b &lt;branch&gt;</code>：创建并切换分支</li>
+<li><code>git checkout -B &lt;branch&gt;</code>：强制创建并切换分支</li>
+<li><code>git checkout &lt;commit&gt;</code>：切换到指定 commit，即将 HEAD 指向这个commit。会提示 <code>detached HEAD</code> 警告，因为此时 HEAD 不再指向任何分支，而是指向一个具体的 commit。此时<strong>可以进行任意修改，但不会影响其他分支</strong>。如果需要创建一个新的分支来保存这些修改，可以使用 <code>git switch -c &lt;new-branch-name&gt;</code> 命令。</li>
+<li><code>git checkout &lt;file&gt;</code>：恢复工作区文件到指定 commit</li>
+<li><code>git checkout -- &lt;file&gt;</code>：恢复指定工作区文件到暂存区。用来放弃掉所有还没有加入到缓存区（就是 git add 命令）的修改，但是此命令不会删除掉刚新建的文件。因为刚新建的文件还没已有加入到 git 的管理系统中。所以对于git是未知的。手动删除即可。</li>
+<li><code>git checkout -- .</code>：恢复工作区所有文件到暂存区。</li>
+<li><code>git checkout -p &lt;branch&gt;</code>：比较当前分支与指定分支的差异</li>
+<li><code>git checkout -p &lt;commit&gt;</code>：比较当前分支与指定 commit 的差异</li>
+<li><code>git checkout -p &lt;file&gt;</code>：比较当前分支与指定文件的差异</li>
+</ul>
+<hr>
+<ul>
+<li><code>git switch &lt;branch&gt;</code>：切换分支</li>
+<li><code>git switch -c &lt;branch&gt;</code>：创建并切换分支</li>
+<li><code>git switch -C &lt;branch&gt;</code>：强制创建并切换分支</li>
+<li><code>git switch --detach &lt;branch&gt;</code>：切换到指定分支，并将 HEAD 指向这个分支</li>
+<li><code>git switch --create &lt;branch&gt;</code>：创建并切换分支</li>
+</ul>
+<h3 id="远程仓库操作" class="headerLink">
+    <a href="#%e8%bf%9c%e7%a8%8b%e4%bb%93%e5%ba%93%e6%93%8d%e4%bd%9c" class="header-mark"></a>远程仓库操作</h3><ul>
+<li><code>git clone &lt;repository&gt;</code>：克隆远程仓库</li>
+<li><code>git clone &lt;repository&gt; &lt;directory&gt;</code>：克隆远程仓库到指定目录</li>
+<li><code>git clone --depth &lt;depth&gt; &lt;repository&gt;</code>：克隆远程仓库，只克隆最近 depth 个 commit</li>
+<li><code>git clone --branch &lt;branch&gt; &lt;repository&gt;</code>：克隆远程仓库的指定分支</li>
+<li><code>git clone --single-branch &lt;repository&gt;</code>：克隆远程仓库的单个分支</li>
+<li><code>git clone --mirror &lt;repository&gt;</code>：克隆远程仓库的镜像</li>
+<li><code>git clone --bare &lt;repository&gt;</code>：克隆远程仓库的裸仓库</li>
+<li><code>git clone --depth &lt;depth&gt; --branch &lt;branch&gt; &lt;repository&gt;</code>：克隆远程仓库的指定分支，只克隆最近 depth 个 commit</li>
+<li><code>git clone --depth &lt;depth&gt; --single-branch &lt;repository&gt;</code>：克隆远程仓库的单个分支，只克隆最近 depth 个 commit</li>
+<li><code>git clone --depth &lt;depth&gt; --mirror &lt;repository&gt;</code>：克隆远程仓库的镜像，只克隆最近 depth 个 commit</li>
+<li><code>git clone --depth &lt;depth&gt; --bare &lt;repository&gt;</code>：克隆远程仓库的裸仓库，只克隆最近 depth 个 commit</li>
+</ul>
+<hr>
+<ul>
+<li>
+<p><code>git remote -v</code>：查看远程仓库</p>
+</li>
+<li>
+<p><code>git remote add &lt;name&gt; &lt;url&gt;</code>：添加远程仓库</p>
+</li>
+<li>
+<p><code>git remote remove &lt;name&gt;</code>：删除远程仓库</p>
+</li>
+<li>
+<p><code>git remote rename &lt;old-name&gt; &lt;new-name&gt;</code>：重命名远程仓库</p>
+</li>
+<li>
+<p><code>git remote set-url &lt;name&gt; &lt;url&gt;</code>：设置远程仓库的 URL</p>
+</li>
+<li>
+<p><code>git remote set-url --add &lt;name&gt; &lt;url&gt;</code>：添加远程仓库的 URL</p>
+</li>
+<li>
+<p><code>git remote set-url --delete &lt;name&gt; &lt;url&gt;</code>：删除远程仓库的 URL</p>
+</li>
+<li>
+<p><code>git remote update &lt;name&gt;</code>：更新远程仓库</p>
+</li>
+<li>
+<p><code>git remote prune &lt;name&gt;</code>：删除远程仓库中已经不存在的分支</p>
+</li>
+<li>
+<p><code>git remote show &lt;name&gt;</code>：查看远程仓库的信息</p>
+</li>
+<li>
+<p><code>git remote set-head &lt;name&gt; &lt;branch&gt;</code>：设置远程仓库的默认分支</p>
+</li>
+<li>
+<p><code>git remote set-branches &lt;name&gt; &lt;branch&gt;</code>：设置远程仓库的分支</p>
+</li>
+<li>
+<p><code>git fetch &lt;name&gt;</code>：获取远程仓库的所有分支</p>
+</li>
+<li>
+<p><code>git fetch &lt;name&gt; &lt;branch&gt;</code>：获取远程仓库的指定分支</p>
+</li>
+<li>
+<p><code>git push &lt;name&gt; &lt;branch&gt;</code>：将当前分支推送到远程仓库的指定分支</p>
+</li>
+<li>
+<p><code>git push &lt;name&gt; &lt;branch&gt;:&lt;branch&gt;</code>：将当前分支推送到远程仓库的指定分支，并重命名远程分支</p>
+</li>
+<li>
+<p><code>git push -u &lt;name&gt; &lt;branch&gt;</code>：将当前分支推送到远程仓库的指定分支，并设置远程仓库的默认分支</p>
+</li>
+<li>
+<p><code>git push origin --delete &lt;branch&gt;</code>：删除远程仓库的指定分支</p>
+</li>
+<li>
+<p><code>git push --set-upstream origin &lt;branch&gt;</code>：设置远程仓库的默认分支</p>
+</li>
+<li>
+<p><code>git pull &lt;name&gt; &lt;branch&gt;</code>：获取远程仓库的指定分支，并合并到当前分支</p>
+</li>
+<li>
+<p><code>git pull --set-upstream origin &lt;branch&gt;</code>：获取远程仓库的指定分支，并设置远程仓库的默认分支</p>
+</li>
+</ul>]]></description></item><item><title>Matlab 2021a 安装与激活</title><link>https://wlcheng.cc/posts/install_matlab/</link><pubDate>Thu, 03 Apr 2025 18:39:48 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/install_matlab/</guid><description><![CDATA[<p>本文记录安装 Matlab 2021a 的安装过程，以及光天化日下的激活方法。</p>
 <div class="details admonition information open">
     <div class="details-summary admonition-title">
         <span class="icon"><svg class="icon"
@@ -102,6 +761,14 @@
 </ul>
 <hr>
 <ul>
+<li><a href="https://follow.is/" target="_blank" rel="noopener noreferrer">Folo</a>，类 RSS 信息聚合，开源，AI 总结</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.trae.ai/" target="_blank" rel="noopener noreferrer">Trae</a>，AI 编程 IDE</li>
+</ul>
+<hr>
+<ul>
 <li><a href="___" rel="">MicroSoft Office 套件</a>：用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装，用 <a href="https://github.com/zbezj/HEU_KMS_Activator/releases" target="_blank" rel="noopener noreferrer">HEU_KMS_Activator</a> 激活</li>
 <li><a href="http://www.ffcell.com/" target="_blank" rel="noopener noreferrer">方方格子</a>，Excel 插件</li>
 <li><a href="https://www.texstudio.org/" target="_blank" rel="noopener noreferrer">TexStudio</a>，LaTeX 集成编辑器</li>
@@ -124,8 +791,10 @@
 <hr>
 <ul>
 <li><a href="https://www.aliyundrive.com/" target="_blank" rel="noopener noreferrer">阿里云盘</a>，云盘</li>
-<li><a href="https://www.jianguoyun.com/" target="_blank" rel="noopener noreferrer">坚果云</a>，文件同步工具</li>
+<li><a href="https://www.jianguoyun.com/" target="_blank" rel="noopener noreferrer">坚果云</a>，文件同步，版本管理</li>
 <li><a href="https://github.com/canton7/SyncTrayzor" target="_blank" rel="noopener noreferrer">SyncTrayzor</a>，基于 Syncthing 的开源文件同步工具</li>
+<li><a href="https://www.todesk.com/" target="_blank" rel="noopener noreferrer">ToDesk</a>，远程桌面控制</li>
+<li><a href="https://rustdesk.com/" target="_blank" rel="noopener noreferrer">RustDesk</a>，开源远程桌面控制</li>
 </ul>
 <hr>
 <ul>
@@ -156,13 +825,13 @@
 </ul>
 </li>
 <li><a href="https://potplayer.daum.net/" target="_blank" rel="noopener noreferrer">PotPlayer</a>, 视频播放器</li>
-<li><a href="https://github.com/Alxndr/whc" target="_blank" rel="noopener noreferrer">WallHaven 客户端</a>，壁纸下载工具</li>
+<li><a href="https://github.com/Alxndr/whc" target="_blank" rel="noopener noreferrer">WallHaven 客户端</a>，壁纸工具，来自网站 <a href="https://wallhaven.cc/" target="_blank" rel="noopener noreferrer">WallHaven</a></li>
 <li><a href="https://apps.microsoft.com/detail/9NBLGGH516XP?hl=zh-cn&amp;gl=CN&amp;ocid=pdpshare" target="_blank" rel="noopener noreferrer">EarTrumpet</a>，软件独立音量控制</li>
 <li><a href="https://apps.microsoft.com/detail/9PLJWWSV01LK?hl=neutral&amp;gl=CN&amp;ocid=pdpshare" target="_blank" rel="noopener noreferrer">Twinkle Tray</a>，显示器亮度调节</li>
 </ul>
 <hr>
-<h4 id="其他软件" class="headerLink">
-    <a href="#%e5%85%b6%e4%bb%96%e8%bd%af%e4%bb%b6" class="header-mark"></a>其他软件</h4><ul>
+<h4 id="其他" class="headerLink">
+    <a href="#%e5%85%b6%e4%bb%96" class="header-mark"></a>其他</h4><ul>
 <li><a href="https://getquicker.net/" target="_blank" rel="noopener noreferrer">Quicker</a>，指尖工具箱，快捷操作工具</li>
 <li><a href="https://www.listary.com/" target="_blank" rel="noopener noreferrer">Listary</a>，快捷文件搜索、路径定位</li>
 <li><a href="https://www.q-dir.com/" target="_blank" rel="noopener noreferrer">Q-Dir</a>，多窗口文件管理器</li>
@@ -181,6 +850,14 @@
 <li><a href="https://www.antp.be/software/renamer" target="_blank" rel="noopener noreferrer">Ant Renamer</a>，文件批量重命名工具</li>
 <li><a href="https://lockhunter.com/" target="_blank" rel="noopener noreferrer">LockHunter</a>，文件锁定解除工具</li>
 <li>&hellip;&hellip;</li>
+</ul>
+<h4 id="字体" class="headerLink">
+    <a href="#%e5%ad%97%e4%bd%93" class="header-mark"></a>字体</h4><ul>
+<li><a href="https://github.com/lxgw/LxgwWenKai" target="_blank" rel="noopener noreferrer">霞鹜文楷</a>，开源字体</li>
+<li><a href="https://github.com/lxgw/LxgwZhenKai" target="_blank" rel="noopener noreferrer">霞鹜臻楷</a>，开源字体，霞鹜文楷的加粗衍生，未和文楷同步更新</li>
+<li><a href="https://wordshub.github.io/free-font/font.html?JiangXiZhuoKai_Regular" target="_blank" rel="noopener noreferrer">江西拙楷</a>，免费字体</li>
+<li><a href="https://github.com/laomao314/SourceHanSansSC-Nerd" target="_blank" rel="noopener noreferrer">更纱黑体</a>，开源字体</li>
+<li></li>
 </ul>
 <h3 id="配置清单" class="headerLink">
     <a href="#%e9%85%8d%e7%bd%ae%e6%b8%85%e5%8d%95" class="header-mark"></a>配置清单</h3><h4 id="vscode-插件备份" class="headerLink">
@@ -235,47 +912,9 @@
 </li>
 </ul>
 <h4 id="ms-edge-浏览器扩展清单" class="headerLink">
-    <a href="#ms-edge-%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a9%e5%b1%95%e6%b8%85%e5%8d%95" class="header-mark"></a>MS Edge 浏览器扩展清单</h4><div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20240618102738.png" alt="20240618102738" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">MS Edge 浏览器扩展</div></div>
+    <a href="#ms-edge-%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a9%e5%b1%95%e6%b8%85%e5%8d%95" class="header-mark"></a>MS Edge 浏览器扩展清单</h4><div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20240618102738.png" alt="20240618102738" width="55%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">MS Edge 浏览器扩展</div></div>
 <h4 id="网站书签" class="headerLink">
-    <a href="#%e7%bd%91%e7%ab%99%e4%b9%a6%e7%ad%be" class="header-mark"></a>网站书签</h4><p><a href="/bookmarks/favorites_2024_10_31.html" rel="">MS Edge 备份书签 2024.10.31</a></p>]]></description></item><item><title>Git 常用命令和用法</title><link>https://wlcheng.cc/posts/git_command_list/</link><pubDate>Wed, 08 Mar 2023 11:26:27 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/git_command_list/</guid><description><![CDATA[<p>速查 Git 常用的命令和用法。分为基本（commit、branch、checkout、merge、rabase 等）和远程（clone、push、pull 等）两部分。</p>
-<p>本文基于 <a href="https://chat.openai.com/chat" target="_blank" rel="noopener noreferrer">chatGPT</a> 自动生成初稿（省时省力😁），并参考 <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">learngitbranching</a> 进行调整。</p>
-<h2 id="基本命令" class="headerLink">
-    <a href="#%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4" class="header-mark"></a>基本命令</h2><p><code>git init</code>：创建一个新的 Git 仓库。</p>
-<p><code>git add [file]</code>：将文件添加到 Git 的暂存区。</p>
-<p><code>git commit -m [message]</code>：将暂存区的文件提交到 Git 仓库，并添加一条注释。</p>
-<p><code>git status</code>：查看当前 Git 仓库的状态，包括已修改、已暂存和未跟踪的文件。</p>
-<p><code>git diff</code>：查看未暂存文件和最后一次提交之间的差异。</p>
-<p><code>git diff --staged</code>：查看已暂存文件和最后一次提交之间的差异。</p>
-<p><code>git log</code>：查看 Git 仓库的提交历史。</p>
-<p><code>git reflog</code>：查看命令历史，即分支的所有操作记录。</p>
-<p><code>git tag [name]</code>：给当前的提交打上标签。</p>
-<p><code>git reset</code>：取消暂存或取消上一次提交。</p>
-<p><code>git rm [file]</code>：从 Git 仓库中删除文件。</p>
-<h2 id="分支相关" class="headerLink">
-    <a href="#%e5%88%86%e6%94%af%e7%9b%b8%e5%85%b3" class="header-mark"></a>分支相关</h2><p><code>git branch [name]</code>：创建一个新的分支。</p>
-<p><code>git branch -d[D] [name]</code>：删除[强制删除]一个分支。</p>
-<p><code>git checkout [branch-name]</code>：切换到另一个分支。</p>
-<p><code>git checkout -b [branch-name]</code>：创建同时切换到另一个分支。</p>
-<p><code>git merge [branch]</code>：将指定的分支合并到当前分支。</p>
-<p><code>git rebase [branch]</code>：将当前分支的提交步骤顺接到指定分支。</p>
-<h2 id="远程相关" class="headerLink">
-    <a href="#%e8%bf%9c%e7%a8%8b%e7%9b%b8%e5%85%b3" class="header-mark"></a>远程相关</h2><p><code>git clone [url]</code>：从远程仓库克隆一个副本到本地。</p>
-<p><code>git pull</code>：从远程仓库拉取最新的代码到本地。</p>
-<p><code>git push [origin] [master]</code>：将本地 master 分支推送到远程仓库。</p>
-<p><code>git remote -[v]</code> 查看远程仓库[详细]信息。</p>
-<p><code>git remote add [name] [url]</code>：将远程仓库添加到 Git 仓库。</p>
-<p><code>git fetch</code>：从远程仓库获取最新的代码，但不进行合并。先<code>fetch</code>，再<code>merge</code>就相当于<code>pull</code>。</p>
-<h2 id="其他" class="headerLink">
-    <a href="#%e5%85%b6%e4%bb%96" class="header-mark"></a>其他</h2><p><code>HEAD</code>：指向当前正在处理的提交记录。</p>
-<p><code>C^[number]</code>：表示指向提交记录 <code>C</code> 的第 <code>number</code> 个直接父记录（宽度搜索）。一个记录可能会有多个父记录（执行 <code>merge</code> 时产生）。<code>C^</code> 和 <code>C^1</code> 等价；<code>number</code>大于 1 时表示指向其他父记录。</p>
-<p><code>C~[number]</code>：表示指向提交记录 <code>C</code> 的回溯第 <code>number</code> 代的祖先记录（深度搜索）。</p>
-<h2 id="参考" class="headerLink">
-    <a href="#%e5%8f%82%e8%80%83" class="header-mark"></a>参考</h2><ul>
-<li>[1] Peter Cottle. learngitbranching. <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">https://learngitbranching.js.org/?locale=zh_CN</a></li>
-<li>[2] GitHub Docs. Git Cheat Sheets. <a href="https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/" target="_blank" rel="noopener noreferrer">https://training.github.com/downloads/zh_CN/github-git-cheat-sheet/</a></li>
-<li>[3] Visual Git Cheat Sheet. <a href="https://ndpsoftware.com/git-cheatsheet.html" target="_blank" rel="noopener noreferrer">https://ndpsoftware.com/git-cheatsheet.html</a></li>
-<li>[4] Blue Stragglers. 一个有趣的 Git 练习网站. <a href="https://zhuanlan.zhihu.com/p/383960650" target="_blank" rel="noopener noreferrer">https://zhuanlan.zhihu.com/p/383960650</a></li>
-</ul>]]></description></item><item><title>Linux 服务器下 PyTorch 环境配置</title><link>https://wlcheng.cc/posts/config_linux_server_pytorch/</link><pubDate>Wed, 01 Mar 2023 16:05:36 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/config_linux_server_pytorch/</guid><description><![CDATA[<p>记录在 Linux 下，Miniconda3 中配置 PyTorch 环境。</p>
+    <a href="#%e7%bd%91%e7%ab%99%e4%b9%a6%e7%ad%be" class="header-mark"></a>网站书签</h4><p><a href="/bookmarks/favorites_2025_6_17.html" rel="">MS Edge 备份书签 2025.6.17</a></p>]]></description></item><item><title>Linux 服务器下 PyTorch 环境配置</title><link>https://wlcheng.cc/posts/config_linux_server_pytorch/</link><pubDate>Wed, 01 Mar 2023 16:05:36 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/config_linux_server_pytorch/</guid><description><![CDATA[<p>记录在 Linux 下，Miniconda3 中配置 PyTorch 环境。</p>
 <h2 id="安装-miniconda" class="headerLink">
     <a href="#%e5%ae%89%e8%a3%85-miniconda" class="header-mark"></a>安装 Miniconda</h2><p><a href="https://docs.conda.io/en/latest/miniconda.html" target="_blank" rel="noopener noreferrer">Miniconda 官网</a></p>
 <h3 id="下载安装包" class="headerLink">

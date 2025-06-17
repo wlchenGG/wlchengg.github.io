@@ -1,0 +1,90 @@
+/* 基础样式 */
+body {
+    font-family: 'Noto Sans SC', sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1536px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* 自定义工具类 */
+@layer utilities {
+    .content-auto {
+        content-visibility: auto;
+    }
+    .text-balance {
+        text-wrap: balance;
+    }
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+    .animate-fade-in-up {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .text-gradient {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+    }
+}
+
+/* 动画 */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 响应式图片 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 移动端优化 */
+@media (max-width: 768px) {
+    .lg\:grid-cols-2, .lg\:grid-cols-4 {
+        grid-template-columns: 1fr;
+    }
+    
+    .md\:grid-cols-2, .md\:grid-cols-3 {
+        grid-template-columns: 1fr;
+    }
+    
+    .px-8 {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+    
+    .py-24 {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+    
+    .text-[clamp(1.5rem,4vw,2.5rem)] {
+        font-size: 1.5rem;
+    }
+    
+    .text-[clamp(2rem,6vw,4rem)] {
+        font-size: 2rem;
+    }
+    
+    .hidden-md {
+        display: none;
+    }
+}
+    

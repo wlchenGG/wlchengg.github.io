@@ -19,6 +19,11 @@
   - https://ghostcc.cc/ss.cn/cn.ovg
   - https://sub.sharecentre.online/sub
 
+---
+- [Folo](https://follow.is/)，类 RSS 信息聚合，开源，AI 总结
+
+---
+- [Trae](https://www.trae.ai/)，AI 编程 IDE
 
 ---
 - [MicroSoft Office 套件](___)：用 [OTP](https://otp.landian.vip/zh-cn/) 安装，用 [HEU_KMS_Activator](https://github.com/zbezj/HEU_KMS_Activator/releases) 激活
@@ -42,8 +47,10 @@
 
 ---
 - [阿里云盘](https://www.aliyundrive.com/)，云盘
-- [坚果云](https://www.jianguoyun.com/)，文件同步工具
+- [坚果云](https://www.jianguoyun.com/)，文件同步，版本管理
 - [SyncTrayzor](https://github.com/canton7/SyncTrayzor)，基于 Syncthing 的开源文件同步工具
+- [ToDesk](https://www.todesk.com/)，远程桌面控制
+- [RustDesk](https://rustdesk.com/)，开源远程桌面控制
 
 ---
 - [CopyTranslator](https://copytranslator.github.io/)，即时文字多源翻译工具
@@ -68,13 +75,13 @@
 - [洛雪音乐助手](https://www.sixyin.com/114.html)，音乐播放器
   - [音源](https://www.sixyin.com/8498.html)（听版权音乐必须导入音源）
 - [PotPlayer](https://potplayer.daum.net/), 视频播放器
-- [WallHaven 客户端](https://github.com/Alxndr/whc)，壁纸下载工具
+- [WallHaven 客户端](https://github.com/Alxndr/whc)，壁纸工具，来自网站 [WallHaven](https://wallhaven.cc/)
 - [EarTrumpet](https://apps.microsoft.com/detail/9NBLGGH516XP?hl=zh-cn&gl=CN&ocid=pdpshare)，软件独立音量控制
 - [Twinkle Tray](https://apps.microsoft.com/detail/9PLJWWSV01LK?hl=neutral&gl=CN&ocid=pdpshare)，显示器亮度调节
 ---
 
 
-#### 其他软件
+#### 其他
 - [Quicker](https://getquicker.net/)，指尖工具箱，快捷操作工具
 - [Listary](https://www.listary.com/)，快捷文件搜索、路径定位
 - [Q-Dir](https://www.q-dir.com/)，多窗口文件管理器
@@ -93,6 +100,14 @@
 - [Ant Renamer](https://www.antp.be/software/renamer)，文件批量重命名工具
 - [LockHunter](https://lockhunter.com/)，文件锁定解除工具
 - ......
+
+#### 字体
+
+- [霞鹜文楷](https://github.com/lxgw/LxgwWenKai)，开源字体
+- [霞鹜臻楷](https://github.com/lxgw/LxgwZhenKai)，开源字体，霞鹜文楷的加粗衍生，未和文楷同步更新
+- [江西拙楷](https://wordshub.github.io/free-font/font.html?JiangXiZhuoKai_Regular)，免费字体
+- [更纱黑体](https://github.com/laomao314/SourceHanSansSC-Nerd)，开源字体
+- 
 
 ### 配置清单
 
@@ -132,9 +147,10 @@
 
 #### MS Edge 浏览器扩展清单
 
-<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20240618102738.png" alt="20240618102738" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">MS Edge 浏览器扩展</div></div>
+<div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20240618102738.png" alt="20240618102738" width="55%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">MS Edge 浏览器扩展</div></div>
 
 
 #### 网站书签
 
-[MS Edge 备份书签 2024.10.31](/bookmarks/favorites_2024_10_31.html)
+[MS Edge 备份书签 2025.6.17](/bookmarks/favorites_2025_6_17.html)
+

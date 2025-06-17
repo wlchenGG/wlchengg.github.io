@@ -17,6 +17,14 @@
 </ul>
 <hr>
 <ul>
+<li><a href="https://follow.is/" target="_blank" rel="noopener noreferrer">Folo</a>，类 RSS 信息聚合，开源，AI 总结</li>
+</ul>
+<hr>
+<ul>
+<li><a href="https://www.trae.ai/" target="_blank" rel="noopener noreferrer">Trae</a>，AI 编程 IDE</li>
+</ul>
+<hr>
+<ul>
 <li><a href="___" rel="">MicroSoft Office 套件</a>：用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装，用 <a href="https://github.com/zbezj/HEU_KMS_Activator/releases" target="_blank" rel="noopener noreferrer">HEU_KMS_Activator</a> 激活</li>
 <li><a href="http://www.ffcell.com/" target="_blank" rel="noopener noreferrer">方方格子</a>，Excel 插件</li>
 <li><a href="https://www.texstudio.org/" target="_blank" rel="noopener noreferrer">TexStudio</a>，LaTeX 集成编辑器</li>
@@ -39,8 +47,10 @@
 <hr>
 <ul>
 <li><a href="https://www.aliyundrive.com/" target="_blank" rel="noopener noreferrer">阿里云盘</a>，云盘</li>
-<li><a href="https://www.jianguoyun.com/" target="_blank" rel="noopener noreferrer">坚果云</a>，文件同步工具</li>
+<li><a href="https://www.jianguoyun.com/" target="_blank" rel="noopener noreferrer">坚果云</a>，文件同步，版本管理</li>
 <li><a href="https://github.com/canton7/SyncTrayzor" target="_blank" rel="noopener noreferrer">SyncTrayzor</a>，基于 Syncthing 的开源文件同步工具</li>
+<li><a href="https://www.todesk.com/" target="_blank" rel="noopener noreferrer">ToDesk</a>，远程桌面控制</li>
+<li><a href="https://rustdesk.com/" target="_blank" rel="noopener noreferrer">RustDesk</a>，开源远程桌面控制</li>
 </ul>
 <hr>
 <ul>
@@ -71,13 +81,13 @@
 </ul>
 </li>
 <li><a href="https://potplayer.daum.net/" target="_blank" rel="noopener noreferrer">PotPlayer</a>, 视频播放器</li>
-<li><a href="https://github.com/Alxndr/whc" target="_blank" rel="noopener noreferrer">WallHaven 客户端</a>，壁纸下载工具</li>
+<li><a href="https://github.com/Alxndr/whc" target="_blank" rel="noopener noreferrer">WallHaven 客户端</a>，壁纸工具，来自网站 <a href="https://wallhaven.cc/" target="_blank" rel="noopener noreferrer">WallHaven</a></li>
 <li><a href="https://apps.microsoft.com/detail/9NBLGGH516XP?hl=zh-cn&amp;gl=CN&amp;ocid=pdpshare" target="_blank" rel="noopener noreferrer">EarTrumpet</a>，软件独立音量控制</li>
 <li><a href="https://apps.microsoft.com/detail/9PLJWWSV01LK?hl=neutral&amp;gl=CN&amp;ocid=pdpshare" target="_blank" rel="noopener noreferrer">Twinkle Tray</a>，显示器亮度调节</li>
 </ul>
 <hr>
-<h4 id="其他软件" class="headerLink">
-    <a href="#%e5%85%b6%e4%bb%96%e8%bd%af%e4%bb%b6" class="header-mark"></a>其他软件</h4><ul>
+<h4 id="其他" class="headerLink">
+    <a href="#%e5%85%b6%e4%bb%96" class="header-mark"></a>其他</h4><ul>
 <li><a href="https://getquicker.net/" target="_blank" rel="noopener noreferrer">Quicker</a>，指尖工具箱，快捷操作工具</li>
 <li><a href="https://www.listary.com/" target="_blank" rel="noopener noreferrer">Listary</a>，快捷文件搜索、路径定位</li>
 <li><a href="https://www.q-dir.com/" target="_blank" rel="noopener noreferrer">Q-Dir</a>，多窗口文件管理器</li>
@@ -96,6 +106,14 @@
 <li><a href="https://www.antp.be/software/renamer" target="_blank" rel="noopener noreferrer">Ant Renamer</a>，文件批量重命名工具</li>
 <li><a href="https://lockhunter.com/" target="_blank" rel="noopener noreferrer">LockHunter</a>，文件锁定解除工具</li>
 <li>&hellip;&hellip;</li>
+</ul>
+<h4 id="字体" class="headerLink">
+    <a href="#%e5%ad%97%e4%bd%93" class="header-mark"></a>字体</h4><ul>
+<li><a href="https://github.com/lxgw/LxgwWenKai" target="_blank" rel="noopener noreferrer">霞鹜文楷</a>，开源字体</li>
+<li><a href="https://github.com/lxgw/LxgwZhenKai" target="_blank" rel="noopener noreferrer">霞鹜臻楷</a>，开源字体，霞鹜文楷的加粗衍生，未和文楷同步更新</li>
+<li><a href="https://wordshub.github.io/free-font/font.html?JiangXiZhuoKai_Regular" target="_blank" rel="noopener noreferrer">江西拙楷</a>，免费字体</li>
+<li><a href="https://github.com/laomao314/SourceHanSansSC-Nerd" target="_blank" rel="noopener noreferrer">更纱黑体</a>，开源字体</li>
+<li></li>
 </ul>
 <h3 id="配置清单" class="headerLink">
     <a href="#%e9%85%8d%e7%bd%ae%e6%b8%85%e5%8d%95" class="header-mark"></a>配置清单</h3><h4 id="vscode-插件备份" class="headerLink">
@@ -150,6 +168,6 @@
 </li>
 </ul>
 <h4 id="ms-edge-浏览器扩展清单" class="headerLink">
-    <a href="#ms-edge-%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a9%e5%b1%95%e6%b8%85%e5%8d%95" class="header-mark"></a>MS Edge 浏览器扩展清单</h4><div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20240618102738.png" alt="20240618102738" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">MS Edge 浏览器扩展</div></div>
+    <a href="#ms-edge-%e6%b5%8f%e8%a7%88%e5%99%a8%e6%89%a9%e5%b1%95%e6%b8%85%e5%8d%95" class="header-mark"></a>MS Edge 浏览器扩展清单</h4><div align="center" ><img src="https://img1.wlcheng.cc/images_for_blogs/20240618102738.png" alt="20240618102738" width="55%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;">MS Edge 浏览器扩展</div></div>
 <h4 id="网站书签" class="headerLink">
-    <a href="#%e7%bd%91%e7%ab%99%e4%b9%a6%e7%ad%be" class="header-mark"></a>网站书签</h4><p><a href="/bookmarks/favorites_2024_10_31.html" rel="">MS Edge 备份书签 2024.10.31</a></p>]]></description></item></channel></rss>
+    <a href="#%e7%bd%91%e7%ab%99%e4%b9%a6%e7%ad%be" class="header-mark"></a>网站书签</h4><p><a href="/bookmarks/favorites_2025_6_17.html" rel="">MS Edge 备份书签 2025.6.17</a></p>]]></description></item></channel></rss>
