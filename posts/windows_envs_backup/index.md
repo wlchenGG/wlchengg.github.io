@@ -11,13 +11,14 @@
 
 - [微信](https://weixin.qq.com/)，即时通讯
 - [TIM](https://tim.qq.com/)，即时通讯
-- [腾讯会议](https://meeting.tencent.com/)，视频会议
+- [腾讯会议](https://meeting.tencent.com/)，会议
 - [网易邮箱大师](https://mail.163.com/)，邮件客户端
 - [Outlook](https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook/?msockid=392e478147196cdc3e6f5406466e6dee#Download-the-app)，Windows 自带邮件客户端
 - [Clash for Windows](https://github.com/clashdownload/Clash_for_Windows)，科学上网。备用订阅：
   - https://raw.kkgithub.com/ripaojiedian/freenode/main/clash
   - https://ghostcc.cc/ss.cn/cn.ovg
   - https://sub.sharecentre.online/sub
+- [V2RayN](https://github.com/2dust/v2rayN)，科学上网
 
 ---
 - [Folo](https://follow.is/)，类 RSS 信息聚合，开源，AI 总结
@@ -34,15 +35,15 @@
 
 ---
 - [Visio](___)：MicroSoft 流程图工具，可用 [OTP](https://otp.landian.vip/zh-cn/) 安装
-- [draw.io](https://app.diagrams.net/)，绘图工具
+- [Draw.io](https://app.diagrams.net/)，绘图工具
 - [Origin](https://www.originlab.com/)，数据分析和绘图工具
 
 
 ---
+- [SumatraPDF](https://www.sumatrapdfreader.org/free-pdf-reader.html)，PDF 阅读器
 - [Adobe Acrobat DC](https://www.adobe.com/cn/products/acrobat.html)，PDF 编辑/阅读器
 - [PDF24 Creator](https://tools.pdf24.org/zh/)，PDF 工具箱，特好用
-- [SumatraPDF](https://www.sumatrapdfreader.org/free-pdf-reader.html)，PDF 阅读器
-- [PDF 补丁丁](https://www.cnblogs.com/pdfpatcher)，情怀的强大 PDF 编辑工具。半自动制目录、解除限制、替换字体等等。作者的情怀：
+- [PDF 补丁丁](https://www.cnblogs.com/pdfpatcher)，有情怀的强大 PDF 编辑工具。半自动制目录、解除限制、替换字体等等。作者的情怀：
 <div align="center" ><img src="https://img1.xiangyichen.cn/images/20250402212237.png" alt="20250402212237" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;"></div></div>
 
 ---
@@ -61,21 +62,24 @@
 - [Snipaste](https://apps.microsoft.com/detail/9P1WXPKB68KX?hl=zh-cn&gl=CN&ocid=pdpshare)，截图贴图
 - [Quicklook](https://apps.microsoft.com/detail/9NV4BS3L1H4S?hl=zh&gl=CN&ocid=pdpshare)，快速预览文件
 - [IDM](https://www.internetdownloadmanager.com/download.html)，多线程下载器
-- [Geek Uninstaller](https://geekuninstaller.com/)，卸载软件
+- [Geek Uninstaller](https://geekuninstaller.com/)，免费卸载软件，简单够用
+- [BC Uninstaller](https://www.bcuninstaller.com/)，开源卸载软件，复杂而强大，支持批量，可查绿色安装软件
 
 ---
 - [VSCode](https://code.visualstudio.com/)，代码编辑器，扩展性极强
 - [Git](https://git-scm.com/)，版本控制
 - [Typora](https://typora.io/)，优雅的 Markdown 编辑器（v1.0 后付费）
 - [MarkText](https://marktext.app/)，（仿Typora）开源 Markdown 编辑器
-- [flowus 息流](https://flowus.cn/)，大纲笔记，可上传文件
+- [Flowus 息流](https://flowus.cn/)，大纲笔记，可上传文件
+- [小书匠](https://soft.xiaoshujiang.com/)，Markdown 编辑器，非常炫酷
 
 
 ---
-- [洛雪音乐助手](https://www.sixyin.com/114.html)，音乐播放器
-  - [音源](https://www.sixyin.com/8498.html)（听版权音乐必须导入音源）
+- [洛雪音乐助手](https://github.com/lyswhut/lx-music-desktop)，多平台聚合音乐播放器
+  - [音源](https://awaw.cc/post/lx-music-source/)（音源）
 - [PotPlayer](https://potplayer.daum.net/), 视频播放器
-- [WallHaven 客户端](https://github.com/Alxndr/whc)，壁纸工具，来自网站 [WallHaven](https://wallhaven.cc/)
+- [拾光壁纸](https://snake.timeline.ink/latest)，干净简介多源壁纸工具
+- [WallHaven](https://github.com/Alxndr/whc)，壁纸工具，来自网站 [WallHaven](https://wallhaven.cc/)
 - [EarTrumpet](https://apps.microsoft.com/detail/9NBLGGH516XP?hl=zh-cn&gl=CN&ocid=pdpshare)，软件独立音量控制
 - [Twinkle Tray](https://apps.microsoft.com/detail/9PLJWWSV01LK?hl=neutral&gl=CN&ocid=pdpshare)，显示器亮度调节
 ---
@@ -88,8 +92,8 @@
 - [7-Zip](https://www.7-zip.org/)，压缩解压工具
 - [FileLocator](https://www.mythicsoft.com/)，快速文件内容搜索
 - [TextSeek](https://www.textseek.net/)，快速文件内容搜索
-- [Beyond Compare](https://www.scootersoftware.com/)，文件对比工具
-- [WinMerge](https://winmerge.org/)，文件夹/文件对比工具，开源
+- [Beyond Compare](https://www.scootersoftware.com/)，文件对比工具，收费
+- [WinMerge](https://winmerge.org/)，文件夹/文件对比工具，开源免费
 - [Meld](https://meldmerge.org/)，文件夹/文件对比工具，开源，Win/Mac/Linux
 - [BestTrace](___)，网络诊断工具
 - [SwitchHosts](https://switchhosts.vercel.app/zh)，hosts 编辑工具
@@ -104,10 +108,10 @@
 #### 字体
 
 - [霞鹜文楷](https://github.com/lxgw/LxgwWenKai)，开源字体
-- [霞鹜臻楷](https://github.com/lxgw/LxgwZhenKai)，开源字体，霞鹜文楷的加粗衍生，未和文楷同步更新
+- [霞鹜臻楷](https://github.com/lxgw/LxgwZhenKai)，开源字体，霞鹜文楷的加粗衍生，但不和霞鹜文楷同步更新
 - [江西拙楷](https://wordshub.github.io/free-font/font.html?JiangXiZhuoKai_Regular)，免费字体
 - [更纱黑体](https://github.com/laomao314/SourceHanSansSC-Nerd)，开源字体
-- 
+- ......
 
 ### 配置清单
 

@@ -1,4 +1,4 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Wlcheng's Life</title><link>https://wlcheng.cc/posts/</link><description>所有文章 | Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Sun, 08 Jun 2025 11:26:27 +0100</lastBuildDate><atom:link href="https://wlcheng.cc/posts/" rel="self" type="application/rss+xml"/><item><title>Git 常用命令和用法</title><link>https://wlcheng.cc/posts/git_command_list/</link><pubDate>Sun, 08 Jun 2025 11:26:27 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/git_command_list/</guid><description><![CDATA[<p>速查 Git 常用的命令和用法。分为基本（commit、branch、checkout、merge、rabase 等）和远程（clone、push、pull 等）两部分。</p>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>所有文章 - Wlcheng's Life</title><link>https://wlcheng.cc/posts/</link><description>所有文章 | Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Sat, 02 Aug 2025 09:37:42 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/posts/" rel="self" type="application/rss+xml"/><item><title>Git 常用命令和用法</title><link>https://wlcheng.cc/posts/git_command_list/</link><pubDate>Sun, 08 Jun 2025 11:26:27 +0100</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/git_command_list/</guid><description><![CDATA[<p>速查 Git 常用的命令和用法。分为基本（commit、branch、checkout、merge、rabase 等）和远程（clone、push、pull 等）两部分。</p>
 <p>本文基于 <a href="https://chat.openai.com/chat" target="_blank" rel="noopener noreferrer">chatGPT</a> 自动生成初稿（省时省力😁），并参考 <a href="https://learngitbranching.js.org/?locale=zh_CN" target="_blank" rel="noopener noreferrer">learngitbranching</a> 进行调整。</p>
 <h2 id="基本命令" class="headerLink">
     <a href="#%e5%9f%ba%e6%9c%ac%e5%91%bd%e4%bb%a4" class="header-mark"></a>基本命令</h2><p><code>git init</code>：创建一个新的 Git 仓库。</p>
@@ -748,7 +748,7 @@
     <a href="#%e5%bf%85%e5%a4%87%e8%bd%af%e4%bb%b6" class="header-mark"></a>必备软件</h4><ul>
 <li><a href="https://weixin.qq.com/" target="_blank" rel="noopener noreferrer">微信</a>，即时通讯</li>
 <li><a href="https://tim.qq.com/" target="_blank" rel="noopener noreferrer">TIM</a>，即时通讯</li>
-<li><a href="https://meeting.tencent.com/" target="_blank" rel="noopener noreferrer">腾讯会议</a>，视频会议</li>
+<li><a href="https://meeting.tencent.com/" target="_blank" rel="noopener noreferrer">腾讯会议</a>，会议</li>
 <li><a href="https://mail.163.com/" target="_blank" rel="noopener noreferrer">网易邮箱大师</a>，邮件客户端</li>
 <li><a href="https://www.microsoft.com/zh-cn/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook/?msockid=392e478147196cdc3e6f5406466e6dee#Download-the-app" target="_blank" rel="noopener noreferrer">Outlook</a>，Windows 自带邮件客户端</li>
 <li><a href="https://github.com/clashdownload/Clash_for_Windows" target="_blank" rel="noopener noreferrer">Clash for Windows</a>，科学上网。备用订阅：
@@ -758,6 +758,7 @@
 <li><a href="https://sub.sharecentre.online/sub" target="_blank" rel="noopener noreferrer">https://sub.sharecentre.online/sub</a></li>
 </ul>
 </li>
+<li><a href="https://github.com/2dust/v2rayN" target="_blank" rel="noopener noreferrer">V2RayN</a>，科学上网</li>
 </ul>
 <hr>
 <ul>
@@ -777,15 +778,15 @@
 <hr>
 <ul>
 <li><a href="___" rel="">Visio</a>：MicroSoft 流程图工具，可用 <a href="https://otp.landian.vip/zh-cn/" target="_blank" rel="noopener noreferrer">OTP</a> 安装</li>
-<li><a href="https://app.diagrams.net/" target="_blank" rel="noopener noreferrer">draw.io</a>，绘图工具</li>
+<li><a href="https://app.diagrams.net/" target="_blank" rel="noopener noreferrer">Draw.io</a>，绘图工具</li>
 <li><a href="https://www.originlab.com/" target="_blank" rel="noopener noreferrer">Origin</a>，数据分析和绘图工具</li>
 </ul>
 <hr>
 <ul>
+<li><a href="https://www.sumatrapdfreader.org/free-pdf-reader.html" target="_blank" rel="noopener noreferrer">SumatraPDF</a>，PDF 阅读器</li>
 <li><a href="https://www.adobe.com/cn/products/acrobat.html" target="_blank" rel="noopener noreferrer">Adobe Acrobat DC</a>，PDF 编辑/阅读器</li>
 <li><a href="https://tools.pdf24.org/zh/" target="_blank" rel="noopener noreferrer">PDF24 Creator</a>，PDF 工具箱，特好用</li>
-<li><a href="https://www.sumatrapdfreader.org/free-pdf-reader.html" target="_blank" rel="noopener noreferrer">SumatraPDF</a>，PDF 阅读器</li>
-<li><a href="https://www.cnblogs.com/pdfpatcher" target="_blank" rel="noopener noreferrer">PDF 补丁丁</a>，情怀的强大 PDF 编辑工具。半自动制目录、解除限制、替换字体等等。作者的情怀：</li>
+<li><a href="https://www.cnblogs.com/pdfpatcher" target="_blank" rel="noopener noreferrer">PDF 补丁丁</a>，有情怀的强大 PDF 编辑工具。半自动制目录、解除限制、替换字体等等。作者的情怀：</li>
 </ul>
 <div align="center" ><img src="https://img1.xiangyichen.cn/images/20250402212237.png" alt="20250402212237" width="75%" style="box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);border-radius:10px;"/><br><div style="color:orange; border-bottom: 1px solid #d9d9d9; display: inline-block; color: #777; font-size: 90%; padding: 1px;"></div></div>
 <hr>
@@ -807,7 +808,8 @@
 <li><a href="https://apps.microsoft.com/detail/9P1WXPKB68KX?hl=zh-cn&amp;gl=CN&amp;ocid=pdpshare" target="_blank" rel="noopener noreferrer">Snipaste</a>，截图贴图</li>
 <li><a href="https://apps.microsoft.com/detail/9NV4BS3L1H4S?hl=zh&amp;gl=CN&amp;ocid=pdpshare" target="_blank" rel="noopener noreferrer">Quicklook</a>，快速预览文件</li>
 <li><a href="https://www.internetdownloadmanager.com/download.html" target="_blank" rel="noopener noreferrer">IDM</a>，多线程下载器</li>
-<li><a href="https://geekuninstaller.com/" target="_blank" rel="noopener noreferrer">Geek Uninstaller</a>，卸载软件</li>
+<li><a href="https://geekuninstaller.com/" target="_blank" rel="noopener noreferrer">Geek Uninstaller</a>，免费卸载软件，简单够用</li>
+<li><a href="https://www.bcuninstaller.com/" target="_blank" rel="noopener noreferrer">BC Uninstaller</a>，开源卸载软件，复杂而强大，支持批量，可查绿色安装软件</li>
 </ul>
 <hr>
 <ul>
@@ -815,17 +817,19 @@
 <li><a href="https://git-scm.com/" target="_blank" rel="noopener noreferrer">Git</a>，版本控制</li>
 <li><a href="https://typora.io/" target="_blank" rel="noopener noreferrer">Typora</a>，优雅的 Markdown 编辑器（v1.0 后付费）</li>
 <li><a href="https://marktext.app/" target="_blank" rel="noopener noreferrer">MarkText</a>，（仿Typora）开源 Markdown 编辑器</li>
-<li><a href="https://flowus.cn/" target="_blank" rel="noopener noreferrer">flowus 息流</a>，大纲笔记，可上传文件</li>
+<li><a href="https://flowus.cn/" target="_blank" rel="noopener noreferrer">Flowus 息流</a>，大纲笔记，可上传文件</li>
+<li><a href="https://soft.xiaoshujiang.com/" target="_blank" rel="noopener noreferrer">小书匠</a>，Markdown 编辑器，非常炫酷</li>
 </ul>
 <hr>
 <ul>
-<li><a href="https://www.sixyin.com/114.html" target="_blank" rel="noopener noreferrer">洛雪音乐助手</a>，音乐播放器
+<li><a href="https://github.com/lyswhut/lx-music-desktop" target="_blank" rel="noopener noreferrer">洛雪音乐助手</a>，多平台聚合音乐播放器
 <ul>
-<li><a href="https://www.sixyin.com/8498.html" target="_blank" rel="noopener noreferrer">音源</a>（听版权音乐必须导入音源）</li>
+<li><a href="https://awaw.cc/post/lx-music-source/" target="_blank" rel="noopener noreferrer">音源</a>（音源）</li>
 </ul>
 </li>
 <li><a href="https://potplayer.daum.net/" target="_blank" rel="noopener noreferrer">PotPlayer</a>, 视频播放器</li>
-<li><a href="https://github.com/Alxndr/whc" target="_blank" rel="noopener noreferrer">WallHaven 客户端</a>，壁纸工具，来自网站 <a href="https://wallhaven.cc/" target="_blank" rel="noopener noreferrer">WallHaven</a></li>
+<li><a href="https://snake.timeline.ink/latest" target="_blank" rel="noopener noreferrer">拾光壁纸</a>，干净简介多源壁纸工具</li>
+<li><a href="https://github.com/Alxndr/whc" target="_blank" rel="noopener noreferrer">WallHaven</a>，壁纸工具，来自网站 <a href="https://wallhaven.cc/" target="_blank" rel="noopener noreferrer">WallHaven</a></li>
 <li><a href="https://apps.microsoft.com/detail/9NBLGGH516XP?hl=zh-cn&amp;gl=CN&amp;ocid=pdpshare" target="_blank" rel="noopener noreferrer">EarTrumpet</a>，软件独立音量控制</li>
 <li><a href="https://apps.microsoft.com/detail/9PLJWWSV01LK?hl=neutral&amp;gl=CN&amp;ocid=pdpshare" target="_blank" rel="noopener noreferrer">Twinkle Tray</a>，显示器亮度调节</li>
 </ul>
@@ -838,8 +842,8 @@
 <li><a href="https://www.7-zip.org/" target="_blank" rel="noopener noreferrer">7-Zip</a>，压缩解压工具</li>
 <li><a href="https://www.mythicsoft.com/" target="_blank" rel="noopener noreferrer">FileLocator</a>，快速文件内容搜索</li>
 <li><a href="https://www.textseek.net/" target="_blank" rel="noopener noreferrer">TextSeek</a>，快速文件内容搜索</li>
-<li><a href="https://www.scootersoftware.com/" target="_blank" rel="noopener noreferrer">Beyond Compare</a>，文件对比工具</li>
-<li><a href="https://winmerge.org/" target="_blank" rel="noopener noreferrer">WinMerge</a>，文件夹/文件对比工具，开源</li>
+<li><a href="https://www.scootersoftware.com/" target="_blank" rel="noopener noreferrer">Beyond Compare</a>，文件对比工具，收费</li>
+<li><a href="https://winmerge.org/" target="_blank" rel="noopener noreferrer">WinMerge</a>，文件夹/文件对比工具，开源免费</li>
 <li><a href="https://meldmerge.org/" target="_blank" rel="noopener noreferrer">Meld</a>，文件夹/文件对比工具，开源，Win/Mac/Linux</li>
 <li><a href="___" rel="">BestTrace</a>，网络诊断工具</li>
 <li><a href="https://switchhosts.vercel.app/zh" target="_blank" rel="noopener noreferrer">SwitchHosts</a>，hosts 编辑工具</li>
@@ -854,10 +858,10 @@
 <h4 id="字体" class="headerLink">
     <a href="#%e5%ad%97%e4%bd%93" class="header-mark"></a>字体</h4><ul>
 <li><a href="https://github.com/lxgw/LxgwWenKai" target="_blank" rel="noopener noreferrer">霞鹜文楷</a>，开源字体</li>
-<li><a href="https://github.com/lxgw/LxgwZhenKai" target="_blank" rel="noopener noreferrer">霞鹜臻楷</a>，开源字体，霞鹜文楷的加粗衍生，未和文楷同步更新</li>
+<li><a href="https://github.com/lxgw/LxgwZhenKai" target="_blank" rel="noopener noreferrer">霞鹜臻楷</a>，开源字体，霞鹜文楷的加粗衍生，但不和霞鹜文楷同步更新</li>
 <li><a href="https://wordshub.github.io/free-font/font.html?JiangXiZhuoKai_Regular" target="_blank" rel="noopener noreferrer">江西拙楷</a>，免费字体</li>
 <li><a href="https://github.com/laomao314/SourceHanSansSC-Nerd" target="_blank" rel="noopener noreferrer">更纱黑体</a>，开源字体</li>
-<li></li>
+<li>&hellip;&hellip;</li>
 </ul>
 <h3 id="配置清单" class="headerLink">
     <a href="#%e9%85%8d%e7%bd%ae%e6%b8%85%e5%8d%95" class="header-mark"></a>配置清单</h3><h4 id="vscode-插件备份" class="headerLink">

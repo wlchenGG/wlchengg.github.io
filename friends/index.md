@@ -13,6 +13,7 @@
 
 
 {{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" >}}
+{{< friend name="CaesarCaser" url="https://wushangyang.cn/" avatar="https://wushangyang.cn/images/avatar.jpg" bio="一壶浊酒喜相逢，来一杯吗" >}}
 {{< friend name="Xiangyi Chen" url="https://xiangyichen.cn/" avatar="https://xiangyichen.cn/authors/admin/avatar_hu7e9cfe221d7b3dd316b78b3ab1e4fa20_203168_270x270_fill_q75_lanczos_center.jpg" bio="Hi, there ~" >}}
 {{< friend name="咸蛋超人" url="https://forrestk3.github.io/" avatar="https://forrestk3.github.io/images/avatar.jpg" bio="Now or Never" >}}
 {{< friend name="折影轻梦" url="https://nexmoe.com/" avatar="https://cravatar.cn/avatar/c7fd185f8c967dec20c29c75a40b9e09?s=500" bio="为热爱战斗着，努力学着变得勇敢" >}}
