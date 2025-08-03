@@ -1,0 +1,28 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title>Token - 标签 - Wlcheng's Life</title><link>https://wlcheng.cc/tags/token/</link><description>Token - 标签 - Wlcheng's Life</description><generator>Hugo -- gohugo.io</generator><language>zh-CN</language><managingEditor>wlcheng12@outlook.com (wlcheng)</managingEditor><webMaster>wlcheng12@outlook.com (wlcheng)</webMaster><lastBuildDate>Wed, 30 Oct 2024 16:32:12 +0800</lastBuildDate><atom:link href="https://wlcheng.cc/tags/token/" rel="self" type="application/rss+xml"/><item><title>Github Token</title><link>https://wlcheng.cc/posts/github_token/</link><pubDate>Wed, 30 Oct 2024 16:32:12 +0800</pubDate><author><name>wlcheng</name></author><guid>https://wlcheng.cc/posts/github_token/</guid><description><![CDATA[<p>Generate github token</p>
+<h2 id="创建token" class="headerLink">
+    <a href="#%e5%88%9b%e5%bb%batoken" class="header-mark"></a>创建Token</h2><p><strong>Warning</strong>：Token一旦生成，无法再次查看，只能重新生成，所以一定要保存好。</p>
+<ul>
+<li>登录Github，点击右上角头像，选择Settings</li>
+<li>左侧选择Developer settings</li>
+<li>选择Personal access tokens，两种方式：
+<ul>
+<li>Tokens (classic)：经典版，简单但不能选择特定仓库和权限
+<ul>
+<li>点击右上角Generate new token</li>
+<li>设置Token名称，选择Token有效期，勾选repo</li>
+<li>点击Generate token，生成 token。</li>
+<li>token 格式：<code>github_pat_&lt;22位随机字符&gt;_&lt;59位随机字符&gt;</code></li>
+</ul>
+</li>
+<li>Fine-grained tokens：细粒度版，可以针对特定仓库和精细控制权限
+<ul>
+<li>点击右上角Generate new token</li>
+<li>设置Token名称，选择Token有效期，选择特定仓库或所有仓库</li>
+<li>添加权限类别 <code>Contents</code>，并选择 <code>read and write</code> 权限</li>
+<li>点击Generate token，生成 token。</li>
+<li>token 格式：<code>ghp_&lt;36位随机字母数字串&gt;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>]]></description></item></channel></rss>
