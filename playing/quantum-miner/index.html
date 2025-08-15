@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量子矿工</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .game-container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        #status, #timer {
+            font-size: 1.2em;
+            font-weight: 700;
+            background: #eef2ff;
+            padding: 8px 15px;
+            border-radius: 8px;
+            color: #4338ca;
+        }
+        #board {
+            display: grid;
+            border: 2px solid #e5e7eb;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .cell {
+            width: 30px;
+            height: 30px;
+            background: #d1d5db;
+            border: 1px solid #9ca3af;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: 700;
+            cursor: pointer;
+            user-select: none;
+        }
+        .cell.revealed {
+            background: #e5e7eb;
+            border-color: #d1d5db;
+        }
+        .cell.entangled {
+            box-shadow: 0 0 0 3px #8b5cf6 inset;
+        }
+        .cell.flagged::before {
+            content: '🚩';
+        }
+        .cell.mine::before {
+            content: '💥';
+        }
+        .c1 { color: #3b82f6; }
+        .c2 { color: #16a34a; }
+        .c3 { color: #ef4444; }
+        .c4 { color: #4f46e5; }
+        .c5 { color: #78350f; }
+        .c6 { color: #14b8a6; }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            background: #4f46e5;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>量子矿工</h1>
+        <div class="header">
+            <div id="status">🚩 0</div>
+            <button id="restart-btn">新游戏</button>
+            <div id="timer">⏱️ 0</div>
+        </div>
+        <div id="board"></div>
+    </div>
+
+    <script>
+        const boardElement = document.getElementById('board');
+        const statusElement = document.getElementById('status');
+        const timerElement = document.getElementById('timer');
+        const restartBtn = document.getElementById('restart-btn');
+
+        const ROWS = 16, COLS = 16, MINES = 40, ENTANGLED_PAIRS = 5;
+        let board, timer, time;
+        let gameOver, minesRemaining;
+
+        function newGame() {
+            gameOver = false;
+            minesRemaining = MINES;
+            time = 0;
+            clearInterval(timer);
+            timerElement.textContent = `⏱️ ${time}`;
+            statusElement.textContent = `🚩 ${minesRemaining}`;
+            boardElement.style.gridTemplateColumns = `repeat(${COLS}, 1fr)`;
+            
+            board = Array(ROWS * COLS).fill(null).map((_, i) => ({ 
+                isMine: false, isRevealed: false, isFlagged: false, 
+                neighborMines: 0, entangledTo: null, id: i
+            }));
+
+            // Place mines
+            let minesPlaced = 0;
+            while (minesPlaced < MINES) {
+                const index = Math.floor(Math.random() * board.length);
+                if (!board[index].isMine) {
+                    board[index].isMine = true;
+                    minesPlaced++;
+                }
+            }
+
+            // Create entangled pairs
+            let pairsCreated = 0;
+            while(pairsCreated < ENTANGLED_PAIRS) {
+                const i1 = Math.floor(Math.random() * board.length);
+                const i2 = Math.floor(Math.random() * board.length);
+                if (i1 !== i2 && board[i1].entangledTo === null && board[i2].entangledTo === null) {
+                    board[i1].entangledTo = i2;
+                    board[i2].entangledTo = i1;
+                    pairsCreated++;
+                }
+            }
+
+            // Calculate neighbors
+            for (let i = 0; i < board.length; i++) {
+                if (board[i].isMine) continue;
+                const neighbors = getNeighbors(i);
+                board[i].neighborMines = neighbors.filter(n => board[n].isMine).length;
+            }
+
+            drawBoard();
+        }
+
+        function getNeighbors(index) {
+            const neighbors = [];
+            const x = index % COLS;
+            const y = Math.floor(index / COLS);
+            for (let i = -1; i <= 1; i++) {
+                for (let j = -1; j <= 1; j++) {
+                    if (i === 0 && j === 0) continue;
+                    const nx = x + j, ny = y + i;
+                    if (nx >= 0 && nx < COLS && ny >= 0 && ny < ROWS) {
+                        neighbors.push(ny * COLS + nx);
+                    }
+                }
+            }
+            return neighbors;
+        }
+
+        function drawBoard() {
+            boardElement.innerHTML = '';
+            board.forEach((cell, i) => {
+                const cellDiv = document.createElement('div');
+                cellDiv.classList.add('cell');
+                if (cell.entangledTo !== null) cellDiv.classList.add('entangled');
+                if (cell.isRevealed) {
+                    cellDiv.classList.add('revealed');
+                    if (cell.isMine) cellDiv.classList.add('mine');
+                    else if (cell.neighborMines > 0) {
+                        cellDiv.textContent = cell.neighborMines;
+                        cellDiv.classList.add(`c${cell.neighborMines}`);
+                    }
+                }
+                if (cell.isFlagged) cellDiv.classList.add('flagged');
+                
+                cellDiv.addEventListener('click', () => handleClick(i));
+                cellDiv.addEventListener('contextmenu', (e) => {
+                    e.preventDefault();
+                    handleRightClick(i);
+                });
+                boardElement.appendChild(cellDiv);
+            });
+        }
+
+        function handleClick(index) {
+            if (gameOver || board[index].isRevealed || board[index].isFlagged) return;
+            if (time === 0) timer = setInterval(() => { time++; timerElement.textContent = `⏱️ ${time}`; }, 1000);
+
+            revealCell(index);
+            checkWin();
+        }
+
+        function handleRightClick(index) {
+            if (gameOver || board[index].isRevealed) return;
+            board[index].isFlagged = !board[index].isFlagged;
+            minesRemaining += board[index].isFlagged ? -1 : 1;
+            statusElement.textContent = `🚩 ${minesRemaining}`;
+            drawBoard();
+        }
+
+        function revealCell(index) {
+            const cell = board[index];
+            if (cell.isRevealed) return;
+            cell.isRevealed = true;
+
+            if (cell.isMine) {
+                gameOver = true;
+                clearInterval(timer);
+                board.forEach(c => { if(c.isMine) c.isRevealed = true; });
+                setTimeout(() => alert('💥 游戏结束！'), 100);
+            } else if (cell.neighborMines === 0) {
+                getNeighbors(index).forEach(n => revealCell(n));
+            }
+
+            // Entanglement effect
+            if (cell.entangledTo !== null) {
+                const partnerIndex = cell.entangledTo;
+                // Prevent infinite loop
+                board[partnerIndex].entangledTo = null;
+                cell.entangledTo = null;
+                revealCell(partnerIndex);
+            }
+            drawBoard();
+        }
+
+        function checkWin() {
+            const revealedCount = board.filter(c => c.isRevealed).length;
+            if (revealedCount === ROWS * COLS - MINES) {
+                gameOver = true;
+                clearInterval(timer);
+                setTimeout(() => alert('恭喜！你成功清理了所有量子波动！'), 100);
+            }
+        }
+
+        restartBtn.addEventListener('click', newGame);
+        newGame();
+    </script>
+</body>
+</html>

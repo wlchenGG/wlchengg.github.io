@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量子井字棋</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .game-container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #8b5cf6;
+        }
+        #status {
+            min-height: 2.5em;
+            margin: 20px 0;
+            font-size: 1.2em;
+            font-weight: 700;
+        }
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+        }
+        .cell {
+            background: #eef2ff;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            position: relative;
+        }
+        .cell.classical {
+            font-size: 4em;
+            font-weight: 700;
+        }
+        .cell.X { color: #3b82f6; }
+        .cell.O { color: #ef4444; }
+        .spooky-mark {
+            position: absolute;
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: none;
+            background: #8b5cf6;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #7c3aed;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>量子井字棋</h1>
+        <p>每一步棋都落在两个格子中，直到“纠缠”发生，迫使棋子“坍缩”到一个确定的位置。</p>
+        <div id="status">轮到 X</div>
+        <div id="board"></div>
+        <button id="restart-btn">新游戏</button>
+    </div>
+
+    <script>
+        const boardElement = document.getElementById('board');
+        const statusElement = document.getElementById('status');
+        const restartBtn = document.getElementById('restart-btn');
+
+        let turn = 'X';
+        let moveNumber = 1;
+        let cells = [];
+        let firstSpookyMark = null;
+
+        function newGame() {
+            cells = Array(9).fill(null).map(() => ({ classical: null, spooky: [] }));
+            turn = 'X';
+            moveNumber = 1;
+            firstSpookyMark = null;
+            statusElement.textContent = `轮到 X 落子`;
+            drawBoard();
+        }
+
+        function drawBoard() {
+            boardElement.innerHTML = '';
+            cells.forEach((cell, index) => {
+                const cellDiv = document.createElement('div');
+                cellDiv.classList.add('cell');
+                if (cell.classical) {
+                    cellDiv.textContent = cell.classical;
+                    cellDiv.classList.add('classical', cell.classical);
+                } else {
+                    cell.spooky.forEach((mark, i) => {
+                        const spookyDiv = document.createElement('div');
+                        spookyDiv.classList.add('spooky-mark');
+                        spookyDiv.textContent = `${mark.player}${mark.move}`;
+                        spookyDiv.style.top = `${10 + i * 20}%`;
+                        spookyDiv.style.left = `${10 + i * 15}%`;
+                        cellDiv.appendChild(spookyDiv);
+                    });
+                }
+                cellDiv.addEventListener('click', () => handleCellClick(index));
+                boardElement.appendChild(cellDiv);
+            });
+        }
+
+        function handleCellClick(index) {
+            if (cells[index].classical) return; // Can't play in a classical cell
+
+            if (!firstSpookyMark) {
+                // First half of the move
+                firstSpookyMark = { index, player: turn, move: moveNumber };
+                cells[index].spooky.push(firstSpookyMark);
+                statusElement.textContent = `轮到 ${turn}，请选择第二个位置`;
+            } else {
+                // Second half of the move
+                if (index === firstSpookyMark.index) return; // Must be a different cell
+                const secondSpookyMark = { index, player: turn, move: moveNumber };
+                cells[index].spooky.push(secondSpookyMark);
+
+                checkForCyclesAndCollapse(index);
+                
+                turn = (turn === 'X') ? 'O' : 'X';
+                moveNumber++;
+                firstSpookyMark = null;
+                if (!checkForWinner()) {
+                    statusElement.textContent = `轮到 ${turn} 落子`;
+                }
+            }
+            drawBoard();
+        }
+
+        function checkForCyclesAndCollapse(lastIndex) {
+            const path = findCycle(lastIndex);
+            if (path) {
+                statusElement.textContent = `出现纠缠！轮到 ${turn} 选择坍缩位置。`;
+                // Simple auto-collapse for this version: the player who DIDN'T close the loop collapses
+                // by choosing the second-to-last cell in the path.
+                const collapseChoiceIndex = path[path.length - 2].cellIndex;
+                let move_to_collapse = -1;
+                for(let i=0; i<cells[collapseChoiceIndex].spooky.length; i++){
+                    let mark = cells[collapseChoiceIndex].spooky[i];
+                    for(let j=0; j<path.length; j++){
+                        if(path[j].move === mark.move){
+                            move_to_collapse = mark.move;
+                            break;
+                        }
+                    }
+                    if(move_to_collapse !== -1) break;
+                }
+                
+                collapseState(move_to_collapse, collapseChoiceIndex);
+                checkForWinner();
+            }
+        }
+
+        function findCycle(startIndex) {
+            const queue = [[{cellIndex: startIndex, move: null, path:[] }]];
+            
+            while(queue.length > 0){
+                const current_path = queue.shift();
+                const last_node = current_path[current_path.length-1];
+
+                if(current_path.length > 1 && last_node.cellIndex === startIndex){
+                    return current_path;
+                }
+
+                const spooky_marks = cells[last_node.cellIndex].spooky;
+                for(const mark of spooky_marks){
+                    if(mark.move === last_node.move) continue;
+
+                    for(let i=0; i<cells.length; i++){
+                        if(i === last_node.cellIndex) continue;
+                        const next_marks = cells[i].spooky;
+                        for(const next_mark of next_marks){
+                            if(next_mark.move === mark.move){
+                                let new_path = [...current_path, {cellIndex: i, move: mark.move}];
+                                queue.push(new_path);
+                            }
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        function collapseState(move, classicalCellIndex) {
+            const player = move % 2 === 1 ? 'X' : 'O';
+            cells[classicalCellIndex].classical = player;
+            cells[classicalCellIndex].spooky = [];
+
+            // Remove all other spooky marks from that move
+            for (let i = 0; i < cells.length; i++) {
+                cells[i].spooky = cells[i].spooky.filter(m => m.move !== move);
+            }
+            drawBoard();
+            // After one collapse, there might be more!
+            for(let i=0; i<cells.length; i++){
+                if(cells[i].spooky.length > 0){
+                    checkForCyclesAndCollapse(i);
+                }
+            }
+        }
+
+        function checkForWinner() {
+            const lines = [
+                [0, 1, 2], [3, 4, 5], [6, 7, 8],
+                [0, 3, 6], [1, 4, 7], [2, 5, 8],
+                [0, 4, 8], [2, 4, 6]
+            ];
+            for (const line of lines) {
+                const [a, b, c] = line;
+                if (cells[a].classical && cells[a].classical === cells[b].classical && cells[a].classical === cells[c].classical) {
+                    statusElement.textContent = `${cells[a].classical} 赢了!`;
+                    boardElement.removeEventListener('click', handleCellClick);
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        restartBtn.addEventListener('click', newGame);
+
+        newGame();
+    </script>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>观测者效应</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #111827;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .game-container {
+            background: #1f2937;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+        h1 {
+            color: #fff;
+            text-shadow: 0 0 8px #f472b6;
+        }
+        #game-canvas {
+            background: #000;
+            border: 2px solid #f472b6;
+            border-radius: 8px;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 25px;
+            border: 1px solid #f472b6;
+            background: transparent;
+            color: #f472b6;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        button:hover {
+            background: #f472b6;
+            color: #1f2937;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>观测者效应</h1>
+        <p>你的视线会“坍缩”守卫的状态。避开它们的视线，到达终点！</p>
+        <canvas id="game-canvas"></canvas>
+        <div class="controls">
+            <button id="restart-btn">重新开始</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const restartBtn = document.getElementById('restart-btn');
+
+        const GRID_SIZE = 15;
+        const CELL_SIZE = 30;
+        canvas.width = canvas.height = GRID_SIZE * CELL_SIZE;
+
+        const LEVELS = [
+            { guards: [{x: 7, y: 3, states: ['left', 'right']}, {x: 7, y: 10, states: ['up', 'down']}] },
+            { guards: [{x: 3, y: 5, states: ['up', 'down']}, {x: 11, y: 5, states: ['up', 'down']}, {x: 7, y: 12, states: ['left', 'right']}] }
+        ];
+        let currentLevel = 0;
+
+        let player, exit, guards, walls;
+
+        function initLevel(levelIndex) {
+            player = { x: 1, y: 1 };
+            exit = { x: GRID_SIZE - 2, y: GRID_SIZE - 2 };
+            guards = LEVELS[levelIndex].guards.map(g => ({ ...g, collapsedState: null }));
+            walls = []; // Add wall generation for more complex levels later
+            draw();
+        }
+
+        function draw() {
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw Player's line of sight
+            const visionRadius = CELL_SIZE * 5;
+            const visionGradient = ctx.createRadialGradient( (player.x + 0.5) * CELL_SIZE, (player.y + 0.5) * CELL_SIZE, 0, (player.x + 0.5) * CELL_SIZE, (player.y + 0.5) * CELL_SIZE, visionRadius );
+            visionGradient.addColorStop(0, 'rgba(255, 255, 255, 0.1)');
+            visionGradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            ctx.fillStyle = visionGradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw exit
+            ctx.fillStyle = '#a78bfa';
+            ctx.fillRect(exit.x * CELL_SIZE, exit.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+
+            // Draw player
+            ctx.fillStyle = '#60a5fa';
+            ctx.fillRect(player.x * CELL_SIZE, player.y * CELL_SIZE, CELL_SIZE, CELL_SIZE);
+
+            // Draw guards and their line of sight
+            guards.forEach(guard => {
+                // Collapse state if observed
+                if (isInPlayerVision(guard) && !guard.collapsedState) {
+                    guard.collapsedState = guard.states[Math.floor(Math.random() * guard.states.length)];
+                }
+
+                ctx.fillStyle = guard.collapsedState ? '#f472b6' : '#6b7280'; // Pink if collapsed, gray if superposition
+                ctx.fillRect(guard.x * CELL_SIZE + 5, guard.y * CELL_SIZE + 5, CELL_SIZE - 10, CELL_SIZE - 10);
+
+                // Draw guard's vision cone if collapsed
+                if (guard.collapsedState) {
+                    ctx.fillStyle = 'rgba(244, 114, 182, 0.3)';
+                    ctx.beginPath();
+                    const gx = (guard.x + 0.5) * CELL_SIZE;
+                    const gy = (guard.y + 0.5) * CELL_SIZE;
+                    ctx.moveTo(gx, gy);
+                    switch (guard.collapsedState) {
+                        case 'up': ctx.lineTo(gx - CELL_SIZE * 2, gy - CELL_SIZE * 4); ctx.lineTo(gx + CELL_SIZE * 2, gy - CELL_SIZE * 4); break;
+                        case 'down': ctx.lineTo(gx - CELL_SIZE * 2, gy + CELL_SIZE * 4); ctx.lineTo(gx + CELL_SIZE * 2, gy + CELL_SIZE * 4); break;
+                        case 'left': ctx.lineTo(gx - CELL_SIZE * 4, gy - CELL_SIZE * 2); ctx.lineTo(gx - CELL_SIZE * 4, gy + CELL_SIZE * 2); break;
+                        case 'right': ctx.lineTo(gx + CELL_SIZE * 4, gy - CELL_SIZE * 2); ctx.lineTo(gx + CELL_SIZE * 4, gy + CELL_SIZE * 2); break;
+                    }
+                    ctx.closePath();
+                    ctx.fill();
+                }
+            });
+        }
+
+        function isInPlayerVision(target) {
+            const dist = Math.sqrt(Math.pow(player.x - target.x, 2) + Math.pow(player.y - target.y, 2));
+            return dist < 5;
+        }
+
+        function isPlayerCaught() {
+            for (const guard of guards) {
+                if (!guard.collapsedState) continue;
+                // Simple bounding box check for vision cone
+                if (isPointInTriangle(player.x, player.y, guard)) return true;
+            }
+            return false;
+        }
+        
+        // A helper function to check if player is inside a guard's vision triangle
+        function isPointInTriangle(px, py, guard) {
+            const gx = guard.x, gy = guard.y;
+            let p0, p1, p2;
+            switch (guard.collapsedState) {
+                case 'up': p0 = {x: gx, y: gy}; p1 = {x: gx - 2, y: gy - 4}; p2 = {x: gx + 2, y: gy - 4}; break;
+                case 'down': p0 = {x: gx, y: gy}; p1 = {x: gx - 2, y: gy + 4}; p2 = {x: gx + 2, y: gy + 4}; break;
+                case 'left': p0 = {x: gx, y: gy}; p1 = {x: gx - 4, y: gy - 2}; p2 = {x: gx - 4, y: gy + 2}; break;
+                case 'right': p0 = {x: gx, y: gy}; p1 = {x: gx + 4, y: gy - 2}; p2 = {x: gx + 4, y: gy + 2}; break;
+                default: return false;
+            }
+            const s = p0.y * p2.x - p0.x * p2.y + (p2.y - p0.y) * px + (p0.x - p2.x) * py;
+            const t = p0.x * p1.y - p0.y * p1.x + (p0.y - p1.y) * px + (p1.x - p0.x) * py;
+
+            if ((s < 0) !== (t < 0) && s !== 0 && t !== 0) return false;
+            const A = -p1.y * p2.x + p0.y * (p2.x - p1.x) + p0.x * (p1.y - p2.y) + p1.x * p2.y;
+            return A < 0 ? (s <= 0 && s + t >= A) : (s >= 0 && s + t <= A);
+        }
+
+        function movePlayer(dx, dy) {
+            const newX = player.x + dx;
+            const newY = player.y + dy;
+
+            if (newX < 0 || newX >= GRID_SIZE || newY < 0 || newY >= GRID_SIZE) return;
+
+            player.x = newX;
+            player.y = newY;
+
+            draw();
+
+            if (isPlayerCaught()) {
+                setTimeout(() => {
+                    alert('你被观测到了！坍缩回了起点。');
+                    initLevel(currentLevel);
+                }, 100);
+                return;
+            }
+
+            if (player.x === exit.x && player.y === exit.y) {
+                setTimeout(() => {
+                    alert(`恭喜！成功抵达终点！`);
+                    currentLevel = (currentLevel + 1) % LEVELS.length;
+                    initLevel(currentLevel);
+                }, 100);
+            }
+        }
+
+        window.addEventListener('keydown', e => {
+            switch (e.key) {
+                case 'ArrowUp': case 'w': movePlayer(0, -1); break;
+                case 'ArrowDown': case 's': movePlayer(0, 1); break;
+                case 'ArrowLeft': case 'a': movePlayer(-1, 0); break;
+                case 'ArrowRight': case 'd': movePlayer(1, 0); break;
+            }
+        });
+
+        restartBtn.addEventListener('click', () => initLevel(currentLevel));
+
+        initLevel(currentLevel);
+    </script>
+</body>
+</html>

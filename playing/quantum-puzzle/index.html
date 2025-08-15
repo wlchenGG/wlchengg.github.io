@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量子纠缠配对</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #111827;
+            color: #e5e7eb;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .game-container {
+            background: #1f2937;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+        h1 {
+            color: #fff;
+            text-shadow: 0 0 8px #a78bfa;
+        }
+        #level-info {
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+        #grid {
+            display: grid;
+            border: 2px solid #4f46e5;
+            border-radius: 8px;
+            background-color: #000;
+        }
+        .cell {
+            position: relative;
+            border: 1px solid #374151;
+        }
+        .particle, .target {
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            top: 10%;
+            left: 10%;
+            border-radius: 50%;
+        }
+        .particle {
+            cursor: grab;
+            transition: transform 0.2s ease-out;
+        }
+        .particle:active {
+            cursor: grabbing;
+            transform: scale(1.2);
+            z-index: 10;
+        }
+        .target {
+            opacity: 0.2;
+            border-style: dashed;
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: 1px solid #8b5cf6;
+            background: transparent;
+            color: #8b5cf6;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+        }
+        button:hover {
+            background: #8b5cf6;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>量子纠缠配对</h1>
+        <p>移动一个粒子，它纠缠的伙伴会同步移动。将所有粒子移动到对应的目标点。</p>
+        <div id="level-info">关卡: <span id="level-display">1</span></div>
+        <div id="grid"></div>
+        <button id="restart-btn">重置本关</button>
+    </div>
+
+    <script>
+        const gridElement = document.getElementById('grid');
+        const levelDisplay = document.getElementById('level-display');
+        const restartBtn = document.getElementById('restart-btn');
+
+        const COLORS = ['#ef4444', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6'];
+        const LEVELS = [
+            { size: 4, pairs: [[{x:0,y:0},{x:3,y:3}], [{x:0,y:1},{x:3,y:2}]] },
+            { size: 5, pairs: [[{x:1,y:1},{x:3,y:3}], [{x:0,y:2},{x:4,y:2}], [{x:2,y:0},{x:2,y:4}]] },
+            { size: 5, pairs: [[{x:0,y:0},{x:0,y:4}], [{x:4,y:0},{x:4,y:4}], [{x:2,y:1},{x:2,y:3}]] }
+        ];
+
+        let currentLevel = 0;
+        let grid = [];
+        let particles = [];
+        let targets = [];
+        let selectedParticle = null;
+        let offset = { x: 0, y: 0 };
+
+        function loadLevel(levelIndex) {
+            const level = LEVELS[levelIndex];
+            const cellSize = 70;
+            gridElement.style.gridTemplateColumns = `repeat(${level.size}, ${cellSize}px)`;
+            gridElement.style.gridTemplateRows = `repeat(${level.size}, ${cellSize}px)`;
+            gridElement.innerHTML = '';
+            grid = Array(level.size).fill(null).map(() => Array(level.size).fill(null));
+            particles = [];
+            targets = [];
+
+            for (let y = 0; y < level.size; y++) {
+                for (let x = 0; x < level.size; x++) {
+                    const cell = document.createElement('div');
+                    cell.classList.add('cell');
+                    gridElement.appendChild(cell);
+                }
+            }
+
+            level.pairs.forEach((pair, i) => {
+                const p1 = { id: i * 2, pairId: i, x: pair[0].x, y: pair[0].y, color: COLORS[i] };
+                const p2 = { id: i * 2 + 1, pairId: i, x: pair[1].x, y: pair[1].y, color: COLORS[i] };
+                particles.push(p1, p2);
+                grid[p1.y][p1.x] = p1;
+                grid[p2.y][p2.x] = p2;
+
+                const t1 = { x: level.size - 1 - pair[0].x, y: level.size - 1 - pair[0].y, color: COLORS[i] };
+                const t2 = { x: level.size - 1 - pair[1].x, y: level.size - 1 - pair[1].y, color: COLORS[i] };
+                targets.push(t1, t2);
+            });
+
+            levelDisplay.textContent = levelIndex + 1;
+            draw();
+        }
+
+        function draw() {
+            // Clear existing particles and targets
+            document.querySelectorAll('.particle, .target').forEach(el => el.remove());
+
+            targets.forEach(target => {
+                const targetDiv = document.createElement('div');
+                targetDiv.classList.add('target');
+                targetDiv.style.borderColor = target.color;
+                targetDiv.style.gridColumnStart = target.x + 1;
+                targetDiv.style.gridRowStart = target.y + 1;
+                gridElement.appendChild(targetDiv);
+            });
+
+            particles.forEach(p => {
+                const particleDiv = document.createElement('div');
+                particleDiv.classList.add('particle');
+                particleDiv.style.background = p.color;
+                particleDiv.style.gridColumnStart = p.x + 1;
+                particleDiv.style.gridRowStart = p.y + 1;
+                particleDiv.addEventListener('mousedown', () => selectParticle(p, particleDiv));
+                gridElement.appendChild(particleDiv);
+            });
+        }
+
+        function selectParticle(particle, element) {
+            selectedParticle = { particle, element };
+        }
+
+        window.addEventListener('mouseup', () => {
+            if (selectedParticle) {
+                checkWin();
+            }
+            selectedParticle = null;
+        });
+
+        window.addEventListener('mousemove', (e) => {
+            if (!selectedParticle) return;
+            const gridRect = gridElement.getBoundingClientRect();
+            const x = Math.floor((e.clientX - gridRect.left) / (gridRect.width / LEVELS[currentLevel].size));
+            const y = Math.floor((e.clientY - gridRect.top) / (gridRect.height / LEVELS[currentLevel].size));
+            moveParticle(x, y);
+        });
+
+        function moveParticle(newX, newY) {
+            const { particle } = selectedParticle;
+            const size = LEVELS[currentLevel].size;
+            if (newX < 0 || newX >= size || newY < 0 || newY >= size) return;
+
+            const dx = newX - particle.x;
+            const dy = newY - particle.y;
+            if (dx === 0 && dy === 0) return;
+
+            const partner = particles.find(p => p.pairId === particle.pairId && p.id !== particle.id);
+            const partnerNewX = partner.x + dx;
+            const partnerNewY = partner.y + dy;
+
+            if (partnerNewX < 0 || partnerNewX >= size || partnerNewY < 0 || partnerNewY >= size) return;
+
+            const targetCell = grid[newY][newX];
+            const partnerTargetCell = grid[partnerNewY][partnerNewX];
+
+            if ((targetCell && targetCell !== particle) || (partnerTargetCell && partnerTargetCell !== partner)) {
+                return;
+            }
+
+            grid[particle.y][particle.x] = null;
+            grid[partner.y][partner.x] = null;
+
+            particle.x = newX;
+            particle.y = newY;
+            partner.x = partnerNewX;
+            partner.y = partnerNewY;
+
+            grid[particle.y][particle.x] = particle;
+            grid[partner.y][partner.x] = partner;
+
+            draw();
+        }
+
+        function checkWin() {
+            const won = particles.every(p => {
+                return targets.some(t => t.x === p.x && t.y === p.y && t.color === p.color);
+            });
+            if (won) {
+                setTimeout(() => {
+                    alert(`恭喜！完成关卡 ${currentLevel + 1}！`);
+                    currentLevel = (currentLevel + 1) % LEVELS.length;
+                    loadLevel(currentLevel);
+                }, 100);
+            }
+        }
+
+        restartBtn.addEventListener('click', () => loadLevel(currentLevel));
+
+        loadLevel(currentLevel);
+    </script>
+</body>
+</html>

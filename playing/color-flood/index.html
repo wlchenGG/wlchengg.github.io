@@ -1,0 +1,182 @@
+<title>色彩洪水</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .game-container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .game-info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            font-weight: 600;
+        }
+        #board {
+            display: grid;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .cell {
+            width: 30px;
+            height: 30px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .color-btn {
+            width: 50px;
+            height: 50px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .color-btn:hover {
+            transform: scale(1.1);
+        }
+        .color-btn.active {
+            border-color: #333;
+        }
+        #restart-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background: #333;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>色彩洪水</h1>
+        <div class="game-info">
+            <div>步数: <span id="moves">0</span></div>
+            <div>最大步数: <span id="max-moves">0</span></div>
+        </div>
+        <div id="board"></div>
+        <div class="controls" id="controls"></div>
+        <button id="restart-btn">新游戏</button>
+    </div>
+
+    <script>
+        const boardElement = document.getElementById('board');
+        const controlsElement = document.getElementById('controls');
+        const movesElement = document.getElementById('moves');
+        const maxMovesElement = document.getElementById('max-moves');
+        const restartBtn = document.getElementById('restart-btn');
+
+        const BOARD_SIZE = 14;
+        const COLORS = ['#ef4444', '#f97316', '#eab308', '#84cc16', '#22c55e', '#14b8a6'];
+        let board = [];
+        let moves = 0;
+        let maxMoves = 0;
+
+        function createBoard() {
+            board = [];
+            boardElement.innerHTML = '';
+            boardElement.style.gridTemplateColumns = `repeat(${BOARD_SIZE}, 1fr)`;
+            for (let i = 0; i < BOARD_SIZE * BOARD_SIZE; i++) {
+                const colorIndex = Math.floor(Math.random() * COLORS.length);
+                board.push(colorIndex);
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.style.backgroundColor = COLORS[colorIndex];
+                boardElement.appendChild(cell);
+            }
+        }
+
+        function createControls() {
+            controlsElement.innerHTML = '';
+            COLORS.forEach((color, index) => {
+                const button = document.createElement('button');
+                button.classList.add('color-btn');
+                button.style.backgroundColor = color;
+                button.dataset.colorIndex = index;
+                button.addEventListener('click', () => handleColorChoice(index));
+                controlsElement.appendChild(button);
+            });
+        }
+
+        function handleColorChoice(newColorIndex) {
+            const startColorIndex = board[0];
+            if (newColorIndex === startColorIndex) return;
+
+            moves++;
+            flood(0, 0, startColorIndex, newColorIndex);
+            updateBoard();
+            updateGameInfo();
+
+            if (isGameWon()) {
+                setTimeout(() => alert(`你在 ${moves} 步内取得了胜利！`), 100);
+            }
+        }
+
+        function flood(x, y, targetColor, replacementColor) {
+            if (x < 0 || x >= BOARD_SIZE || y < 0 || y >= BOARD_SIZE) return;
+            const index = y * BOARD_SIZE + x;
+            if (board[index] !== targetColor) return;
+
+            board[index] = replacementColor;
+
+            flood(x + 1, y, targetColor, replacementColor);
+            flood(x - 1, y, targetColor, replacementColor);
+            flood(x, y + 1, targetColor, replacementColor);
+            flood(x, y - 1, targetColor, replacementColor);
+        }
+
+        function updateBoard() {
+            for (let i = 0; i < board.length; i++) {
+                boardElement.children[i].style.backgroundColor = COLORS[board[i]];
+            }
+        }
+
+        function updateGameInfo() {
+            movesElement.textContent = moves;
+        }
+
+        function isGameWon() {
+            const firstColor = board[0];
+            return board.every(color => color === firstColor);
+        }
+
+        function newGame() {
+            moves = 0;
+            maxMoves = Math.floor(BOARD_SIZE * 1.5);
+            movesElement.textContent = moves;
+            maxMovesElement.textContent = maxMoves;
+            createBoard();
+            createControls();
+        }
+
+        restartBtn.addEventListener('click', newGame);
+
+        newGame();
+    </script>
+</body>
+</html>

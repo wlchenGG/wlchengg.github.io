@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>2048 Game - Material Design</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <style>
@@ -19,6 +19,8 @@
             align-items: center;
             min-height: 100vh;
             padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         .game-container {
             background: #fff;
@@ -26,6 +28,7 @@
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             margin-top: 20px;
+            touch-action: none;
         }
         .grid {
             display: grid;
@@ -34,6 +37,7 @@
             background: #bbada0;
             padding: 10px;
             border-radius: 4px;
+            position: relative;
         }
         .cell {
             width: 80px;
@@ -67,6 +71,25 @@
         .new-game:hover {
             background: #7f6a56;
         }
+
+        /* Animations */
+        @keyframes pop {
+            0% { transform: scale(0.8); }
+            80% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .pop {
+            animation: pop 0.2s ease-in-out;
+        }
+
+        @keyframes merge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        .merge {
+            animation: merge 0.2s ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -78,16 +101,24 @@
     </div>
 
     <script>
+        const gridElement = document.getElementById('grid');
         let grid = [];
         let score = 0;
+        const size = 4;
+
+        function newGame() {
+            score = 0;
+            initGrid();
+            addNumber();
+            addNumber();
+            updateDisplay();
+        }
 
         function initGrid() {
-            const gridElement = document.getElementById('grid');
             gridElement.innerHTML = '';
-            grid = Array(4).fill().map(() => Array(4).fill(0));
-            
-            for (let i = 0; i < 4; i++) {
-                for (let j = 0; j < 4; j++) {
+            grid = Array(size).fill().map(() => Array(size).fill(0));
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
                     const cell = document.createElement('div');
                     cell.className = 'cell';
                     cell.id = `cell-${i}-${j}`;
@@ -98,185 +129,205 @@
 
         function addNumber() {
             const emptyCells = [];
-            for (let i = 0; i < 4; i++) {
-                for (let j = 0; j < 4; j++) {
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
                     if (grid[i][j] === 0) {
-                        emptyCells.push({x: i, y: j});
+                        emptyCells.push({ x: i, y: j });
                     }
                 }
             }
             if (emptyCells.length > 0) {
                 const randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)];
                 grid[randomCell.x][randomCell.y] = Math.random() < 0.9 ? 2 : 4;
-                updateDisplay();
             }
         }
 
         function updateDisplay() {
-            for (let i = 0; i < 4; i++) {
-                for (let j = 0; j < 4; j++) {
+            document.getElementById('score').textContent = score;
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
                     const cell = document.getElementById(`cell-${i}-${j}`);
                     const value = grid[i][j];
+                    const oldValue = parseInt(cell.dataset.value) || 0;
+
                     cell.textContent = value || '';
                     cell.style.backgroundColor = getColor(value);
+                    cell.dataset.value = value;
+
+                    // Clear previous animations
+                    cell.classList.remove('pop', 'merge');
+                    void cell.offsetWidth; // Trigger reflow
+
+                    if (value !== oldValue) {
+                        if (value > oldValue) { // Merged
+                            cell.classList.add('merge');
+                        } else if (value !== 0) { // New tile
+                            cell.classList.add('pop');
+                        }
+                    }
                 }
             }
-            document.getElementById('score').textContent = score;
         }
 
         function getColor(value) {
             const colors = {
-                0: '#cdc1b4',
-                2: '#eee4da',
-                4: '#ede0c8',
-                8: '#f2b179',
-                16: '#f59563',
-                32: '#f67c5f',
-                64: '#f65e3b',
-                128: '#edcf72',
-                256: '#edcc61',
-                512: '#edc850',
-                1024: '#edc53f',
-                2048: '#edc22e'
+                0: '#cdc1b4', 2: '#eee4da', 4: '#ede0c8', 8: '#f2b179',
+                16: '#f59563', 32: '#f67c5f', 64: '#f65e3b', 128: '#edcf72',
+                256: '#edcc61', 512: '#edc850', 1024: '#edc53f', 2048: '#edc22e'
             };
             return colors[value] || '#edc22e';
         }
 
-        function newGame() {
-            score = 0;
-            initGrid();
-            addNumber();
-            addNumber();
-        }
-
-        document.addEventListener('keydown', handleInput);
-
         function handleInput(event) {
-            const key = event.key;
             let moved = false;
-
-            switch(key) {
-                case 'ArrowLeft':
-                    moved = moveLeft();
-                    break;
-                case 'ArrowRight':
-                    moved = moveRight();
-                    break;
-                case 'ArrowUp':
-                    moved = moveUp();
-                    break;
-                case 'ArrowDown':
-                    moved = moveDown();
-                    break;
+            switch (event.key) {
+                case 'ArrowUp': moved = moveUp(); break;
+                case 'ArrowDown': moved = moveDown(); break;
+                case 'ArrowLeft': moved = moveLeft(); break;
+                case 'ArrowRight': moved = moveRight(); break;
+                default: return;
             }
-
             if (moved) {
                 addNumber();
+                updateDisplay();
                 if (isGameOver()) {
-                    alert('Game Over!');
+                    setTimeout(() => alert('Game Over!'), 500);
                 }
             }
+        }
+
+        function operate(row) {
+            row = slide(row);
+            row = combine(row);
+            row = slide(row);
+            return row;
+        }
+
+        function slide(row) {
+            let arr = row.filter(val => val);
+            let missing = size - arr.length;
+            let zeros = Array(missing).fill(0);
+            return arr.concat(zeros);
+        }
+
+        function combine(row) {
+            for (let i = 0; i < size - 1; i++) {
+                if (row[i] !== 0 && row[i] === row[i + 1]) {
+                    row[i] *= 2;
+                    score += row[i];
+                    row[i + 1] = 0;
+                }
+            }
+            return row;
         }
 
         function moveLeft() {
-            return moveLine('left');
+            let moved = false;
+            for (let i = 0; i < size; i++) {
+                const originalRow = [...grid[i]];
+                grid[i] = operate(grid[i]);
+                if (originalRow.join(',') !== grid[i].join(',')) {
+                    moved = true;
+                }
+            }
+            return moved;
         }
 
         function moveRight() {
-            return moveLine('right');
+            let moved = false;
+            for (let i = 0; i < size; i++) {
+                const originalRow = [...grid[i]];
+                let reversedRow = originalRow.reverse();
+                let newRow = operate(reversedRow);
+                grid[i] = newRow.reverse();
+                if (originalRow.join(',') !== grid[i].join(',')) {
+                    moved = true;
+                }
+            }
+            return moved;
         }
 
         function moveUp() {
-            return moveLine('up');
+            let moved = false;
+            for (let j = 0; j < size; j++) {
+                const originalCol = [grid[0][j], grid[1][j], grid[2][j], grid[3][j]];
+                let newCol = operate(originalCol);
+                for (let i = 0; i < size; i++) {
+                    if (grid[i][j] !== newCol[i]) {
+                        moved = true;
+                    }
+                    grid[i][j] = newCol[i];
+                }
+            }
+            return moved;
         }
 
         function moveDown() {
-            return moveLine('down');
-        }
-
-        function moveLine(direction) {
             let moved = false;
-            const size = 4;
-
-            for (let i = 0; i < size; i++) {
-                let line = [];
-                for (let j = 0; j < size; j++) {
-                    const val = direction === 'left' || direction === 'right' ? 
-                              grid[i][j] : grid[j][i];
-                    if (val !== 0) line.push(val);
-                }
-
-                if (direction === 'right' || direction === 'down') {
-                    line.reverse();
-                }
-
-                // Merge
-                for (let j = 0; j < line.length - 1; j++) {
-                    if (line[j] === line[j + 1]) {
-                        line[j] *= 2;
-                        score += line[j];
-                        line.splice(j + 1, 1);
-                    }
-                }
-
-                // Fill with zeros
-                while (line.length < size) {
-                    if (direction === 'right' || direction === 'down') {
-                        line.unshift(0);
-                    } else {
-                        line.push(0);
-                    }
-                }
-
-                if (direction === 'right' || direction === 'down') {
-                    line.reverse();
-                }
-
-                // Update grid
-                for (let j = 0; j < size; j++) {
-                    const newVal = line[j];
-                    const oldVal = direction === 'left' || direction === 'right' ? 
-                                 grid[i][j] : grid[j][i];
-                    
-                    if (newVal !== oldVal) {
+            for (let j = 0; j < size; j++) {
+                const originalCol = [grid[0][j], grid[1][j], grid[2][j], grid[3][j]];
+                let reversedCol = originalCol.reverse();
+                let newCol = operate(reversedCol);
+                newCol.reverse();
+                for (let i = 0; i < size; i++) {
+                    if (grid[i][j] !== newCol[i]) {
                         moved = true;
                     }
-
-                    if (direction === 'left' || direction === 'right') {
-                        grid[i][j] = newVal;
-                    } else {
-                        grid[j][i] = newVal;
-                    }
+                    grid[i][j] = newCol[i];
                 }
-            }
-
-            if (moved) {
-                updateDisplay();
             }
             return moved;
         }
 
         function isGameOver() {
-            // Check for empty cells
-            for (let i = 0; i < 4; i++) {
-                for (let j = 0; j < 4; j++) {
+            for (let i = 0; i < size; i++) {
+                for (let j = 0; j < size; j++) {
                     if (grid[i][j] === 0) return false;
+                    if (i < size - 1 && grid[i][j] === grid[i + 1][j]) return false;
+                    if (j < size - 1 && grid[i][j] === grid[i][j + 1]) return false;
                 }
             }
-
-            // Check for possible merges
-            for (let i = 0; i < 4; i++) {
-                for (let j = 0; j < 4; j++) {
-                    if (j < 3 && grid[i][j] === grid[i][j + 1]) return false;
-                    if (i < 3 && grid[i][j] === grid[i + 1][j]) return false;
-                }
-            }
-
             return true;
         }
 
-        // Start new game when page loads
+        // Touch controls
+        let touchStartX = 0;
+        let touchStartY = 0;
+
+        gridElement.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        gridElement.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        }, { passive: false });
+
+        gridElement.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const touchEndY = e.changedTouches[0].clientY;
+            const dx = touchEndX - touchStartX;
+            const dy = touchEndY - touchStartY;
+
+            if (Math.abs(dx) < 10 && Math.abs(dy) < 10) return;
+
+            let moved = false;
+            if (Math.abs(dx) > Math.abs(dy)) {
+                moved = dx > 0 ? moveRight() : moveLeft();
+            } else {
+                moved = dy > 0 ? moveDown() : moveUp();
+            }
+            if (moved) {
+                addNumber();
+                updateDisplay();
+                if (isGameOver()) {
+                    setTimeout(() => alert('Game Over!'), 500);
+                }
+            }
+        });
+
+        document.addEventListener('keydown', handleInput);
         newGame();
     </script>
 </body>
-</html></div>
+</html>

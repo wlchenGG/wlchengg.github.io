@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>波函数坍缩画板</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #fff;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        #canvas {
+            background: #e5e7eb;
+            border: 2px solid #d1d5db;
+            border-radius: 8px;
+            cursor: crosshair;
+        }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        button {
+            padding: 12px 25px;
+            border: none;
+            background: #4f46e5;
+            color: #fff;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #4338ca;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>波函数坍缩画板</h1>
+        <p>点击画布上的一个点，观察整个宇宙如何从可能性中坍缩成一个确定的世界。</p>
+        <canvas id="canvas"></canvas>
+        <div class="controls">
+            <button id="reset-btn">清空并重置</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const resetBtn = document.getElementById('reset-btn');
+
+        const DIM = 50; // Grid dimensions
+        const TILE_SIZE = 10;
+        canvas.width = canvas.height = DIM * TILE_SIZE;
+
+        const TILES = [
+            { name: 'WATER', color: '#3b82f6', rules: { up: ['WATER', 'SAND'], down: ['WATER', 'SAND'], left: ['WATER', 'SAND'], right: ['WATER', 'SAND'] } },
+            { name: 'SAND',  color: '#f59e0b', rules: { up: ['WATER', 'SAND', 'GRASS'], down: ['WATER', 'SAND', 'GRASS'], left: ['WATER', 'SAND', 'GRASS'], right: ['WATER', 'SAND', 'GRASS'] } },
+            { name: 'GRASS', color: '#22c55e', rules: { up: ['SAND', 'GRASS', 'FOREST'], down: ['SAND', 'GRASS', 'FOREST'], left: ['SAND', 'GRASS', 'FOREST'], right: ['SAND', 'GRASS', 'FOREST'] } },
+            { name: 'FOREST',color: '#166534', rules: { up: ['GRASS', 'FOREST', 'MOUNTAIN'], down: ['GRASS', 'FOREST', 'MOUNTAIN'], left: ['GRASS', 'FOREST', 'MOUNTAIN'], right: ['GRASS', 'FOREST', 'MOUNTAIN'] } },
+            { name: 'MOUNTAIN',color:'#6b7280', rules: { up: ['FOREST', 'MOUNTAIN'], down: ['FOREST', 'MOUNTAIN'], left: ['FOREST', 'MOUNTAIN'], right: ['FOREST', 'MOUNTAIN'] } }
+        ];
+
+        let grid;
+        let isGenerating = false;
+
+        function initGrid() {
+            grid = Array(DIM * DIM).fill(null).map(() => Array.from({ length: TILES.length }, (_, i) => i));
+            isGenerating = false;
+            draw();
+        }
+
+        function getPossibleNeighbors(tileIndex, direction) {
+            const tile = TILES[tileIndex];
+            return tile.rules[direction].map(name => TILES.findIndex(t => t.name === name));
+        }
+
+        async function collapse() {
+            if (isGenerating) return;
+            isGenerating = true;
+
+            while (true) {
+                const uncollapsed = grid.map((options, index) => ({ options, index }))
+                                      .filter(cell => cell.options.length > 1);
+
+                if (uncollapsed.length === 0) {
+                    isGenerating = false;
+                    break;
+                }
+
+                uncollapsed.sort((a, b) => a.options.length - b.options.length);
+                const cellToCollapse = uncollapsed[0];
+
+                const chosenOption = cellToCollapse.options[Math.floor(Math.random() * cellToCollapse.options.length)];
+                grid[cellToCollapse.index] = [chosenOption];
+
+                await propagate(cellToCollapse.index);
+                draw();
+                await new Promise(res => setTimeout(res, 0)); // Allow UI to update
+            }
+        }
+
+        async function propagate(startIndex) {
+            const stack = [startIndex];
+
+            while (stack.length > 0) {
+                const currentIndex = stack.pop();
+                const currentOptions = grid[currentIndex];
+
+                // Neighbors [dx, dy, current_to_neighbor_dir, neighbor_to_current_dir]
+                const neighbors = [
+                    [0, -1, 'up', 'down'],    // Up
+                    [0, 1, 'down', 'up'],      // Down
+                    [-1, 0, 'left', 'right'], // Left
+                    [1, 0, 'right', 'left']   // Right
+                ];
+
+                for (const [dx, dy, dir1, dir2] of neighbors) {
+                    const x = currentIndex % DIM;
+                    const y = Math.floor(currentIndex / DIM);
+                    const nx = x + dx;
+                    const ny = y + dy;
+
+                    if (nx >= 0 && nx < DIM && ny >= 0 && ny < DIM) {
+                        const neighborIndex = ny * DIM + nx;
+                        let neighborOptions = grid[neighborIndex];
+
+                        if (neighborOptions.length === 1) continue;
+
+                        let possibleFromCurrent = [];
+                        currentOptions.forEach(option => {
+                            possibleFromCurrent.push(...getPossibleNeighbors(option, dir1));
+                        });
+                        const validOptions = [...new Set(possibleFromCurrent)];
+
+                        const newNeighborOptions = neighborOptions.filter(option => validOptions.includes(option));
+
+                        if (newNeighborOptions.length !== neighborOptions.length) {
+                            grid[neighborIndex] = newNeighborOptions;
+                            if (!stack.includes(neighborIndex)) {
+                                stack.push(neighborIndex);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < grid.length; i++) {
+                const options = grid[i];
+                const x = (i % DIM) * TILE_SIZE;
+                const y = Math.floor(i / DIM) * TILE_SIZE;
+                if (options.length === 1) {
+                    ctx.fillStyle = TILES[options[0]].color;
+                    ctx.fillRect(x, y, TILE_SIZE, TILE_SIZE);
+                } else {
+                    ctx.fillStyle = `rgba(0, 0, 0, ${0.1 - options.length * 0.01})`;
+                    ctx.fillRect(x, y, TILE_SIZE, TILE_SIZE);
+                }
+            }
+        }
+
+        canvas.addEventListener('click', (e) => {
+            if (isGenerating) return;
+            const rect = canvas.getBoundingClientRect();
+            const x = Math.floor((e.clientX - rect.left) / TILE_SIZE);
+            const y = Math.floor((e.clientY - rect.top) / TILE_SIZE);
+            const index = y * DIM + x;
+
+            // Manually collapse one cell
+            const chosenOption = grid[index][Math.floor(Math.random() * grid[index].length)];
+            grid[index] = [chosenOption];
+            
+            collapse();
+        });
+
+        resetBtn.addEventListener('click', initGrid);
+
+        initGrid();
+    </script>
+</body>
+</html>

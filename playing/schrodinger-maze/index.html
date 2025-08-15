@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>量子迷宫</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .game-container {
+            background: #2c2c2c;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            text-align: center;
+        }
+        h1 {
+            color: #fff;
+            text-shadow: 0 0 10px #00ffff;
+        }
+        p {
+            max-width: 500px;
+            margin-bottom: 20px;
+        }
+        #maze-canvas {
+            background: #111;
+            border: 2px solid #00ffff;
+            border-radius: 8px;
+            box-shadow: inset 0 0 15px rgba(0, 255, 255, 0.2);
+        }
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            border: 1px solid #00ffff;
+            background: transparent;
+            color: #00ffff;
+            border-radius: 8px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s, color 0.3s;
+            text-transform: uppercase;
+        }
+        button:hover {
+            background: #00ffff;
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>量子迷宫</h1>
+        <p>每一次移动都会导致周围的墙壁发生“坍缩”，从不确定的叠加态变为确定。你能找到出口吗？</p>
+        <canvas id="maze-canvas"></canvas>
+        <button id="restart-btn">生成新迷宫</button>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('maze-canvas');
+        const ctx = canvas.getContext('2d');
+        const restartBtn = document.getElementById('restart-btn');
+
+        const SIZE = 20;
+        const CELL_SIZE = 25;
+        canvas.width = canvas.height = SIZE * CELL_SIZE;
+
+        let player, exit, maze;
+
+        function createMaze() {
+            // Maze is a grid of cells. Each cell has walls [top, right, bottom, left]
+            // null = superposition, true = wall, false = path
+            maze = Array(SIZE).fill(null).map(() => Array(SIZE).fill(null).map(() => [null, null, null, null]));
+            player = { x: 0, y: 0 };
+            exit = { x: SIZE - 1, y: SIZE - 1 };
+            observe(player.x, player.y);
+            draw();
+        }
+
+        function observe(x, y) {
+            if (x < 0 || x >= SIZE || y < 0 || y >= SIZE) return;
+
+            const cell = maze[y][x];
+            // Observe walls of the current cell
+            if (cell[0] === null) cell[0] = (y > 0) ? Math.random() < 0.4 : true; // Top
+            if (cell[1] === null) cell[1] = (x < SIZE - 1) ? Math.random() < 0.4 : true; // Right
+            if (cell[2] === null) cell[2] = (y < SIZE - 1) ? Math.random() < 0.4 : true; // Bottom
+            if (cell[3] === null) cell[3] = (x > 0) ? Math.random() < 0.4 : true; // Left
+
+            // Ensure neighbors are consistent
+            if (y > 0 && maze[y - 1][x][2] === null) maze[y - 1][x][2] = cell[0]; // Neighbor below
+            if (x < SIZE - 1 && maze[y][x + 1][3] === null) maze[y][x + 1][3] = cell[1]; // Neighbor right
+            if (y < SIZE - 1 && maze[y + 1][x][0] === null) maze[y + 1][x][0] = cell[2]; // Neighbor above
+            if (x > 0 && maze[y][x - 1][1] === null) maze[y][x - 1][1] = cell[3]; // Neighbor left
+        }
+
+        function draw() {
+            ctx.fillStyle = '#111';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw maze walls
+            ctx.strokeStyle = '#00ffff';
+            ctx.lineWidth = 2;
+            for (let y = 0; y < SIZE; y++) {
+                for (let x = 0; x < SIZE; x++) {
+                    const cell = maze[y][x];
+                    if (cell[0]) drawLine(x, y, x + 1, y); // Top
+                    if (cell[1]) drawLine(x + 1, y, x + 1, y + 1); // Right
+                    if (cell[2]) drawLine(x, y + 1, x + 1, y + 1); // Bottom
+                    if (cell[3]) drawLine(x, y, x, y + 1); // Left
+                }
+            }
+
+            // Draw player
+            ctx.fillStyle = '#38bdf8';
+            ctx.fillRect(player.x * CELL_SIZE + 5, player.y * CELL_SIZE + 5, CELL_SIZE - 10, CELL_SIZE - 10);
+
+            // Draw exit
+            ctx.fillStyle = '#a78bfa';
+            ctx.fillRect(exit.x * CELL_SIZE + 5, exit.y * CELL_SIZE + 5, CELL_SIZE - 10, CELL_SIZE - 10);
+        }
+
+        function drawLine(x1, y1, x2, y2) {
+            ctx.beginPath();
+            ctx.moveTo(x1 * CELL_SIZE, y1 * CELL_SIZE);
+            ctx.lineTo(x2 * CELL_SIZE, y2 * CELL_SIZE);
+            ctx.stroke();
+        }
+
+        function movePlayer(dx, dy) {
+            const newX = player.x + dx;
+            const newY = player.y + dy;
+
+            if (newX < 0 || newX >= SIZE || newY < 0 || newY >= SIZE) return;
+
+            // Observe walls around the player before moving
+            observe(player.x, player.y);
+            observe(newX, newY);
+
+            // Check for wall collision based on direction
+            if (dx === 1 && !maze[player.y][player.x][1]) player.x = newX; // Right
+            if (dx === -1 && !maze[player.y][player.x][3]) player.x = newX; // Left
+            if (dy === 1 && !maze[player.y][player.x][2]) player.y = newY; // Down
+            if (dy === -1 && !maze[player.y][player.x][0]) player.y = newY; // Up
+
+            // Observe the new location and its neighbors
+            observe(player.x, player.y);
+            observe(player.x + 1, player.y);
+            observe(player.x - 1, player.y);
+            observe(player.x, player.y + 1);
+            observe(player.x, player.y - 1);
+
+            draw();
+
+            if (player.x === exit.x && player.y === exit.y) {
+                setTimeout(() => {
+                    alert('恭喜！你穿越了不确定的迷宫！');
+                    createMaze();
+                }, 100);
+            }
+        }
+
+        window.addEventListener('keydown', e => {
+            switch (e.key) {
+                case 'ArrowUp': movePlayer(0, -1); break;
+                case 'ArrowDown': movePlayer(0, 1); break;
+                case 'ArrowLeft': movePlayer(-1, 0); break;
+                case 'ArrowRight': movePlayer(1, 0); break;
+            }
+        });
+
+        restartBtn.addEventListener('click', createMaze);
+
+        createMaze();
+    </script>
+</body>
+</html>
