@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>薛定谔的猫主子</title>
+<style>
+body {
+  background: radial-gradient(circle at 50% 30%, #fef9c3, #fde68a);
+  color: #78350f;
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+h1 {
+  margin-top: 0;
+  font-weight: 700;
+}
+.scene {
+  width: 200px;
+  height: 200px;
+  margin: 40px auto;
+  perspective: 800px;
+}
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(0deg);
+  transition: transform 1s ease;
+}
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: #facc15 url('https://www.transparenttextures.com/patterns/cardboard-flat.png');
+  border: 2px solid #d97706;
+  background-size: cover;
+}
+.front  { transform: rotateY(0deg) translateZ(100px); }
+.back   { transform: rotateY(180deg) translateZ(100px); }
+.right  { transform: rotateY(90deg) translateZ(100px); }
+.left   { transform: rotateY(-90deg) translateZ(100px); }
+.top    { transform: rotateX(90deg) translateZ(100px); transform-origin: bottom; }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+.cat-container {
+  margin-top: 20px;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cat-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(0.2);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 85%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-size: cover;
+}
+.cat-img.show {
+  transform: scale(1);
+  opacity: 1;
+}
+.noise-layer {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  pointer-events: none;
+}
+.stars::before, .stars::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: radial-gradient(2px 2px at 10px 20px, white, transparent),
+                    radial-gradient(1px 1px at 50px 80px, white, transparent),
+                    radial-gradient(1.5px 1.5px at 90px 50px, white, transparent),
+                    radial-gradient(2px 2px at 130px 150px, white, transparent),
+                    radial-gradient(1px 1px at 200px 100px, white, transparent),
+                    radial-gradient(1.5px 1.5px at 250px 200px, white, transparent);
+  background-repeat: repeat;
+  background-size: 300px 300px;
+  animation: moveStars 20s linear infinite;
+}
+.stars::after {
+  animation-direction: reverse;
+  opacity: 0.5;
+}
+@keyframes moveStars {
+  from { transform: translateY(0); }
+  to   { transform: translateY(-300px); }
+}
+p {
+  max-width: 500px;
+  margin: 20px auto;
+  font-size: 14px;
+  color: #854d0e;
+}
+button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #facc15;
+  color: #78350f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+button:active {
+  transform: scale(0.98);
+}
+</style>
+</head>
+<body>
+<h1>薛定谔的猫主子</h1>
+<div class="scene">
+  <div class="cube" id="cube">
+    <div class="face front"></div>
+    <div class="face back"></div>
+    <div class="face right"></div>
+    <div class="face left"></div>
+    <div class="face top" id="lid"></div>
+    <div class="face bottom"></div>
+  </div>
+</div>
+<div class="cat-container" id="catBox">
+  <div class="stars"></div>
+</div>
+<p>
+薛定谔的猫是量子力学中的思想实验：在盒子未被打开之前，猫既是活的，也是死的。
+在薛定谔的猫主子里：盒子未打开之前，猫主子是任何平行宇宙中的样子。
+</p>
+<button id="toggleBtn">打开盒子</button>
+
+<script>
+const cube = document.getElementById('cube');
+const toggleBtn = document.getElementById('toggleBtn');
+const catBox = document.getElementById('catBox');
+
+let currentImg = null;
+let loadingNewCat = false;
+let edgeAnimId = null;
+
+function openLid() {
+  cube.style.transform = 'rotateX(-30deg)';
+}
+function closeLid() {
+  cube.style.transform = 'rotateX(0deg)';
+}
+
+function loadCat() {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = () => resolve(img);
+    img.src = `https://cataas.com/cat?width=500&height=500&ts=${Date.now()}`;
+  });
+}
+
+function dissolveImage(img) {
+  return new Promise((resolve) => {
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = img.width;
+    canvas.height = img.height;
+    ctx.drawImage(img, 0, 0);
+    catBox.innerHTML = '<div class="stars"></div>';
+    catBox.appendChild(canvas);
+
+    let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    let particles = [];
+    for (let y = 0; y < canvas.height; y+=4) {
+      for (let x = 0; x < canvas.width; x+=4) {
+        const i = (y * canvas.width + x) * 4;
+        const color = `rgba(${imageData.data[i]},${imageData.data[i+1]},${imageData.data[i+2]},${imageData.data[i+3]/255})`;
+        particles.push({x, y, color, dx: (Math.random()-0.5)*4, dy: (Math.random()-0.5)*4});
+      }
+    }
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y, 4, 4);
+        p.x += p.dx;
+        p.y += p.dy;
+        p.dy += 0.05;
+        let alphaMatch = /rgba\((.*),(.*),(.*),(.*)\)/.exec(p.color);
+        if (alphaMatch) {
+          let alpha = parseFloat(alphaMatch[4]) - 0.02;
+          if (alpha < 0) alpha = 0;
+          p.color = `rgba(${alphaMatch[1]},${alphaMatch[2]},${alphaMatch[3]},${alpha})`;
+        }
+      });
+      particles = particles.filter(p => !p.color.endsWith(',0)'));
+      if (particles.length > 0) {
+        requestAnimationFrame(animate);
+      } else {
+        resolve();
+      }
+    }
+    animate();
+  });
+}
+
+// 动态随机边缘抖动
+function startEdgeAnimation(el) {
+  if (edgeAnimId) cancelAnimationFrame(edgeAnimId);
+  let basePoints = [];
+  let pointsCount = 8;
+  let r = 50;
+  for (let i = 0; i < pointsCount; i++) {
+    let angle = (Math.PI * 2 / pointsCount) * i;
+    let radius = r + Math.random()*15 - 7;
+    let x = 50 + radius * Math.cos(angle) / 100 * 100;
+    let y = 50 + radius * Math.sin(angle) / 100 * 100;
+    basePoints.push({x, y});
+  }
+  function animate() {
+    let pts = basePoints.map(p => {
+      return {
+        x: p.x + (Math.random()-0.5)*2,
+        y: p.y + (Math.random()-0.5)*2
+      };
+    }).map(p => `${p.x}% ${p.y}%`).join(',');
+    el.style.clipPath = `polygon(${pts})`;
+    edgeAnimId = requestAnimationFrame(animate);
+  }
+  animate();
+}
+
+// 动态噪点
+function createNoiseLayer() {
+  const canvas = document.createElement('canvas');
+  canvas.className = 'noise-layer';
+  const ctx = canvas.getContext('2d');
+  let w = 300, h = 300;
+  canvas.width = w; canvas.height = h;
+  function drawNoise() {
+    let imageData = ctx.createImageData(w, h);
+    for (let i = 0; i < imageData.data.length; i += 4) {
+      let val = Math.random() * 255;
+      imageData.data[i] = val;
+      imageData.data[i+1] = val;
+      imageData.data[i+2] = val;
+      imageData.data[i+3] = 20; // 透明度
+    }
+    ctx.putImageData(imageData, 0, 0);
+    requestAnimationFrame(drawNoise);
+  }
+  drawNoise();
+  return canvas;
+}
+
+toggleBtn.addEventListener('click', async () => {
+  if (loadingNewCat) return; 
+  loadingNewCat = true;
+  
+  let newCatPromise = loadCat();
+
+  if (currentImg) {
+    await dissolveImage(currentImg);
+  }
+
+  const img = await newCatPromise;
+  img.className = 'cat-img';
+  currentImg = img;
+  catBox.innerHTML = '<div class="stars"></div>';
+  const noise = createNoiseLayer();
+  catBox.appendChild(img);
+  catBox.appendChild(noise);
+
+  openLid();
+  startEdgeAnimation(img);
+
+  setTimeout(() => {
+    img.classList.add('show');
+  }, 200);
+
+  setTimeout(() => {
+    closeLid();
+    loadingNewCat = false;
+  }, 4000);
+});
+</script>
+</body>
+</html>
