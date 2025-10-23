@@ -165,7 +165,13 @@
     }
 
     .domain {
-      width: 100%;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 10;
+      padding: 0.2em 0;
+      width: 80%;
+      margin: 0 auto;
       text-align: center;
       color: black;
       font-family: 'Times New Roman', SimSun, "宋体", Times, serif;
@@ -394,9 +400,8 @@
 
 	<!-- 页面主体 -->
 	<div id="main" class="main">
-		<h1 class="title">中国计算机学会推荐国际学术会议和期刊目录</h1>
-    <p class="domain">（2022 年）</p>
-    <p class="domain">中国计算机学会</p>
+		<h1 class="title">中国计算机学会推荐国际学术会议和期刊目录（2022 年）</h1>
+    <!-- <p class="domain">中国计算机学会</p> -->
     <p class="tip">*** <span class="up">标黄</span>：表示现在 2019 年第五版目录中，升级至 A/B</p>
     <p class="tip">*** <span class="add">红字</span>：表示不在 2019 年第五版目录中， 直接申请 A/B/C</p>
     <p class="tip">*** <span class="del">删掉</span>：表示从 2019 年第五版目录中移除</p>
