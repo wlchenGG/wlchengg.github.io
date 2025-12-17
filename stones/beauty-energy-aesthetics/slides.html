@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幻灯片 | 美感与大脑节能</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+    <style>
+        :root { --accent: #2563eb; }
+        .reveal { color: #0f172a; }
+        .reveal h1, .reveal h2, .reveal h3 { color: #111827; }
+        .reveal .slides section { text-align: left; }
+        pre { background: #f3f4f6; padding: 12px; border-radius: 8px; font-size: 14px; }
+        .note { color: #6b7280; font-size: 16px; }
+        .pill { display: inline-block; background: rgba(37,99,235,0.08); color: #2563eb; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(37,99,235,0.24); font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h2>为什么“美”可能是大脑的节能策略？</h2>
+                <p class="note">PNAS Nexus 视觉美学研究 · 神经代谢 × AI 模拟</p>
+                <p><span class="pill">神经科学</span> <span class="pill">认知心理</span> <span class="pill">AI</span></p>
+            </section>
+
+            <section>
+                <h3>核心逻辑</h3>
+                <pre>视觉输入 → 视觉系统处理（高能耗） → 愉悦/美感评价
+                         ↑
+               能量消耗反馈（节能倾向）</pre>
+                <p class="note">处理成本越低，愉悦反馈越强 → 更易觉得“好看”。</p>
+            </section>
+
+            <section>
+                <h3>实验设计（双轨）</h3>
+                <pre>AI 模块（VGG-19）: 4,914 张图像 → 处理成本估算
+                         ↓
+                         ↘ 人类美感评分
+
+fMRI：同一批图像 → 视觉皮层代谢信号 → 与评分比对</pre>
+                <ul>
+                    <li>验证 AI 估算与人类评分一致性。</li>
+                    <li>fMRI BOLD 作为代谢代理，观察能耗与美感的关系。</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>关键发现</h3>
+                <ul>
+                    <li>视觉系统耗能极高，约占大脑能耗的 44%。</li>
+                    <li>能量成本 ↓ ↔ 美感评分 ↑（负相关）。</li>
+                    <li>“甜蜜点”：适度复杂、可理解的图像最受偏好。</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>脑区参与（简化）</h3>
+                <pre>V1–V4 → 基本特征
+中级视觉区 → 形状/场景
+PPA/FFA/OPA 等 → 高层识别与美感更相关</pre>
+                <p class="note">越靠近高层视觉区，美感与能耗的关联更强。</p>
+            </section>
+
+            <section>
+                <h3>局限与注意</h3>
+                <ul>
+                    <li>相关性为主，未证明因果。</li>
+                    <li>聚焦“第一眼”视觉直觉，未覆盖深层文化审美。</li>
+                    <li>个体/文化差异仍需更多数据。</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>未来探索</h3>
+                <ul>
+                    <li>跨感官：听觉、触觉、味觉是否也有节能偏好？</li>
+                    <li>更直接的代谢测量：PET、奖赏系统参与。</li>
+                    <li>AI × Neuro：用深度模型推演偏好形成，并反哺生成式设计。</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>传播提示</h3>
+                <ul>
+                    <li>“节能”只是美感的一部分解释，不要过度泛化。</li>
+                    <li>文化学习与经验同样塑造偏好。</li>
+                    <li>可用 Goldilocks 曲线讲解“适度复杂性最舒适”。</li>
+                </ul>
+            </section>
+
+            <section>
+                <h3>参考</h3>
+                <p class="note">PsyPost · Medical Xpress · PNAS Nexus · StudyFinds · News-Medical 等报道与原文。</p>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script>
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            hash: true,
+            transition: 'fade'
+        });
+    </script>
+</body>
+</html>

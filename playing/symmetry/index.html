@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>对称性与群的直观演示</title>
+    <script>
+        window.MathJax = {
+            tex: { inlineMath: [['\(', '\)'], ['$', '$']] },
+            svg: { fontCache: 'global' }
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" defer></script>
+    <style>
+        :root {
+            --ink: #111;
+            --muted: #525252;
+            --accent: #2563eb;
+            --bg: #ffffff;
+            --panel: #f6f6f6;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 18px 40px;
+        }
+        .layout {
+            width: min(1080px, 100%);
+            display: grid;
+            gap: 18px;
+        }
+        header h1 { margin: 0 0 6px; font-size: 1.6rem; letter-spacing: 0.02em; }
+        header p { margin: 0; color: var(--muted); line-height: 1.5; }
+        .panel {
+            background: var(--panel);
+            border: 1px solid #e5e5e5;
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.04);
+        }
+        .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+        .control { display: grid; gap: 6px; }
+        label { font-weight: 600; font-size: 0.95rem; }
+        select, input[type=range] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #d5d5d5;
+            background: #fff;
+            font-size: 0.95rem;
+        }
+        .radio-row { display: flex; gap: 10px; flex-wrap: wrap; }
+        .chip {
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid #d5d5d5;
+            background: #fff;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            font-size: 0.9rem;
+            user-select: none;
+        }
+        .chip.active { border-color: var(--accent); color: var(--accent); box-shadow: 0 6px 14px rgba(37,99,235,0.12); }
+        .canvas {
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid #e5e5e5;
+            padding: 12px;
+        }
+        .svg-wrap { width: 100%; max-width: 560px; margin: 0 auto; }
+        .meta { display: grid; gap: 6px; font-size: 0.95rem; color: var(--muted); }
+        .meta strong { color: var(--ink); }
+        .legend { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 8px; font-size: 0.9rem; color: var(--muted); }
+        .dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .dot.base { background: #d9d9d9; border: 1px solid #bfbfbf; }
+        .dot.result { background: #5c7cfa; }
+        .axis-line { stroke: #f97316; stroke-dasharray: 6 4; stroke-width: 2; }
+        .footnote { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+        @media (max-width: 640px) {
+            header h1 { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <header>
+            <h1>对称性与群的直观演示</h1>
+            <p>用旋转和反射的操作，看看多边形的对称性如何形成循环群 $C_n$ 与二面体群 $D_n$。</p>
+        </header>
+
+        <div class="panel controls">
+            <div class="control">
+                <label for="shape-select">选择形状（决定 $n$）</label>
+                <select id="shape-select">
+                    <option value="3">正三角形（n=3）</option>
+                    <option value="4" selected>正方形（n=4）</option>
+                    <option value="6">正六边形（n=6）</option>
+                </select>
+            </div>
+            <div class="control">
+                <label for="rotation-range">旋转次数 $r^k$（以 $2\pi/n$ 为步长） <span id="rotation-deg" style="float:right; color:var(--muted);">0°</span></label>
+                <input type="range" id="rotation-range" min="0" max="5" value="0" step="1">
+            </div>
+            <div class="control">
+                <label>选择反射 $s$（轴对称）</label>
+                <div class="radio-row" id="reflection-row">
+                    <div class="chip active" data-ref="none">无</div>
+                    <div class="chip" data-ref="vertical">竖直轴</div>
+                    <div class="chip" data-ref="horizontal">水平轴</div>
+                    <div class="chip" data-ref="diag">对角轴</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel canvas">
+            <div class="svg-wrap">
+                <svg id="scene" viewBox="-120 -120 240 240" role="img" aria-label="对称操作演示">
+                    <defs>
+                        <marker id="arrow" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                            <path d="M0,0 L8,4 L0,8 z" fill="#94a3b8"></path>
+                        </marker>
+                    </defs>
+                    <line id="axis-line" class="axis-line" x1="0" y1="-110" x2="0" y2="110" stroke-linecap="round"></line>
+                    <polygon id="base-shape" fill="#f8f8f8" stroke="#cfcfcf" stroke-width="2"></polygon>
+                    <polygon id="transformed-shape" fill="#5c7cfa" opacity="0.8" stroke="#2b2f77" stroke-width="2"></polygon>
+                    <g id="base-dots" fill="#bfbfbf"></g>
+                    <g id="result-dots" fill="#5c7cfa"></g>
+                    <g id="rotation-arc"></g>
+                </svg>
+                <div class="legend">
+                    <span class="dot base"></span>原型 $r^0$
+                    <span class="dot result"></span>经过 $r^k$ 及反射后的形状
+                </div>
+            </div>
+            <div class="meta" id="meta"></div>
+        </div>
+
+        <div class="panel footnote">
+            <strong>灵感来源：</strong> 对称操作的组合产生群结构：纯旋转形成循环群 $C_n$（阶 $n$），再加上 $n$ 条反射得到二面体群 $D_n$（阶 $2n$）。旋转记作 $r$，反射记作 $s$，关系为 $r^n=e$、$s^2=e$、$srs=r^{-1}$。滑动、切换轴即可直观感受这些关系。
+        </div>
+    </div>
+
+    <script>
+        const shapeSelect = document.getElementById('shape-select');
+        const rotationRange = document.getElementById('rotation-range');
+        const rotationDegLabel = document.getElementById('rotation-deg');
+        const reflectionRow = document.getElementById('reflection-row');
+        const baseShape = document.getElementById('base-shape');
+        const transformedShape = document.getElementById('transformed-shape');
+        const baseDots = document.getElementById('base-dots');
+        const resultDots = document.getElementById('result-dots');
+        const axisLine = document.getElementById('axis-line');
+        const rotationArc = document.getElementById('rotation-arc');
+        const metaBox = document.getElementById('meta');
+
+        let reflectionMode = 'none';
+
+        function polygonPoints(sides, radius = 80) {
+            const offset = -90; // start at top
+            return Array.from({ length: sides }, (_, i) => {
+                const angle = (2 * Math.PI * i) / sides + (offset * Math.PI) / 180;
+                return { x: radius * Math.cos(angle), y: radius * Math.sin(angle) };
+            });
+        }
+
+        function rotatePoints(points, degrees) {
+            const rad = (degrees * Math.PI) / 180;
+            const cos = Math.cos(rad);
+            const sin = Math.sin(rad);
+            return points.map(({ x, y }) => ({ x: x * cos - y * sin, y: x * sin + y * cos }));
+        }
+
+        function reflectPoints(points, mode) {
+            switch (mode) {
+                case 'vertical':
+                    return points.map(({ x, y }) => ({ x: -x, y }));
+                case 'horizontal':
+                    return points.map(({ x, y }) => ({ x, y: -y }));
+                case 'diag':
+                    return points.map(({ x, y }) => ({ x: y, y: x }));
+                default:
+                    return points;
+            }
+        }
+
+        function axisFor(mode) {
+            switch (mode) {
+                case 'vertical':
+                    return { x1: 0, y1: -110, x2: 0, y2: 110 };
+                case 'horizontal':
+                    return { x1: -110, y1: 0, x2: 110, y2: 0 };
+                case 'diag':
+                    return { x1: -110, y1: -110, x2: 110, y2: 110 };
+                default:
+                    return null;
+            }
+        }
+
+        function drawDots(group, points) {
+            group.innerHTML = points
+                .map((p) => `<circle cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="3"></circle>`)
+                .join('');
+        }
+
+        function setPolygon(el, points) {
+            el.setAttribute('points', points.map((p) => `${p.x.toFixed(2)},${p.y.toFixed(2)}`).join(' '));
+        }
+
+        function drawRotationArc(deg) {
+            if (deg === 0) {
+                rotationArc.innerHTML = '';
+                return;
+            }
+            const radius = 40;
+            const large = deg > 180 ? 1 : 0;
+            const start = { x: 0, y: -radius };
+            const end = rotatePoints([start], deg)[0];
+            rotationArc.innerHTML = `<path d="M ${start.x.toFixed(2)} ${start.y.toFixed(2)} A ${radius} ${radius} 0 ${large} 1 ${end.x.toFixed(2)} ${end.y.toFixed(2)}" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" />`;
+        }
+
+        function update() {
+            const sides = parseInt(shapeSelect.value, 10);
+            const maxRotation = sides - 1;
+            rotationRange.max = maxRotation;
+            const step = parseInt(rotationRange.value, 10);
+            const degrees = (360 / sides) * step;
+
+            const base = polygonPoints(sides);
+            const rotated = rotatePoints(base, degrees);
+            const result = reflectPoints(rotated, reflectionMode);
+
+            setPolygon(baseShape, base);
+            setPolygon(transformedShape, result);
+            drawDots(baseDots, base);
+            drawDots(resultDots, result);
+            drawRotationArc(degrees);
+
+            const axis = axisFor(reflectionMode);
+            if (axis) {
+                axisLine.setAttribute('x1', axis.x1);
+                axisLine.setAttribute('y1', axis.y1);
+                axisLine.setAttribute('x2', axis.x2);
+                axisLine.setAttribute('y2', axis.y2);
+                axisLine.style.opacity = '1';
+            } else {
+                axisLine.style.opacity = '0';
+            }
+
+            rotationDegLabel.textContent = `${degrees.toFixed(0)}°`;
+            metaBox.innerHTML = `
+                <div><strong>当前形状：</strong> 正${sides === 3 ? '三角形' : sides === 4 ? '方形' : '六边形'}，$n=${sides}$</div>
+                <div><strong>旋转：</strong> $r^{${step}}$，每次 $2\pi/${sides} = ${(360 / sides).toFixed(0)}°$，阶为 $n$</div>
+                <div><strong>反射：</strong> ${reflectionMode === 'none' ? '不使用 $s$' : '沿指定轴的 $s$，阶为 $2$'} </div>
+                <div><strong>群关系：</strong> $r^n = e$，$s^2 = e$，$srs = r^{-1}$ —— 形成二面体群 $D_{${sides}}$，阶 $2n$</div>
+            `;
+
+            if (window.MathJax && window.MathJax.typesetPromise) {
+                window.MathJax.typesetPromise([metaBox, document.querySelector('header'), document.querySelector('.legend'), document.querySelector('.footnote')]);
+            }
+        }
+
+        reflectionRow.addEventListener('click', (e) => {
+            const chip = e.target.closest('.chip');
+            if (!chip) return;
+            reflectionMode = chip.dataset.ref;
+            Array.from(reflectionRow.children).forEach((el) => el.classList.toggle('active', el === chip));
+            update();
+        });
+
+        shapeSelect.addEventListener('change', update);
+        rotationRange.addEventListener('input', update);
+
+        update();
+    </script>
+</body>
+</html>

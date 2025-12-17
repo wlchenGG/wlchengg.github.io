@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美感与大脑节能 | 他山之石</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --panel: #0b1220;
+            --card: #111827;
+            --ink: #e5e7eb;
+            --muted: #94a3b8;
+            --accent: #67e8f9;
+            --accent-2: #a855f7;
+            --line: rgba(148, 163, 184, 0.25);
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0; padding: 0; font-family: "Inter", "Noto Sans SC", Arial, sans-serif;
+            background: radial-gradient(circle at 20% 20%, rgba(103,232,249,0.05), transparent 35%),
+                        radial-gradient(circle at 80% 0%, rgba(168,85,247,0.06), transparent 32%),
+                        var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+        .page { max-width: 960px; margin: 0 auto; padding: 32px 18px 60px; }
+        .hero { background: linear-gradient(135deg, rgba(103,232,249,0.12), rgba(168,85,247,0.12)); border: 1px solid var(--line); border-radius: 16px; padding: 22px 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); }
+        .hero h1 { margin: 0 0 6px; font-size: 28px; }
+        .hero p { margin: 4px 0; color: var(--muted); }
+        nav a { color: var(--accent); text-decoration: none; font-size: 14px; }
+        section { margin-top: 22px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 18px 16px; box-shadow: 0 14px 40px rgba(0,0,0,0.22); }
+        section h2 { margin: 0 0 10px; font-size: 20px; color: #e0f2fe; }
+        .list { padding-left: 18px; color: var(--muted); }
+        .pill { display: inline-block; background: rgba(103,232,249,0.12); border: 1px solid var(--line); color: var(--accent); padding: 4px 10px; border-radius: 999px; font-size: 12px; margin-right: 8px; }
+        .quote { border-left: 3px solid var(--accent); padding-left: 10px; color: #dbeafe; margin: 10px 0; }
+        a { color: var(--accent); }
+        footer { margin-top: 24px; color: var(--muted); font-size: 13px; text-align: right; }
+        @media (max-width: 640px) { .hero h1 { font-size: 24px; } }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <nav><a href="../index.html">← 返回他山之石</a></nav>
+        <div class="hero">
+            <h1>美感与大脑节能：视觉系统的能量效率假说</h1>
+            <p>来源：PNAS Nexus（相关报道：PsyPost, Medical Xpress 等） · 视觉美学 × 神经代谢 × AI 模拟</p>
+            <div>
+                <span class="pill">神经科学</span>
+                <span class="pill">认知心理</span>
+                <span class="pill">AI 模拟</span>
+            </div>
+        </div>
+
+        <section>
+            <h2>核心研究内容（客观摘要）</h2>
+            <ul class="list">
+                <li>人们觉得“好看”的图像，往往对应视觉系统更低的代谢成本，呈负相关。</li>
+                <li>方法：AI 模拟视觉层级（VGG-19 估算处理成本）→ 人类近 5000 张图片的美感评分对比 → fMRI 测真实代谢活跃度。</li>
+                <li>视觉系统耗能极高：大脑能量约 20% 用于视觉，而视觉系统占其中近一半。</li>
+                <li>美感的“甜蜜点”：既不是最简单的白板，也不是过度复杂，而是在可理解与能耗之间的平衡区。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>科学分析：为何重要</h2>
+            <div class="quote">美感可能部分是节能策略的“愉悦反馈”：处理成本更低 → 产生奖励信号 → 直觉上更喜欢（processing fluency 视角）。</div>
+            <ul class="list">
+                <li>生物效率视角：视觉是大脑最昂贵的通路，节能带来生存优势。</li>
+                <li>AI 模拟验证：深度卷积网络的能耗估算与人类评分高度一致，提示计算效率与审美偏好存在对应。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>局限与理性考量</h2>
+            <ul class="list">
+                <li>相关性不等于因果：尚未直接操控能耗并观察美感变化。</li>
+                <li>聚焦即时视觉直觉：不代表深层文化、音乐或抽象艺术的审美体验。</li>
+                <li>文化与个体差异未充分覆盖：长期训练可改变偏好，超越初级视觉能耗最优化。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>未来展望与问题</h2>
+            <ul class="list">
+                <li>跨感官验证：听觉、触觉、味觉是否也有“节能愉悦”机制？</li>
+                <li>更直接的代谢测量：可用 PET 等手段量化真实能耗，并观察奖赏系统/情绪网络的参与。</li>
+                <li>AI 与神经科学互补：用深度模型探索高维偏好形成；反哺生成式设计更贴近人类感知。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>教学/传播提示</h2>
+            <ul class="list">
+                <li>不要把“节能=全部美学解释”夸大，它只是直觉美感的神经代谢补充视角。</li>
+                <li>强调文化与学习同样塑造审美；长期经验可重塑视觉模型。</li>
+                <li>适合课堂引入：美感 vs 复杂度的“甜蜜点”示例（Goldilocks 法则）。</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>参考与延伸阅读</h2>
+            <ul class="list">
+                <li><a href="https://www.psypost.org/new-neuroscience-research-reveals-surprising-biological-link-between-beauty-and-brain-energy/">PsyPost：Neuroscience study reveals surprising link between beauty and brain energy</a></li>
+                <li><a href="https://medicalxpress.com/news/2025-12-beauty-easy-eyes-brain-power.html">Medical Xpress：Beauty may be "easy on the eyes" because it saves brain power</a></li>
+                <li><a href="https://www.psych.utoronto.ca/news/how-energy-efficiency-shapes-our-aesthetic-preferences">UofT Psychology：How energy efficiency shapes our aesthetic preferences</a></li>
+                <li><a href="https://academic.oup.com/pnasnexus/article/doi/10.1093/pnasnexus/pgaf347/8361965">PNAS Nexus 原文：Less is more: Aesthetic liking is inversely related to metabolic</a></li>
+                <li><a href="https://studyfinds.org/how-your-brains-energy-budget-shapes-what-you-like/">StudyFinds：How your brain's energy budget shapes what you like</a></li>
+                <li><a href="https://www.news-medical.net/news/20251203/Understanding-why-simple-images-feel-more-aesthetically-pleasing.aspx">News-Medical：Understanding why simple images feel more aesthetically pleasing</a></li>
+            </ul>
+        </section>
+
+        <footer>收录至 Stones · 可继续扩展时间线 / 拓扑视图。</footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analog Clock Demo</title>
+    <style>
+        :root {
+            --clock-size: clamp(260px, 70vw, 420px);
+            --accent: #111;
+            --second: #e63946;
+            --minute: #2d2d2d;
+            --hour: #111;
+            --tick: #c9c9c9;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            color: #111;
+            font-family: "Segoe UI", Arial, sans-serif;
+            padding: 32px;
+        }
+        .wrapper {
+            width: min(520px, 100%);
+            text-align: center;
+        }
+        h1 {
+            margin: 0 0 12px;
+            letter-spacing: 0.04em;
+            font-weight: 600;
+        }
+        p {
+            margin: 0 0 20px;
+            color: #4a4a4a;
+        }
+        .clock {
+            position: relative;
+            width: var(--clock-size);
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            border: 10px solid var(--accent);
+            border-radius: 50%;
+            background: #fff;
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.08),
+                inset 0 0 0 2px #f0f0f0;
+        }
+        .tick {
+            position: absolute;
+            inset: 6%;
+        }
+        .tick::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 10px;
+            background: var(--tick);
+            transform: translateX(-50%);
+        }
+        .tick:nth-child(5n + 1)::before {
+            height: 16px;
+            width: 3px;
+            background: #999;
+        }
+        .number {
+            position: absolute;
+            inset: 0;
+            transform: rotate(calc(30deg * var(--i)));
+        }
+        .number span {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, 0) rotate(calc(-30deg * var(--i)));
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.02em;
+        }
+        .hand {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform-origin: 50% 100%;
+            transform: translate(-50%, -100%) rotate(var(--rotation, 0deg));
+            border-radius: 999px;
+            transition: transform 0.2s cubic-bezier(0.4, 1.6, 0.4, 1);
+        }
+        .hand.hour {
+            width: 10px;
+            height: 32%;
+            background: var(--hour);
+        }
+        .hand.minute {
+            width: 8px;
+            height: 42%;
+            background: var(--minute);
+        }
+        .hand.second {
+            width: 3px;
+            height: 46%;
+            background: var(--second);
+            transition: transform 0.06s cubic-bezier(0.4, 2, 0.6, 1);
+        }
+        .center-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--second);
+            border: 4px solid #fff;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 0 1px #111;
+        }
+        .time-readout {
+            margin-top: 16px;
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.08em;
+            font-weight: 600;
+        }
+        @media (max-width: 480px) {
+            body {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Analog Clock</h1>
+        <p>Showing <span class="time-readout" id="time-readout">--:--:--</span></p>
+        <div class="clock" aria-label="Analog clock showing current time">
+            <div class="tick" style="transform: rotate(0deg);"></div>
+            <div class="tick" style="transform: rotate(30deg);"></div>
+            <div class="tick" style="transform: rotate(60deg);"></div>
+            <div class="tick" style="transform: rotate(90deg);"></div>
+            <div class="tick" style="transform: rotate(120deg);"></div>
+            <div class="tick" style="transform: rotate(150deg);"></div>
+            <div class="tick" style="transform: rotate(180deg);"></div>
+            <div class="tick" style="transform: rotate(210deg);"></div>
+            <div class="tick" style="transform: rotate(240deg);"></div>
+            <div class="tick" style="transform: rotate(270deg);"></div>
+            <div class="tick" style="transform: rotate(300deg);"></div>
+            <div class="tick" style="transform: rotate(330deg);"></div>
+
+            <div class="number" style="--i: 12;"><span>12</span></div>
+            <div class="number" style="--i: 1;"><span>1</span></div>
+            <div class="number" style="--i: 2;"><span>2</span></div>
+            <div class="number" style="--i: 3;"><span>3</span></div>
+            <div class="number" style="--i: 4;"><span>4</span></div>
+            <div class="number" style="--i: 5;"><span>5</span></div>
+            <div class="number" style="--i: 6;"><span>6</span></div>
+            <div class="number" style="--i: 7;"><span>7</span></div>
+            <div class="number" style="--i: 8;"><span>8</span></div>
+            <div class="number" style="--i: 9;"><span>9</span></div>
+            <div class="number" style="--i: 10;"><span>10</span></div>
+            <div class="number" style="--i: 11;"><span>11</span></div>
+
+            <div class="hand hour" id="hour-hand"></div>
+            <div class="hand minute" id="minute-hand"></div>
+            <div class="hand second" id="second-hand"></div>
+            <div class="center-dot"></div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            const hourHand = document.getElementById('hour-hand');
+            const minuteHand = document.getElementById('minute-hand');
+            const secondHand = document.getElementById('second-hand');
+            const timeReadout = document.getElementById('time-readout');
+
+            function setRotation(element, degrees) {
+                if (element) {
+                    element.style.setProperty('--rotation', degrees + 'deg');
+                }
+            }
+
+            function updateClock() {
+                const now = new Date();
+                const seconds = now.getSeconds();
+                const minutes = now.getMinutes();
+                const hours = now.getHours();
+
+                const secondDegrees = seconds * 6;
+                const minuteDegrees = (minutes + seconds / 60) * 6;
+                const hourDegrees = ((hours % 12) + minutes / 60 + seconds / 3600) * 30;
+
+                setRotation(secondHand, secondDegrees);
+                setRotation(minuteHand, minuteDegrees);
+                setRotation(hourHand, hourDegrees);
+
+                timeReadout.textContent = now.toLocaleTimeString([], {
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+            }
+
+            updateClock();
+            setInterval(updateClock, 1000);
+        })();
+    </script>
+</body>
+</html>
