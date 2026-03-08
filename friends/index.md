@@ -21,7 +21,7 @@
 {{< friend name="折影轻梦" url="https://nexmoe.com/" avatar="https://cravatar.cn/avatar/c7fd185f8c967dec20c29c75a40b9e09?s=500" bio="为热爱战斗着，努力学着变得勇敢" >}}
 {{< friend name="饼藏的情敌" url="https://zjhzzy.github.io" avatar="https://q.qlogo.cn/g?b=qq&nk=822627809&s=640" bio="在追求梦想的路上，坚持不懈" >}}
 {{< friend name="夜轻Blog" url="https://blog.yeqing.net/" avatar="https://blog.yeqing.net/upload/ea055268c8792945de3b9c8d00e1cd08.jpeg" bio="一个人" >}}
-{{< friend name="PuddingKC's Blog" url="https://www.puddingkc.com/" avatar="https://www.puddingkc.com/api/v2/objects/avatar/2cfgqfbuk0clj9t0md.webp" bio="愿你所热爱的依旧不减当年。" >}}
+{{< friend name="PuddingKC's Blog" url="https://www.puddingkc.com/" avatar="https://www.puddingkc.com/img/avatar.webp" bio="愿你所热爱的依旧不减当年。" >}}
 {{< friend name="V2 方圆" url="https://v2fy.com/" avatar="/images/v2fy.png" bio="很全很赞的工具资源导航" >}}
 {{< friend name="PCloud" url="https://github.com/HEIGE-PCloud/" avatar="https://avatars.githubusercontent.com/u/52968553?v=4" bio="This is PCloud~💤" >}}
 
