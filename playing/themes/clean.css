@@ -1,0 +1,18 @@
+:root {
+  --bg-top: #f2f5fa;
+  --bg-bottom: #dfe6ef;
+  --card: #ffffff;
+  --card-border: #d0d8e4;
+  --text: #1e2433;
+  --accent: #3b6bb1;
+}
+body {
+  background:
+    radial-gradient(circle at 20% 20%, #ffffff 0, #eef2f7 35%, #dfe6ef 70%, #cfd8e3 100%);
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', sans-serif !important;
+}
+a, button {
+  color: var(--text);
+  font-family: 'Inter', 'Segoe UI', sans-serif !important;
+}

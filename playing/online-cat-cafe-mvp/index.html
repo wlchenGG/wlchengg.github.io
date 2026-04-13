@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>云绒猫咖｜在线撸猫小屋</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="room-cursor" data-theme="sunny">
+  <div class="app">
+    <aside class="sidebar panel">
+      <section class="brand">
+        <div class="eyebrow">online cat café</div>
+        <h1>云绒猫咖</h1>
+        <div class="subtitle">
+          一个能切换主题、观察猫咪独特性格，并亲手布置空间的在线猫咖。现在加入了真实跳跃、步态动画、抱猫换位，以及猫与猫的社交互动动作。
+        </div>
+      </section>
+
+      <section class="stats">
+        <div class="stat">
+          <strong id="petCount">0</strong>
+          <span>今日撸猫次数</span>
+        </div>
+        <div class="stat">
+          <strong id="comfortValue">0.00%</strong>
+          <span>猫咖舒适度</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>房间主题</h2>
+        <div class="theme-row" id="themeRow"></div>
+      </section>
+
+      <section class="section">
+        <h2>玩法提示</h2>
+        <div class="tips">
+          <div>• 按住鼠标或触摸并在猫身上移动，就能“撸猫”。</div>
+          <div>• 猫会散步、跳上平台、观察等位、睡觉、伸懒腰、舔毛，还会互相闻闻和贴贴。</div>
+          <div>• 玩具只能停在有支撑的地方：地面、书架、窗台、猫树平台。</div>
+          <div>• 双击猫可以把它抱起来换位置；不同猫被抱时会更放松或更容易扭动。</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>猫咪住客</h2>
+        <div class="cats-list" id="catsList"></div>
+      </section>
+
+      <section class="section">
+        <h2>可移动玩具</h2>
+        <div class="swatches">
+          <div class="toy-badge">绒球</div>
+          <div class="toy-badge">羽毛棒</div>
+          <div class="toy-badge">云朵抱枕</div>
+          <div class="toy-badge">小鱼玩具</div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>照料系统</h2>
+        <div class="care-actions">
+          <button id="feederAutoBtn" class="soft-btn">自动喂食：开</button>
+          <button id="feedBtn" class="soft-btn">手动放粮</button>
+          <button id="scoopBtn" class="soft-btn">铲猫砂</button>
+          <button id="cleanFloorBtn" class="soft-btn">清理屋内便便</button>
+        </div>
+        <div class="care-status" id="careStatus"></div>
+      </section>
+
+      <section class="section">
+        <h2>房间状态</h2>
+        <div class="tips">
+          <div id="statusText">猫咪们正在慢慢散步，整个空间松弛而安静。</div>
+          <div id="themeHint">当前主题：午后奶油房。</div>
+          <button id="soundBtn" class="btn">🔇 点击开启声音</button>
+        </div>
+      </section>
+
+      <div class="footer-note">
+        已拆分为独立 html / css / js 文件，适合直接继续本地开发。
+      </div>
+    </aside>
+
+    <main class="room-wrap">
+      <div class="room" id="room">
+        <div class="night-overlay"></div>
+        <div class="room-title">
+          <strong id="roomTitle">午后奶油房</strong>
+          <span id="roomSubtitle">更适合慢慢揉揉猫咪的午后主题</span>
+        </div>
+
+        <div class="lamp"></div>
+        <div class="lamp-glow"></div>
+        <div class="light-patch"></div>
+
+        <div class="window">
+          <div class="cloud c1"></div>
+          <div class="cloud c2"></div>
+          <div class="cloud c3"></div>
+        </div>
+
+        <div class="shelf"></div>
+        <div class="plant">
+          <div class="leaf"></div>
+          <div class="leaf"></div>
+          <div class="leaf"></div>
+          <div class="leaf"></div>
+          <div class="pot"></div>
+        </div>
+
+        <div class="cat-tree">
+          <div class="pole"></div>
+          <div class="top"></div>
+          <div class="mid"></div>
+          <div class="base"></div>
+        </div>
+
+        <div class="scratcher"></div>
+        <div class="rug"></div>
+
+        <div class="surface-hint">玩具会吸附到可支撑表面；平台空出来时，胆大的猫可能抢先跳上去。</div>
+
+        <div class="facility-layer" id="facilityLayer"></div>
+        <div class="mess-layer" id="messLayer"></div>
+        <div class="toy-layer" id="toyLayer"></div>
+        <div class="cat-layer" id="catLayer"></div>
+        <div class="effect-layer" id="effectLayer"></div>
+      </div>
+    </main>
+  </div>
+
+  <div class="floating-hand" id="hand">🖐️</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

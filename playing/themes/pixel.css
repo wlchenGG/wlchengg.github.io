@@ -1,0 +1,19 @@
+:root {
+  --bg-top: #3b6bb1;
+  --bg-bottom: #1f3a5f;
+  --card: #1e2433;
+  --card-border: #0d111a;
+  --text: #f4f1e6;
+  --accent: #ffd166;
+}
+body {
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.2), transparent 40%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+  color: var(--text);
+  font-family: 'Press Start 2P', cursive !important;
+}
+a, button {
+  color: var(--text);
+  font-family: 'Press Start 2P', cursive !important;
+}

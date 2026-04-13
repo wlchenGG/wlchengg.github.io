@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>块块快跑：草原风暴</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="../theme-loader.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+        body {
+            font-family: 'Press Start 2P', cursive;
+            background: linear-gradient(to bottom, #87CEEB 0%, #98FB98 100%);
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+        /* 扫描线效果 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.1),
+                rgba(0, 0, 0, 0.1) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.3;
+        }
+        /* 屏幕震动效果 */
+        @keyframes shake {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-5px, -5px); }
+            20% { transform: translate(5px, 5px); }
+            30% { transform: translate(-5px, 5px); }
+            40% { transform: translate(5px, -5px); }
+            50% { transform: translate(-5px, -5px); }
+            60% { transform: translate(5px, 5px); }
+            70% { transform: translate(-5px, 5px); }
+            80% { transform: translate(5px, -5px); }
+            90% { transform: translate(-5px, -5px); }
+        }
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+        #gameContainer {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+        #gameCanvas {
+            border: 4px solid #2F4F4F;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            background: transparent;
+            image-rendering: pixelated;
+        }
+        /* HUD样式 */
+        #hud {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            right: 12px;
+            display: flex;
+            justify-content: space-between;
+            color: white;
+            text-shadow: 2px 2px 0 #000;
+            font-size: 12px;
+            z-index: 100;
+            pointer-events: none;
+        }
+        .hud-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        #hearts {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+        .heart {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            background-size: cover;
+            background-repeat: no-repeat;
+            image-rendering: pixelated;
+        }
+        #gameOver {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #8B4513;
+            border: 8px solid #654321;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            box-shadow: 
+                inset 0 0 20px rgba(0,0,0,0.5),
+                0 0 30px rgba(0,0,0,0.8);
+            z-index: 200;
+        }
+        #gameOver h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #FFD700;
+            text-shadow: 3px 3px 0 #8B4513;
+        }
+        #gameOver p {
+            margin: 15px 0;
+            font-size: 14px;
+        }
+        #restartBtn {
+            margin-top: 20px;
+            padding: 15px 30px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 12px;
+            background: #228B22;
+            color: white;
+            border: 4px solid #006400;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        #restartBtn:hover {
+            transform: scale(1.05);
+            background: #32CD32;
+        }
+        #restartBtn:active {
+            transform: scale(0.95);
+        }
+        /* 开始提示 */
+        #startHint {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            text-shadow: 2px 2px 0 #000;
+            font-size: 12px;
+            animation: blink 1s infinite;
+            z-index: 100;
+        }
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+        /* HIM模式特效 */
+        @keyframes glow {
+            0%, 100% { filter: brightness(1) drop-shadow(0 0 5px white); }
+            50% { filter: brightness(1.5) drop-shadow(0 0 20px white); }
+        }
+        .him-mode {
+            animation: glow 0.5s infinite;
+        }
+        /* 超级加速特效 */
+        @keyframes superSpeed {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .super-speed {
+            animation: superSpeed 0.2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        <div id="hud">
+            <div class="hud-section">
+                <div id="hearts"></div>
+                <div>得分: <span id="score">0</span>m</div>
+            </div>
+            <div class="hud-section" style="text-align: right;">
+                <div>下个道具: <span id="nextItem">25</span>m</div>
+                <div>超级箱子: <span id="superBox">500</span>m</div>
+            </div>
+        </div>
+        <div id="startHint">按空格键或点击屏幕跳跃</div>
+        <div id="gameOver">
+            <h2>草原探险结束</h2>
+            <p>最终得分: <span id="finalScore">0</span>m</p>
+            <p>最大生命: <span id="maxHearts">3</span></p>
+            <button id="restartBtn">重新开始</button>
+        </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const gameContainer = document.getElementById('gameContainer');
+        const ctx = canvas.getContext('2d');
+        // 禁用抗锯齿，保持像素风格
+        ctx.imageSmoothingEnabled = false;
+        // 游戏配置
+        const GAME_WIDTH = 800;
+        const GAME_HEIGHT = 400;
+        const GROUND_HEIGHT = 64;
+        const GRAVITY = 0.6;
+        const JUMP_FORCE = -12;
+        const BASE_SPEED = 5;
+        const HEART_CAP = 5;          // 生命最大上限
+        const ITEM_CAP = 3;           // 同屏最多普通道具
+        const SUPERBOX_CAP = 1;       // 同屏最多超级箱子
+        // 设置画布大小（固定内部分辨率，按比例缩放展示）
+        function resizeCanvas() {
+            const scale = Math.min(window.innerWidth / GAME_WIDTH, window.innerHeight / GAME_HEIGHT) * 0.9;
+            const displayWidth = GAME_WIDTH * scale;
+            const displayHeight = GAME_HEIGHT * scale;
+
+            canvas.width = GAME_WIDTH;
+            canvas.height = GAME_HEIGHT;
+            canvas.style.width = `${displayWidth}px`;
+            canvas.style.height = `${displayHeight}px`;
+
+            gameContainer.style.width = `${displayWidth}px`;
+            gameContainer.style.height = `${displayHeight}px`;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        // 游戏状态
+        let gameState = {
+            running: false,
+            score: 0, // 距离（米）
+            speed: BASE_SPEED,
+            hearts: 3,
+            maxHearts: 3,
+            isHimMode: false,
+            himModeTimer: 0,
+            speedEffectTimer: 0,
+            speedMultiplier: 1,
+            nextItemDistance: 25,
+            nextSuperBoxDistance: 500,
+            invincible: false,
+            jumpCount: 0,
+            groundOffset: 0
+        };
+        // 玩家对象
+        const player = {
+            x: 100,
+            y: GAME_HEIGHT - GROUND_HEIGHT - 32,
+            width: 32,
+            height: 32,
+            velocityY: 0,
+            isJumping: false,
+            frame: 0,
+            animTimer: 0
+        };
+        // 障碍物和道具数组
+        let obstacles = [];
+        let items = [];
+        let particles = [];
+        let clouds = [];
+        // 像素艺术生成函数
+        function createPixelArt(pixels, colorMap) {
+            const size = pixels.length;
+            const canvas2 = document.createElement('canvas');
+            canvas2.width = size;
+            canvas2.height = size;
+            const ctx2 = canvas2.getContext('2d');
+            for (let y = 0; y < size; y++) {
+                for (let x = 0; x < size; x++) {
+                    const char = pixels[y][x];
+                    if (colorMap[char]) {
+                        ctx2.fillStyle = colorMap[char];
+                        ctx2.fillRect(x, y, 1, 1);
+                    }
+                }
+            }
+            return canvas2;
+        }
+        // 史蒂夫角色像素画 (8x8放大到32x32)
+        const stevePixels = [
+            "........",
+            "..BBBB..",
+            "..BBBB..",
+            "..BBBB..",
+            ".BBBBBB.",
+            ".BBBBBB.",
+            ".BBBBBB.",
+            "..LLLL..",
+            "..LLLL..",
+            "..LLLL..",
+            "..LLLL..",
+            "..LLLL..",
+            "..LLLL..",
+            "..DDDD..",
+            "..DDDD..",
+            "........"
+        ];
+        const steveColors = {
+            '.': null,
+            'B': '#8B4513', // 棕色皮肤
+            'L': '#1E90FF', // 蓝色衣服
+            'D': '#000080'  // 深蓝色裤子
+        };
+        // HIM形态像素画（白色发光眼睛）
+        const himPixels = [
+            "........",
+            "..WWWW..",
+            "..WWWW..",
+            "..W..W..",
+            ".WW..WW.",
+            ".WWWWWW.",
+            ".WWWWWW.",
+            "..LLLL..",
+            "..LLLL..",
+            "..LLLL..",
+            "..LLLL..",
+            "..LLLL..",
+            "..LLLL..",
+            "..DDDD..",
+            "..DDDD..",
+            "........"
+        ];
+        const himColors = {
+            '.': null,
+            'W': '#FFFFFF', // 白色皮肤
+            'L': '#1E90FF',
+            'D': '#000080'
+        };
+        // 仙人掌像素画
+        const cactusPixels = [
+            "...GG...",
+            "...GG...",
+            "..GGGG..",
+            "..GGGG..",
+            "GGGGGGGG",
+            "GGGGGGGG",
+            "GGGGGGGG",
+            "GGGGGGGG",
+            "..GGGG..",
+            "..GGGG..",
+            "..GGGG..",
+            "..GGGG..",
+            "..GGGG..",
+            "..GGGG..",
+            "..GGGG..",
+            "..GGGG.."
+        ];
+        const cactusColors = {
+            '.': null,
+            'G': '#228B22'
+        };
+        // 木桶像素画
+        const barrelPixels = [
+            "..BBBB..",
+            ".BBBBBB.",
+            "BBAAAABB",
+            "BAAAAAAB",
+            "BAAAAAAB",
+            "BAAAAAAB",
+            "BAAAAAAB",
+            "BAAAAAAB",
+            "BAAAAAAB",
+            "BAAAAAAB",
+            "BAAAAAAB",
+            "BAAAAAAB",
+            "BAAAAAAB",
+            "BBAAAABB",
+            ".BBBBBB.",
+            "..BBBB.."
+        ];
+        const barrelColors = {
+            '.': null,
+            'B': '#8B4513',
+            'A': '#D2691E'
+        };
+        // 手机道具像素画
+        const phonePixels = [
+            "........",
+            "..BBBB..",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            ".BWWWWB.",
+            "..BBBB..",
+            "........"
+        ];
+        const phoneColors = {
+            '.': null,
+            'B': '#333333',
+            'W': '#87CEEB'
+        };
+        // 针管道具像素画
+        const syringePixels = [
+            "........",
+            "....RR..",
+            "....RR..",
+            "...RRR..",
+            "...RRR..",
+            "..RRRR..",
+            "..RRRR..",
+            ".WWWWWW.",
+            ".WWWWWW.",
+            ".WWWWWW.",
+            ".WWWWWW.",
+            "..YYYY..",
+            "..YYYY..",
+            "...YY...",
+            "...YY...",
+            "........"
+        ];
+        const syringeColors = {
+            '.': null,
+            'R': '#FF0000', // 红色液体
+            'W': '#FFFFFF', // 针管
+            'Y': '#FFD700'  // 针头
+        };
+        // 金色超级箱子像素画
+        const superBoxPixels = [
+            "GGGGGGGG",
+            "GYYYYYYG",
+            "GYBBBBYG",
+            "GYBYYBYG",
+            "GYBYYBYG",
+            "GYBBBBYG",
+            "GYYYYYYG",
+            "GGGGGGGG"
+        ];
+        const superBoxColors = {
+            'G': '#FFD700',
+            'Y': '#FFA500',
+            'B': '#000000'
+        };
+        // 草方块像素画
+        const grassPixels = [
+            "GGGGGGGG",
+            "GGGGGGGG",
+            "DDDDDDDD",
+            "DDDDDDDD",
+            "DDDDDDDD",
+            "DDDDDDDD",
+            "DDDDDDDD",
+            "DDDDDDDD"
+        ];
+        const grassColors = {
+            'G': '#7CFC00',
+            'D': '#8B4513'
+        };
+        // 红心像素画
+        const heartPixels = [
+            "........",
+            "..RRRR..",
+            ".RRRRRR.",
+            "RRRRRRRR",
+            "RRRRRRRR",
+            ".RRRRRR.",
+            "..RRRR..",
+            "...RR...",
+            "....R...",
+            "........",
+            "........",
+            "........",
+            "........",
+            "........",
+            "........",
+            "........"
+        ];
+        const heartColors = {
+            '.': null,
+            'R': '#ff3b30'
+        };
+        // 创建所有精灵
+        const sprites = {
+            steve: createPixelArt(stevePixels, steveColors),
+            him: createPixelArt(himPixels, himColors),
+            cactus: createPixelArt(cactusPixels, cactusColors),
+            barrel: createPixelArt(barrelPixels, barrelColors),
+            phone: createPixelArt(phonePixels, phoneColors),
+            syringe: createPixelArt(syringePixels, syringeColors),
+            superBox: createPixelArt(superBoxPixels, superBoxColors),
+            grass: createPixelArt(grassPixels, grassColors),
+            heart: createPixelArt(heartPixels, heartColors)
+        };
+        // 绘制函数
+        function drawSprite(ctx, sprite, x, y, width, height, flip = false) {
+            ctx.save();
+            if (flip) {
+                ctx.translate(x + width, y);
+                ctx.scale(-1, 1);
+                ctx.drawImage(sprite, 0, 0, width, height);
+            } else {
+                ctx.drawImage(sprite, x, y, width, height);
+            }
+            ctx.restore();
+        }
+        // 初始化云朵
+        function initClouds() {
+            clouds = [];
+            for (let i = 0; i < 5; i++) {
+                clouds.push({
+                    x: Math.random() * GAME_WIDTH,
+                    y: 50 + Math.random() * 100,
+                    speed: 0.5 + Math.random() * 0.5,
+                    size: 30 + Math.random() * 20
+                });
+            }
+        }
+        // 绘制云朵
+        function drawClouds() {
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
+            clouds.forEach(cloud => {
+                // 简单的像素云
+                ctx.fillRect(cloud.x, cloud.y, cloud.size, cloud.size/2);
+                ctx.fillRect(cloud.x + cloud.size/4, cloud.y - cloud.size/4, cloud.size/2, cloud.size/4);
+            });
+        }
+        // 更新云朵
+        function updateClouds() {
+            clouds.forEach(cloud => {
+                cloud.x -= cloud.speed * (gameState.speed / BASE_SPEED);
+                if (cloud.x + cloud.size < 0) {
+                    cloud.x = GAME_WIDTH + Math.random() * 200;
+                }
+            });
+        }
+        // 绘制地面
+        function drawGround() {
+            const tileSize = 32;
+            const offset = Math.floor(gameState.groundOffset) % tileSize;
+            for (let x = -offset; x < GAME_WIDTH; x += tileSize) {
+                drawSprite(ctx, sprites.grass, x, GAME_HEIGHT - GROUND_HEIGHT, tileSize, tileSize);
+            }
+        }
+        // 生成障碍物
+        function spawnObstacle() {
+            const type = Math.random() > 0.5 ? 'cactus' : 'barrel';
+            obstacles.push({
+                x: GAME_WIDTH,
+                y: GAME_HEIGHT - GROUND_HEIGHT - 32,
+                width: 32,
+                height: 32,
+                type: type,
+                passed: false
+            });
+        }
+        // 生成道具
+        function spawnItem(type) {
+            // 限制同屏道具数量
+            const superBoxOnScreen = items.some(it => it.type === 'superBox');
+            const normalItems = items.filter(it => it.type !== 'superBox').length;
+            if ((type === 'superBox' && superBoxOnScreen >= SUPERBOX_CAP) || (type !== 'superBox' && normalItems >= ITEM_CAP)) {
+                return;
+            }
+
+            let itemType = type;
+            if (!type) {
+                const rand = Math.random();
+                if (rand < 0.5) itemType = 'phone';
+                else itemType = 'syringe';
+            }
+            const minSpawnY = GAME_HEIGHT - GROUND_HEIGHT - 110;
+            const maxSpawnY = GAME_HEIGHT - GROUND_HEIGHT - 60;
+            const spawnY = minSpawnY + Math.random() * (maxSpawnY - minSpawnY);
+            items.push({
+                x: GAME_WIDTH + Math.random() * 40, // 稍微错开
+                y: spawnY,
+                width: 24,
+                height: 24,
+                type: itemType,
+                bobOffset: 0
+            });
+        }
+        // 生成粒子效果
+        function createParticles(x, y, color, count = 5) {
+            for (let i = 0; i < count; i++) {
+                particles.push({
+                    x: x,
+                    y: y,
+                    vx: (Math.random() - 0.5) * 4,
+                    vy: (Math.random() - 0.5) * 4,
+                    life: 30,
+                    color: color,
+                    size: 4 + Math.random() * 4
+                });
+            }
+        }
+        // 更新游戏逻辑
+        function update() {
+            if (!gameState.running) return;
+            // 更新速度效果
+            if (gameState.speedEffectTimer > 0) {
+                gameState.speedEffectTimer--;
+                if (gameState.speedEffectTimer === 0) {
+                    gameState.speedMultiplier = 1;
+                    document.body.classList.remove('super-speed');
+                }
+            }
+            // 更新HIM模式
+            if (gameState.isHimMode) {
+                gameState.himModeTimer--;
+                if (gameState.himModeTimer <= 0) {
+                    gameState.isHimMode = false;
+                    gameState.invincible = false;
+                    document.body.classList.remove('him-mode');
+                }
+            }
+            // 计算实际速度
+            const currentSpeed = gameState.speed * gameState.speedMultiplier;
+            // 更新距离
+            gameState.score += currentSpeed / 10;
+            gameState.groundOffset += currentSpeed;
+            // 更新HUD
+            document.getElementById('score').textContent = Math.floor(gameState.score);
+            document.getElementById('nextItem').textContent = Math.max(0, Math.floor(gameState.nextItemDistance - gameState.score));
+            document.getElementById('superBox').textContent = Math.max(0, Math.floor(gameState.nextSuperBoxDistance - gameState.score));
+            // 检查道具生成
+            if (gameState.score >= gameState.nextItemDistance) {
+                spawnItem();
+                // 下一次道具距离增加随机波动，避免同频率堆积
+                gameState.nextItemDistance += 25 + Math.random() * 15;
+            }
+            // 检查超级箱子生成
+            if (gameState.score >= gameState.nextSuperBoxDistance) {
+                spawnItem('superBox');
+                gameState.nextSuperBoxDistance += 500 + Math.random() * 80;
+            }
+            // 随机生成障碍物
+            if (Math.random() < 0.02 * (1 + gameState.score / 500)) {
+                // 确保不会连续生成太多
+                if (obstacles.length === 0 || GAME_WIDTH - obstacles[obstacles.length - 1].x > 200) {
+                    spawnObstacle();
+                }
+            }
+            // 更新玩家
+            player.velocityY += GRAVITY;
+            player.y += player.velocityY;
+            // 地面碰撞
+            if (player.y >= GAME_HEIGHT - GROUND_HEIGHT - player.height) {
+                player.y = GAME_HEIGHT - GROUND_HEIGHT - player.height;
+                player.velocityY = 0;
+                player.isJumping = false;
+                gameState.jumpCount = 0;
+            }
+            // 动画帧
+            player.animTimer++;
+            if (player.animTimer > 5) {
+                player.animTimer = 0;
+                player.frame = (player.frame + 1) % 2;
+            }
+            // 更新障碍物
+            obstacles = obstacles.filter(obs => {
+                obs.x -= currentSpeed;
+                // 碰撞检测
+                if (!obs.passed && 
+                    player.x < obs.x + obs.width - 8 &&
+                    player.x + player.width > obs.x + 8 &&
+                    player.y < obs.y + obs.height - 8 &&
+                    player.y + player.height > obs.y + 8) {
+                    obs.passed = true;
+                    if (gameState.isHimMode) {
+                        // HIM模式破坏障碍物
+                        createParticles(obs.x + obs.width/2, obs.y + obs.height/2, '#FFFFFF', 10);
+                        return false; // 移除障碍物
+                    }
+                    if (obs.type === 'cactus') {
+                        // 扣血
+                        takeDamage();
+                        createParticles(player.x + player.width/2, player.y, '#FF0000', 8);
+                    } else if (obs.type === 'barrel') {
+                        // 随机加速或减速
+                        if (Math.random() > 0.5) {
+                            gameState.speedMultiplier = 0.2; // 5倍减速
+                            showFloatingText("5倍减速!", player.x, player.y - 20, '#FF0000');
+                        } else {
+                            gameState.speedMultiplier = 10; // 10倍加速
+                            showFloatingText("10倍加速!", player.x, player.y - 20, '#00FF00');
+                        }
+                        gameState.speedEffectTimer = 300; // 5秒
+                    }
+                }
+                return obs.x > -50;
+            });
+            // 更新道具
+            items = items.filter(item => {
+                item.x -= currentSpeed;
+                item.bobOffset = Math.sin(Date.now() / 200) * 3;
+                // 碰撞检测
+                if (player.x < item.x + item.width &&
+                    player.x + player.width > item.x &&
+                    player.y < item.y + item.height + item.bobOffset &&
+                    player.y + player.height > item.y + item.bobOffset) {
+                    collectItem(item.type);
+                    createParticles(item.x + item.width/2, item.y + item.height/2, '#FFD700', 8);
+                    return false;
+                }
+                return item.x > -50;
+            });
+            // 更新粒子
+            particles = particles.filter(p => {
+                p.x += p.vx;
+                p.y += p.vy;
+                p.vy += 0.2;
+                p.life--;
+                return p.life > 0;
+            });
+            // 更新云朵
+            updateClouds();
+            // 检查游戏结束
+            if (gameState.hearts <= 0) {
+                gameOver();
+            }
+        }
+        // 扣血
+        function takeDamage() {
+            if (gameState.invincible) return;
+            gameState.hearts--;
+            updateHeartsDisplay();
+            // 屏幕震动
+            document.body.classList.add('shake');
+            setTimeout(() => document.body.classList.remove('shake'), 500);
+            // 短暂无敌
+            gameState.invincible = true;
+            setTimeout(() => gameState.invincible = false, 1000);
+            createParticles(player.x + player.width/2, player.y + player.height/2, '#FF0000', 10);
+        }
+        // 收集道具
+        function collectItem(type) {
+            if (type === 'phone') {
+                // HIM模式
+                gameState.isHimMode = true;
+                gameState.himModeTimer = 600; // 10秒
+                gameState.invincible = true;
+                document.body.classList.add('him-mode');
+                showFloatingText("HIM模式!", player.x, player.y - 30, '#FFFFFF');
+            } else if (type === 'syringe') {
+                // 回血
+                if (gameState.isHimMode && gameState.hearts >= 3 && gameState.maxHearts < HEART_CAP) {
+                    gameState.maxHearts = Math.min(gameState.maxHearts + 1, HEART_CAP);
+                    gameState.hearts = gameState.maxHearts;
+                    showFloatingText("生命突破!", player.x, player.y - 30, '#FF69B4');
+                } else {
+                    gameState.hearts = Math.min(gameState.hearts + 1, Math.min(gameState.maxHearts, HEART_CAP));
+                    showFloatingText("+1生命", player.x, player.y - 20, '#00FF00');
+                }
+                updateHeartsDisplay();
+            } else if (type === 'superBox') {
+                // 超级加速
+                gameState.speedMultiplier = 100;
+                gameState.speedEffectTimer = 60; // 约1秒（因为速度太快）
+                gameState.score += 1000;
+                document.body.classList.add('super-speed');
+                showFloatingText("超级加速! +1000分", player.x, player.y - 40, '#FFD700');
+                createParticles(player.x, player.y, '#FFD700', 20);
+            }
+        }
+        // 显示浮动文字
+        let floatingTexts = [];
+        function showFloatingText(text, x, y, color) {
+            floatingTexts.push({
+                text: text,
+                x: x,
+                y: y,
+                life: 60,
+                color: color
+            });
+        }
+        // 更新生命值显示
+        function updateHeartsDisplay() {
+            const heartsContainer = document.getElementById('hearts');
+            heartsContainer.innerHTML = '';
+            const heartUrl = sprites.heart.toDataURL();
+            const clampedMax = Math.min(gameState.maxHearts, HEART_CAP);
+            gameState.hearts = Math.min(gameState.hearts, clampedMax);
+            gameState.maxHearts = clampedMax;
+            for (let i = 0; i < gameState.hearts; i++) {
+                const heart = document.createElement('span');
+                heart.className = 'heart';
+                heart.style.backgroundImage = `url(${heartUrl})`;
+                heartsContainer.appendChild(heart);
+            }
+        }
+        // 绘制游戏画面
+        function draw() {
+            ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+            // 绘制云朵
+            drawClouds();
+            // 绘制地面
+            drawGround();
+            // 绘制道具
+            items.forEach(item => {
+                const y = item.y + item.bobOffset;
+                if (item.type === 'phone') {
+                    drawSprite(ctx, sprites.phone, item.x, y, item.width, item.height);
+                } else if (item.type === 'syringe') {
+                    drawSprite(ctx, sprites.syringe, item.x, y, item.width, item.height);
+                } else if (item.type === 'superBox') {
+                    // 金色箱子发光效果
+                    ctx.shadowColor = '#FFD700';
+                    ctx.shadowBlur = 20;
+                    drawSprite(ctx, sprites.superBox, item.x, y, item.width + 8, item.height + 8);
+                    ctx.shadowBlur = 0;
+                }
+            });
+            // 绘制障碍物
+            obstacles.forEach(obs => {
+                if (obs.type === 'cactus') {
+                    drawSprite(ctx, sprites.cactus, obs.x, obs.y, obs.width, obs.height);
+                } else {
+                    drawSprite(ctx, sprites.barrel, obs.x, obs.y, obs.width, obs.height);
+                }
+            });
+            // 绘制玩家
+            const sprite = gameState.isHimMode ? sprites.him : sprites.steve;
+            const bounce = player.isJumping ? 0 : Math.sin(Date.now() / 100) * 2;
+            // 无敌闪烁效果
+            if (!gameState.invincible || Math.floor(Date.now() / 100) % 2 === 0) {
+                drawSprite(ctx, sprite, player.x, player.y + bounce, player.width, player.height, player.frame === 1);
+            }
+            // HIM模式拖尾效果
+            if (gameState.isHimMode) {
+                ctx.globalAlpha = 0.3;
+                drawSprite(ctx, sprite, player.x - 20, player.y + bounce, player.width, player.height);
+                drawSprite(ctx, sprite, player.x - 40, player.y + bounce, player.width, player.height);
+                ctx.globalAlpha = 1;
+            }
+            // 超级加速拖尾效果
+            if (gameState.speedMultiplier >= 10) {
+                ctx.globalAlpha = 0.5;
+                for (let i = 1; i <= 5; i++) {
+                    drawSprite(ctx, sprite, player.x - i * 30, player.y + bounce, player.width, player.height);
+                }
+                ctx.globalAlpha = 1;
+            }
+            // 绘制粒子
+            particles.forEach(p => {
+                ctx.fillStyle = p.color;
+                ctx.fillRect(p.x, p.y, p.size, p.size);
+            });
+            // 绘制浮动文字
+            floatingTexts = floatingTexts.filter(ft => {
+                ctx.fillStyle = ft.color;
+                ctx.font = '12px "Press Start 2P"';
+                ctx.fillText(ft.text, ft.x, ft.y);
+                ft.y -= 1;
+                ft.life--;
+                return ft.life > 0;
+            });
+        }
+        // 游戏循环
+        function gameLoop() {
+            update();
+            draw();
+            requestAnimationFrame(gameLoop);
+        }
+        // 跳跃
+        function jump() {
+            if (!gameState.running) {
+                startGame();
+                return;
+            }
+            if (gameState.jumpCount < 2) { // 二段跳
+                player.velocityY = JUMP_FORCE;
+                player.isJumping = true;
+                gameState.jumpCount++;
+                createParticles(player.x + player.width/2, player.y + player.height, '#FFFFFF', 3);
+            }
+        }
+        // 开始游戏
+        function startGame() {
+            gameState.running = true;
+            gameState.score = 0;
+            gameState.hearts = 3;
+            gameState.maxHearts = 3;
+            gameState.speed = BASE_SPEED;
+            gameState.isHimMode = false;
+            gameState.himModeTimer = 0;
+            gameState.speedEffectTimer = 0;
+            gameState.speedMultiplier = 1;
+            gameState.nextItemDistance = 25;
+            gameState.nextSuperBoxDistance = 500;
+            gameState.jumpCount = 0;
+            player.y = GAME_HEIGHT - GROUND_HEIGHT - 32;
+            player.velocityY = 0;
+            obstacles = [];
+            items = [];
+            particles = [];
+            floatingTexts = [];
+            document.getElementById('startHint').style.display = 'none';
+            document.getElementById('gameOver').style.display = 'none';
+            updateHeartsDisplay();
+            initClouds();
+        }
+        // 游戏结束
+        function gameOver() {
+            gameState.running = false;
+            document.getElementById('finalScore').textContent = Math.floor(gameState.score);
+            document.getElementById('maxHearts').textContent = Math.min(gameState.maxHearts, HEART_CAP);
+            document.getElementById('gameOver').style.display = 'block';
+        }
+        // 输入控制
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault();
+                jump();
+            }
+        });
+        canvas.addEventListener('click', jump);
+        canvas.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            jump();
+        });
+        document.getElementById('restartBtn').addEventListener('click', startGame);
+        // 初始化
+        initClouds();
+        updateHeartsDisplay();
+        gameLoop();
+    </script>
+</body>
+</html>

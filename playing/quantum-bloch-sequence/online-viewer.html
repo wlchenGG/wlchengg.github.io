@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qubit Flow Online Viewer v0.6.0</title>
+  <link rel="stylesheet" href="./online-viewer.css" />
+</head>
+<body>
+  <canvas id="webgl"></canvas>
+  <div class="overlay top-left">
+    <strong>Three.js 在线增强视图 · v0.6.0</strong>
+    <span id="status">正在加载 Three.js…</span>
+  </div>
+  <div class="overlay top-right" id="metaPanel">等待父页面同步数据…</div>
+  <div class="overlay bottom-left" id="help">拖拽旋转，滚轮缩放。显示的是“选中量子位”的局部 Bloch 球。</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.min.js"></script>
+  <script src="./online-viewer.js"></script>
+</body>
+</html>

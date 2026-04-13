@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qubit Flow v0.6.0 · Multi-Qubit Edition</title>
+  <link rel="stylesheet" href="./index.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar panel">
+      <section class="hero-block">
+        <div class="eyebrow">Qubit Flow v0.6.0 · 单比特保留 + 多比特扩展版</div>
+        <h1>量子运算 3D 球模型矢量动态演示</h1>
+        <p class="subtitle">
+          现在不再只支持单量子比特。这个版本保留原有 Bloch 球、门序列、时间轴、公式同步与离线 / 在线双视图，同时扩展到
+          <strong>1–3 个量子比特</strong>，支持叠加、纠缠、受控门、交换门，以及新加入的<strong>测量与坍缩</strong>；用“选中量子位的 Bloch 球 + 全局态分布 + 测量投影”共同表达多比特行为。
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>系统配置</h2>
+          <span class="section-tip">保留单比特支持；当前工程建议 1–3 比特</span>
+        </div>
+        <div class="control-grid two-col">
+          <div class="field-group">
+            <label for="qubitCountSelect">量子比特数</label>
+            <select id="qubitCountSelect">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label for="displayQubitSelect">Bloch 球显示量子位</label>
+            <select id="displayQubitSelect"></select>
+          </div>
+          <div class="field-group">
+            <label for="anglePiInput">旋转角（π 倍数）</label>
+            <input id="anglePiInput" type="number" min="-2" max="2" step="0.125" value="0.5" />
+          </div>
+          <div class="field-group field-compact">
+            <label>对应角度</label>
+            <div class="angle-chip"><span id="angleDegreeValue">90°</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>预设案例</h2>
+          <span class="section-tip">会自动切换到合适的量子比特数</span>
+        </div>
+        <div class="row wrap">
+          <button class="primary" data-preset="singleSuperposition">1Q：H</button>
+          <button data-preset="singleSpiral">1Q：H → Rz → Rx</button>
+          <button data-preset="bell">2Q：Bell 态</button>
+          <button data-preset="swapDemo">2Q：SWAP 演示</button>
+          <button data-preset="ghz">3Q：GHZ</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>添加量子门</h2>
+          <span class="section-tip">悬停按钮看科普说明；控制位 / 目标位可自由切换</span>
+        </div>
+        <div class="control-grid three-col">
+          <div class="field-group">
+            <label for="targetQubitSelect">目标位</label>
+            <select id="targetQubitSelect"></select>
+          </div>
+          <div class="field-group">
+            <label for="controlQubitSelect">控制位</label>
+            <select id="controlQubitSelect"></select>
+          </div>
+          <div class="field-group">
+            <label for="secondQubitSelect">第二位 / 交换位</label>
+            <select id="secondQubitSelect"></select>
+          </div>
+        </div>
+        <div class="gate-groups">
+          <div>
+            <div class="micro-title">单量子位门</div>
+            <div class="gates" id="singleGateButtons"></div>
+          </div>
+          <div>
+            <div class="micro-title">双量子位门</div>
+            <div class="gates gates-two" id="twoQubitGateButtons"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>门作用说明</h2>
+          <span class="section-tip">悬停 / 执行 / 选中步骤时自动切换</span>
+        </div>
+        <div class="explain-panel">
+          <div class="explain-title" id="gateExplainTitle">初始态 |0⟩</div>
+          <div class="explain-formula" id="gateExplainFormula">|ψ⟩ = |0…0⟩</div>
+          <p class="explain-body" id="gateExplainBody">
+            当系统是单量子位时，Bloch 球上的矢量位于球面；当系统扩展到多量子位且发生纠缠时，单个量子位的 Bloch 向量会收缩到球内，表示局部态变成混合态。
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>播放控制</h2>
+        </div>
+        <div class="row wrap controls-row">
+          <button class="primary" id="playBtn">▶ 播放</button>
+          <button id="stepBtn">单步</button>
+          <button id="prevBtn">上一步</button>
+          <button id="resetBtn">重置</button>
+          <button class="ghost" id="clearBtn">清空序列</button>
+        </div>
+        <div class="field-group speed-group">
+          <label for="speedInput">动画时长</label>
+          <input id="speedInput" type="range" min="0.35" max="2.5" step="0.05" value="1.1" />
+          <div class="inline-value" id="speedValue">1.10s / 步</div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>测量与坍缩</h2>
+          <span class="section-tip">测量会插入当前电路位置，并影响后续所有门</span>
+        </div>
+        <div class="row wrap controls-row">
+          <button id="measureSelectedBtn">测量当前显示量子位</button>
+          <button id="measureAllBtn">测量全部量子位</button>
+        </div>
+        <div class="measurement-panel">
+          <div class="measurement-pill" id="measurementStatus">尚未发生测量</div>
+          <p class="explain-body" id="measurementDetail">
+            点击上面的按钮，会按 Born 规则对当前态进行采样，并把“测量步骤”插入到当前电路位置。坍缩后的状态会继续流向后续门。
+          </p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>系统摘要</h2>
+          <span class="section-tip">这里既展示全局系统，也展示选中量子位的局部状态</span>
+        </div>
+        <div class="status-grid">
+          <div class="metric"><div class="label">当前步骤</div><div class="value" id="stepValue">0 / 0</div></div>
+          <div class="metric"><div class="label">当前门</div><div class="value" id="gateValue">初始态</div></div>
+          <div class="metric"><div class="label">系统维度</div><div class="value" id="dimensionValue">2</div></div>
+          <div class="metric"><div class="label">显示量子位</div><div class="value" id="selectedQubitValue">q0</div></div>
+          <div class="metric"><div class="label">该位 |0⟩ 概率</div><div class="value" id="p0Value">100%</div></div>
+          <div class="metric"><div class="label">该位 |1⟩ 概率</div><div class="value" id="p1Value">0%</div></div>
+          <div class="metric"><div class="label">纯度 Purity</div><div class="value" id="purityValue">1.000</div></div>
+          <div class="metric"><div class="label">纠缠 / 混合态提示</div><div class="value" id="entanglementValue">无</div></div>
+          <div class="metric"><div class="label">θ</div><div class="value" id="thetaValue">0°</div></div>
+          <div class="metric"><div class="label">φ</div><div class="value" id="phiValue">0°</div></div>
+        </div>
+        <p class="mini mono" id="stateText">当前全局量子态：|ψ⟩ = 1.000 + 0.000i · |0⟩</p>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>每个量子位的局部摘要</h2>
+          <span class="section-tip">纯度低于 1 往往意味着它与其他量子位发生了纠缠</span>
+        </div>
+        <div class="qubit-summary-grid" id="qubitSummaryGrid"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>计算基概率分布</h2>
+          <span class="section-tip">展示全局态在 |00…0⟩ ~ |11…1⟩ 上的概率</span>
+        </div>
+        <div class="basis-meta" id="basisMeta">当前为 1 维分布</div>
+        <div class="basis-chart" id="basisChart"></div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>公式同步面板</h2>
+          <span class="section-tip">显示局部门矩阵、输入全局态、输出全局态、选中量子位的约化密度矩阵</span>
+        </div>
+        <div class="formula-panel">
+          <div class="formula-banner">
+            <strong id="formulaStageLabel">等待执行</strong>
+            <span id="formulaGateLabel">初始态</span>
+          </div>
+          <div class="formula-grid">
+            <div class="formula-cell formula-cell-wide">
+              <div class="label">局部门矩阵</div>
+              <pre class="mono" id="formulaMatrix">|ψ⟩ = |0…0⟩</pre>
+            </div>
+            <div class="formula-cell">
+              <div class="label">输入全局态</div>
+              <pre class="mono" id="formulaInputState">|ψ_in⟩ = 1.000 + 0.000i · |0⟩</pre>
+            </div>
+            <div class="formula-cell">
+              <div class="label">输出全局态</div>
+              <pre class="mono" id="formulaOutputState">|ψ_out⟩ = 1.000 + 0.000i · |0⟩</pre>
+            </div>
+            <div class="formula-cell formula-cell-wide">
+              <div class="label">选中量子位约化密度矩阵 ρ</div>
+              <pre class="mono" id="selectedDensityMatrix">ρ = [[1, 0], [0, 0]]</pre>
+            </div>
+          </div>
+          <p class="explain-body" id="formulaNote">对于多量子比特，这里默认显示“当前门作用的局部矩阵”，而不是展开后的完整 2^n × 2^n 总矩阵；这样更适合教学与观察。</p>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="section-head">
+          <h2>自检</h2>
+          <span class="section-tip">新增了 Bell、GHZ、SWAP，以及测量坍缩测试</span>
+        </div>
+        <div class="test-summary" id="testSummary">尚未运行</div>
+        <div class="test-list" id="testList"></div>
+      </section>
+    </aside>
+
+    <main class="main-stage">
+      <section class="timeline-shell panel">
+        <div class="timeline-head">
+          <div>
+            <h2>多量子位电路时间轴</h2>
+            <p>每一列是一道门；可拖拽整列重排、删除单步、在任意缝隙插入门。现在还支持把“测量步骤”插入到当前时刻；对于多量子位门，会在被作用的两条线路之间画出连接关系。</p>
+          </div>
+          <div class="timeline-legend">
+            <span><i class="dot dot-current"></i> 当前 / 最近一步</span>
+            <span><i class="dot dot-done"></i> 已执行</span>
+            <span><i class="dot dot-pending"></i> 待执行</span>
+          </div>
+        </div>
+        <div class="circuit-scroll">
+          <div class="circuit-board" id="circuitBoard"></div>
+        </div>
+      </section>
+
+      <section class="viewer panel">
+        <div class="viewer-toolbar">
+          <div class="viewer-mode-switch">
+            <button id="offlineModeBtn" class="mode-button is-active" type="button">离线本地渲染</button>
+            <button id="onlineModeBtn" class="mode-button" type="button">在线增强样式 · Three.js</button>
+          </div>
+          <div class="viewer-status" id="viewerStatus">当前使用离线模式；支持本地双击打开。在线增强模式需要联网加载 Three.js。</div>
+        </div>
+        <div class="viewer-stage">
+          <canvas id="scene"></canvas>
+          <iframe id="onlineFrame" class="online-frame is-hidden" src="./online-viewer.html" title="Three.js 在线增强视图"></iframe>
+          <div class="hud">
+            <div class="hud-card">
+              <div class="badge">当前解释</div>
+              <h3 id="explainTitle">初始态 |0⟩</h3>
+              <p id="explainText">当只有一个量子位时，Bloch 矢量位于球面。多量子位时，显示的是选中量子位的局部 Bloch 向量。</p>
+              <div class="progress"><span id="progressBar"></span></div>
+            </div>
+            <div class="hud-card hud-card-small">
+              <div class="badge">图例</div>
+              <p>
+                青色箭头：选中量子位的当前 Bloch 向量。紫色轨迹：该量子位随全局电路演化的局部状态轨迹。若发生纠缠，向量会缩到球内，表示局部态变成混合态。
+              </p>
+            </div>
+          </div>
+          <div class="footer-tip">离线模式下仍可拖拽旋转视角、滚轮缩放；最大缩放上限保留为 4.75。测量后你会看到局部 Bloch 向量与全局概率分布同时坍缩。</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+</html>

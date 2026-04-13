@@ -1,115 +1,327 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>网页小游戏集合</title>
+    <title>趣味小游戏像素大厅</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="./theme-loader.js"></script>
     <style>
+        :root {
+            --bg-top: #3b6bb1;
+            --bg-bottom: #1f3a5f;
+            --card: #1e2433;
+            --card-border: #0d111a;
+            --text: #f4f1e6;
+            --accent: #ffd166;
+        }
+        * { box-sizing: border-box; }
         body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f0f0f0;
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Press Start 2P', cursive;
+            color: var(--text);
+            background:
+                linear-gradient(180deg, rgba(0,0,0,0.2), transparent 40%),
+                linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
+            position: relative;
+            padding: 32px 20px 48px;
+            image-rendering: pixelated;
+        }
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(255,255,255,0.04),
+                rgba(255,255,255,0.04) 1px,
+                rgba(0,0,0,0.04) 2px,
+                rgba(0,0,0,0.04) 3px
+            );
+            mix-blend-mode: soft-light;
+            opacity: 0.7;
+        }
+        header {
+            text-align: center;
+            text-shadow: 3px 3px 0 #000;
+            margin-bottom: 24px;
+            position: relative;
+        }
+        h1 {
+            font-size: 20px;
+            margin: 0 0 8px;
+        }
+        .subtitle {
+            font-size: 10px;
+            color: #c8d8ff;
+        }
+        #themeToggle {
+            position: absolute;
+            right: 0;
+            top: 0;
+            background: #0d111a;
+            color: var(--text);
+            border: 3px solid #000;
+            padding: 10px 12px;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #000;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        #themeToggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 0 #000;
+        }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 10px;
+        }
+        .chip {
+            border: 3px solid #000;
+            background: var(--card);
+            color: var(--text);
+            padding: 8px 10px;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #000;
+            transition: transform 0.1s ease, box-shadow 0.1s ease;
+        }
+        .chip:hover { transform: translateY(-2px); box-shadow: 0 5px 0 #000; }
+        .chip.active { background: var(--accent); color: #000; }
+        select {
+            border: 3px solid #000;
+            padding: 8px 10px;
+            background: var(--card);
+            color: var(--text);
+            font-family: 'Press Start 2P', cursive;
+            font-size: 10px;
+            box-shadow: 0 3px 0 #000;
         }
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+            position: relative;
+            z-index: 1;
         }
-        .game-card {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            transition: transform 0.2s;
-        }
-        .game-card:hover {
-            transform: translateY(-5px);
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        a {
+        a.game-card {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 14px;
+            background: var(--card);
+            border: 4px solid var(--card-border);
+            color: var(--text);
             text-decoration: none;
-            color: #2b2b2b;
+            box-shadow:
+                0 6px 0 #0a0c12,
+                0 0 0 1px #000 inset;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            position: relative;
         }
+        a.game-card:hover {
+            transform: translateY(-4px);
+            box-shadow:
+                0 10px 0 #0a0c12,
+                0 0 0 1px #000 inset,
+                0 0 12px rgba(255, 209, 102, 0.4);
+        }
+        .card-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            image-rendering: pixelated;
+            filter: drop-shadow(0 2px 0 #000);
+        }
+        h2 {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.4;
+            color: var(--accent);
+        }
+        p {
+            margin: 0;
+            font-size: 10px;
+            line-height: 1.6;
+            color: #d6e2ff;
+        }
+        /* 像素风下，让日期更紧凑 */
+        [data-theme="pixel"] .meta span {
+            font-size: 8px;
+        }
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 9px;
+            color: #c8d8ff;
+        }
+        .tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            padding: 4px 6px;
+            border: 2px solid #000;
+            background: rgba(0,0,0,0.25);
+            color: var(--text);
+        }
+        /* ---------- Pixel Icons (16x16 svg, crisp edges) ---------- */
+        .icon-cat { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230b0b15'/><rect x='2' y='5' width='12' height='8' fill='%23ffa6c9'/><rect x='3' y='4' width='3' height='3' fill='%23ffa6c9'/><rect x='10' y='4' width='3' height='3' fill='%23ffa6c9'/><rect x='6' y='9' width='1' height='1' fill='%23000'/><rect x='9' y='9' width='1' height='1' fill='%23000'/><rect x='5' y='11' width='6' height='1' fill='%23000'/></svg>"); }
+        .icon-domino { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%23111122'/><rect x='3' y='2' width='10' height='5' rx='1' fill='%23f7f7f7'/><rect x='3' y='9' width='10' height='5' rx='1' fill='%23f7f7f7'/><rect x='6' y='3' width='1' height='1' fill='%23000'/><rect x='9' y='4' width='1' height='1' fill='%23000'/><rect x='6' y='10' width='1' height='1' fill='%23000'/><rect x='9' y='11' width='1' height='1' fill='%23000'/></svg>"); }
+        .icon-snake { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%23081b0c'/><rect x='2' y='7' width='12' height='3' fill='%2336c96f'/><rect x='12' y='6' width='2' height='2' fill='%23fff'/><rect x='12' y='8' width='2' height='2' fill='%23000'/></svg>"); }
+        .icon-tetris { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230b0f24'/><rect x='2' y='9' width='4' height='4' fill='%23ff595e'/><rect x='6' y='9' width='4' height='4' fill='%23ffca3a'/><rect x='6' y='5' width='4' height='4' fill='%2383e377'/><rect x='10' y='5' width='4' height='4' fill='%2352b6f2'/></svg>"); }
+        .icon-2048 { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' rx='2' fill='%23f0c419'/><rect x='3' y='4' width='10' height='8' fill='%23fff3b0'/><text x='8' y='10' font-family='monospace' font-size='4' text-anchor='middle' fill='%23000'>2048</text></svg>"); }
+        .icon-memory { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230b1020'/><rect x='3' y='3' width='4' height='6' fill='%238fd7ff'/><rect x='9' y='7' width='4' height='6' fill='%238fd7ff'/><rect x='4' y='4' width='2' height='2' fill='%230b1020'/><rect x='10' y='8' width='2' height='2' fill='%230b1020'/></svg>"); }
+        .icon-flood { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230a0a12'/><rect x='2' y='9' width='4' height='5' fill='%23ff595e'/><rect x='6' y='7' width='4' height='7' fill='%23fcbf49'/><rect x='10' y='5' width='4' height='9' fill='%2383e377'/></svg>"); }
+        .icon-word { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%2316162a'/><rect x='3' y='3' width='10' height='10' fill='%23f2f2f2'/><text x='8' y='10' font-family='monospace' font-size='6' text-anchor='middle' fill='%23000'>A</text></svg>"); }
+        .icon-maze { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230b1220'/><rect x='2' y='2' width='12' height='12' fill='none' stroke='%23f5f3d9' stroke-width='2'/><rect x='4' y='4' width='6' height='2' fill='%23f5f3d9'/><rect x='8' y='6' width='2' height='6' fill='%23f5f3d9'/><rect x='4' y='10' width='6' height='2' fill='%23f5f3d9'/></svg>"); }
+        .icon-ttt { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230c1627'/><rect x='5' y='2' width='2' height='12' fill='%23f4a261'/><rect x='9' y='2' width='2' height='12' fill='%23f4a261'/><rect x='2' y='5' width='12' height='2' fill='%23f4a261'/><rect x='2' y='9' width='12' height='2' fill='%23f4a261'/><rect x='3' y='3' width='2' height='2' fill='%2383e377'/><rect x='11' y='11' width='2' height='2' fill='%23ff595e'/></svg>"); }
+        .icon-wave { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%23102440'/><path d='M2 9 L4 7 L6 9 L8 7 L10 9 L12 7 L14 9' stroke='%23a2d2ff' stroke-width='2' fill='none'/><rect x='2' y='10' width='12' height='2' fill='%234977b1'/></svg>"); }
+        .icon-miner { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230b0f17'/><rect x='4' y='4' width='8' height='8' fill='%234c566a'/><rect x='6' y='6' width='4' height='4' fill='%23000'/><rect x='7' y='3' width='2' height='2' fill='%23ffd166'/></svg>"); }
+        .icon-symmetry { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%2310152a'/><rect x='7' y='2' width='2' height='12' fill='%23f4d35e'/><rect x='3' y='5' width='3' height='6' fill='%2383e377'/><rect x='10' y='5' width='3' height='6' fill='%2383e377'/></svg>"); }
+        .icon-clock { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230c0f1d'/><circle cx='8' cy='8' r='6' fill='%23f1faee'/><rect x='7' y='4' width='2' height='5' fill='%23000'/><rect x='8' y='8' width='4' height='2' fill='%23000'/></svg>"); }
+        .icon-mary { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%23111122'/><rect x='4' y='3' width='8' height='10' fill='%23f4a261'/><rect x='5' y='4' width='6' height='8' fill='%23fff3b0'/><rect x='10' y='7' width='1' height='2' fill='%23000'/></svg>"); }
+        .icon-run { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%23080f20'/><rect x='7' y='2' width='2' height='3' fill='%23ffd166'/><rect x='6' y='5' width='4' height='5' fill='%2336c96f'/><rect x='5' y='10' width='3' height='3' fill='%232b9348'/><rect x='8' y='10' width='3' height='3' fill='%232b2d42'/><rect x='4' y='7' width='2' height='2' fill='%23f07167'/></svg>"); }
+        .icon-cat-cafe { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230c0b16'/><rect x='2' y='8' width='12' height='5' fill='%23d9a066'/><rect x='3' y='9' width='10' height='1' fill='%23f5d6a1'/><rect x='6' y='5' width='4' height='3' fill='%23c285d5'/><rect x='5' y='4' width='2' height='2' fill='%23c285d5'/><rect x='9' y='4' width='2' height='2' fill='%23c285d5'/><rect x='7' y='3' width='2' height='1' fill='%23f2f2f2'/><rect x='6' y='6' width='1' height='1' fill='%23000'/><rect x='9' y='6' width='1' height='1' fill='%23000'/><rect x='7' y='7' width='2' height='1' fill='%23000'/><rect x='12' y='6' width='2' height='2' fill='%2388c070'/><rect x='2' y='6' width='2' height='2' fill='%2388c070'/></svg>"); }
+        .icon-bloch { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%23090f1d'/><circle cx='8' cy='8' r='6' fill='%2317283f' stroke='%235edcf8' stroke-width='1'/><path d='M3 8h10M8 3v10' stroke='%235edcf8' stroke-width='1'/><path d='M4 10c2 1.5 6 1.5 8 0' stroke='%23a78bfa' stroke-width='1' fill='none'/><circle cx='10' cy='6' r='1' fill='%23ffd166'/></svg>"); }
     </style>
 </head>
 <body>
-    <h1>趣味小游戏合集</h1>
-    <div class="game-grid">
-        <a href="schrodinger-cat/index.html" class="game-card">
-            <h2>薛定谔的猫主子</h2>
-            <p>怎么能让猫猫死呢</p>
-        </a>
-        <a href="schrodinger-domino/index.html" class="game-card">
-            <h2>薛米诺骨牌</h2>
-            <p>当骨牌摊上薛定谔，多米诺还有遗憾吗</p>
-        </a>
-        <a href="snake/index.html" class="game-card">
-            <h2>贪吃蛇</h2>
-            <p>经典的贪吃蛇游戏</p>
-        </a>
-        <a href="tetris/index.html" class="game-card">
-            <h2>俄罗斯方块</h2>
-            <p>考验技巧的方块游戏</p>
-        </a>
-        <a href="2048/index.html" class="game-card">
-            <h2>2048</h2>
-            <p>数字合成益智游戏</p>
-        </a>
-        <a href="memory/index.html" class="game-card">
-            <h2>记忆翻牌</h2>
-            <p>考验记忆力的配对游戏</p>
-        </a>
-        <a href="color-flood/index.html" class="game-card">
-            <h2>色彩洪水</h2>
-            <p>在限定步数内，将整个区域变成同一种颜色</p>
-        </a>
-        <a href="word-ladder/index.html" class="game-card">
-            <h2>单词阶梯</h2>
-            <p>每次改动一个字母，将一个单词变成另一个</p>
-        </a>
-        <a href="schrodinger-maze/index.html" class="game-card">
-            <h2>量子迷宫</h2>
-            <p>每一次移动都会导致墙壁发生“坍缩”</p>
-        </a>
-        <a href="quantum-tic-tac-toe/index.html" class="game-card">
-            <h2>量子井字棋</h2>
-            <p>每一步棋都落在两个格子中，直到“纠缠”发生</p>
-        </a>
-        <!-- <a href="quantum-puzzle/index.html" class="game-card">
-            <h2>量子纠缠配对</h2>
-            <p>移动一个粒子，它纠缠的伙伴会同步移动</p>
-        </a> -->
-        <a href="wave-collapse/index.html" class="game-card">
-            <h2>波函数坍缩</h2>
-            <p>观察可能性坍缩成一个确定的世界</p>
-        </a>
-        <!-- <a href="observer-effect/index.html" class="game-card">
-            <h2>观测者效应</h2>
-            <p>你的视线会“坍缩”守卫的状态</p>
-        </a> -->
-        <a href="quantum-miner/index.html" class="game-card">
-            <h2>量子矿工</h2>
-            <p>经典扫雷的量子纠缠版本</p>
-        </a>
-        <a href="symmetry/index.html" class="game-card">
-            <h2>对称性与群</h2>
-            <p>可视化旋转与反射，理解对称群</p>
-        </a>
-        <a href="analog-clock/index.html" class="game-card">
-            <h2>指针时钟</h2>
-            <p>白色背景的响应式模拟时钟，带动画秒针</p>
-        </a>
-        <a href="marys-room/index.html" class="game-card">
-            <h2>玛丽的房间</h2>
-            <p>一个关于知识、经验和意识的著名思想实验。</p>
-        </a>
+    <header>
+        <h1>趣味小游戏像素大厅</h1>
+        <div class="subtitle">按键发光，像素闪烁——选择一款开玩！</div>
+        <button id="themeToggle" type="button">风格：像素风</button>
+    </header>
+    <div class="controls">
+        <div class="chip active" data-tag="all">全部</div>
+        <div class="chip" data-tag="量子">量子</div>
+        <div class="chip" data-tag="经典">经典</div>
+        <div class="chip" data-tag="解谜">解谜</div>
+        <div class="chip" data-tag="动作">动作</div>
+        <div class="chip" data-tag="思考">思考</div>
+        <label for="sort" style="margin-left:auto;">排序：</label>
+        <select id="sort">
+            <option value="desc">日期：新→旧</option>
+            <option value="asc">日期：旧→新</option>
+        </select>
     </div>
+    <div id="gameGrid" class="game-grid"></div>
+    <script>
+        const games = [
+            {id:'2024-10-01', slug:'schrodinger-cat', title:'薛定谔的猫主子', desc:'怎么能让猫猫死呢', icon:'icon-cat', tags:['量子','解谜','叙事'], date:'2024-10-01'},
+            {id:'2024-10-02', slug:'schrodinger-domino', title:'薛米诺骨牌', desc:'骨牌遇上量子，稳不稳全靠观测', icon:'icon-domino', tags:['量子','解谜'], date:'2024-10-02'},
+            {id:'2024-10-03', slug:'snake', title:'贪吃蛇', desc:'经典像素蛇，越吃越长', icon:'icon-snake', tags:['经典','动作'], date:'2024-10-03'},
+            {id:'2024-10-04', slug:'tetris', title:'俄罗斯方块', desc:'下落方块，堆叠消行', icon:'icon-tetris', tags:['经典','思考'], date:'2024-10-04'},
+            {id:'2024-10-05', slug:'2048', title:'2048', desc:'合成数字，冲刺 2048', icon:'icon-2048', tags:['思考','经典'], date:'2024-10-05'},
+            {id:'2024-10-06', slug:'memory', title:'记忆翻牌', desc:'翻牌配对，考验记忆力', icon:'icon-memory', tags:['思考'], date:'2024-10-06'},
+            {id:'2024-10-07', slug:'color-flood', title:'色彩洪水', desc:'控制调色，把版面染成同色', icon:'icon-flood', tags:['思考'], date:'2024-10-07'},
+            {id:'2024-10-08', slug:'word-ladder', title:'单词阶梯', desc:'一步一字母，走到目标词', icon:'icon-word', tags:['解谜','思考'], date:'2024-10-08'},
+            {id:'2024-10-09', slug:'schrodinger-maze', title:'量子迷宫', desc:'每一步都坍缩路径', icon:'icon-maze', tags:['量子','解谜'], date:'2024-10-09'},
+            {id:'2024-10-10', slug:'quantum-tic-tac-toe', title:'量子井字棋', desc:'双格落子，纠缠赢局', icon:'icon-ttt', tags:['量子','思考'], date:'2024-10-10'},
+            {id:'2024-10-11', slug:'wave-collapse', title:'波函数坍缩', desc:'观察可能性，生成新世界', icon:'icon-wave', tags:['量子','解谜'], date:'2024-10-11'},
+            {id:'2024-10-12', slug:'quantum-miner', title:'量子矿工', desc:'扫雷新皮肤，猜测坍缩', icon:'icon-miner', tags:['量子','思考'], date:'2024-10-12'},
+            {id:'2024-10-13', slug:'symmetry', title:'对称性与群', desc:'旋转、反射，直观群论', icon:'icon-symmetry', tags:['思考'], date:'2024-10-13'},
+            {id:'2024-10-14', slug:'analog-clock', title:'指针时钟', desc:'复古表盘，秒针律动', icon:'icon-clock', tags:['经典'], date:'2024-10-14'},
+            {id:'2024-10-15', slug:'marys-room', title:'玛丽的房间', desc:'知识与体验的思辨房间', icon:'icon-mary', tags:['叙事','思考'], date:'2024-10-15'},
+            {id:'2024-10-16', slug:'runrun', title:'块块快跑：草原风暴', desc:'像素跑酷，疾驰草原', icon:'icon-run', tags:['动作','经典'], date:'2024-10-16'},
+            {id:'2026-04-08', slug:'online-cat-cafe-mvp', title:'云端撸猫咖啡厅', desc:'在线撸猫，云吸毛小队集合！', icon:'icon-cat-cafe', tags:['经典','思考'], date:'2026-04-08'},
+            {id:'2026-04-09', slug:'quantum-bloch-sequence', title:'量子 Bloch 序列', desc:'Bloch 球旋转可视化，观察态演化轨迹', icon:'icon-bloch', tags:['量子','思考'], date:'2026-04-09'}
+        ];
+
+        const gridEl = document.getElementById('gameGrid');
+        const chipEls = Array.from(document.querySelectorAll('.chip'));
+        const sortSel = document.getElementById('sort');
+
+        function buildUrl(slug) {
+            const theme = typeof window.__getGameTheme === 'function' ? window.__getGameTheme() : 'pixel';
+            const url = new URL(`${slug}/index.html`, location.href);
+            url.searchParams.set('theme', theme);
+            return url.pathname + (url.search ? url.search : '') + url.hash;
+        }
+
+        function render(tag = 'all', order = 'desc') {
+            const sorted = [...games].sort((a, b) => order === 'asc'
+                ? a.date.localeCompare(b.date)
+                : b.date.localeCompare(a.date));
+            const filtered = tag === 'all'
+                ? sorted
+                : sorted.filter(g => g.tags.includes(tag));
+
+            gridEl.innerHTML = filtered.map(g => {
+                const tagsHtml = g.tags.map(t => `<span class="tag">${t}</span>`).join('');
+                return `
+                    <a class="game-card" href="${buildUrl(g.slug)}">
+                        <div class="card-top">
+                            <div class="icon ${g.icon}"></div>
+                            <h2>${g.title}</h2>
+                        </div>
+                        <p>${g.desc}</p>
+                        <div class="meta">
+                            <span>${g.date}</span>
+                            <div class="tags">${tagsHtml}</div>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        }
+
+        chipEls.forEach(chip => chip.addEventListener('click', () => {
+            chipEls.forEach(c => c.classList.remove('active'));
+            chip.classList.add('active');
+            render(chip.dataset.tag, sortSel.value);
+        }));
+        sortSel.addEventListener('change', () => {
+            const active = document.querySelector('.chip.active')?.dataset.tag || 'all';
+            render(active, sortSel.value);
+        });
+        render('all', sortSel.value);
+
+        (function() {
+            if (typeof window.__getGameTheme !== 'function' || typeof window.__setGameTheme !== 'function') return;
+            const themes = [
+                { id: 'pixel', label: '像素风' },
+                { id: 'clean', label: '简洁风' }
+            ];
+            const btn = document.getElementById('themeToggle');
+            function label(themeId) {
+                const t = themes.find(t => t.id === themeId) || themes[0];
+                return `风格：${t.label}`;
+            }
+            function rewriteLinks(themeId) {
+                // 重新渲染列表即可带上新参数
+                const active = document.querySelector('.chip.active')?.dataset.tag || 'all';
+                render(active, sortSel.value);
+            }
+            function set(themeId) {
+                window.__setGameTheme(themeId);
+                btn.textContent = label(themeId);
+                rewriteLinks(themeId);
+            }
+            const current = window.__getGameTheme();
+            set(current);
+            btn.addEventListener('click', () => {
+                const currentId = window.__getGameTheme();
+                const idx = themes.findIndex(t => t.id === currentId);
+                const next = themes[(idx + 1) % themes.length].id;
+                set(next);
+            });
+        })();
+    </script>
 </body>
-</html></a>
+</html>
