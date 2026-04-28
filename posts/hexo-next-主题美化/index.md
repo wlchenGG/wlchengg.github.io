@@ -24,7 +24,7 @@
 复制外链 HTML 代码：
 <div align="center"><img src="https://img1.wlcheng.cc/images_for_blogs/Hexo-NexT-主题美化_20210724160118_2021-07-24-16-01-20.png" alt="Hexo-NexT-主题美化_20210724160118_2021-07-24-16-01-20" width="75%" align="center"/></div>
 
-将代码至于标签下：
+将代码置于标签下：
 ```html
 <div class="sidebar-inner>
   <!--网易云插件-->

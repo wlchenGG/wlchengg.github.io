@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>赛博煮茶</title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="panel left-panel">
+      <div class="panel-inner">
+        <h1 class="title">🍵 赛博煮茶</h1>
+        <p class="subtitle">可收藏的赛博茶室、多泡茶道与外部音乐冥想模式，收进一个能直接打开的网页里。</p>
+
+        <section class="section">
+          <h3>环境风格</h3>
+          <div class="pill-row" id="themePills"></div>
+          <div class="chip" id="envChip">当前环境：竹林曲水</div>
+        </section>
+
+        <section class="section">
+          <h3>茶叶选择</h3>
+          <div class="tea-row" id="teaCards"></div>
+        </section>
+
+        <section class="section">
+          <h3>茶室收藏夹</h3>
+          <div class="save-room">
+            <input id="roomNameInput" type="text" placeholder="给当前茶室起个名字" maxlength="20" />
+            <button class="action-btn primary small" id="saveRoomBtn">收藏当前茶室</button>
+          </div>
+          <div class="saved-rooms" id="savedRooms"></div>
+        </section>
+
+        <section class="section">
+          <h3>声音与外部播放器</h3>
+          <div class="mini-player">
+            <div class="track-name" id="trackName">竹林风与水声</div>
+            <div class="muted tiny" id="trackDesc">内置环境音可直接使用，也可加载外部可嵌入播放器。</div>
+
+            <div class="toggle-row">
+              <button class="toggle active" id="audioToggle">环境音：开</button>
+              <button class="toggle" id="musicToggle">冥想脉冲：关</button>
+            </div>
+
+            <div class="slider-wrap">
+              <label class="tiny muted">音量 <span id="volumeVal">58%</span></label>
+              <input id="volumeRange" type="range" min="0" max="100" value="58" />
+            </div>
+
+            <div class="embed-box">
+              <input id="embedInput" type="url" placeholder="粘贴可嵌入播放器链接（如可公开 iframe 链接）" />
+              <div class="toggle-row">
+                <button class="action-btn small" id="loadEmbedBtn">加载外部播放器</button>
+                <button class="action-btn small" id="clearEmbedBtn">清空</button>
+              </div>
+            </div>
+            <div class="tiny muted">提示：网易云 / QQ 音乐是否可嵌入，取决于平台公开 iframe 支持与浏览器限制。</div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>火候与状态</h3>
+          <div class="slider-wrap">
+            <label class="tiny muted">默认火力 <span id="heatVal">48%</span></label>
+            <input id="heatRange" type="range" min="0" max="100" value="48" />
+          </div>
+
+          <div class="status-grid">
+            <div class="stat"><span class="tiny muted">当前水温</span><b id="tempStat">22°C</b></div>
+            <div class="stat"><span class="tiny muted">茶汤浓度</span><b id="strengthStat">0%</b></div>
+            <div class="stat"><span class="tiny muted">静心值</span><b id="calmStat">18</b></div>
+            <div class="stat"><span class="tiny muted">当前泡数</span><b id="infusionStat">1 / 3</b></div>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <main class="center-stage">
+      <div class="toast" id="toast"></div>
+      <div class="scene theme-bamboo" id="scene">
+        <div class="stream-lines"></div>
+        <div class="steam-layer" id="steamLayer"></div>
+        <div class="particles" id="particleLayer"></div>
+        <div class="bamboo left">
+          <i class="leaf" style="left:34px;top:72px;transform:rotate(-8deg)"></i>
+          <i class="leaf" style="left:18px;top:152px;width:64px;transform:rotate(18deg)"></i>
+          <i class="leaf" style="left:66px;top:248px;transform:rotate(10deg)"></i>
+        </div>
+        <div class="bamboo right">
+          <i class="leaf" style="left:32px;top:88px;transform:rotate(-12deg)"></i>
+          <i class="leaf" style="left:14px;top:178px;width:60px;transform:rotate(16deg)"></i>
+          <i class="leaf" style="left:66px;top:258px;transform:rotate(7deg)"></i>
+        </div>
+
+        <div class="center-label">
+          <span>Cyber Tea Ritual</span>
+          <span class="env-badge" id="sceneBadge">竹林 · 曲水 · 轻烟</span>
+        </div>
+
+        <div class="ritual-note">
+          <h4 id="ritualTitle">先选一款茶</h4>
+          <p id="ritualHint">左侧先决定今天这盏茶的性格，然后把茶叶亲手送进壶里。</p>
+        </div>
+
+        <div class="breath-float">
+          <div class="breath-ring">
+            <div class="breath-core" id="breathCore"></div>
+            <div class="breath-text" id="breathText">吸气 · 4 秒</div>
+          </div>
+        </div>
+
+        <div class="meditation-float" id="meditationFloat">
+          <div class="tiny muted">冥想模式</div>
+          <div class="meditation-time" id="meditationTime">未开始</div>
+          <div class="tiny muted" id="meditationState">选择时长后开始</div>
+        </div>
+
+        <div class="table-zone"></div>
+        <div class="drop-zone pot-zone" id="potZone"></div>
+        <div class="drop-zone fire-zone" id="fireZone"></div>
+        <div class="drop-zone cup-zone" id="cupZone"></div>
+
+        <div class="workbench">
+          <div class="thing tray-wrap" id="trayWrap"></div>
+          <div class="thing pot-wrap" id="potWrap"></div>
+          <div class="thing cup-wrap" id="cupWrap"></div>
+          <div class="thing kettle-wrap" id="kettleWrap" data-grabbable="true"></div>
+          <div class="thing fan-wrap" id="fanWrap" data-grabbable="true"></div>
+          <div class="pour-stream" id="pourStream"></div>
+          <div class="embers" id="embers"></div>
+        </div>
+
+        <div class="external-player-card" id="externalPlayerCard">
+          <div class="external-head">
+            <span>外部音乐播放器</span>
+            <button id="togglePlayerBtn" class="toggle small">隐藏</button>
+          </div>
+          <div class="external-frame-wrap" id="externalFrameWrap">
+            <iframe id="externalFrame" title="外部音乐播放器"></iframe>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <aside class="panel right-panel">
+      <div class="panel-inner">
+        <h2 class="title">多泡茶道</h2>
+        <p class="subtitle">每一泡都有不同火候与风味反馈。第一泡醒香，第二泡开味，第三泡收束。</p>
+
+        <section class="section">
+          <div class="progress-card">
+            <div class="tiny muted">当前流程</div>
+            <div class="progress-head">
+              <strong id="progressLabel">0%</strong>
+              <span class="tiny muted" id="teaSummary">未开始</span>
+            </div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h3>当前步骤</h3>
+          <div class="steps" id="steps"></div>
+        </section>
+
+        <section class="section">
+          <h3>泡次记录</h3>
+          <div class="infusion-history" id="infusionHistory"></div>
+        </section>
+
+        <section class="section">
+          <h3>即时反馈</h3>
+          <div class="guide" id="feedbackBox">先选茶，再开始这一轮赛博茶室。</div>
+          <div class="action-row">
+            <button class="action-btn primary" id="brewBtn">开始候汤</button>
+            <button class="action-btn" id="nextInfusionBtn">准备下一泡</button>
+            <button class="action-btn" id="resetBtn">重新开始</button>
+          </div>
+          <div class="tiny muted">分茶不再通过按钮完成：焖煮完成后，直接拎起茶壶倒向茶杯。</div>
+        </section>
+
+        <section class="section">
+          <h3>冥想模式</h3>
+          <div class="toggle-row">
+            <button class="pill active" data-minutes="3">3 分钟</button>
+            <button class="pill" data-minutes="5">5 分钟</button>
+            <button class="pill" data-minutes="10">10 分钟</button>
+          </div>
+          <div class="toggle-row" style="margin-top:10px;">
+            <button class="action-btn small primary" id="startMeditationBtn">开始冥想</button>
+            <button class="action-btn small" id="pauseMeditationBtn">暂停</button>
+            <button class="action-btn small" id="resetMeditationBtn">重置</button>
+          </div>
+          <div class="guide">冥想模式会持续显示倒计时与呼吸节奏，你可以把网页当作一个轻量静心空间。</div>
+        </section>
+
+        <section class="section">
+          <h3>操作提示</h3>
+          <div class="guide">
+            1. 选茶后，将茶叶拖入壶中。<br />
+            2. 拖热水壶到壶口注水。<br />
+            3. 拖风扇到风炉附近可短暂助燃。<br />
+            4. 点击“开始候汤”。<br />
+            5. 焖煮完成后，直接拎起茶壶拖到杯口分茶。<br />
+            6. 想继续第二泡、第三泡，点击“准备下一泡”后再次注水。<br />
+          </div>
+        </section>
+      </div>
+    </aside>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>

@@ -1,393 +1,390 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>Modern Tetris</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: 'Roboto Mono', monospace;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        .game-body {
-            display: flex;
-            gap: 20px;
-            background: #fff;
-            padding: 20px;
-            border-radius: 16px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-        #tetris {
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-        }
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-        .info-box {
-            background: #fafafa;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            border: 2px solid #e0e0e0;
-        }
-        .info-box h2 {
-            margin: 0 0 10px 0;
-            font-size: 1.2em;
-        }
-        #score, #lines, #level {
-            font-size: 1.5em;
-            font-weight: 700;
-            color: #333;
-        }
-        #next-canvas {
-            background: #fafafa;
-            border-radius: 4px;
-        }
-        .game-controls {
-            margin-top: auto;
-        }
-        button {
-            background: #4CAF50;
-            color: white;
-            border: none;
-            padding: 15px 20px;
-            border-radius: 8px;
-            width: 100%;
-            cursor: pointer;
-            font-size: 1em;
-            font-weight: 700;
-            transition: background 0.3s, transform 0.2s;
-        }
-        button:hover {
-            background: #45a049;
-            transform: scale(1.05);
-        }
-        .mobile-controls {
-            display: none;
-            text-align: center;
-            margin-top: 15px;
-        }
-        .mobile-controls button {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            margin: 5px;
-            font-size: 24px;
-            background: #bdbdbd;
-            line-height: 1;
-        }
-        .mobile-controls .move-buttons {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        @media (pointer: coarse) {
-            .game-body { flex-direction: column; }
-            .mobile-controls { display: block; }
-            .game-controls button { display: none; }
-        }
-    </style>
-    <script src="../theme-loader.js"></script>`n</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>俄罗斯方块</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
 <body>
-    <div class="game-body">
-        <canvas id="tetris" width="240" height="400"></canvas>
-        <div class="sidebar">
-            <div class="info-box">
-                <h2>SCORE</h2>
-                <div id="score">0</div>
+  <div class="page-shell">
+    <header class="hero">
+      <h1>俄罗斯方块</h1>
+    </header>
+
+    <main class="desktop-shell">
+      <section class="panel board-card desktop-board-card">
+        <div class="board-stage-wrap">
+          <div class="board-frame" data-board-frame>
+            <canvas id="desktop-board" aria-label="俄罗斯方块主棋盘"></canvas>
+
+            <div class="overlay visible" data-overlay aria-live="polite">
+              <div class="overlay-panel">
+                <p class="overlay-kicker" data-overlay-kicker>准备</p>
+                <h2 class="overlay-title" data-overlay-title>点击开始</h2>
+                <p class="overlay-desc" data-overlay-desc></p>
+              </div>
             </div>
-            <div class="info-box">
-                <h2>LINES</h2>
-                <div id="lines">0</div>
-            </div>
-            <div class="info-box">
-                <h2>LEVEL</h2>
-                <div id="level">1</div>
-            </div>
-            <div class="info-box">
-                <h2>NEXT</h2>
-                <canvas id="next-canvas" width="80" height="80"></canvas>
-            </div>
-            <div class="game-controls">
-                <button id="start-pause">Start</button>
-            </div>
+
+            <div class="board-banner" data-board-banner aria-live="polite"></div>
+            <div class="fx-toast" data-fx-toast aria-live="polite"></div>
+          </div>
         </div>
-    </div>
-    <div class="mobile-controls">
-        <button id="btn-rotate">↻</button>
-        <div class="move-buttons">
-            <button id="btn-left">◀</button>
-            <button id="btn-right">▶</button>
+      </section>
+
+      <div class="desktop-side-stack">
+        <section class="panel panel-elevated status-panel">
+          <div class="panel-head compact-head">
+            <h3>游戏状态</h3>
+            <span class="state-pill idle" data-state-pill>待机</span>
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">分数</span>
+              <strong data-field="score">0</strong>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">消行</span>
+              <strong data-field="lines">0</strong>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">等级</span>
+              <strong data-field="level">1</strong>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">最高分</span>
+              <strong data-field="best">0</strong>
+            </div>
+          </div>
+
+          <div class="battle-grid">
+            <div class="battle-item judgement-item">
+              <span class="battle-label">判定</span>
+              <strong data-field="action">READY</strong>
+            </div>
+            <div class="battle-item">
+              <span class="battle-label">Combo</span>
+              <strong data-field="combo">0</strong>
+            </div>
+            <div class="battle-item">
+              <span class="battle-label">B2B</span>
+              <strong data-field="b2b">0</strong>
+            </div>
+          </div>
+
+          <p class="mode-meta" data-mode-meta>马拉松 · 普通</p>
+        </section>
+
+        <section class="panel panel-elevated mode-panel compact-panel">
+          <div class="panel-head compact-head">
+            <!-- <h3>模式与难度</h3> -->
+          </div>
+
+          <div class="form-grid">
+            <label class="field">
+              <!-- <span>模式</span> -->
+              <span class="select-shell">
+                <select data-setting="mode">
+                  <option value="marathon">马拉松</option>
+                  <option value="stage">关卡模式</option>
+                  <option value="score_attack">冲分赛</option>
+                </select>
+              </span>
+            </label>
+
+            <label class="field">
+              <!-- <span>难度</span> -->
+              <span class="select-shell">
+                <select data-setting="difficulty">
+                  <option value="easy">简单</option>
+                  <option value="normal" selected>普通</option>
+                  <option value="hard">困难</option>
+                  <option value="expert">专家</option>
+                </select>
+              </span>
+            </label>
+          </div>
+
+          <div class="toggle-row">
+            <label class="toggle-pill">
+              <input data-setting="sound" type="checkbox" checked>
+              <span>音效</span>
+            </label>
+            <label class="toggle-pill">
+              <input data-setting="haptics" type="checkbox" checked>
+              <span>震动</span>
+            </label>
+          </div>
+
+          <p class="mode-desc" data-mode-desc>无限继续，逐级提速，适合长局冲分。</p>
+        </section>
+
+        <section class="panel panel-elevated leaderboard-panel">
+          <div class="panel-head compact-head">
+            <div>
+              <h3>本地排行榜</h3>
+              <p class="panel-caption" data-leaderboard-caption>马拉松 · 普通</p>
+            </div>
+            <button class="mini-ghost-btn" data-clear-leaderboard type="button">清空</button>
+          </div>
+
+          <div class="leaderboard-tools">
+            <label class="name-field">
+              <!-- <span>昵称</span> -->
+              <input data-leaderboard-name type="text" maxlength="10" placeholder="玩家">
+            </label>
+          </div>
+
+          <div class="leaderboard-scroll">
+            <ol class="leaderboard-list" data-leaderboard-list></ol>
+          </div>
+        </section>
+
+        <section class="panel preview-panel">
+          <div class="preview-grid">
+            <div class="preview-box">
+              <div class="preview-head">
+                <h3>下一个</h3>
+                <span>预判落点</span>
+              </div>
+              <canvas id="next-canvas-desktop" aria-label="下一个方块预览"></canvas>
+            </div>
+
+            <div class="preview-box">
+              <div class="preview-head">
+                <h3>暂存区</h3>
+                <span>C / Shift</span>
+              </div>
+              <canvas id="hold-canvas-desktop" aria-label="暂存方块预览"></canvas>
+            </div>
+          </div>
+
+          <div class="action-row compact-action-row">
+            <button data-action="start-pause" class="primary-btn short-btn">开始游戏</button>
+            <button data-action="restart" class="ghost-btn short-btn">重新开始</button>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel help-panel desktop-help-panel">
+        <div class="panel-head compact-head">
+          <h3>操作说明</h3>
         </div>
-        <button id="btn-down">▼</button>
-        <button id="btn-drop">DROP</button>
-    </div>
+        <div class="help-columns">
+          <ul class="tips-list dense-list">
+            <li><span>← / →</span><span>左右移动</span></li>
+            <li><span>↑ / X</span><span>旋转</span></li>
+            <li><span>↓</span><span>软降</span></li>
+            <li><span>空格</span><span>硬降</span></li>
+            <li><span>C / Shift</span><span>暂存方块</span></li>
+          </ul>
+          <ul class="tips-list dense-list">
+            <li><span>P</span><span>暂停 / 继续</span></li>
+            <li><span>轻点</span><span>暂存（手机）</span></li>
+            <li><span>上滑</span><span>旋转（手机）</span></li>
+            <li><span>下滑</span><span>速降（手机）</span></li>
+            <li><span>左右滑动</span><span>逐格移动（手机）</span></li>
+          </ul>
+        </div>
+      </section>
+    </main>
 
-    <script>
-        const canvas = document.getElementById('tetris');
-        const context = canvas.getContext('2d');
-        const nextCanvas = document.getElementById('next-canvas');
-        const nextContext = nextCanvas.getContext('2d');
+    <main class="mobile-shell">
+      <section class="panel mobile-stage-card">
+        <div class="mobile-stage-main">
+          <div class="board-frame mobile-board-frame" data-board-frame>
+            <canvas id="mobile-board" aria-label="俄罗斯方块主棋盘"></canvas>
 
-        const COLS = 12;
-        const ROWS = 20;
-        const BLOCK_SIZE = 20;
+            <div class="overlay visible" data-overlay aria-live="polite">
+              <div class="overlay-panel compact-overlay">
+                <p class="overlay-kicker" data-overlay-kicker>准备</p>
+                <h2 class="overlay-title" data-overlay-title>点击开始</h2>
+                <p class="overlay-desc" data-overlay-desc></p>
+              </div>
+            </div>
 
-        const COLORS = [null, '#FF0D72', '#0DC2FF', '#0DFF72', '#F538FF', '#FF8E0D', '#FFE138', '#3877FF'];
-        const PIECES = [
-            [[0,0,0,0], [1,1,1,1], [0,0,0,0], [0,0,0,0]], // I
-            [[2,0,0], [2,2,2], [0,0,0]], // J
-            [[0,0,3], [3,3,3], [0,0,0]], // L
-            [[4,4], [4,4]], // O
-            [[0,5,5], [5,5,0], [0,0,0]], // S
-            [[0,6,0], [6,6,6], [0,0,0]], // T
-            [[7,7,0], [0,7,7], [0,0,0]]  // Z
-        ];
+            <div class="board-banner" data-board-banner aria-live="polite"></div>
+            <div class="fx-toast" data-fx-toast aria-live="polite"></div>
 
-        let board = Array(ROWS).fill().map(() => Array(COLS).fill(0));
-        let player = { piece: null, pos: {x: 0, y: 0} };
-        let nextPiece = null;
-        let score = 0, lines = 0, level = 1;
-        let dropCounter = 0;
-        let dropInterval = 1000;
-        let lastTime = 0;
-        let gameState = 'start'; // start, playing, paused, gameover
+            <div class="mobile-start-hint" data-mobile-start-hint aria-hidden="true">
+              <span>轻点：暂存</span>
+              <span>上滑：旋转</span>
+              <span>下滑：速降</span>
+            </div>
+          </div>
 
-        const scoreEl = document.getElementById('score');
-        const linesEl = document.getElementById('lines');
-        const levelEl = document.getElementById('level');
-        const startPauseBtn = document.getElementById('start-pause');
+          <aside class="mobile-side-rail">
+            <div class="preview-box compact-preview-box">
+              <div class="preview-head mini-preview-head">
+                <h3>下一个</h3>
+                <span>预判</span>
+              </div>
+              <canvas id="next-canvas-mobile" aria-label="移动端下一个方块预览"></canvas>
+            </div>
 
-        function playerReset() {
-            player.piece = nextPiece || createPiece();
-            nextPiece = createPiece();
-            player.pos.y = 0;
-            player.pos.x = (COLS / 2 | 0) - (player.piece[0].length / 2 | 0);
-            if (collision()) {
-                gameState = 'gameover';
-            }
-            drawNextPiece();
-        }
+            <div class="preview-box compact-preview-box">
+              <div class="preview-head mini-preview-head">
+                <h3>暂存</h3>
+                <span>C / 轻点</span>
+              </div>
+              <canvas id="hold-canvas-mobile" aria-label="移动端暂存方块预览"></canvas>
+            </div>
 
-        function createPiece() {
-            return PIECES[PIECES.length * Math.random() | 0];
-        }
+            <div class="mobile-rail-actions">
+              <button data-action="start-pause" class="primary-btn rail-btn">开始</button>
+              <button data-action="restart" class="ghost-btn rail-btn">重开</button>
+            </div>
+          </aside>
+        </div>
 
-        function draw() {
-            context.fillStyle = '#000';
-            context.fillRect(0, 0, canvas.width, canvas.height);
-            drawMatrix(board, {x: 0, y: 0});
-            drawMatrix(player.piece, player.pos);
-        }
+        <section class="panel panel-elevated mobile-status-panel inner-panel">
+          <div class="panel-head compact-head">
+            <h3>游戏状态</h3>
+            <span class="state-pill idle" data-state-pill>待机</span>
+          </div>
 
-        function drawMatrix(matrix, offset) {
-            matrix.forEach((row, y) => {
-                row.forEach((value, x) => {
-                    if (value !== 0) {
-                        context.fillStyle = COLORS[value];
-                        context.fillRect(x + offset.x + 0.025, y + offset.y + 0.025, 0.95, 0.95);
-                    }
-                });
-            });
-        }
+          <div class="mobile-stats-grid">
+            <div class="stat-item compact-stat">
+              <span class="stat-label">分数</span>
+              <strong data-field="score">0</strong>
+            </div>
+            <div class="stat-item compact-stat">
+              <span class="stat-label">消行</span>
+              <strong data-field="lines">0</strong>
+            </div>
+            <div class="stat-item compact-stat">
+              <span class="stat-label">等级</span>
+              <strong data-field="level">1</strong>
+            </div>
+            <div class="stat-item compact-stat">
+              <span class="stat-label">最高分</span>
+              <strong data-field="best">0</strong>
+            </div>
+          </div>
 
-        function drawNextPiece() {
-            nextContext.fillStyle = '#fafafa';
-            nextContext.fillRect(0, 0, nextCanvas.width, nextCanvas.height);
-            const piece = nextPiece;
-            const scale = 20;
-            const x = (nextCanvas.width / scale / 2) - (piece[0].length / 2);
-            const y = (nextCanvas.height / scale / 2) - (piece.length / 2);
-            piece.forEach((row, r) => {
-                row.forEach((value, c) => {
-                    if (value !== 0) {
-                        nextContext.fillStyle = COLORS[value];
-                        nextContext.fillRect((c + x) * scale + 1, (r + y) * scale + 1, scale - 2, scale - 2);
-                    }
-                });
-            });
-        }
+          <div class="mobile-battle-row">
+            <div class="battle-item judgement-item compact-battle-item">
+              <span class="battle-label">判定</span>
+              <strong data-field="action">READY</strong>
+            </div>
+            <div class="battle-item compact-battle-item">
+              <span class="battle-label">Combo</span>
+              <strong data-field="combo">0</strong>
+            </div>
+            <div class="battle-item compact-battle-item">
+              <span class="battle-label">B2B</span>
+              <strong data-field="b2b">0</strong>
+            </div>
+          </div>
 
-        function playerMove(dir) {
-            player.pos.x += dir;
-            if (collision()) {
-                player.pos.x -= dir;
-            }
-        }
+          <p class="mode-meta" data-mode-meta>马拉松 · 普通</p>
+        </section>
 
-        function playerRotate() {
-            const originalPos = player.pos.x;
-            let offset = 1;
-            rotate(player.piece);
-            while (collision()) {
-                player.pos.x += offset;
-                offset = -(offset + (offset > 0 ? 1 : -1));
-                if (offset > player.piece[0].length) {
-                    rotate(player.piece); // Rotate back
-                    player.pos.x = originalPos;
-                    return;
-                }
-            }
-        }
+        <div class="mobile-controls" aria-label="移动端触控按钮">
+          <button id="btn-hold" class="control-btn utility">暂存</button>
+          <button id="btn-rotate" class="control-btn action">旋转</button>
+          <div class="move-cluster">
+            <button id="btn-left" class="control-btn">◀</button>
+            <button id="btn-down" class="control-btn">▼</button>
+            <button id="btn-right" class="control-btn">▶</button>
+          </div>
+          <button id="btn-drop" class="control-btn action">速降</button>
+        </div>
+      </section>
 
-        function rotate(matrix) {
-            for (let y = 0; y < matrix.length; ++y) {
-                for (let x = 0; x < y; ++x) {
-                    [matrix[x][y], matrix[y][x]] = [matrix[y][x], matrix[x][y]];
-                }
-            }
-            matrix.forEach(row => row.reverse());
-        }
+      <section class="panel panel-elevated mobile-mode-panel compact-panel">
+        <div class="panel-head compact-head">
+          <h3>模式与难度</h3>
+        </div>
 
-        function playerDrop() {
-            player.pos.y++;
-            if (collision()) {
-                player.pos.y--;
-                merge();
-                playerReset();
-                sweep();
-            }
-            dropCounter = 0;
-        }
+        <div class="form-grid mobile-form-grid">
+          <label class="field">
+            <span>模式</span>
+            <span class="select-shell">
+              <select data-setting="mode">
+                <option value="marathon">马拉松</option>
+                <option value="stage">关卡模式</option>
+                <option value="score_attack">冲分赛</option>
+              </select>
+            </span>
+          </label>
 
-        function playerHardDrop() {
-            while (!collision()) {
-                player.pos.y++;
-            }
-            player.pos.y--;
-            merge();
-            playerReset();
-            sweep();
-            dropCounter = 0;
-        }
+          <label class="field">
+            <span>难度</span>
+            <span class="select-shell">
+              <select data-setting="difficulty">
+                <option value="easy">简单</option>
+                <option value="normal" selected>普通</option>
+                <option value="hard">困难</option>
+                <option value="expert">专家</option>
+              </select>
+            </span>
+          </label>
+        </div>
 
-        function collision() {
-            const {piece, pos} = player;
-            for (let y = 0; y < piece.length; ++y) {
-                for (let x = 0; x < piece[y].length; ++x) {
-                    if (piece[y][x] !== 0 && (board[y + pos.y] && board[y + pos.y][x + pos.x]) !== 0) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
+        <div class="toggle-row">
+          <label class="toggle-pill">
+            <input data-setting="sound" type="checkbox" checked>
+            <span>音效</span>
+          </label>
+          <label class="toggle-pill">
+            <input data-setting="haptics" type="checkbox" checked>
+            <span>震动</span>
+          </label>
+        </div>
 
-        function merge() {
-            player.piece.forEach((row, y) => {
-                row.forEach((value, x) => {
-                    if (value !== 0) {
-                        board[y + player.pos.y][x + player.pos.x] = value;
-                    }
-                });
-            });
-        }
+        <p class="mode-desc" data-mode-desc>无限继续，逐级提速，适合长局冲分。</p>
+      </section>
 
-        function sweep() {
-            let clearedLines = 0;
-            outer: for (let y = board.length - 1; y > 0; --y) {
-                for (let x = 0; x < board[y].length; ++x) {
-                    if (board[y][x] === 0) {
-                        continue outer;
-                    }
-                }
-                const row = board.splice(y, 1)[0].fill(0);
-                board.unshift(row);
-                ++y;
-                clearedLines++;
-            }
-            if (clearedLines > 0) {
-                lines += clearedLines;
-                score += clearedLines * 100 * level;
-                if (lines >= level * 10) {
-                    level++;
-                    dropInterval = Math.max(100, 1000 - (level - 1) * 100);
-                }
-            }
-        }
+      <section class="panel panel-elevated leaderboard-panel mobile-leaderboard-panel">
+        <div class="panel-head compact-head">
+          <div>
+            <h3>本地排行榜</h3>
+            <p class="panel-caption" data-leaderboard-caption>马拉松 · 普通</p>
+          </div>
+          <button class="mini-ghost-btn" data-clear-leaderboard type="button">清空</button>
+        </div>
 
-        function update(time = 0) {
-            if (gameState !== 'playing') return;
+        <div class="leaderboard-tools compact-tools">
+          <label class="name-field">
+            <span>昵称</span>
+            <input data-leaderboard-name type="text" maxlength="10" placeholder="玩家">
+          </label>
+        </div>
 
-            const deltaTime = time - lastTime;
-            lastTime = time;
-            dropCounter += deltaTime;
+        <div class="leaderboard-scroll mobile-leaderboard-scroll">
+          <ol class="leaderboard-list" data-leaderboard-list></ol>
+        </div>
+      </section>
 
-            if (dropCounter > dropInterval) {
-                playerDrop();
-            }
+      <section class="panel help-panel mobile-help-panel">
+        <div class="panel-head compact-head">
+          <h3>操作说明</h3>
+        </div>
+        <div class="help-columns mobile-help-columns">
+          <ul class="tips-list dense-list">
+            <li><span>← / →</span><span>左右移动</span></li>
+            <li><span>↑ / X</span><span>旋转</span></li>
+            <li><span>↓</span><span>软降</span></li>
+            <li><span>空格</span><span>硬降</span></li>
+            <li><span>C / Shift</span><span>暂存方块</span></li>
+          </ul>
+          <ul class="tips-list dense-list">
+            <li><span>P</span><span>暂停 / 继续</span></li>
+            <li><span>轻点</span><span>暂存（手机）</span></li>
+            <li><span>上滑</span><span>旋转（手机）</span></li>
+            <li><span>下滑</span><span>速降（手机）</span></li>
+            <li><span>左右滑动</span><span>逐格移动（手机）</span></li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
 
-            draw();
-            updateUI();
-            if (gameState !== 'gameover') {
-                requestAnimationFrame(update);
-            } else {
-                alert('Game Over');
-                startPauseBtn.textContent = 'Restart';
-            }
-        }
-
-        function updateUI() {
-            scoreEl.textContent = score;
-            linesEl.textContent = lines;
-            levelEl.textContent = level;
-        }
-
-        function handleStartPause() {
-            if (gameState === 'playing') {
-                gameState = 'paused';
-                startPauseBtn.textContent = 'Resume';
-            } else if (gameState === 'paused') {
-                gameState = 'playing';
-                startPauseBtn.textContent = 'Pause';
-                requestAnimationFrame(update);
-            } else {
-                board.forEach(row => row.fill(0));
-                score = 0; lines = 0; level = 1;
-                dropInterval = 1000;
-                nextPiece = createPiece();
-                playerReset();
-                gameState = 'playing';
-                startPauseBtn.textContent = 'Pause';
-                update();
-            }
-        }
-
-        startPauseBtn.addEventListener('click', handleStartPause);
-
-        document.addEventListener('keydown', event => {
-            if (gameState !== 'playing') {
-                if (event.key === ' ') handleStartPause();
-                return;
-            }
-            if (event.key === 'ArrowLeft') playerMove(-1);
-            else if (event.key === 'ArrowRight') playerMove(1);
-            else if (event.key === 'ArrowDown') playerDrop();
-            else if (event.key === 'ArrowUp') playerRotate();
-            else if (event.key === ' ') playerHardDrop();
-            else if (event.key.toLowerCase() === 'p') handleStartPause();
-        });
-
-        // Mobile controls
-        document.getElementById('btn-left').addEventListener('click', () => playerMove(-1));
-        document.getElementById('btn-right').addEventListener('click', () => playerMove(1));
-        document.getElementById('btn-down').addEventListener('click', playerDrop);
-        document.getElementById('btn-rotate').addEventListener('click', playerRotate);
-        document.getElementById('btn-drop').addEventListener('click', playerHardDrop);
-
-        
-        context.scale(BLOCK_SIZE, BLOCK_SIZE);
-        updateUI();
-        draw();
-    </script>
+  <script src="index.js"></script>
 </body>
 </html>

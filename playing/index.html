@@ -70,6 +70,7 @@
             cursor: pointer;
             box-shadow: 0 3px 0 #000;
             transition: transform 0.1s ease, box-shadow 0.1s ease;
+            display: none;
         }
         #themeToggle:hover {
             transform: translateY(-2px);
@@ -200,6 +201,7 @@
         .icon-run { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%23080f20'/><rect x='7' y='2' width='2' height='3' fill='%23ffd166'/><rect x='6' y='5' width='4' height='5' fill='%2336c96f'/><rect x='5' y='10' width='3' height='3' fill='%232b9348'/><rect x='8' y='10' width='3' height='3' fill='%232b2d42'/><rect x='4' y='7' width='2' height='2' fill='%23f07167'/></svg>"); }
         .icon-cat-cafe { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%230c0b16'/><rect x='2' y='8' width='12' height='5' fill='%23d9a066'/><rect x='3' y='9' width='10' height='1' fill='%23f5d6a1'/><rect x='6' y='5' width='4' height='3' fill='%23c285d5'/><rect x='5' y='4' width='2' height='2' fill='%23c285d5'/><rect x='9' y='4' width='2' height='2' fill='%23c285d5'/><rect x='7' y='3' width='2' height='1' fill='%23f2f2f2'/><rect x='6' y='6' width='1' height='1' fill='%23000'/><rect x='9' y='6' width='1' height='1' fill='%23000'/><rect x='7' y='7' width='2' height='1' fill='%23000'/><rect x='12' y='6' width='2' height='2' fill='%2388c070'/><rect x='2' y='6' width='2' height='2' fill='%2388c070'/></svg>"); }
         .icon-bloch { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%23090f1d'/><circle cx='8' cy='8' r='6' fill='%2317283f' stroke='%235edcf8' stroke-width='1'/><path d='M3 8h10M8 3v10' stroke='%235edcf8' stroke-width='1'/><path d='M4 10c2 1.5 6 1.5 8 0' stroke='%23a78bfa' stroke-width='1' fill='none'/><circle cx='10' cy='6' r='1' fill='%23ffd166'/></svg>"); }
+        .icon-cyber-tea { background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' shape-rendering='crispEdges'><rect width='16' height='16' fill='%23070f1c'/><rect x='3' y='8' width='10' height='5' fill='%23a06f48'/><rect x='4' y='9' width='8' height='3' fill='%23e5d5bf'/><rect x='12' y='9' width='2' height='2' fill='%23e5d5bf'/><rect x='5' y='4' width='1' height='3' fill='%235edcf8'/><rect x='7' y='3' width='1' height='4' fill='%23a78bfa'/><rect x='9' y='4' width='1' height='3' fill='%235edcf8'/></svg>"); }
     </style>
 </head>
 <body>
@@ -241,7 +243,8 @@
             {id:'2024-10-15', slug:'marys-room', title:'玛丽的房间', desc:'知识与体验的思辨房间', icon:'icon-mary', tags:['叙事','思考'], date:'2024-10-15'},
             {id:'2024-10-16', slug:'runrun', title:'块块快跑：草原风暴', desc:'像素跑酷，疾驰草原', icon:'icon-run', tags:['动作','经典'], date:'2024-10-16'},
             {id:'2026-04-08', slug:'online-cat-cafe-mvp', title:'云端撸猫咖啡厅', desc:'在线撸猫，云吸毛小队集合！', icon:'icon-cat-cafe', tags:['经典','思考'], date:'2026-04-08'},
-            {id:'2026-04-09', slug:'quantum-bloch-sequence', title:'量子 Bloch 序列', desc:'Bloch 球旋转可视化，观察态演化轨迹', icon:'icon-bloch', tags:['量子','思考'], date:'2026-04-09'}
+            {id:'2026-04-09', slug:'quantum-bloch-sequence', title:'量子 Bloch 序列', desc:'Bloch 球旋转可视化，观察态演化轨迹', icon:'icon-bloch', tags:['量子','思考'], date:'2026-04-09'},
+            {id:'2026-04-16', slug:'cyber-tea', title:'赛博煮茶', desc:'茶道与赛博氛围融合的静心小仪式', icon:'icon-cyber-tea', tags:['经典','思考'], date:'2026-04-16'}
         ];
 
         const gridEl = document.getElementById('gameGrid');

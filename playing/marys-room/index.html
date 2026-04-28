@@ -1,115 +1,168 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>玛丽的房间</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Noto Sans SC', sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            transition: background-color 2s ease;
-        }
-        .container {
-            background: #fff;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-            transition: filter 2s ease;
-        }
-        .bw {
-            filter: grayscale(100%);
-        }
-        h1 {
-            margin-bottom: 15px;
-        }
-        p {
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .room {
-            border: 3px solid #555;
-            padding: 20px;
-            margin: 20px auto;
-            border-radius: 8px;
-            background: #eee;
-        }
-        .color-swatch {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto;
-            border: 2px solid #333;
-            background-color: #ff0000; /* This will be hidden by the grayscale filter initially */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #fff;
-            text-shadow: 1px 1px 2px #000;
-        }
-        button {
-            padding: 12px 25px;
-            border: none;
-            background: #333;
-            color: #fff;
-            border-radius: 8px;
-            font-size: 1em;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        button:hover {
-            background: #555;
-        }
-        #question {
-            margin-top: 20px;
-            font-weight: bold;
-            font-size: 1.2em;
-            color: #8b5cf6;
-            opacity: 0;
-            transition: opacity 1s ease 1s;
-        }
-    </style>
-    <script src="../theme-loader.js"></script>`n</head>
-<body class="bw">
-    <div class="container">
-        <h1>思想实验：玛丽的房间</h1>
-        <p>
-            玛丽是一位杰出的神经科学家，她知道关于颜色视觉的<strong>所有</strong>物理事实。但她生活在一个完全黑白的环境中，从未亲眼见过任何颜色。
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>玛丽的房间｜知识与体验</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body class="phase-room">
+  <div class="page-glow"></div>
+
+  <main class="app-shell">
+    <header class="hero card bw-surface">
+      <div class="hero-copy">
+        <p class="eyebrow">思想实验演示页</p>
+        <h1>玛丽的房间</h1>
+        <p class="subtitle">
+          她知道颜色视觉的全部物理事实，却从未真正看见过颜色。问题不是“她懂不懂机制”，而是：<strong>知道一切说明，是否等于拥有一次体验？</strong>
         </p>
-        <div class="room">
-            <p>玛丽正在研究一个红色的苹果。她知道苹果反射的光的波长，知道它如何刺激视网膜，以及大脑如何处理这些信号。但她从未体验过“红色”本身。</p>
-            <div class="color-swatch">
-                这是红色
+      </div>
+      <div class="progress-panel">
+        <div class="progress-meta">
+          <span>实验进度</span>
+          <span id="phase-label">阶段 1 / 3：黑白房间</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progress-fill"></div>
+        </div>
+        <div class="progress-tags">
+          <span class="tag active">房间</span>
+          <span class="tag">预判</span>
+          <span class="tag">体验</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="layout-grid">
+      <section class="scene card bw-surface">
+        <div class="scene-header">
+          <div>
+            <p class="mini-label">场景演示</p>
+            <h2>玛丽的观察室</h2>
+          </div>
+          <div class="status-pill" id="status-pill">仅有物理知识</div>
+        </div>
+
+        <div class="room-visual" id="room-visual">
+          <div class="room-frame"></div>
+          <div class="mary-silhouette">
+            <span class="mary-head"></span>
+            <span class="mary-body"></span>
+          </div>
+          <div class="desk"></div>
+          <div class="book-stack">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="wave-board">
+            <div class="wave-line"></div>
+            <div class="wave-line short"></div>
+            <div class="wave-label">波长 / 神经编码 / 视觉通路</div>
+          </div>
+          <div class="apple-zone">
+            <div class="apple-card bw-surface" id="apple-card">
+              <div class="apple" aria-hidden="true"></div>
+              <div class="apple-copy">
+                <strong id="apple-title">目标对象：苹果</strong>
+                <p id="apple-desc">她知道它会反射哪些波长，也知道大脑如何处理这些输入，但仍未见过“红”作为一种主观感受。</p>
+              </div>
             </div>
+          </div>
+          <div class="color-bloom" id="color-bloom"></div>
         </div>
-        <button id="see-color-btn">让玛丽走出房间，看到颜色</button>
-        <div id="question">
-            <p>当玛丽第一次看到红色时，她学到了新的东西吗？</p>
+
+        <div class="scene-actions">
+          <button id="advance-btn" class="primary-btn">开始实验：进入预判</button>
+          <button id="restart-btn" class="ghost-btn" type="button">重新开始</button>
         </div>
-    </div>
+      </section>
 
-    <script>
-        const seeColorBtn = document.getElementById('see-color-btn');
-        const body = document.querySelector('body');
-        const question = document.getElementById('question');
+      <aside class="panel-stack">
+        <section class="card info-card bw-surface">
+          <p class="mini-label">核心张力</p>
+          <h3>“知道” 与 “体验” 的差异</h3>
+          <ul class="idea-list">
+            <li><strong>知识层面：</strong> 玛丽能完整解释颜色视觉的物理机制。</li>
+            <li><strong>体验层面：</strong> 她仍可能不知道“看见红色是什么感觉”。</li>
+            <li><strong>哲学问题：</strong> 意识体验是否包含无法被纯物理描述完全穷尽的内容？</li>
+          </ul>
+        </section>
 
-        seeColorBtn.addEventListener('click', () => {
-            body.classList.remove('bw');
-            seeColorBtn.style.display = 'none';
-            question.style.opacity = 1;
-        });
-    </script>
+        <section class="card step-card bw-surface" id="step-card">
+          <p class="mini-label" id="step-kicker">阶段 1</p>
+          <h3 id="step-title">先理解前提</h3>
+          <p id="step-description">
+            当前版本里，点击一次就结束了。升级后我们把体验拆成三个步骤：进入问题、做出预判、再经历“第一次看到红色”的瞬间。
+          </p>
+        </section>
+      </aside>
+    </section>
+
+    <section class="quiz card bw-surface hidden" id="quiz-section">
+      <div class="section-heading">
+        <div>
+          <p class="mini-label">阶段 2</p>
+          <h2>在看到颜色之前，你怎么判断？</h2>
+        </div>
+        <p class="section-note">先做一次选择，再让玛丽走出房间。</p>
+      </div>
+
+      <div class="choice-grid" id="prediction-options">
+        <button class="choice-card" data-choice="new">
+          <span class="choice-title">她会学到新的东西</span>
+          <span class="choice-text">因为“红色的体验感”此前从未进入她的意识。</span>
+        </button>
+        <button class="choice-card" data-choice="none">
+          <span class="choice-title">她不会学到新东西</span>
+          <span class="choice-text">她早已掌握所有事实，看到颜色只是事实实例化。</span>
+        </button>
+        <button class="choice-card" data-choice="unsure">
+          <span class="choice-title">我暂时无法判断</span>
+          <span class="choice-text">这正是这个思想实验最迷人的地方。</span>
+        </button>
+      </div>
+
+      <div class="choice-feedback" id="prediction-feedback">
+        请选择一个立场，系统会记录你的预判，并在最后生成你的思考摘要。
+      </div>
+
+      <div class="quiz-actions">
+        <button id="reveal-btn" class="primary-btn" disabled>让玛丽第一次看到红色</button>
+      </div>
+    </section>
+
+    <section class="reveal card hidden" id="reveal-section">
+      <div class="section-heading">
+        <div>
+          <p class="mini-label">阶段 3</p>
+          <h2>第一次经验到红色</h2>
+        </div>
+        <p class="section-note">这里不再只是一句提问，而是一次“前后对照”。</p>
+      </div>
+
+      <div class="compare-grid">
+        <article class="compare-card before">
+          <p class="compare-label">走出房间之前</p>
+          <h3>拥有全部物理描述</h3>
+          <p>玛丽能够解释颜色产生、传递、加工与命名，但她的知识仍停留在第三人称说明。</p>
+        </article>
+        <article class="compare-card after">
+          <p class="compare-label">走出房间之后</p>
+          <h3>获得第一人称体验</h3>
+          <p>她第一次知道“原来这就是红色看起来的感觉”。这不是公式更新，而是感受被点亮。</p>
+        </article>
+      </div>
+
+      <div class="reflection-box" id="reflection-box">
+        <h3>你的实验摘要</h3>
+        <p id="summary-text">等待你的选择生成总结。</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="index.js"></script>
 </body>
 </html>
