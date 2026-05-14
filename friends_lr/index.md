@@ -2,24 +2,77 @@
 
 
 
-假如全世界的少女都肯携起手来，  
-她们可以在大海周围跳一个回旋舞。  
-  
-假如全世界的男孩都肯做水手，  
-他们可以用他们的船在水上造成一座美丽的桥。  
-  
-那时人们便可以绕着全世界跳一个回旋舞，  
-假如全世界的男女孩都肯携起手来。  
+<style>
+.campfire-hero {
+    display: flex;
+    align-items: stretch;
+    gap: 2rem;
+    margin: 2rem 0;
+}
 
-<div id="aplayer"
-     style="
-        width: 90%;
-        /* max-width: 800px; */
-        margin: 0px auto;
-        /* border-radius: 0px; */
-        /* overflow: hidden; */
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-     ">
+.campfire-poem {
+    flex: 0 0 42%;
+    line-height: 2;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.campfire-player {
+    flex: 1;
+    min-width: 0;
+    /* 左侧自动继承当前主题背景色（浅色/深色模式均适配），右侧为播放器主题色 */
+    background: linear-gradient(
+        to right,
+        var(--global-background-color, #ffffff) 0%,
+        #ffffff 100%
+    );
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.campfire-player .aplayer {
+    margin: 0;
+    border-radius: 0;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.campfire-player .aplayer-info,
+.campfire-player .aplayer-list {
+    background: transparent !important;
+}
+
+@media (max-width: 768px) {
+    .campfire-hero {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .campfire-poem,
+    .campfire-player {
+        flex: none;
+        width: 80%;
+    }
+}
+</style>
+
+<div class="campfire-hero">
+    <div class="campfire-poem">
+        <p>
+            假如全世界的少女都肯携起手来，<br>
+            她们可以在大海周围跳一个回旋舞。<br><br>
+            假如全世界的男孩都肯做水手，<br>
+            他们可以用他们的船在水上造成一座美丽的桥。<br><br>
+            那时人们便可以绕着全世界跳一个回旋舞，<br>
+            假如全世界的男女孩都肯携起手来。
+        </p>
+    </div>
+    <div class="campfire-player">
+        <div id="aplayer"></div>
+    </div>
 </div>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
@@ -33,15 +86,15 @@ document.addEventListener("DOMContentLoaded", function () {
         fixed: false,
         mini: false,
         autoplay: false,
-        theme: '#448aff',
+        theme: '#ddb8b3',
         loop: 'all',
         order: 'list',
         preload: 'auto',
-        volume: 0.5,
+        volume: 0.7,
         mutex: true,
         lrcType: 3,
         listFolded: false,
-        listMaxHeight: '3',
+        listMaxHeight: '',
         storageName: 'aplayer-setting',
 
         audio: [
@@ -50,41 +103,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 artist: '歌之初乐队',
                 url: 'https://music.163.com/song/media/outer/url?id=2089729192.mp3',
                 cover: 'https://p1.music.126.net/nrkkraN7jkXiEc6bUj3YnQ==/109951168974029682.jpg?param=130y130',
-                // lrc: 'https://music.163.com/api/song/media?id=2089729192',
-                lrc: '/audio/lrc/xiaoshijie.lrc'
-            },
-            {
-                name: '篝火向旷野',
-                artist: 'Emma艾玛 / Sukiii',
-                url: 'https://music.163.com/song/media/outer/url?id=2716960010.mp3',
-                cover: 'https://p2.music.126.net/Iox8_Gt8TnPlnhrKNXferQ==/109951171328646545.jpg?param=130y130',
-                //lrc: https://music.163.com/api/song/media?id=2716960010,
-                lrc: '/audio/lrc/gouhuoxiangkuangye.lrc'
+                lrc: 'https://music.163.com/api/song/media?id=2089729192'
             },
             {
                 name: '93',
                 artist: 'Flora Cash',
                 url: 'https://music.163.com/song/media/outer/url?id=2672607235.mp3',
                 cover: 'https://p2.music.126.net/wHKNhhtEvp16GpFZrTMPSg==/109951170527953876.jpg?param=130y130',
-                //lrc: https://music.163.com/api/song/media?id=2672607235,
-                lrc: '/audio/lrc/93.lrc'
-            },
-            // {
-            //     name: '朝颜号列车',
-            //     artist: '徐鹰',
-            //     url: 'https://music.163.com/song/media/outer/url?id=2155293224.mp3',
-            //     cover: 'https://p1.music.126.net/Wv0YhsEHyWusK9UqVpL9DQ==/109951169585201290.jpg?param=130y130',
-            //     // lrc: 'https://music.163.com/api/song/media?id=2155293224',
-            //     lrc: '/audio/lrc/zhaoyanhaolieche.lrc'
-            // },
-            // {
-            //     name: '临河里',
-            //     artist: '李浩瑞',
-            //     url: 'https://music.163.com/song/media/outer/url?id=568587008.mp3',
-            //     cover: 'https://p1.music.126.net/GsRxVq1RmgvwojR-hcV4vw==/109951163319649375.jpg?param=130y130',
-            //     // lrc: 'https://music.163.com/api/song/media?id=568587008',
-            //     lrc: '/audio/lrc/linheli.lrc'
-            // },
+                lrc: 'https://music.163.com/api/song/media?id=2672607235'
+            }
         ]
     });
 });
