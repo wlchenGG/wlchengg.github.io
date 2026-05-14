@@ -13,9 +13,13 @@
 
 <!-- {{< music auto="https://music.163.com/song?id=2089729192" >}} -->
 
-{{< aplayer fixed=false mini=false autoplay=false theme="#ff5a44" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=1 listFolded=false listMaxHeight="" storageName="aplayer-setting" >}}
-    {{< music auto="https://music.163.com/song?id=2089729192" >}}
-    {{< music auto="https://music.163.com/song?id=2672607235" >}}
+<!-- {{< aplayer fixed=false mini=false autoplay=false theme="#ff5a44" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=1 listFolded=false listMaxHeight="" storageName="aplayer-setting" >}}
+    {{< audio name="小世界" artist="歌之初乐队" url="https://music.163.com/song/media/outer/url?id=2089729192.mp3" cover="https://p1.music.126.net/nrkkraN7jkXiEc6bUj3YnQ==/109951168974029682.jpg?param=130y130" />}}
+    {{< audio name="小世界" artist="歌之初乐队" url="https://music.163.com/song/media/outer/url?id=2672607235.mp3" cover="https://p2.music.126.net/wHKNhhtEvp16GpFZrTMPSg==/109951170527953876.jpg?param=130y130" />}}
+{{< /aplayer >}} -->
+{{< aplayer fixed=false mini=false autoplay=false theme="#ff5a44" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=3 listFolded=false listMaxHeight="" storageName="aplayer-setting" >}}
+    {{< audio name="小世界" artist="歌之初乐队" url="https://music.163.com/song/media/outer/url?id=2089729192.mp3" cover="https://p1.music.126.net/nrkkraN7jkXiEc6bUj3YnQ==/109951168974029682.jpg?param=130y130" lrc="https://music.163.com/api/song/media?id=2089729192" />}}
+    {{< audio name="93" artist="Flora Cash" url="https://music.163.com/song/media/outer/url?id=2672607235.mp3" cover="https://p2.music.126.net/wHKNhhtEvp16GpFZrTMPSg==/109951170527953876.jpg?param=130y130" lrc="https://music.163.com/api/song/media?id=2672607235" />}}
 {{< /aplayer >}}
 
 {{< friend name="CaesarCaser" url="https://wushangyang.cn/" avatar="https://wushangyang.cn/images/avatar.jpg" bio="一壶浊酒喜相逢，来一杯吗" >}}
