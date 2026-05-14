@@ -11,7 +11,12 @@
 那时人们便可以绕着全世界跳一个回旋舞，  
 假如全世界的男女孩都肯携起手来。  
 
-{{< music auto="https://music.163.com/song?id=2089729192" >}}
+<!-- {{< music auto="https://music.163.com/song?id=2089729192" >}} -->
+
+{{< aplayer fixed=false mini=false autoplay=false theme="#ff5a44" loop="all" order="list" preload="auto" volume=0.7 mutex=true lrcType=1 listFolded=false listMaxHeight="" storageName="aplayer-setting" >}}
+    {{< music auto="https://music.163.com/song?id=2089729192" >}}
+    {{< music auto="https://music.163.com/song?id=2672607235" >}}
+{{< /aplayer >}}
 
 {{< friend name="CaesarCaser" url="https://wushangyang.cn/" avatar="https://wushangyang.cn/images/avatar.jpg" bio="一壶浊酒喜相逢，来一杯吗" >}}
 {{< friend name="Ying Li" url="https://yingli.site/" avatar="https://yingli.site/images/ly.jpg" bio="Tomorrow is another day!" >}}
