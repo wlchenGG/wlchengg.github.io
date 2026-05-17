@@ -1,7 +1,6 @@
 # 篝火
 
 
-
 假如全世界的少女都肯携起手来，  
 她们可以在大海周围跳一个回旋舞。  
   
@@ -11,84 +10,11 @@
 那时人们便可以绕着全世界跳一个回旋舞，  
 假如全世界的男女孩都肯携起手来。  
 
-<div id="aplayer"
-     style="
-        width: 90%;
-        /* max-width: 800px; */
-        margin: 0px auto;
-        /* border-radius: 0px; */
-        /* overflow: hidden; */
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-     ">
-</div>
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const ap = new APlayer({
-        container: document.getElementById('aplayer'),
-
-        fixed: false,
-        mini: false,
-        autoplay: false,
-        theme: '#448aff',
-        loop: 'all',
-        order: 'list',
-        preload: 'auto',
-        volume: 0.5,
-        mutex: true,
-        lrcType: 3,
-        listFolded: false,
-        listMaxHeight: '3',
-        storageName: 'aplayer-setting',
-
-        audio: [
-            {
-                name: '小世界',
-                artist: '歌之初乐队',
-                url: 'https://music.163.com/song/media/outer/url?id=2089729192.mp3',
-                cover: 'https://p1.music.126.net/nrkkraN7jkXiEc6bUj3YnQ==/109951168974029682.jpg?param=130y130',
-                // lrc: 'https://music.163.com/api/song/media?id=2089729192',
-                lrc: '/audio/lrc/xiaoshijie.lrc'
-            },
-            {
-                name: '篝火向旷野',
-                artist: 'Emma艾玛 / Sukiii',
-                url: 'https://music.163.com/song/media/outer/url?id=2716960010.mp3',
-                cover: 'https://p2.music.126.net/Iox8_Gt8TnPlnhrKNXferQ==/109951171328646545.jpg?param=130y130',
-                //lrc: https://music.163.com/api/song/media?id=2716960010,
-                lrc: '/audio/lrc/gouhuoxiangkuangye.lrc'
-            },
-            {
-                name: '93',
-                artist: 'Flora Cash',
-                url: 'https://music.163.com/song/media/outer/url?id=2672607235.mp3',
-                cover: 'https://p2.music.126.net/wHKNhhtEvp16GpFZrTMPSg==/109951170527953876.jpg?param=130y130',
-                //lrc: https://music.163.com/api/song/media?id=2672607235,
-                lrc: '/audio/lrc/93.lrc'
-            },
-            // {
-            //     name: '朝颜号列车',
-            //     artist: '徐鹰',
-            //     url: 'https://music.163.com/song/media/outer/url?id=2155293224.mp3',
-            //     cover: 'https://p1.music.126.net/Wv0YhsEHyWusK9UqVpL9DQ==/109951169585201290.jpg?param=130y130',
-            //     // lrc: 'https://music.163.com/api/song/media?id=2155293224',
-            //     lrc: '/audio/lrc/zhaoyanhaolieche.lrc'
-            // },
-            // {
-            //     name: '临河里',
-            //     artist: '李浩瑞',
-            //     url: 'https://music.163.com/song/media/outer/url?id=568587008.mp3',
-            //     cover: 'https://p1.music.126.net/GsRxVq1RmgvwojR-hcV4vw==/109951163319649375.jpg?param=130y130',
-            //     // lrc: 'https://music.163.com/api/song/media?id=568587008',
-            //     lrc: '/audio/lrc/linheli.lrc'
-            // },
-        ]
-    });
-});
-</script>
+{{< aplayer fixed=false mini=false autoplay=false theme="#448aff" loop="all" order="list" preload="auto" volume=0.5 mutex=true lrcType=3 listFolded=false listMaxHeight="" storageName="aplayer-setting" >}}
+    {{< audio name="小世界" artist="歌之初乐队" url="https://music.163.com/song/media/outer/url?id=2089729192.mp3" cover="https://p1.music.126.net/nrkkraN7jkXiEc6bUj3YnQ==/109951168974029682.jpg?param=130y130" lrc="/audio/lrc/xiaoshijie.lrc" />}}
+    {{< audio name="篝火向旷野" artist="Emma艾玛 / Sukiii" url="https://music.163.com/song/media/outer/url?id=2716960010.mp3" cover="https://p2.music.126.net/Iox8_Gt8TnPlnhrKNXferQ==/109951171328646545.jpg?param=130y130" lrc="/audio/lrc/gouhuoxiangkuangye.lrc" />}}
+    {{< audio name="93" artist="Flora Cash" url="https://music.163.com/song/media/outer/url?id=2672607235.mp3" cover="https://p2.music.126.net/wHKNhhtEvp16GpFZrTMPSg==/109951170527953876.jpg?param=130y130" lrc="/audio/lrc/93.lrc" />}}
+{{< /aplayer >}}
 
 {{< friend name="CaesarCaser" url="https://wushangyang.cn/" avatar="https://wushangyang.cn/images/avatar.jpg" bio="一壶浊酒喜相逢，来一杯吗" >}}
 {{< friend name="Ying Li" url="https://yingli.site/" avatar="https://yingli.site/images/ly.jpg" bio="Tomorrow is another day!" >}}
@@ -114,5 +40,4 @@ avatar= "https://wlcheng.cc/images/avatar.png"
 
 bio= "来日方长，何惧车遥马慢"
 {{< /admonition >}}
-
 
